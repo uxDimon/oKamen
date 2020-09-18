@@ -1,0 +1,43 @@
+:root {
+	// Размеры
+	--content-max-weight: 1312px;
+}
+
+// Цвета
+$color-text-main: #102a43;
+
+// Шрифты
+$font-Montserrat: "Montserrat", sans-serif;
+
+// Анимация
+@mixin transition($property: all) {
+	transition: 150ms ease-in-out 0ms;
+	transition-property: $property;
+}
+
+@import "./common/fonts.scss";
+@import "./common/tiny-slider.scss";
+
+* {
+	box-sizing: border-box;
+	outline-offset: 4px;
+}
+
+// https://github.com/WICG/focus-visible
+.js-focus-visible :focus:not(.focus-visible) {
+	outline: none;
+}
+
+// @import "./common/hamburger.scss";
+
+// @media screen and (max-width: 1344px) {
+
+// }
+
+// @media screen and (max-width: 960px) {
+
+// }
+
+// @media screen and (max-width: 768px) {
+
+// }

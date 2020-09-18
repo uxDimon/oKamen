@@ -1,0 +1,38 @@
+block variables
+
+doctype html
+html
+	head
+		meta(charset="utf-8")
+		title #{title}
+		meta(content="" name="description")
+		meta(content="" name="keywords")
+		meta(name="viewport" content="width=device-width, initial-scale=1")
+		meta(content="ie=edge" http-equiv="x-ua-compatible")
+
+		link(rel="shortcut icon" href="assets/images/fav.png" type="image/x-icon")
+		link(rel="apple-touch-icon" href="assets/images/fav.png")
+
+		link(rel="stylesheet" type="text/css" href="assets/styles/app.min.css")
+		
+	body
+		include components/header.pug
+
+		block content
+
+		//- if contactForm
+			include components/contact.pug
+
+		include components/footer.pug
+
+		//- include components/certificate-popup.pug
+		//- include components/cookies.pug
+
+		script(src="assets/scripts/imask.min.js")
+		script(src="assets/scripts/tiny-slider.js")
+		script(src="assets/scripts/accordion.min.js")
+
+		script(src="assets/scripts/medium-zoom.min.js")
+		script(src="assets/scripts/focus-visible.js")
+
+		script(src="assets/scripts/main.js")
