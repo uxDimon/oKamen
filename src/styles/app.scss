@@ -1,13 +1,16 @@
 :root {
 	// Размеры
-	--content-max-weight: 1312px;
+	--content-max-weight: 1240px;
 }
 
 // Цвета
-$color-text-main: #102a43;
+$color-light-black: #161615;
+$color-white: #ffffff;
+$color-gold: #b0894e;
 
 // Шрифты
-$font-Montserrat: "Montserrat", sans-serif;
+$font-Manrope: "Manrope", sans-serif;
+$font-Spectral: "Spectral", serif;
 
 // Анимация
 @mixin transition($property: all) {
@@ -28,7 +31,65 @@ $font-Montserrat: "Montserrat", sans-serif;
 	outline: none;
 }
 
-// @import "./common/hamburger.scss";
+body {
+	padding: 0;
+	margin: 0;
+	font-family: $font-Spectral;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 24px;
+	line-height: 1.33;
+	background: #f2f2f2;
+	color: $color-light-black;
+
+	main {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: $font-Manrope;
+}
+
+// Кнопки
+.button {
+	font-family: $font-Manrope;
+	font-weight: 500;
+	font-size: 14px;
+	line-height: 24px;
+	height: 46px;
+	padding: 0 24px;
+	margin: 0;
+	min-width: 144px;
+	border: 0px;
+	border-radius: 3px;
+	background-color: $color-gold;
+	color: $color-white;
+	cursor: pointer;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	text-decoration: none;
+
+	&:disabled {
+		cursor: default;
+		opacity: 0.7;
+	}
+}
+
+.button_gray {
+	background-color: #acacac;
+}
+
+@import "./pages/calculator.scss";
 
 // @media screen and (max-width: 1344px) {
 

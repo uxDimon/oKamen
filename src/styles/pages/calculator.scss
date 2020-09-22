@@ -1,0 +1,136 @@
+.calc {
+	width: 100%;
+	max-width: var(--content-max-weight);
+}
+
+.calc__heading {
+	font-weight: 600;
+	font-size: 48px;
+	line-height: 1.17;
+	margin: 0 0 48px 0;
+}
+
+.calc__road-map {
+	margin-bottom: 48px;
+}
+
+.calc__road-map-list {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	display: grid;
+	grid-auto-flow: column;
+	grid-column-gap: 32px;
+	width: max-content;
+	counter-reset: section;
+}
+
+.calc__road-map-item {
+	display: flex;
+	align-items: baseline;
+}
+
+.calc__road-map-linc {
+	font-family: $font-Spectral;
+	font-weight: 600;
+	font-size: 16px;
+	line-height: 24px;
+	border: 0;
+	margin: 0;
+	padding: 0;
+	background-color: transparent;
+	cursor: pointer;
+
+	&:disabled {
+		opacity: 0.3;
+		cursor: default;
+	}
+
+	&::before {
+		counter-increment: section;
+		content: counter(section) ". ";
+	}
+}
+
+.options__heading {
+	font-weight: 500;
+	font-size: 18px;
+	line-height: 125%;
+	margin: 0 0 28px 0;
+}
+
+.options__radio-wrap {
+	display: flex;
+}
+
+.options__radio {
+	input[type="radio"] {
+		display: none;
+
+		&:checked + label::after {
+			background-color: $color-gold;
+		}
+	}
+
+	label {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		font-weight: 500;
+		font-size: 18px;
+		line-height: 24px;
+		padding-right: 32px;
+	}
+
+	label::before,
+	label::after {
+		content: "";
+		position: absolute;
+		right: 0;
+		bottom: 40%;
+		transform: translateY(50%);
+		box-sizing: border-box;
+	}
+
+	label::before {
+		width: 16px;
+		height: 16px;
+		border-radius: 16px;
+		background-color: transparent;
+		border: 1px solid $color-light-black;
+	}
+
+	label::after {
+		width: 10px;
+		height: 10px;
+		border-radius: 10px;
+		margin: 0 3px;
+		transition: background-color 150ms ease-in-out 0ms;
+	}
+}
+
+.options__radio-img-l {
+	margin-right: 100px;
+
+	label::before,
+	label::after {
+		bottom: 30%;
+	}
+
+	.options__radio-img {
+		width: 146px;
+		height: 100px;
+	}
+
+	.options__radio-text {
+		margin-bottom: 32px;
+	}
+}
+
+.calc__button-wrap {
+	margin-top: 64px;
+	display: grid;
+	grid-auto-flow: column;
+	grid-column-gap: 20px;
+	width: max-content;
+}

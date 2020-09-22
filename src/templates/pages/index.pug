@@ -6,4 +6,72 @@ block variables
 
 block content
     main
-        section
+        .calc
+            h1.calc__heading Расчёт стоимости изделия
+            nav.calc__road-map
+                ol.calc__road-map-list
+                    li.calc__road-map-item
+                        button(data-calc-tab = 'category').calc__road-map-linc Категория
+                    li.calc__road-map-item
+                        button(data-calc-tab = 'form' disabled).calc__road-map-linc Форма
+                    li.calc__road-map-item
+                        button(data-calc-tab = 'materials' disabled).calc__road-map-linc Материалы
+                    li.calc__road-map-item
+                        button(data-calc-tab = 'parameters' disabled).calc__road-map-linc Параметры
+                    li.calc__road-map-item
+                        button(data-calc-tab = 'notch' disabled).calc__road-map-linc Вырезы
+                    li.calc__road-map-item
+                        button(data-calc-tab = 'services' disabled).calc__road-map-linc Доп. услуги
+                    li.calc__road-map-item
+                        button(data-calc-tab = 'total' disabled).calc__road-map-linc Итог
+            
+            .calc__body#category
+                .calc__options.options
+                    h2.options__heading Выберите подходящую категорию
+                    .options__radio-wrap
+                        .options__radio.options__radio-img-l
+                            input#table-table(type="radio", name="category" value="table")
+                            label(for="table-table" tabindex="1")
+                                span.options__radio-text Столешница
+                                svg.options__radio-img
+                                    use(xlink:href="./assets/images/svg/sprite.svg#category-table")
+                        .options__radio.options__radio-img-l
+                            input#table-windowsill(type="radio", name="category" value="windowsill")
+                            label(for="table-windowsill" tabindex="1")
+                                span.options__radio-text Подоконник
+                                svg.options__radio-img
+                                    use(xlink:href="./assets/images/svg/sprite.svg#category-windowsill")
+                        .options__radio.options__radio-img-l
+                            input#table-stage(type="radio", name="category" value="stage")
+                            label(for="table-stage" tabindex="1")
+                                span.options__radio-text Ступени
+                                svg.options__radio-img
+                                    use(xlink:href="./assets/images/svg/sprite.svg#category-stage")
+                .calc__button-wrap
+                    button(disabled).button.button_gray.calc__button Назад
+                    button.button.calc__button Далее
+                    a(href="#").button Тест
+            
+            .calc__body#form
+                .calc__options.options
+                    h2.options__heading Выберите подходящую форму столешницы
+                    .options__radio-wrap
+                        .options__radio.options__radio-img-m
+                            input#form-norm(type="radio", name="form" value="form-norm")
+                            label(for="form-norm")
+                                span.options__radio-text Прямая
+                                img(src="./assets/images/form.png", alt="Прямая").options__radio-img
+                        .options__radio.options__radio-img-m
+                            input#form-g(type="radio", name="form" value="form-g")
+                            label(for="form-g")
+                                span.options__radio-text Г-образная
+                                img(src="./assets/images/form.png", alt="Г-образная").options__radio-img
+                        .options__radio.options__radio-img-m
+                            input#form-p(type="radio", name="form" value="form-p")
+                            label(for="form-p")
+                                span.options__radio-text П-образная
+                                img(src="./assets/images/form.png", alt="П-образная").options__radio-img
+
+                .calc__button-wrap
+                    button.button.button_gray.calc__button Назад
+                    button.button.calc__button Далее
