@@ -130,7 +130,7 @@ function svgSprite() {
 				},
 			})
 		)
-		.pipe(gulp.dest("./src/images/svg/"));
+		.pipe(gulp.dest("./src/images/"));
 }
 
 exports.templates = templates;
