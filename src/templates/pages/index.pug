@@ -24,37 +24,36 @@ block content
                         button(data-calc-tab = 'services' disabled).calc__road-map-linc Доп. услуги
                     li.calc__road-map-item
                         button(data-calc-tab = 'total' disabled).calc__road-map-linc Итог
-            
-            .calc__body#category
-                .calc__options.options
-                    h2.options__heading Выберите подходящую категорию
-                    .options__radio-wrap
-                        .options__radio.options__radio-img-l
-                            input#table-table(type="radio", name="category" value="table")
-                            label(for="table-table" tabindex="1")
-                                span.options__radio-text Столешница
-                                svg.options__radio-img
-                                    use(xlink:href="./assets/images/sprite.svg#category-table")
-                        .options__radio.options__radio-img-l
-                            input#table-windowsill(type="radio", name="category" value="windowsill")
-                            label(for="table-windowsill" tabindex="1")
-                                span.options__radio-text Подоконник
-                                svg.options__radio-img
-                                    use(xlink:href="./assets/images/sprite.svg#category-windowsill")
-                        .options__radio.options__radio-img-l
-                            input#table-stage(type="radio", name="category" value="stage")
-                            label(for="table-stage" tabindex="1")
-                                span.options__radio-text Ступени
-                                svg.options__radio-img
-                                    use(xlink:href="./assets/images/sprite.svg#category-stage")
-                .calc__button-wrap
-                    button(disabled).button.button_gray.calc__button Назад
-                    button.button.calc__button Далее
-            
-            .calc__body#form
-                .calc__options.options
-                    h2.options__heading Выберите подходящую форму столешницы
-                    .options__radio-size
+            .calc__body-wrap
+                //- .calc__body#category
+                    .calc__options.options
+                        h2.options__heading Выберите подходящую категорию
+                        .options__radio-wrap.options__radio-img-l-wrap
+                            .options__radio.options__radio-img-l
+                                input#table-table(type="radio", name="category" value="table")
+                                label(for="table-table" tabindex="1")
+                                    span.options__radio-text Столешница
+                                    svg.options__radio-img
+                                        use(xlink:href="./assets/images/sprite.svg#category-table")
+                            .options__radio.options__radio-img-l
+                                input#table-windowsill(type="radio", name="category" value="windowsill")
+                                label(for="table-windowsill" tabindex="1")
+                                    span.options__radio-text Подоконник
+                                    svg.options__radio-img
+                                        use(xlink:href="./assets/images/sprite.svg#category-windowsill")
+                            .options__radio.options__radio-img-l
+                                input#table-stage(type="radio", name="category" value="stage")
+                                label(for="table-stage" tabindex="1")
+                                    span.options__radio-text Ступени
+                                    svg.options__radio-img
+                                        use(xlink:href="./assets/images/sprite.svg#category-stage")
+                    .calc__button-wrap
+                        button(disabled).button.button_gray.calc__button Назад
+                        button.button.calc__button Далее
+                
+                //- .calc__body#form
+                    .calc__options.options
+                        h2.options__heading Выберите подходящую форму столешницы
                         .options__radio-wrap
                             .options__radio.options__radio-img-m
                                 input#form-norm(type="radio", name="form" value="form-norm")
@@ -74,95 +73,219 @@ block content
                                     span.options__radio-text П-образная
                                     .options__radio-img-wrap
                                         .options__radio-img
+                    .calc__button-wrap
+                        button.button.button_gray.calc__button Назад
+                        button.button.calc__button Далее
+                
+                //- .calc__body#materials
+                    .calc__options.options
+                        h2.options__heading Выберите разновидность и цвет камня
+                        select.input.input_select.options__select
+                            option(value="granit") Гранит
+                            option(value="mramor") Мрамор
+
+                        h3.options__materials-heading Выберите ниже понравившийся вам вариант
+                        .options__materials-wrap#granit
+                            .options__materials
+                                input#radio-granit-1(type="radio", name="granit" value="")
+                                label(for="radio-granit-1")
+                                    img(src="./assets/images/grab.png", alt="Алановское").options__materials-img
+                                    span.options__materials-name Алановское
+                                    span.options__materials-price 26 650 ₽ за <span class='m2'>м2</span>
+
+                            .options__materials
+                                input#radio-granit-2(type="radio", name="granit" value="")
+                                label(for="radio-granit-2")
+                                    img(src="./assets/images/grab-read.png", alt="Алановское").options__materials-img
+                                    span.options__materials-name Алановское
+                                    span.options__materials-price 26 650 ₽ за <span class='m2'>м2</span>
+
+                            .options__materials
+                                input#radio-granit-3(type="radio", name="granit" value="")
+                                label(for="radio-granit-3")
+                                    img(src="./assets/images/grab-yellow.png", alt="Алановское").options__materials-img
+                                    span.options__materials-name Алановское
+                                    span.options__materials-price 26 650 ₽ за <span class='m2'>м2</span>
+
+                            
+                    .calc__button-wrap
+                        button.button.button_gray.calc__button Назад
+                        button.button.calc__button Далее
+
+                .calc__body#notch
+                    .calc__options.options
+                        h3.options__heading Выберите подходящее форму скругления края столешницы
+                        .options__radio-wrap.options__radio-wrap_height
+                            label.radio-button
+                                input(type="radio", name="height" checked)
+                                span 2 см
+                            label.radio-button
+                                input(type="radio", name="height")
+                                span 3 см <span class='options__radio-text-gray'>(3 000 ₽ за 1 <span class='m2'>м2</span>)</span>
+                        .radio-wrap-border
+
+                        h2.options__heading Выберите подходящую категорию
+                        .options__radio-wrap.options__radio-img-l-wrap
+                            .options__radio.options__radio-img-l
+                                input#rounding-0(type="radio", name="rounding" value="0")
+                                label(for="rounding-0" tabindex="1")
+                                    svg.options__radio-img.img-rounding
+                                        use(xlink:href="./assets/images/sprite.svg#rounding-0")
+                                    span.options__radio-text-bot а
+                            .options__radio.options__radio-img-l
+                                input#rounding-1(type="radio", name="rounding" value="1")
+                                label(for="rounding-1" tabindex="1")
+                                    svg.options__radio-img.img-rounding
+                                        use(xlink:href="./assets/images/sprite.svg#rounding-1")
+                                    span.options__radio-text-bot б <span class='options__radio-text-gray'>(2 000 ₽ за 1 уг.)</span>
+                            .options__radio.options__radio-img-l
+                                input#rounding-3(type="radio", name="rounding" value="3")
+                                label(for="rounding-3" tabindex="1")
+                                    svg.options__radio-img.img-rounding
+                                        use(xlink:href="./assets/images/sprite.svg#rounding-2")
+                                    span.options__radio-text-bot в <span class='options__radio-text-gray'>(4 000 ₽ за 1 уг.)</span>
                         
-                        //- .options__size.options__size_norm
-                            .options__size-img-wrap
-                                img(src="./assets/images/grab.png", alt="").options__size-img    
-                            .options__size-arrow-horizon.size-arrow-horizon_bot
-                                .size-arrow
-                                lable.options__size-lable
-                                    input(type="number" step="1" min="30" max="900").options__size-input
-                                    span.options__size-text см
-                                .size-arrow.size-arrow_end
-                            .options__size-arrow-vertical.size-arrow-vertical_left
-                                .size-arrow
-                                lable.options__size-lable
-                                    input(type="number" step="1" min="30" max="900").options__size-input
-                                    span.options__size-text см
-                                .size-arrow.size-arrow_end
+                        .options__rounding-range-wrap
+                            h2.options__heading Количество углов: <span id='rounding-number-text'>1</span>
+                            input(type="range", name="rounding-number-range", min="1", max="8", step="1", value="1").range.options__rounding-range
+                        
+                        .radio-wrap-border
 
-                        //- .options__size.options__size_g
-                            .options__size-img-wrap
-                                img(src="./assets/images/grab.png", alt="").options__size-img 
+                        h3.options__heading Выберите подходящее форму скругления края столешницы
+                        .options__radio-wrap.options__radio-wrap-s
+                            .options__radio.options__radio-img-s
+                                input#form-norm(type="radio", name="form" value="form-norm")
+                                label(for="form-norm")
+                                    svg.options__radio-img
+                                        use(xlink:href="./assets/images/sprite.svg#chamfer-01")
+                                    span.options__radio-text а <span class='options__radio-text-gray'>(4 000 ₽ за 1м)</span>
+                            
+                            .options__radio.options__radio-img-s
+                                input#form-g(type="radio", name="form" value="form-g")
+                                label(for="form-g")
+                                    svg.options__radio-img
+                                        use(xlink:href="./assets/images/sprite.svg#chamfer-02")
+                                    span.options__radio-text б <span class='options__radio-text-gray'>(4 000 ₽ за 1м)</span>
+                            
+                            .options__radio.options__radio-img-s
+                                input#form-p(type="radio", name="form" value="form-p")
+                                label(for="form-p")
+                                    svg.options__radio-img
+                                        use(xlink:href="./assets/images/sprite.svg#chamfer-02")
+                                    span.options__radio-text в <span class='options__radio-text-gray'>(4 000 ₽ за 1м)</span>
+                        
 
-                            .options__size-arrow-horizon.size-arrow-horizon_top
-                                .size-arrow
-                                lable.options__size-lable
-                                    input(type="number" step="1" min="30" max="900").options__size-input
-                                    span.options__size-text см
-                                .size-arrow.size-arrow_end
-                                
-                            .options__size-arrow-vertical.size-arrow-vertical_right
-                                .size-arrow
-                                lable.options__size-lable
-                                    input(type="number" step="1" min="30" max="900").options__size-input
-                                    span.options__size-text см
-                                .size-arrow.size-arrow_end
+                    .calc__button-wrap
+                        button.button.button_gray.calc__button Назад
+                        button.button.calc__button Далее
+                
+                //- .calc__body#services
+                    .calc__options.options
+                        h3.options__heading Выберите нужные вам вырезы в столешницы
+                        label.radio-button
+                            input(type="radio", name="")
+                            span Вырез под мойку
+                        label.checkbox-button
+                            input(type="checkbox", name="")
+                            span Вырез под мойку
 
-                            .options__size-arrow-horizon.size-arrow-horizon_bot
-                                .size-arrow
-                                lable.options__size-lable
-                                    input(type="number" step="1" min="30" max="900").options__size-input
-                                    span.options__size-text см
-                                .size-arrow.size-arrow_end
+                    .calc__button-wrap
+                        button.button.button_gray.calc__button Назад
+                        button.button.calc__button Далее
+                
+                //- .options__size.options__size_norm#table-size-norm
+                    .options__size-img-wrap
+                        img(src="./assets/images/grab.png", alt="").options__size-img    
+                    .options__size-arrow-horizon.size-arrow-horizon_bot
+                        .size-arrow
+                        lable.options__size-lable
+                            input(type="number" step="1" min="30" max="900").options__size-input
+                            span.options__size-text см
+                        .size-arrow.size-arrow_end
+                    .options__size-arrow-vertical.size-arrow-vertical_left
+                        .size-arrow
+                        lable.options__size-lable
+                            input(type="number" step="1" min="30" max="900").options__size-input
+                            span.options__size-text см
+                        .size-arrow.size-arrow_end
 
-                            .options__size-arrow-vertical.size-arrow-vertical_left
-                                .size-arrow
-                                lable.options__size-lable
-                                    input(type="number" step="1" min="30" max="900").options__size-input
-                                    span.options__size-text см
-                                .size-arrow.size-arrow_end
+                //- .options__size.options__size_g#table-size-g
+                    .options__size-img-wrap
+                        img(src="./assets/images/grab.png", alt="").options__size-img 
 
-                        .options__size.options__size_p
-                            .options__size-img-wrap
-                                img(src="./assets/images/grab.png", alt="").options__size-img 
+                    .options__size-arrow-horizon.size-arrow-horizon_top
+                        .size-arrow
+                        lable.options__size-lable
+                            input(type="number" step="1" min="30" max="900").options__size-input
+                            span.options__size-text см
+                        .size-arrow.size-arrow_end
+                        
+                    .options__size-arrow-vertical.size-arrow-vertical_right
+                        .size-arrow
+                        lable.options__size-lable
+                            input(type="number" step="1" min="30" max="900").options__size-input
+                            span.options__size-text см
+                        .size-arrow.size-arrow_end
 
-                            .options__size-arrow-horizon.size-arrow-horizon_top
-                                .size-arrow
-                                lable.options__size-lable
-                                    input(type="number" step="1" min="30" max="900").options__size-input
-                                    span.options__size-text см
-                                .size-arrow.size-arrow_end
-                                
-                            .options__size-arrow-vertical.size-arrow-vertical_right
-                                .size-arrow
-                                lable.options__size-lable
-                                    input(type="number" step="1" min="30" max="900").options__size-input
-                                    span.options__size-text см
-                                .size-arrow.size-arrow_end
+                    .options__size-arrow-horizon.size-arrow-horizon_bot
+                        .size-arrow
+                        lable.options__size-lable
+                            input(type="number" step="1" min="30" max="900").options__size-input
+                            span.options__size-text см
+                        .size-arrow.size-arrow_end
 
-                            .options__size-arrow-horizon.size-arrow-horizon_bot.size-arrow-horizon_bot_2
-                                .size-arrow
-                                lable.options__size-lable
-                                    input(type="number" step="1" min="30" max="900").options__size-input
-                                    span.options__size-text см
-                                .size-arrow.size-arrow_end
+                    .options__size-arrow-vertical.size-arrow-vertical_left
+                        .size-arrow
+                        lable.options__size-lable
+                            input(type="number" step="1" min="30" max="900").options__size-input
+                            span.options__size-text см
+                        .size-arrow.size-arrow_end
 
-                            .options__size-arrow-horizon.size-arrow-horizon_bot.size-arrow-horizon_bot_1
-                                .size-arrow
-                                lable.options__size-lable
-                                    input(type="number" step="1" min="30" max="900").options__size-input
-                                    span.options__size-text см
-                                .size-arrow.size-arrow_end
+                .options__size.options__size_p#table-size-p
+                    .options__size-img-wrap
+                        img(src="./assets/images/grab.png", alt="").options__size-img 
 
-                            .options__size-arrow-vertical.size-arrow-vertical_left
-                                .size-arrow
-                                lable.options__size-lable
-                                    input(type="number" step="1" min="30" max="900").options__size-input
-                                    span.options__size-text см
-                                .size-arrow.size-arrow_end
+                    .options__size-arrow-horizon.size-arrow-horizon_top-floor-2
+                        .size-arrow
+                        lable.options__size-lable
+                            input(type="number" step="1" min="30" max="900").options__size-input
+                            span.options__size-text см
+                        .size-arrow.size-arrow_end
+                    
+                    .options__size-arrow-vertical.size-arrow-vertical_right
+                        .size-arrow
+                        lable.options__size-lable
+                            input(type="number" step="1" min="30" max="900").options__size-input
+                            span.options__size-text см
+                        .size-arrow.size-arrow_end
 
+                    .options__size-arrow-horizon.size-arrow-horizon_bot.size-arrow-horizon_bot_2
+                        .size-arrow
+                        lable.options__size-lable
+                            input(type="number" step="1" min="30" max="900").options__size-input
+                            span.options__size-text см
+                        .size-arrow.size-arrow_end
 
-                .calc__button-wrap
-                    button.button.button_gray.calc__button Назад
-                    button.button.calc__button Далее
+                    .options__size-arrow-vertical.options__size-arrow-vertical_body
+                        .size-arrow
+                        .size-line
+                        lable.options__size-lable
+                            input(type="number" step="1" min="30" max="900").options__size-input
+                            span.options__size-text см
+                        .size-arrow.size-arrow_end
+
+                    .options__size-arrow-horizon.size-arrow-horizon_bot.size-arrow-horizon_bot_1
+                        .size-arrow
+                        lable.options__size-lable
+                            input(type="number" step="1" min="30" max="900").options__size-input
+                            span.options__size-text см
+                        .size-arrow.size-arrow_end
+
+                    .options__size-arrow-vertical.size-arrow-vertical_left
+                        .size-arrow
+                        lable.options__size-lable
+                            input(type="number" step="1" min="30" max="900").options__size-input
+                            span.options__size-text см
+                        .size-arrow.size-arrow_end
+
+    script(src="assets/scripts/calculator.js")

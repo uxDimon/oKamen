@@ -6,8 +6,10 @@
 // Цвета
 $color-light-black: #161615;
 $color-dark-gray: #4f4f4f;
+$color-gray: #e8e8e8;
 $color-white: #ffffff;
 $color-gold: #b0894e;
+$color-bronze: #926a31;
 
 // Шрифты
 $font-Manrope: "Manrope", sans-serif;
@@ -59,6 +61,10 @@ h6 {
 	font-family: $font-Manrope;
 }
 
+.m2 {
+	font-feature-settings: "numr" on;
+}
+
 // Кнопки
 .button {
 	font-family: $font-Manrope;
@@ -88,6 +94,137 @@ h6 {
 
 .button_gray {
 	background-color: #acacac;
+}
+
+// input
+.input {
+	height: 42px;
+	padding: 0 12px;
+	border: 1px solid $color-dark-gray;
+	border-radius: 3px;
+	background-color: transparent;
+	margin: 0;
+	font-family: $font-Manrope;
+	font-weight: normal;
+	font-size: 14px;
+	line-height: 125%;
+}
+
+.input_select {
+	appearance: none;
+	background-image: url("../images/sprite.svg#select-arrow");
+	background-repeat: no-repeat;
+	background-position: calc(100% - 10px) center;
+	background-size: 14px;
+	padding-right: 32px;
+}
+
+.checkbox-button,
+.radio-button {
+	display: flex;
+	align-items: center;
+	font-weight: normal;
+	font-size: 16px;
+	line-height: 125%;
+
+	input {
+		visibility: hidden;
+		position: relative;
+		margin: 0;
+		padding: 0;
+		width: 16px;
+		height: 16px;
+		margin-right: 12px;
+
+		&::before,
+		&::after {
+			content: "";
+			visibility: visible;
+			position: absolute;
+			bottom: 50%;
+			transform: translateY(50%);
+			box-sizing: border-box;
+		}
+
+		&::before {
+			width: 16px;
+			height: 16px;
+			background-color: transparent;
+			border: 1px solid $color-light-black;
+		}
+
+		&::after {
+			width: 10px;
+			height: 10px;
+			margin: 0 3px;
+			transition: background-color 150ms ease-in-out 0ms;
+		}
+
+		&:checked::after {
+			background-color: $color-gold;
+		}
+	}
+}
+
+.checkbox-button input {
+	&::before {
+		border-radius: 3px;
+	}
+	&::after {
+		border-radius: 1px;
+	}
+}
+.radio-button input {
+	&::before {
+		border-radius: 16px;
+	}
+	&::after {
+		border-radius: 10px;
+	}
+}
+
+.range {
+	// width: 100%;
+	height: 2px;
+	margin: 0;
+	padding: 0;
+	cursor: pointer;
+	background-color: #b9b9b9;
+	appearance: none;
+
+	&:hover::-moz-range-thumb {
+		background-color: $color-bronze;
+	}
+	&:hover::-webkit-slider-thumb {
+		background-color: $color-bronze;
+	}
+	// &:focus::-moz-range-thumb {
+	// 	background-color: $color-neutral;
+	// }
+	// &:focus::-webkit-slider-thumb {
+	// 	background-color: $color-neutral;
+	// }
+
+	&::-webkit-slider-thumb {
+		width: 16px;
+		height: 16px;
+		transition: background-color 200ms ease-in-out 0ms;
+		border: none;
+		border-radius: 16px;
+		background-color: $color-gold;
+		box-shadow: 0px 1px 10px rgba(16, 42, 67, 0.15);
+		appearance: none;
+	}
+	&::-moz-range-thumb {
+		width: 16px;
+		height: 16px;
+		transition: background-color 200ms ease-in-out 0ms;
+		border: none;
+		border-radius: 16px;
+		background-color: $color-gold;
+		box-shadow: 0px 1px 10px rgba(16, 42, 67, 0.15);
+		appearance: none;
+	}
 }
 
 @import "./pages/calculator.scss";
