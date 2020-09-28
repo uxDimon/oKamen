@@ -6,9 +6,9 @@
 
 #category,
 #form,
-// #materials,
+#materials,
 #parameters,
-#notch,
+// #notch,
 #services,
 #total {
 	display: none;
@@ -627,5 +627,23 @@
 	.options__rounding-range {
 		width: 100%;
 		max-width: 420px;
+	}
+}
+
+.options__checkbox-button,
+.options__radio-button,
+.options__more-input-wrap {
+	margin-bottom: 16px;
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+
+.options__more-input-wrap {
+	margin-left: 22px;
+
+	:checked .options__radio-button {
+		margin-bottom: 12px;
 	}
 }

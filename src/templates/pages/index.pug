@@ -228,12 +228,31 @@ block content
                 .calc__body#notch
                     .calc__options.options
                         h3.options__heading Выберите нужные вам вырезы в столешницы
-                        label.radio-button
+                        //- label.radio-button
                             input(type="radio", name="")
                             span Вырез под мойку
-                        label.checkbox-button
+                        label.checkbox-button.options__checkbox-button
+                            input(type="checkbox", name="" data-calc-more-input = 'notch-washing')
+                            span Вырез под мойку <span class='options__radio-text-gray'>(от 3 000 ₽)</span>
+                        #notch-washing.options__more-input-wrap
+                            label.radio-button.options__radio-button
+                                input(type="radio", name="notch-washing")
+                                span Поверх столешницы <span class='options__radio-text-gray'>(от 4 000 ₽)</span>
+                            label.radio-button.options__radio-button
+                                input(type="radio", name="notch-washing")
+                                span Вровень со столешницей <span class='options__radio-text-gray'>(от 5 000 ₽)</span>
+                            label.radio-button.options__radio-button
+                                input(type="radio", name="notch-washing")
+                                span Снизу столешницы <span class='options__radio-text-gray'>(от 4 000 ₽)</span>
+                        label.checkbox-button.options__checkbox-button
                             input(type="checkbox", name="")
-                            span Вырез под мойку
+                            span Вырез под варочную панель <span class='options__radio-text-gray'>(от 4 000 ₽)</span>
+                        label.checkbox-button.options__checkbox-button
+                            input(type="checkbox", name="")
+                            span Вырез под смеситель <span class='options__radio-text-gray'>(от 1 000 ₽)</span>
+                        label.checkbox-button.options__checkbox-button
+                            input(type="checkbox", name="")
+                            span Иные вырезы <span class='options__radio-text-gray'>(итоговая цена будет известна после фактических замеров)</span>
 
                     .calc__button-wrap
                         button(data-calc-previous-button = 'parameters').button.button_gray.calc__button Назад

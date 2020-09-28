@@ -103,3 +103,31 @@ for (const radioItem of radioRounding) {
 numberRounding.addEventListener("input", (event) => {
 	numberRoundingNumber.innerHTML = event.target.value;
 });
+
+// Доп опции в чекбоксе
+const moreInput = document.querySelectorAll("[data-calc-more-input]");
+{
+	function onOffMoreInput(data, boolean) {
+		const wrap = document.querySelector("#" + data),
+			items = wrap.querySelectorAll("input");
+		let styleOpacity = "0.3";
+		if (boolean) {
+			styleOpacity = "1";
+			for (const i of items) {
+				i.removeAttribute("disabled");
+			}
+		} else {
+			for (const i of items) {
+				i.setAttribute("disabled", "");
+			}
+		}
+		wrap.style.opacity = styleOpacity;
+	}
+
+	for (const inputItem of moreInput) {
+		const inputData = inputItem.dataset.calcMoreInput;
+		inputItem.addEventListener("change", (event) => {
+			onOffMoreInput(inputData, event.target.checked);
+		});
+	}
+}
