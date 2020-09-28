@@ -1,6 +1,18 @@
 #table-size-norm,
 #table-size-g,
 #table-size-p {
+	display: none;
+}
+
+// #category,
+#form,
+#materials,
+#parameters,
+#notch,
+#services,
+#total {
+	display: none;
+	// display: block;
 }
 
 .calc {
@@ -348,6 +360,8 @@
 }
 
 .options__size_p {
+	margin-top: 112px;
+
 	.options__size-img {
 		clip-path: polygon(0 0, 0 100%, 35% 100%, 35% 120px, 65% 120px, 65% 100%, 100% 100%, 100% 0);
 	}

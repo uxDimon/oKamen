@@ -25,7 +25,7 @@ block content
                     li.calc__road-map-item
                         button(data-calc-tab = 'total' disabled).calc__road-map-linc Итог
             .calc__body-wrap
-                //- .calc__body#category
+                .calc__body#category
                     .calc__options.options
                         h2.options__heading Выберите подходящую категорию
                         .options__radio-wrap.options__radio-img-l-wrap
@@ -49,35 +49,36 @@ block content
                                         use(xlink:href="./assets/images/sprite.svg#category-stage")
                     .calc__button-wrap
                         button(disabled).button.button_gray.calc__button Назад
-                        button.button.calc__button Далее
+                        button(data-calc-next-button = 'form', data-radio-required = 'category').button.calc__button Далее
                 
-                //- .calc__body#form
+                .calc__body#form
                     .calc__options.options
                         h2.options__heading Выберите подходящую форму столешницы
                         .options__radio-wrap
                             .options__radio.options__radio-img-m
-                                input#form-norm(type="radio", name="form" value="form-norm")
+                                input#form-norm(type="radio", name="form" value="table-size-norm")
                                 label(for="form-norm")
                                     span.options__radio-text Прямая
                                     .options__radio-img-wrap
                                         .options__radio-img
                             .options__radio.options__radio-img-m
-                                input#form-g(type="radio", name="form" value="form-g")
+                                input#form-g(type="radio", name="form" value="table-size-g")
                                 label(for="form-g")
                                     span.options__radio-text Г-образная
                                     .options__radio-img-wrap
                                         .options__radio-img
                             .options__radio.options__radio-img-m
-                                input#form-p(type="radio", name="form" value="form-p")
+                                input#form-p(type="radio", name="form" value="table-size-p")
                                 label(for="form-p")
                                     span.options__radio-text П-образная
                                     .options__radio-img-wrap
                                         .options__radio-img
+
                     .calc__button-wrap
-                        button.button.button_gray.calc__button Назад
-                        button.button.calc__button Далее
+                        button(data-calc-previous-button = 'category').button.button_gray.calc__button Назад
+                        button(data-calc-next-button = 'materials', data-radio-required = 'form').button.calc__button Далее
                 
-                //- .calc__body#materials
+                .calc__body#materials
                     .calc__options.options
                         h2.options__heading Выберите разновидность и цвет камня
                         select.input.input_select.options__select
@@ -109,10 +110,10 @@ block content
 
                             
                     .calc__button-wrap
-                        button.button.button_gray.calc__button Назад
-                        button.button.calc__button Далее
+                        button(data-calc-previous-button = 'form').button.button_gray.calc__button Назад
+                        button(data-calc-next-button = 'parameters').button.calc__button Далее
 
-                .calc__body#notch
+                .calc__body#parameters
                     .calc__options.options
                         h3.options__heading Выберите подходящее форму скругления края столешницы
                         .options__radio-wrap.options__radio-wrap_height
@@ -147,7 +148,17 @@ block content
                         
                         .options__rounding-range-wrap
                             h2.options__heading Количество углов: <span id='rounding-number-text'>1</span>
-                            input(type="range", name="rounding-number-range", min="1", max="8", step="1", value="1").range.options__rounding-range
+                            .options__rounding-range.range-nick
+                                input(type="range", name="rounding-number-range", min="1", max="8", step="1", value="1").range.range-nick
+                                ul.range-nick-wrpa
+                                    li.range-nick-item 1
+                                    li.range-nick-item 2
+                                    li.range-nick-item 3
+                                    li.range-nick-item 4
+                                    li.range-nick-item 5
+                                    li.range-nick-item 6
+                                    li.range-nick-item 7
+                                    li.range-nick-item 8
                         
                         .radio-wrap-border
 
@@ -176,10 +187,10 @@ block content
                         
 
                     .calc__button-wrap
-                        button.button.button_gray.calc__button Назад
-                        button.button.calc__button Далее
+                        button(data-calc-previous-button = 'materials').button.button_gray.calc__button Назад
+                        button(data-calc-next-button = 'notch').button.calc__button Далее
                 
-                //- .calc__body#services
+                .calc__body#notch
                     .calc__options.options
                         h3.options__heading Выберите нужные вам вырезы в столешницы
                         label.radio-button
@@ -190,10 +201,10 @@ block content
                             span Вырез под мойку
 
                     .calc__button-wrap
-                        button.button.button_gray.calc__button Назад
+                        button(data-calc-previous-button = 'parameters').button.button_gray.calc__button Назад
                         button.button.calc__button Далее
                 
-                //- .options__size.options__size_norm#table-size-norm
+                .options__size.options__size_norm#table-size-norm
                     .options__size-img-wrap
                         img(src="./assets/images/grab.png", alt="").options__size-img    
                     .options__size-arrow-horizon.size-arrow-horizon_bot
@@ -209,7 +220,7 @@ block content
                             span.options__size-text см
                         .size-arrow.size-arrow_end
 
-                //- .options__size.options__size_g#table-size-g
+                .options__size.options__size_g#table-size-g
                     .options__size-img-wrap
                         img(src="./assets/images/grab.png", alt="").options__size-img 
 
