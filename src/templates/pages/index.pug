@@ -81,7 +81,7 @@ block content
                 .calc__body#materials
                     .calc__options.options
                         h2.options__heading Выберите разновидность и цвет камня
-                        select.input.input_select.options__select
+                        select(data-select-materials = 'table').input.input_select.options__select
                             option(value="granit") Гранит
                             option(value="mramor") Мрамор
 
@@ -107,6 +107,41 @@ block content
                                     img(src="./assets/images/grab-yellow.png", alt="Алановское").options__materials-img
                                     span.options__materials-name Алановское
                                     span.options__materials-price 26 650 ₽ за <span class='m2'>м2</span>
+                        
+                        .options__materials-wrap#mramor
+                            .options__materials
+                                input#radio-mramor-1(type="radio", name="mramor" value="")
+                                label(for="radio-mramor-1")
+                                    img(src="./assets/images/grab.png", alt="Алановское").options__materials-img
+                                    span.options__materials-name Алановское
+                                    span.options__materials-price 26 650 ₽ за <span class='m2'>м2</span>
+
+                            .options__materials
+                                input#radio-mramor-2(type="radio", name="mramor" value="")
+                                label(for="radio-mramor-2")
+                                    img(src="./assets/images/grab-read.png", alt="Алановское").options__materials-img
+                                    span.options__materials-name Алановское
+                                    span.options__materials-price 26 650 ₽ за <span class='m2'>м2</span>
+
+                            .options__materials
+                                input#radio-mramor-3(type="radio", name="mramor" value="")
+                                label(for="radio-mramor-3")
+                                    img(src="./assets/images/grab-yellow.png", alt="Алановское").options__materials-img
+                                    span.options__materials-name Алановское
+                                    span.options__materials-price 26 650 ₽ за <span class='m2'>м2</span>
+                            .options__materials
+                                input#radio-mramor-4(type="radio", name="mramor" value="")
+                                label(for="radio-mramor-4")
+                                    img(src="./assets/images/grab-read.png", alt="Алановское").options__materials-img
+                                    span.options__materials-name Алановское
+                                    span.options__materials-price 26 650 ₽ за <span class='m2'>м2</span>
+
+                            .options__materials
+                                input#radio-mramor-5(type="radio", name="mramor" value="")
+                                label(for="radio-mramor-5")
+                                    img(src="./assets/images/grab-yellow.png", alt="Алановское").options__materials-img
+                                    span.options__materials-name Алановское
+                                    span.options__materials-price 26 650 ₽ за <span class='m2'>м2</span>
 
                             
                     .calc__button-wrap
@@ -128,7 +163,7 @@ block content
                         h2.options__heading Выберите подходящую категорию
                         .options__radio-wrap.options__radio-img-l-wrap
                             .options__radio.options__radio-img-l
-                                input#rounding-0(type="radio", name="rounding" value="0")
+                                input#rounding-0(type="radio", name="rounding" value="0" checked)
                                 label(for="rounding-0" tabindex="1")
                                     svg.options__radio-img.img-rounding
                                         use(xlink:href="./assets/images/sprite.svg#rounding-0")
@@ -140,8 +175,8 @@ block content
                                         use(xlink:href="./assets/images/sprite.svg#rounding-1")
                                     span.options__radio-text-bot б <span class='options__radio-text-gray'>(2 000 ₽ за 1 уг.)</span>
                             .options__radio.options__radio-img-l
-                                input#rounding-3(type="radio", name="rounding" value="3")
-                                label(for="rounding-3" tabindex="1")
+                                input#rounding-2(type="radio", name="rounding" value="2")
+                                label(for="rounding-2" tabindex="1")
                                     svg.options__radio-img.img-rounding
                                         use(xlink:href="./assets/images/sprite.svg#rounding-2")
                                     span.options__radio-text-bot в <span class='options__radio-text-gray'>(4 000 ₽ за 1 уг.)</span>
@@ -149,7 +184,7 @@ block content
                         .options__rounding-range-wrap
                             h2.options__heading Количество углов: <span id='rounding-number-text'>1</span>
                             .options__rounding-range.range-nick
-                                input(type="range", name="rounding-number-range", min="1", max="8", step="1", value="1").range.range-nick
+                                input(type="range", name="rounding-number-range", min="1", max="8", step="1", value="1" disabled).range.range-nick
                                 ul.range-nick-wrpa
                                     li.range-nick-item 1
                                     li.range-nick-item 2
@@ -165,22 +200,22 @@ block content
                         h3.options__heading Выберите подходящее форму скругления края столешницы
                         .options__radio-wrap.options__radio-wrap-s
                             .options__radio.options__radio-img-s
-                                input#form-norm(type="radio", name="form" value="form-norm")
-                                label(for="form-norm")
+                                input#bevel-a(type="radio", name="bevel-front" value="a")
+                                label(for="bevel-a")
                                     svg.options__radio-img
                                         use(xlink:href="./assets/images/sprite.svg#chamfer-01")
                                     span.options__radio-text а <span class='options__radio-text-gray'>(4 000 ₽ за 1м)</span>
                             
                             .options__radio.options__radio-img-s
-                                input#form-g(type="radio", name="form" value="form-g")
-                                label(for="form-g")
+                                input#bevel-b(type="radio", name="bevel-front" value="b")
+                                label(for="bevel-b")
                                     svg.options__radio-img
                                         use(xlink:href="./assets/images/sprite.svg#chamfer-02")
                                     span.options__radio-text б <span class='options__radio-text-gray'>(4 000 ₽ за 1м)</span>
                             
                             .options__radio.options__radio-img-s
-                                input#form-p(type="radio", name="form" value="form-p")
-                                label(for="form-p")
+                                input#bevel-v(type="radio", name="bevel-front" value="v")
+                                label(for="bevel-v")
                                     svg.options__radio-img
                                         use(xlink:href="./assets/images/sprite.svg#chamfer-02")
                                     span.options__radio-text в <span class='options__radio-text-gray'>(4 000 ₽ за 1м)</span>

@@ -1,18 +1,21 @@
-#table-size-norm,
+// #table-size-norm,
 #table-size-g,
 #table-size-p {
 	display: none;
 }
 
-// #category,
+#category,
 #form,
-#materials,
+// #materials,
 #parameters,
 #notch,
 #services,
 #total {
 	display: none;
-	// display: block;
+}
+
+#mramor {
+	display: none;
 }
 
 .calc {
@@ -615,6 +618,7 @@
 
 .options__rounding-range-wrap {
 	margin-top: 32px;
+	opacity: 0.3;
 
 	.options__heading {
 		margin-bottom: 8px;

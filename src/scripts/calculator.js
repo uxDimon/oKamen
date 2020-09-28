@@ -1,9 +1,9 @@
-function listShowItem(items, idItem) {
+function listShowItem(items, idItem, display = "block") {
 	// Показывает нужный элемент остальные скрывает
 	for (const blockItem of items) {
 		blockItem.style.display = "none";
 	}
-	document.querySelector("#" + idItem).style.display = "block";
+	document.querySelector("#" + idItem).style.display = display;
 }
 
 function calcTab(button, block, data_attribute) {
@@ -51,12 +51,11 @@ function calcPreviousButton(buttons) {
 	}
 }
 
-function choiceForm(input, block) {
+function choiceForm(input, block, display) {
 	// Выбор формы (столешнице, подоконника, ступеней)
 	for (const inputItem of input) {
 		inputItem.addEventListener("change", () => {
-			console.log(inputItem.value);
-			listShowItem(block, inputItem.value);
+			listShowItem(block, inputItem.value, display);
 		});
 	}
 }
@@ -76,3 +75,31 @@ calcPreviousButton(listCalcPreviousButton, roadMapButton);
 const radioForm = document.querySelectorAll('input[name="form"]'),
 	blockForm = document.querySelectorAll(".options__size");
 choiceForm(radioForm, blockForm);
+
+// Выберите разновидность и цвет камня
+const selectMaterials = document.querySelectorAll("select[data-select-materials]"),
+	materialsList = document.querySelectorAll(".options__materials-wrap");
+choiceForm(selectMaterials, materialsList, "grid");
+
+// Количество углов
+const radioRounding = document.querySelectorAll('input[name="rounding"]'),
+	numberRoundingWrap = document.querySelector(".options__rounding-range-wrap"),
+	numberRounding = numberRoundingWrap.querySelector('input[name="rounding-number-range"]'),
+	numberRoundingNumber = numberRoundingWrap.querySelector("#rounding-number-text");
+
+for (const radioItem of radioRounding) {
+	radioItem.addEventListener("change", () => {
+		let styleOpacity = "0.3";
+		if (radioItem.value != "0") {
+			numberRounding.removeAttribute("disabled");
+			styleOpacity = "1";
+		} else {
+			numberRounding.setAttribute("disabled", "");
+		}
+		numberRoundingWrap.style.opacity = styleOpacity;
+	});
+}
+
+numberRounding.addEventListener("input", (event) => {
+	numberRoundingNumber.innerHTML = event.target.value;
+});

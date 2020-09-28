@@ -191,6 +191,10 @@ h6 {
 	background-color: #b9b9b9;
 	appearance: none;
 
+	&:disabled {
+		cursor: default;
+	}
+
 	&:hover::-moz-range-thumb {
 		background-color: $color-bronze;
 	}
