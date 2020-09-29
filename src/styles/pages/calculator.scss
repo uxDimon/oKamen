@@ -194,13 +194,9 @@
 		margin-right: 0;
 	}
 
-	label {
-		padding-right: 32px;
-	}
-
 	label::before,
 	label::after {
-		right: 0;
+		left: 0;
 		bottom: 50%;
 	}
 
@@ -212,10 +208,11 @@
 	.options__radio-img {
 		width: 146px;
 		height: 100px;
+		margin-left: 34px;
 	}
 
 	.options__radio-text {
-		margin-bottom: 32px;
+		margin-bottom: 24px;
 	}
 
 	.options__radio-text-bot {
@@ -238,6 +235,10 @@
 
 	.options__radio-text {
 		margin-bottom: 12px;
+	}
+
+	.options__radio-img-wrap {
+		margin-left: 32px;
 	}
 
 	.options__radio-img {
@@ -292,15 +293,15 @@
 	label[for="form-norm"] {
 		&::before,
 		&::after {
-			right: auto;
-			left: 38px;
+			// right: auto;
+			// left: 38px;
 		}
 	}
 
 	label::before,
 	label::after {
-		right: auto;
-		left: 60px;
+		// right: auto;
+		// left: 60px;
 		bottom: 33%;
 	}
 }
@@ -317,13 +318,13 @@
 	.options__radio-img {
 		width: 74px;
 		height: 42px;
-		margin-right: 36px;
+		margin-left: 36px;
 	}
 
 	label::before,
 	label::after {
 		bottom: 70%;
-		right: 10px;
+		left: 0;
 	}
 
 	.options__radio-text {
@@ -331,6 +332,7 @@
 		font-size: 18px;
 		line-height: 125%;
 		text-transform: uppercase;
+		margin-top: 12px;
 	}
 }
 
@@ -579,7 +581,11 @@
 }
 
 .options__select {
-	margin-bottom: 24px;
+	margin-bottom: 8px;
+
+	&:last-of-type {
+		margin-bottom: 24px;
+	}
 }
 
 .options__materials-heading {
