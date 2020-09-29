@@ -142,7 +142,6 @@ block content
                                     img(src="./assets/images/grab-yellow.png", alt="Алановское").options__materials-img
                                     span.options__materials-name Алановское
                                     span.options__materials-price 26 650 ₽ за <span class='m2'>м2</span>
-
                             
                     .calc__button-wrap
                         button(data-calc-previous-button = 'form').button.button_gray.calc__button Назад
@@ -220,7 +219,6 @@ block content
                                         use(xlink:href="./assets/images/sprite.svg#chamfer-02")
                                     span.options__radio-text в <span class='options__radio-text-gray'>(4 000 ₽ за 1м)</span>
                         
-
                     .calc__button-wrap
                         button(data-calc-previous-button = 'materials').button.button_gray.calc__button Назад
                         button(data-calc-next-button = 'notch').button.calc__button Далее
@@ -256,7 +254,34 @@ block content
 
                     .calc__button-wrap
                         button(data-calc-previous-button = 'parameters').button.button_gray.calc__button Назад
-                        button.button.calc__button Далее
+                        button(data-calc-next-button = 'services').button.calc__button Далее
+                
+                .calc__body#services
+                    .calc__options.options
+                        h3.options__heading Выберите нужные вам услуги
+                        label.checkbox-button.options__checkbox-button
+                            input(type="checkbox", name="" data-calc-more-input = 'notch-washing')
+                            span Подставка под горячее <span class='options__radio-text-gray'>(от 3 000 ₽)</span>
+                        label.checkbox-button.options__checkbox-button
+                            input(type="checkbox", name="")
+                            span Монтаж варочной панели <span class='options__radio-text-gray'>(от 4 000 ₽)</span>
+                        label.checkbox-button.options__checkbox-button
+                            input(type="checkbox", name="")
+                            span Стеновые панели из камня <span class='options__radio-text-gray'>(от 1 000 ₽)</span>
+                        .radio-wrap-border-s.radio-wrap-border-s_60
+                        label.checkbox-button.options__checkbox-button
+                            input(type="checkbox", name="")
+                            span Замер <span class='options__radio-text-gray'>(бесплатно)</span>
+                        label.checkbox-button.options__checkbox-button
+                            input(type="checkbox", name="")
+                            span Доставка <span class='options__radio-text-gray'>(от 3 000 ₽)</span>
+                        label.checkbox-button.options__checkbox-button
+                            input(type="checkbox", name="")
+                            span Установка <span class='options__radio-text-gray'>(от 3 000 ₽)</span>
+
+                    .calc__button-wrap
+                        button(data-calc-previous-button = 'notch').button.button_gray.calc__button Назад
+                        button(data-calc-next-button = 'services').button.calc__button Далее
                 
                 .options__size.options__size_norm#table-size-norm
                     .options__size-img-wrap
@@ -264,13 +289,13 @@ block content
                     .options__size-arrow-horizon.size-arrow-horizon_bot
                         .size-arrow
                         lable.options__size-lable
-                            input(type="number" step="1" min="30" max="900").options__size-input
+                            input(type="number" step="1" min="30" max="900" data-table-size='bot').options__size-input
                             span.options__size-text см
                         .size-arrow.size-arrow_end
                     .options__size-arrow-vertical.size-arrow-vertical_left
                         .size-arrow
                         lable.options__size-lable
-                            input(type="number" step="1" min="30" max="900").options__size-input
+                            input(type="number" step="1" min="30" max="900" data-table-size='left').options__size-input
                             span.options__size-text см
                         .size-arrow.size-arrow_end
 
@@ -281,28 +306,28 @@ block content
                     .options__size-arrow-horizon.size-arrow-horizon_top
                         .size-arrow
                         lable.options__size-lable
-                            input(type="number" step="1" min="30" max="900").options__size-input
+                            input(type="number" step="1" min="30" max="900" data-table-size='top').options__size-input
                             span.options__size-text см
                         .size-arrow.size-arrow_end
                         
                     .options__size-arrow-vertical.size-arrow-vertical_right
                         .size-arrow
                         lable.options__size-lable
-                            input(type="number" step="1" min="30" max="900").options__size-input
+                            input(type="number" step="1" min="30" max="900" data-table-size='right').options__size-input
                             span.options__size-text см
                         .size-arrow.size-arrow_end
 
                     .options__size-arrow-horizon.size-arrow-horizon_bot
                         .size-arrow
                         lable.options__size-lable
-                            input(type="number" step="1" min="30" max="900").options__size-input
+                            input(type="number" step="1" min="30" max="900" data-table-size='bot-right').options__size-input
                             span.options__size-text см
                         .size-arrow.size-arrow_end
 
                     .options__size-arrow-vertical.size-arrow-vertical_left
                         .size-arrow
                         lable.options__size-lable
-                            input(type="number" step="1" min="30" max="900").options__size-input
+                            input(type="number" step="1" min="30" max="900" data-table-size='left-top').options__size-input
                             span.options__size-text см
                         .size-arrow.size-arrow_end
 
@@ -313,21 +338,21 @@ block content
                     .options__size-arrow-horizon.size-arrow-horizon_top-floor-2
                         .size-arrow
                         lable.options__size-lable
-                            input(type="number" step="1" min="30" max="900").options__size-input
+                            input(type="number" step="1" min="30" max="900" data-table-size='top').options__size-input
                             span.options__size-text см
                         .size-arrow.size-arrow_end
                     
                     .options__size-arrow-vertical.size-arrow-vertical_right
                         .size-arrow
                         lable.options__size-lable
-                            input(type="number" step="1" min="30" max="900").options__size-input
+                            input(type="number" step="1" min="30" max="900" data-table-size='right').options__size-input
                             span.options__size-text см
                         .size-arrow.size-arrow_end
 
                     .options__size-arrow-horizon.size-arrow-horizon_bot.size-arrow-horizon_bot_2
                         .size-arrow
                         lable.options__size-lable
-                            input(type="number" step="1" min="30" max="900").options__size-input
+                            input(type="number" step="1" min="30" max="900" data-table-size='bot-right').options__size-input
                             span.options__size-text см
                         .size-arrow.size-arrow_end
 
@@ -335,21 +360,21 @@ block content
                         .size-arrow
                         .size-line
                         lable.options__size-lable
-                            input(type="number" step="1" min="30" max="900").options__size-input
+                            input(type="number" step="1" min="30" max="900" data-table-size='body').options__size-input
                             span.options__size-text см
                         .size-arrow.size-arrow_end
 
                     .options__size-arrow-horizon.size-arrow-horizon_bot.size-arrow-horizon_bot_1
                         .size-arrow
                         lable.options__size-lable
-                            input(type="number" step="1" min="30" max="900").options__size-input
+                            input(type="number" step="1" min="30" max="900" data-table-size='bot-left').options__size-input
                             span.options__size-text см
                         .size-arrow.size-arrow_end
 
                     .options__size-arrow-vertical.size-arrow-vertical_left
                         .size-arrow
                         lable.options__size-lable
-                            input(type="number" step="1" min="30" max="900").options__size-input
+                            input(type="number" step="1" min="30" max="900" data-table-size='left').options__size-input
                             span.options__size-text см
                         .size-arrow.size-arrow_end
 

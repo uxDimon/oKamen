@@ -1,14 +1,14 @@
-// #table-size-norm,
+#table-size-norm,
 #table-size-g,
 #table-size-p {
 	display: none;
 }
 
-#category,
+// #category,
 #form,
 #materials,
 #parameters,
-// #notch,
+#notch,
 #services,
 #total {
 	display: none;
@@ -110,9 +110,24 @@
 	margin: 48px 0;
 	opacity: 0.3;
 
-	&:last-of-type {
+	&:last-child {
 		margin-bottom: 0;
 	}
+}
+
+.radio-wrap-border-s {
+	width: 100%;
+	height: 1px;
+	background-color: $color-dark-gray;
+	margin-bottom: 16px;
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+
+.radio-wrap-border-s_60 {
+	width: 60%;
 }
 
 .options__radio {
@@ -439,6 +454,8 @@
 
 	.options__size-lable {
 		position: relative;
+		margin-right: 0;
+		margin-left: 0;
 	}
 
 	.options__size-text {

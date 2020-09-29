@@ -126,8 +126,50 @@ const moreInput = document.querySelectorAll("[data-calc-more-input]");
 
 	for (const inputItem of moreInput) {
 		const inputData = inputItem.dataset.calcMoreInput;
+		onOffMoreInput(inputData, false);
 		inputItem.addEventListener("change", (event) => {
 			onOffMoreInput(inputData, event.target.checked);
 		});
 	}
 }
+
+// Расчет площади
+// const inputSize = document.querySelectorAll("[data-table-size]");
+let activSizeForm = {
+	name: "",
+	size: {},
+};
+
+function calcArea(object) {
+	if (activSizeForm.name == "table-size-norm") {
+		const area = object.size["bot"] * object.size["left"];
+		return area;
+	}
+	if (activSizeForm.name == "table-size-g") {
+		const area_left = (object.size["top"] - object.size["bot-right"]) * (object.size["right"] - object.size["left-top"]);
+		const area_right = (object.size["top"] - object.size["bot-right"]) * object.size["right"];
+		return area_left + area_right;
+	}
+}
+
+for (const radioItem of radioForm) {
+	radioItem.addEventListener("change", (event) => {
+		activSizeForm.name = event.target.value;
+		activSizeForm.size = {};
+
+		let inputActive = document.querySelectorAll("#" + activSizeForm["name"] + " [data-table-size]");
+		for (const inputItem of inputActive) {
+			activSizeForm.size[inputItem.dataset.tableSize] = Number(inputItem.value);
+			inputItem.addEventListener("change", (event) => {
+				activSizeForm.size[event.target.dataset.tableSize] = Number(event.target.value);
+				console.log(calcArea(activSizeForm));
+			});
+		}
+	});
+}
+
+// getValueInputs(inputSizeNorm, normalInput);
+
+// function sizeNormal(input) {
+
+// }
