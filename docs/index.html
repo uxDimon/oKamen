@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Главная</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="ie=edge" http-equiv="x-ua-compatible">
+    <link rel="shortcut icon" href="assets/images/fav.png" type="image/x-icon">
+    <link rel="apple-touch-icon" href="assets/images/fav.png">
+    <link rel="stylesheet" type="text/css" href="assets/styles/app.min.css">
+  </head>
+  <body>
+    <main>
+      <div class="calc">
+        <h1 class="calc__heading">Расчёт стоимости изделия</h1>
+        <nav class="calc__road-map">
+          <ol class="calc__road-map-list">
+            <li class="calc__road-map-item">
+              <button class="calc__road-map-linc" data-calc-tab="category">Категория</button>
+            </li>
+            <li class="calc__road-map-item">
+              <button class="calc__road-map-linc" data-calc-tab="form" disabled>Форма</button>
+            </li>
+            <li class="calc__road-map-item">
+              <button class="calc__road-map-linc" data-calc-tab="materials" disabled>Материалы</button>
+            </li>
+            <li class="calc__road-map-item">
+              <button class="calc__road-map-linc" data-calc-tab="parameters" disabled>Параметры</button>
+            </li>
+            <li class="calc__road-map-item">
+              <button class="calc__road-map-linc" data-calc-tab="notch" disabled>Вырезы</button>
+            </li>
+            <li class="calc__road-map-item">
+              <button class="calc__road-map-linc" data-calc-tab="services" disabled>Доп. услуги</button>
+            </li>
+            <li class="calc__road-map-item">
+              <button class="calc__road-map-linc" data-calc-tab="total" disabled>Итог</button>
+            </li>
+          </ol>
+        </nav>
+        <div class="calc__body-wrap">
+          <div class="calc__body" id="category">
+            <div class="calc__options options">
+              <h2 class="options__heading">Выберите подходящую категорию</h2>
+              <div class="options__radio-wrap options__radio-img-l-wrap">
+                <div class="options__radio options__radio-img-l">
+                  <input id="table-table" type="radio" name="category" value="table">
+                  <label for="table-table" tabindex="1"><span class="options__radio-text">Столешница</span>
+                    <svg class="options__radio-img">
+                      <use xlink:href="./assets/images/sprite.svg#category-table"></use>
+                    </svg>
+                  </label>
+                </div>
+                <div class="options__radio options__radio-img-l">
+                  <input id="table-windowsill" type="radio" name="category" value="windowsill">
+                  <label for="table-windowsill" tabindex="1"><span class="options__radio-text">Подоконник</span>
+                    <svg class="options__radio-img">
+                      <use xlink:href="./assets/images/sprite.svg#category-windowsill"></use>
+                    </svg>
+                  </label>
+                </div>
+                <div class="options__radio options__radio-img-l">
+                  <input id="table-stage" type="radio" name="category" value="stage">
+                  <label for="table-stage" tabindex="1"><span class="options__radio-text">Ступени</span>
+                    <svg class="options__radio-img">
+                      <use xlink:href="./assets/images/sprite.svg#category-stage"></use>
+                    </svg>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="calc__button-wrap">
+              <button class="button button_gray calc__button" disabled>Назад</button>
+              <button class="button calc__button" data-calc-next-button="form" data-radio-required="category">Далее</button>
+            </div>
+          </div>
+          <div class="calc__body" id="form">
+            <div class="calc__options options">
+              <h2 class="options__heading">Выберите подходящую форму столешницы</h2>
+              <div class="options__radio-wrap">
+                <div class="options__radio options__radio-img-m">
+                  <input id="form-norm" type="radio" name="form" value="table-size-norm">
+                  <label for="form-norm"><span class="options__radio-text">Прямая</span>
+                    <div class="options__radio-img-wrap">
+                      <div class="options__radio-img"></div>
+                    </div>
+                  </label>
+                </div>
+                <div class="options__radio options__radio-img-m">
+                  <input id="form-g" type="radio" name="form" value="table-size-g">
+                  <label for="form-g"><span class="options__radio-text">Г-образная</span>
+                    <div class="options__radio-img-wrap">
+                      <div class="options__radio-img"></div>
+                    </div>
+                  </label>
+                </div>
+                <div class="options__radio options__radio-img-m">
+                  <input id="form-p" type="radio" name="form" value="table-size-p">
+                  <label for="form-p"><span class="options__radio-text">П-образная</span>
+                    <div class="options__radio-img-wrap">
+                      <div class="options__radio-img"></div>
+                    </div>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="calc__button-wrap">
+              <button class="button button_gray calc__button" data-calc-previous-button="category">Назад</button>
+              <button class="button calc__button" data-calc-next-button="materials" data-radio-required="form">Далее</button>
+            </div>
+          </div>
+          <div class="calc__body" id="materials">
+            <div class="calc__options options">
+              <h2 class="options__heading">Выберите разновидность и цвет камня</h2>
+              <select class="input input_select options__select" data-select-materials="table">
+                <option value="granit">Гранит</option>
+                <option value="mramor">Мрамор</option>
+              </select>
+              <h3 class="options__materials-heading">Выберите ниже понравившийся вам вариант</h3>
+              <div class="options__materials-wrap" id="granit">
+                <div class="options__materials">
+                  <input id="radio-granit-1" type="radio" name="granit" value="">
+                  <label for="radio-granit-1"><img class="options__materials-img" src="./assets/images/grab.png" alt="Алановское"><span class="options__materials-name">Алановское</span><span class="options__materials-price">26 650 ₽ за <span class='m2'>м2</span></span></label>
+                </div>
+                <div class="options__materials">
+                  <input id="radio-granit-2" type="radio" name="granit" value="">
+                  <label for="radio-granit-2"><img class="options__materials-img" src="./assets/images/grab-read.png" alt="Алановское"><span class="options__materials-name">Алановское</span><span class="options__materials-price">26 650 ₽ за <span class='m2'>м2</span></span></label>
+                </div>
+                <div class="options__materials">
+                  <input id="radio-granit-3" type="radio" name="granit" value="">
+                  <label for="radio-granit-3"><img class="options__materials-img" src="./assets/images/grab-yellow.png" alt="Алановское"><span class="options__materials-name">Алановское</span><span class="options__materials-price">26 650 ₽ за <span class='m2'>м2</span></span></label>
+                </div>
+              </div>
+              <div class="options__materials-wrap" id="mramor">
+                <div class="options__materials">
+                  <input id="radio-mramor-1" type="radio" name="mramor" value="">
+                  <label for="radio-mramor-1"><img class="options__materials-img" src="./assets/images/grab.png" alt="Алановское"><span class="options__materials-name">Алановское</span><span class="options__materials-price">26 650 ₽ за <span class='m2'>м2</span></span></label>
+                </div>
+                <div class="options__materials">
+                  <input id="radio-mramor-2" type="radio" name="mramor" value="">
+                  <label for="radio-mramor-2"><img class="options__materials-img" src="./assets/images/grab-read.png" alt="Алановское"><span class="options__materials-name">Алановское</span><span class="options__materials-price">26 650 ₽ за <span class='m2'>м2</span></span></label>
+                </div>
+                <div class="options__materials">
+                  <input id="radio-mramor-3" type="radio" name="mramor" value="">
+                  <label for="radio-mramor-3"><img class="options__materials-img" src="./assets/images/grab-yellow.png" alt="Алановское"><span class="options__materials-name">Алановское</span><span class="options__materials-price">26 650 ₽ за <span class='m2'>м2</span></span></label>
+                </div>
+                <div class="options__materials">
+                  <input id="radio-mramor-4" type="radio" name="mramor" value="">
+                  <label for="radio-mramor-4"><img class="options__materials-img" src="./assets/images/grab-read.png" alt="Алановское"><span class="options__materials-name">Алановское</span><span class="options__materials-price">26 650 ₽ за <span class='m2'>м2</span></span></label>
+                </div>
+                <div class="options__materials">
+                  <input id="radio-mramor-5" type="radio" name="mramor" value="">
+                  <label for="radio-mramor-5"><img class="options__materials-img" src="./assets/images/grab-yellow.png" alt="Алановское"><span class="options__materials-name">Алановское</span><span class="options__materials-price">26 650 ₽ за <span class='m2'>м2</span></span></label>
+                </div>
+              </div>
+            </div>
+            <div class="calc__button-wrap">
+              <button class="button button_gray calc__button" data-calc-previous-button="form">Назад</button>
+              <button class="button calc__button" data-calc-next-button="parameters">Далее</button>
+            </div>
+          </div>
+          <div class="calc__body" id="parameters">
+            <div class="calc__options options">
+              <h3 class="options__heading">Выберите подходящее форму скругления края столешницы</h3>
+              <div class="options__radio-wrap options__radio-wrap_height">
+                <label class="radio-button">
+                  <input type="radio" name="height" checked><span>2 см</span>
+                </label>
+                <label class="radio-button">
+                  <input type="radio" name="height"><span>3 см <span class='options__radio-text-gray'>(3 000 ₽ за 1 <span class='m2'>м2</span>)</span></span>
+                </label>
+              </div>
+              <div class="radio-wrap-border"></div>
+              <h2 class="options__heading">Выберите подходящую категорию</h2>
+              <div class="options__radio-wrap options__radio-img-l-wrap">
+                <div class="options__radio options__radio-img-l">
+                  <input id="rounding-0" type="radio" name="rounding" value="0" checked>
+                  <label for="rounding-0" tabindex="1">
+                    <svg class="options__radio-img img-rounding">
+                      <use xlink:href="./assets/images/sprite.svg#rounding-0"></use>
+                    </svg><span class="options__radio-text-bot">а</span>
+                  </label>
+                </div>
+                <div class="options__radio options__radio-img-l">
+                  <input id="rounding-1" type="radio" name="rounding" value="1">
+                  <label for="rounding-1" tabindex="1">
+                    <svg class="options__radio-img img-rounding">
+                      <use xlink:href="./assets/images/sprite.svg#rounding-1"></use>
+                    </svg><span class="options__radio-text-bot">б <span class='options__radio-text-gray'>(2 000 ₽ за 1 уг.)</span></span>
+                  </label>
+                </div>
+                <div class="options__radio options__radio-img-l">
+                  <input id="rounding-2" type="radio" name="rounding" value="2">
+                  <label for="rounding-2" tabindex="1">
+                    <svg class="options__radio-img img-rounding">
+                      <use xlink:href="./assets/images/sprite.svg#rounding-2"></use>
+                    </svg><span class="options__radio-text-bot">в <span class='options__radio-text-gray'>(4 000 ₽ за 1 уг.)</span></span>
+                  </label>
+                </div>
+              </div>
+              <div class="options__rounding-range-wrap">
+                <h2 class="options__heading">Количество углов: <span id='rounding-number-text'>1</span></h2>
+                <div class="options__rounding-range range-nick">
+                  <input class="range range-nick" type="range" name="rounding-number-range" min="1" max="8" step="1" value="1" disabled>
+                  <ul class="range-nick-wrpa">
+                    <li class="range-nick-item">1</li>
+                    <li class="range-nick-item">2</li>
+                    <li class="range-nick-item">3</li>
+                    <li class="range-nick-item">4</li>
+                    <li class="range-nick-item">5</li>
+                    <li class="range-nick-item">6</li>
+                    <li class="range-nick-item">7</li>
+                    <li class="range-nick-item">8</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="radio-wrap-border"></div>
+              <h3 class="options__heading">Выберите подходящее форму скругления края столешницы</h3>
+              <div class="options__radio-wrap options__radio-wrap-s">
+                <div class="options__radio options__radio-img-s">
+                  <input id="bevel-a" type="radio" name="bevel-front" value="a">
+                  <label for="bevel-a">
+                    <svg class="options__radio-img">
+                      <use xlink:href="./assets/images/sprite.svg#chamfer-01"></use>
+                    </svg><span class="options__radio-text">а <span class='options__radio-text-gray'>(4 000 ₽ за 1м)</span></span>
+                  </label>
+                </div>
+                <div class="options__radio options__radio-img-s">
+                  <input id="bevel-b" type="radio" name="bevel-front" value="b">
+                  <label for="bevel-b">
+                    <svg class="options__radio-img">
+                      <use xlink:href="./assets/images/sprite.svg#chamfer-02"></use>
+                    </svg><span class="options__radio-text">б <span class='options__radio-text-gray'>(4 000 ₽ за 1м)</span></span>
+                  </label>
+                </div>
+                <div class="options__radio options__radio-img-s">
+                  <input id="bevel-v" type="radio" name="bevel-front" value="v">
+                  <label for="bevel-v">
+                    <svg class="options__radio-img">
+                      <use xlink:href="./assets/images/sprite.svg#chamfer-02"></use>
+                    </svg><span class="options__radio-text">в <span class='options__radio-text-gray'>(4 000 ₽ за 1м)</span></span>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="calc__button-wrap">
+              <button class="button button_gray calc__button" data-calc-previous-button="materials">Назад</button>
+              <button class="button calc__button" data-calc-next-button="notch">Далее</button>
+            </div>
+          </div>
+          <div class="calc__body" id="notch">
+            <div class="calc__options options">
+              <h3 class="options__heading">Выберите нужные вам вырезы в столешницы</h3>
+              <label class="checkbox-button options__checkbox-button">
+                <input type="checkbox" name="" data-calc-more-input="notch-washing"><span>Вырез под мойку <span class='options__radio-text-gray'>(от 3 000 ₽)</span></span>
+              </label>
+              <div class="options__more-input-wrap" id="notch-washing">
+                <label class="radio-button options__radio-button">
+                  <input type="radio" name="notch-washing"><span>Поверх столешницы <span class='options__radio-text-gray'>(от 4 000 ₽)</span></span>
+                </label>
+                <label class="radio-button options__radio-button">
+                  <input type="radio" name="notch-washing"><span>Вровень со столешницей <span class='options__radio-text-gray'>(от 5 000 ₽)</span></span>
+                </label>
+                <label class="radio-button options__radio-button">
+                  <input type="radio" name="notch-washing"><span>Снизу столешницы <span class='options__radio-text-gray'>(от 4 000 ₽)</span></span>
+                </label>
+              </div>
+              <label class="checkbox-button options__checkbox-button">
+                <input type="checkbox" name=""><span>Вырез под варочную панель <span class='options__radio-text-gray'>(от 4 000 ₽)</span></span>
+              </label>
+              <label class="checkbox-button options__checkbox-button">
+                <input type="checkbox" name=""><span>Вырез под смеситель <span class='options__radio-text-gray'>(от 1 000 ₽)</span></span>
+              </label>
+              <label class="checkbox-button options__checkbox-button">
+                <input type="checkbox" name=""><span>Иные вырезы <span class='options__radio-text-gray'>(итоговая цена будет известна после фактических замеров)</span></span>
+              </label>
+            </div>
+            <div class="calc__button-wrap">
+              <button class="button button_gray calc__button" data-calc-previous-button="parameters">Назад</button>
+              <button class="button calc__button" data-calc-next-button="services">Далее</button>
+            </div>
+          </div>
+          <div class="calc__body" id="services">
+            <div class="calc__options options">
+              <h3 class="options__heading">Выберите нужные вам услуги</h3>
+              <label class="checkbox-button options__checkbox-button">
+                <input type="checkbox" name="" data-calc-more-input="notch-washing"><span>Подставка под горячее <span class='options__radio-text-gray'>(от 3 000 ₽)</span></span>
+              </label>
+              <label class="checkbox-button options__checkbox-button">
+                <input type="checkbox" name=""><span>Монтаж варочной панели <span class='options__radio-text-gray'>(от 4 000 ₽)</span></span>
+              </label>
+              <label class="checkbox-button options__checkbox-button">
+                <input type="checkbox" name=""><span>Стеновые панели из камня <span class='options__radio-text-gray'>(от 1 000 ₽)</span></span>
+              </label>
+              <div class="radio-wrap-border-s_60"></div>
+              <label class="checkbox-button options__checkbox-button">
+                <input type="checkbox" name=""><span>Замер <span class='options__radio-text-gray'>(бесплатно)</span></span>
+              </label>
+              <label class="checkbox-button options__checkbox-button">
+                <input type="checkbox" name=""><span>Доставка <span class='options__radio-text-gray'>(от 3 000 ₽)</span></span>
+              </label>
+              <label class="checkbox-button options__checkbox-button">
+                <input type="checkbox" name=""><span>Установка <span class='options__radio-text-gray'>(от 3 000 ₽)</span></span>
+              </label>
+            </div>
+            <div class="calc__button-wrap">
+              <button class="button button_gray calc__button" data-calc-previous-button="notch">Назад</button>
+              <button class="button calc__button" data-calc-next-button="total">Далее</button>
+            </div>
+          </div>
+          <div class="calc__body calc__body_total" id="total">
+            <div class="options">
+              <div class="options__total-head">
+                <h3 class="options__heading">Выбранные параметры</h3>
+                <div class="options__total-main-options-wrap">
+                  <div class="options__total-main-options"><span class="options__total-main-options-heading">Тип столешницы</span><span class="options__total-main-options-text">Г-образная </span></div>
+                  <div class="options__total-main-options"><span class="options__total-main-options-heading">Размеры столешницы</span><span class="options__total-main-options-text">100х100х100х100 см</span></div>
+                  <div class="options__total-main-options"><span class="options__total-main-options-heading">Название камня</span><span class="options__total-main-options-text">Vicostone Dark Emperador BQ8560</span></div>
+                  <div class="options__total-main-options"><span class="options__total-main-options-heading">Производитель</span><span class="options__total-main-options-text">Vicostone </span></div>
+                  <div class="options__total-main-options"><span class="options__total-main-options-heading">Цвет</span><span class="options__total-main-options-text">серый quarty </span></div>
+                </div>
+              </div>
+              <div class="radio-wrap-border-s"></div>
+              <div class="options__total-body">
+                <h3 class="options__heading">Выбранные параметры</h3>
+                <div class="options__options-price-wrap">
+                  <div class="options__total-options-table">
+                    <table>
+                      <tr class="options__total-options-head">
+                        <td>Наименование</td>
+                        <td>Описание</td>
+                        <td>Стоимость</td>
+                      </tr>
+                      <tr>
+                        <td>Кол-во материала</td>
+                        <td>2 листа по 3м</td>
+                        <td>74 360 ₽ </td>
+                      </tr>
+                      <tr>
+                        <td>Вырез под мойку</td>
+                        <td>Снизу столешницы</td>
+                        <td>4 000 ₽ </td>
+                      </tr>
+                      <tr>
+                        <td>Вырез под варочную панель</td>
+                        <td>Да</td>
+                        <td>1 000 ₽ </td>
+                      </tr>
+                      <tr>
+                        <td>Вырез под смеситель</td>
+                        <td>Да</td>
+                        <td>4 000 ₽ </td>
+                      </tr>
+                      <tr>
+                        <td>Форма скругления</td>
+                        <td>Тип Б</td>
+                        <td>4 000 ₽ </td>
+                      </tr>
+                      <tr>
+                        <td>Подставка под горячее</td>
+                        <td>Да</td>
+                        <td>4 000 ₽ </td>
+                      </tr>
+                      <tr>
+                        <td>Замер</td>
+                        <td>Да</td>
+                        <td>Бесплатно</td>
+                      </tr>
+                      <tr>
+                        <td>Доставка</td>
+                        <td>Да</td>
+                        <td>3 000 ₽</td>
+                      </tr>
+                    </table>
+                  </div>
+                  <div class="options__total-price-wrap"><span class="options__total-price-text">Предварительная стоимость</span><span class="options__total-price-number">94 360 ₽</span>
+                    <button class="button calc__button">Заказать звонок</button>
+                    <button class="button button_gray calc__button">Скачать расчёт в PDF</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="calc__button-wrap">
+              <button class="button button_arrow-left calc__button" data-calc-previous-button="services">
+                <svg>
+                  <use xlink:href="./assets/images/sprite.svg#button-arrow"></use>
+                </svg><span>Назад</span>
+              </button>
+            </div>
+          </div>
+          <div class="options__size-wrap">
+            <div class="options__size options__size_norm" id="table-size-norm">
+              <div class="options__size-img-wrap"><img class="options__size-img" src="./assets/images/grab.png" alt=""></div>
+              <div class="options__size-arrow-horizon size-arrow-horizon_bot">
+                <div class="size-arrow"></div>
+                <lable class="options__size-lable">
+                  <input class="options__size-input" type="number" step="1" min="30" max="900" data-table-size="bot"><span class="options__size-text">см</span>
+                </lable>
+                <div class="size-arrow size-arrow_end"></div>
+              </div>
+              <div class="options__size-arrow-vertical size-arrow-vertical_left">
+                <div class="size-arrow"></div>
+                <lable class="options__size-lable">
+                  <input class="options__size-input" type="number" step="1" min="30" max="900" data-table-size="left"><span class="options__size-text">см</span>
+                </lable>
+                <div class="size-arrow size-arrow_end"></div>
+              </div>
+            </div>
+            <div class="options__size options__size_g" id="table-size-g">
+              <div class="options__size-img-wrap"><img class="options__size-img" src="./assets/images/grab.png" alt=""></div>
+              <div class="options__size-arrow-horizon size-arrow-horizon_top">
+                <div class="size-arrow"></div>
+                <lable class="options__size-lable">
+                  <input class="options__size-input" type="number" step="1" min="30" max="900" data-table-size="top"><span class="options__size-text">см</span>
+                </lable>
+                <div class="size-arrow size-arrow_end"></div>
+              </div>
+              <div class="options__size-arrow-vertical size-arrow-vertical_right">
+                <div class="size-arrow"></div>
+                <lable class="options__size-lable">
+                  <input class="options__size-input" type="number" step="1" min="30" max="900" data-table-size="right"><span class="options__size-text">см</span>
+                </lable>
+                <div class="size-arrow size-arrow_end"></div>
+              </div>
+              <div class="options__size-arrow-horizon size-arrow-horizon_bot">
+                <div class="size-arrow"></div>
+                <lable class="options__size-lable">
+                  <input class="options__size-input" type="number" step="1" min="30" max="900" data-table-size="bot-right"><span class="options__size-text">см</span>
+                </lable>
+                <div class="size-arrow size-arrow_end"></div>
+              </div>
+              <div class="options__size-arrow-vertical size-arrow-vertical_left">
+                <div class="size-arrow"></div>
+                <lable class="options__size-lable">
+                  <input class="options__size-input" type="number" step="1" min="30" max="900" data-table-size="left-top"><span class="options__size-text">см</span>
+                </lable>
+                <div class="size-arrow size-arrow_end"></div>
+              </div>
+            </div>
+            <div class="options__size options__size_p" id="table-size-p">
+              <div class="options__size-img-wrap"><img class="options__size-img" src="./assets/images/grab.png" alt=""></div>
+              <div class="options__size-arrow-horizon size-arrow-horizon_top-floor-2">
+                <div class="size-arrow"></div>
+                <lable class="options__size-lable">
+                  <input class="options__size-input" type="number" step="1" min="30" max="900" data-table-size="top"><span class="options__size-text">см</span>
+                </lable>
+                <div class="size-arrow size-arrow_end"></div>
+              </div>
+              <div class="options__size-arrow-vertical size-arrow-vertical_right">
+                <div class="size-arrow"></div>
+                <lable class="options__size-lable">
+                  <input class="options__size-input" type="number" step="1" min="30" max="900" data-table-size="right"><span class="options__size-text">см</span>
+                </lable>
+                <div class="size-arrow size-arrow_end"></div>
+              </div>
+              <div class="options__size-arrow-horizon size-arrow-horizon_bot size-arrow-horizon_bot_2">
+                <div class="size-arrow"></div>
+                <lable class="options__size-lable">
+                  <input class="options__size-input" type="number" step="1" min="30" max="900" data-table-size="bot-right"><span class="options__size-text">см</span>
+                </lable>
+                <div class="size-arrow size-arrow_end"></div>
+              </div>
+              <div class="options__size-arrow-vertical options__size-arrow-vertical_body">
+                <div class="size-arrow"></div>
+                <div class="size-line"></div>
+                <lable class="options__size-lable">
+                  <input class="options__size-input" type="number" step="1" min="30" max="900" data-table-size="body"><span class="options__size-text">см</span>
+                </lable>
+                <div class="size-arrow size-arrow_end"></div>
+              </div>
+              <div class="options__size-arrow-horizon size-arrow-horizon_bot size-arrow-horizon_bot_1">
+                <div class="size-arrow"></div>
+                <lable class="options__size-lable">
+                  <input class="options__size-input" type="number" step="1" min="30" max="900" data-table-size="bot-left"><span class="options__size-text">см</span>
+                </lable>
+                <div class="size-arrow size-arrow_end"></div>
+              </div>
+              <div class="options__size-arrow-vertical size-arrow-vertical_left">
+                <div class="size-arrow"></div>
+                <lable class="options__size-lable">
+                  <input class="options__size-input" type="number" step="1" min="30" max="900" data-table-size="left"><span class="options__size-text">см</span>
+                </lable>
+                <div class="size-arrow size-arrow_end"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="assets/scripts/calculator.js"></script>
+    <script src="assets/scripts/imask.min.js"></script>
+    <script src="assets/scripts/tiny-slider.js"></script>
+    <script src="assets/scripts/accordion.min.js"></script>
+    <script src="assets/scripts/medium-zoom.min.js"></script>
+    <script src="assets/scripts/focus-visible.js"></script>
+    <script src="assets/scripts/main.js"></script>
+  </body>
+</html>
