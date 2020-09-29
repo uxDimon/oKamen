@@ -1,16 +1,17 @@
 #table-size-norm,
-#table-size-g,
+// #table-size-g,
 #table-size-p {
 	display: none;
 }
 
-// #category,
+#category,
 #form,
 #materials,
 #parameters,
 #notch,
-#services,
-#total {
+#services 
+// #total
+{
 	display: none;
 }
 
@@ -26,6 +27,10 @@
 .calc__body {
 	max-width: 610px;
 	width: 100%;
+}
+
+.calc__body_total {
+	max-width: 100%;
 }
 
 .calc__heading {
@@ -115,19 +120,24 @@
 	}
 }
 
-.radio-wrap-border-s {
-	width: 100%;
+.radio-wrap-border-s,
+.radio-wrap-border-s_60 {
 	height: 1px;
 	background-color: $color-dark-gray;
-	margin-bottom: 16px;
 
 	&:last-child {
 		margin-bottom: 0;
 	}
 }
 
+.radio-wrap-border-s {
+	width: 100%;
+	margin: 40px 0;
+}
+
 .radio-wrap-border-s_60 {
 	width: 60%;
+	margin-bottom: 16px;
 }
 
 .options__radio {
@@ -663,4 +673,91 @@
 	:checked .options__radio-button {
 		margin-bottom: 12px;
 	}
+}
+
+.options__total-main-options-wrap {
+	display: flex;
+	justify-content: space-between;
+}
+
+.options__total-main-options {
+	display: flex;
+	flex-direction: column;
+}
+
+.options__total-main-options-heading {
+	font-weight: 600;
+	margin-bottom: 8px;
+}
+
+.options__options-price-wrap {
+	display: flex;
+	justify-content: space-between;
+}
+
+.options__total-options-table {
+	width: 100%;
+	margin-right: 60px;
+
+	table {
+		width: 100%;
+		border-collapse: collapse;
+	}
+
+	tr:hover {
+		background-color: #e0e0e0;
+	}
+
+	td {
+		padding: 8px 4px;
+	}
+
+	.options__total-options-head {
+		font-family: $font-Manrope;
+		font-weight: 600;
+
+		// td {
+		// 	padding: 0 0 8px 0;
+		// }
+	}
+}
+
+.options__total-price-wrap {
+	width: 100%;
+	max-width: 440px;
+	padding: 24px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background-color: $color-white;
+
+	.button {
+		width: 100%;
+		margin-bottom: 8px;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+}
+
+.options__total-price-text {
+	font-family: $font-Manrope;
+	font-weight: 600;
+	font-size: 24px;
+	line-height: 133%;
+	text-align: center;
+	margin-bottom: 56px;
+}
+
+.options__total-price-number {
+	font-weight: bold;
+	font-size: 28px;
+	line-height: 114%;
+	text-align: center;
+	padding-bottom: 12px;
+	border-bottom: 1px solid $color-gold;
+	width: 100%;
+	max-width: 290px;
+	margin-bottom: 50px;
 }

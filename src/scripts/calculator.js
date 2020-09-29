@@ -12,6 +12,9 @@ function calcTab(button, block, data_attribute) {
 		const buttonData = buttonItem.getAttribute(data_attribute);
 		buttonItem.addEventListener("click", () => {
 			listShowItem(block, buttonData);
+			// if (buttonData == "total") {
+			// 	document.querySelector("#" + activSizeForm.name).style.display = "none";
+			// }
 		});
 	}
 }

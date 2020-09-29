@@ -268,7 +268,7 @@ block content
                         label.checkbox-button.options__checkbox-button
                             input(type="checkbox", name="")
                             span Стеновые панели из камня <span class='options__radio-text-gray'>(от 1 000 ₽)</span>
-                        .radio-wrap-border-s.radio-wrap-border-s_60
+                        .radio-wrap-border-s_60
                         label.checkbox-button.options__checkbox-button
                             input(type="checkbox", name="")
                             span Замер <span class='options__radio-text-gray'>(бесплатно)</span>
@@ -281,7 +281,86 @@ block content
 
                     .calc__button-wrap
                         button(data-calc-previous-button = 'notch').button.button_gray.calc__button Назад
-                        button(data-calc-next-button = 'services').button.calc__button Далее
+                        button(data-calc-next-button = 'total').button.calc__button Далее
+                
+                .calc__body.calc__body_total#total
+                    .options
+                        .options__total-head
+                            h3.options__heading Выбранные параметры
+                            .options__total-main-options-wrap
+                                .options__total-main-options
+                                    span.options__total-main-options-heading Тип столешницы
+                                    span.options__total-main-options-text Г-образная 
+                                .options__total-main-options
+                                    span.options__total-main-options-heading Размеры столешницы
+                                    span.options__total-main-options-text 100х100х100х100 см
+                                .options__total-main-options
+                                    span.options__total-main-options-heading Название камня
+                                    span.options__total-main-options-text Vicostone Dark Emperador BQ8560
+                                .options__total-main-options
+                                    span.options__total-main-options-heading Производитель
+                                    span.options__total-main-options-text Vicostone 
+                                .options__total-main-options
+                                    span.options__total-main-options-heading Цвет
+                                    span.options__total-main-options-text серый quarty 
+                        
+                        .radio-wrap-border-s
+                        
+                        .options__total-body
+                            h3.options__heading Выбранные параметры
+                            .options__options-price-wrap
+                                .options__total-options-table
+                                    table
+                                        tr.options__total-options-head
+                                            td Наименование
+                                            td Описание
+                                            td Стоимость
+                                        tr
+                                            td Кол-во материала
+                                            td 2 листа по 3м
+                                            td 74 360 ₽ 
+                                        tr
+                                            td Вырез под мойку
+                                            td Снизу столешницы
+                                            td 4 000 ₽ 
+                                        tr
+                                            td Вырез под варочную панель
+                                            td Да
+                                            td 1 000 ₽ 
+                                        tr
+                                            td Вырез под смеситель
+                                            td Да
+                                            td 4 000 ₽ 
+                                        tr
+                                            td Форма скругления
+                                            td Тип Б
+                                            td 4 000 ₽ 
+                                        tr
+                                            td Подставка под горячее
+                                            td Да
+                                            td 4 000 ₽ 
+                                        tr
+                                            td Замер
+                                            td Да
+                                            td Бесплатно
+                                        tr
+                                            td Доставка
+                                            td Да
+                                            td 3 000 ₽
+
+                                .options__total-price-wrap
+                                    span.options__total-price-text Предварительная стоимость
+                                    span.options__total-price-number 94 360 ₽
+
+                                    button.button.calc__button Заказать звонок
+                                    button.button.button_gray.calc__button Скачать расчёт в PDF
+
+                    .calc__button-wrap
+                        button(data-calc-previous-button = 'services').button.button_arrow-left.calc__button
+                            svg
+                                use(xlink:href="./assets/images/sprite.svg#button-arrow")
+                            span Назад
+
                 
                 .options__size.options__size_norm#table-size-norm
                     .options__size-img-wrap

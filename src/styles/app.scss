@@ -40,8 +40,8 @@ body {
 	font-family: $font-Spectral;
 	font-style: normal;
 	font-weight: normal;
-	font-size: 24px;
-	line-height: 1.33;
+	font-size: 18px;
+	line-height: 133%;
 	background: #f2f2f2;
 	color: $color-light-black;
 
@@ -94,6 +94,24 @@ h6 {
 
 .button_gray {
 	background-color: #acacac;
+}
+
+.button_arrow-left {
+	background-color: transparent;
+	color: $color-dark-gray;
+	padding: 0;
+	min-width: auto;
+
+	svg {
+		width: 25px;
+		height: 8px;
+	}
+}
+
+.button_arrow-left {
+	svg {
+		margin-right: 16px;
+	}
 }
 
 // input
