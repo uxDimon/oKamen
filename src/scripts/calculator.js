@@ -4,6 +4,13 @@ function listShowItem(items, idItem, display = "block") {
 		blockItem.style.display = "none";
 	}
 	document.querySelector("#" + idItem).style.display = display;
+
+	const activeSize = document.querySelector(".options__size-wrap");
+	if (idItem == "total") {
+		activeSize.style.display = "none";
+	} else {
+		activeSize.style.display = "block";
+	}
 }
 
 function calcTab(button, block, data_attribute) {
@@ -12,9 +19,6 @@ function calcTab(button, block, data_attribute) {
 		const buttonData = buttonItem.getAttribute(data_attribute);
 		buttonItem.addEventListener("click", () => {
 			listShowItem(block, buttonData);
-			// if (buttonData == "total") {
-			// 	document.querySelector("#" + activSizeForm.name).style.display = "none";
-			// }
 		});
 	}
 }
