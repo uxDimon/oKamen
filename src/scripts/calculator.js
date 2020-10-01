@@ -161,16 +161,17 @@ function errorInput(object) {
 	if (!Number.isInteger(object)) {
 		let inputError = document.querySelector(`[data-table-size = "${object.maxInput}"]`).parentNode;
 		let inputMinError = document.querySelector(`[data-table-size = "${object.minInput}"]`);
+		let errorElement = document.querySelector("." + errorInputClass);
 		errorHtml.innerHTML = errorHtmlText;
 		inputError.append(errorHtml);
+		if (errorElement) {
+			errorElement.classList.remove(errorInputClass);
+		}
 		inputMinError.classList.add(errorInputClass);
-
-		console.log("1");
 	} else if (document.querySelector("." + errorHtmlClass)) {
 		document.querySelector("." + errorHtmlClass).remove();
 		document.querySelector("." + errorInputClass).classList.remove(errorInputClass);
 		console.log(document.querySelector("." + errorInputClass));
-		console.log("2");
 	}
 }
 
