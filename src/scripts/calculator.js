@@ -148,30 +148,37 @@ let activSizeForm = {
 };
 
 // html ошибки
-let errorHtml = document.createElement("span"),
-	errorHtmlText = "Не может быть меньше размера", // Текст ошибки
+let errorHtmlText = "Не может быть меньше размера", // Текст ошибки
 	errorHtmlClass = "options__size-error", // Класс ошибки
-	errorInputClass = "options__size-min-error"; // Класс ошибки инпута с большим значением
-errorHtml.className = errorHtmlClass;
+	errorInputClass = "options__size-min-error", // Класс ошибки инпута с большим значением
+	errorHtml = `<span class="${errorHtmlClass}">${errorHtmlText}</span>`,
+	errorItems,
+	errorOn = false;
 
 function errorInput(object) {
 	// Вводит ошибку если значение внесено некорректно
-	// console.log(object.maxInput);
-	console.log(object);
 	if (!Number.isInteger(object)) {
-		let inputError = document.querySelector(`[data-table-size = "${object.maxInput}"]`).parentNode;
-		let inputMinError = document.querySelector(`[data-table-size = "${object.minInput}"]`);
-		let errorElement = document.querySelector("." + errorInputClass);
-		errorHtml.innerHTML = errorHtmlText;
-		inputError.append(errorHtml);
-		if (errorElement) {
-			errorElement.classList.remove(errorInputClass);
+		let inputError = document.querySelector(`#${activSizeForm.name} [data-table-size = "${object.maxInput}"]`).parentNode;
+		let inputMinError = document.querySelector(`#${activSizeForm.name} [data-table-size = "${object.minInput}"]`);
+		errorItems = { inputError: inputError, inputMinError: inputMinError };
+
+		if (errorOn) {
+			// Отчищает пред идущие ошибки если есть
+			document.querySelector(`#${activSizeForm.name} .${errorHtmlClass}`).remove();
+			document.querySelector(`#${activSizeForm.name} .${errorInputClass}`).classList.remove(errorInputClass);
+			errorOn = false;
 		}
-		inputMinError.classList.add(errorInputClass);
-	} else if (document.querySelector("." + errorHtmlClass)) {
-		document.querySelector("." + errorHtmlClass).remove();
-		document.querySelector("." + errorInputClass).classList.remove(errorInputClass);
-		console.log(document.querySelector("." + errorInputClass));
+
+		errorItems.inputError.insertAdjacentHTML("beforeend", errorHtml);
+		errorItems.inputMinError.classList.add(errorInputClass);
+		errorOn = true;
+	}
+
+	if (Number.isInteger(object) && errorOn) {
+		// Удаляет ошибки
+		document.querySelector(`#${activSizeForm.name} .${errorHtmlClass}`).remove();
+		document.querySelector(`#${activSizeForm.name} .${errorInputClass}`).classList.remove(errorInputClass);
+		errorOn = false;
 	}
 }
 
@@ -205,7 +212,7 @@ function calcArea(object) {
 			return generateError("right", "body");
 		}
 		if (object.size["top"] <= object.size["bot-left"] + object.size["bot-right"]) {
-			return generateError("top", ["left-top", "bot-right"]);
+			return generateError("top", "left-top");
 		}
 		const area_left = object.size["left"] * object.size["bot-left"];
 		const area_right = object.size["right"] * object.size["bot-right"];
@@ -233,9 +240,14 @@ for (const radioItem of radioForm) {
 
 for (const inputItem of inputSize) {
 	// Минимальное значение для инпута, указывается в min=""
-	inputItem.addEventListener("change", (event) => {
-		if (event.target.min > event.target.value) {
-			event.target.value = event.target.min;
+	inputItem.addEventListener("change", () => {
+		if (inputItem.min > inputItem.value) {
+			inputItem.value = inputItem.min;
 		}
 	});
+	// inputItem.addEventListener("change", (event) => {
+	// 	if (event.target.min > event.target.value) {
+	// 		event.target.value = event.target.min;
+	// 	}
+	// });
 }
