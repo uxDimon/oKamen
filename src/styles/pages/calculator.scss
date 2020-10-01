@@ -559,6 +559,28 @@
 	margin: 4px;
 }
 
+.options__size-error {
+	font-size: 14px;
+	line-height: 1.2;
+	color: $color-white;
+	position: absolute;
+	top: 100%;
+	right: 50%;
+	transform: translateX(50%);
+	margin-top: -8px;
+	padding: 6px 8px;
+	background-color: #926a31;
+	// border: 1px solid $color-white;
+	border-radius: 4px;
+	max-width: 250px;
+	min-width: max-content;
+}
+
+.options__size-min-error {
+	border: 1px solid #926a31;
+	box-shadow: 0 0 6px #926a31;
+}
+
 .options__size-input {
 	border: 1px solid $color-dark-gray;
 	box-sizing: border-box;
