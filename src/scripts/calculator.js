@@ -147,7 +147,6 @@ let activSizeForm = {
 	size: {},
 };
 
-// html ошибки
 let errorHtmlText = "Не может быть меньше размера", // Текст ошибки
 	errorHtmlClass = "options__size-error", // Класс ошибки
 	errorInputClass = "options__size-min-error", // Класс ошибки инпута с большим значением
@@ -157,16 +156,23 @@ let errorHtmlText = "Не может быть меньше размера", // �
 
 function errorInput(object) {
 	// Вводит ошибку если значение внесено некорректно
+	function removeError() {
+		// Удаляет ошибки
+		for (const i of document.querySelectorAll(`#${activSizeForm.name} .${errorHtmlClass}`)) {
+			i.remove();
+		}
+		for (const i of document.querySelectorAll(`#${activSizeForm.name} .${errorInputClass}`)) {
+			i.classList.remove(errorInputClass);
+		}
+		errorOn = false;
+	}
 	if (!Number.isInteger(object)) {
 		let inputError = document.querySelector(`#${activSizeForm.name} [data-table-size = "${object.maxInput}"]`).parentNode;
 		let inputMinError = document.querySelector(`#${activSizeForm.name} [data-table-size = "${object.minInput}"]`);
 		errorItems = { inputError: inputError, inputMinError: inputMinError };
 
 		if (errorOn) {
-			// Отчищает пред идущие ошибки если есть
-			document.querySelector(`#${activSizeForm.name} .${errorHtmlClass}`).remove();
-			document.querySelector(`#${activSizeForm.name} .${errorInputClass}`).classList.remove(errorInputClass);
-			errorOn = false;
+			removeError();
 		}
 
 		errorItems.inputError.insertAdjacentHTML("beforeend", errorHtml);
@@ -175,10 +181,20 @@ function errorInput(object) {
 	}
 
 	if (Number.isInteger(object) && errorOn) {
-		// Удаляет ошибки
-		document.querySelector(`#${activSizeForm.name} .${errorHtmlClass}`).remove();
-		document.querySelector(`#${activSizeForm.name} .${errorInputClass}`).classList.remove(errorInputClass);
-		errorOn = false;
+		removeError();
+	}
+}
+
+function filledInput() {
+	const objectLength = Object.keys(activSizeForm.size).length;
+	let step = 0;
+	for (const key in activSizeForm.size) {
+		step++;
+		if (activSizeForm.size[key] == 0) {
+			return false;
+		} else if (objectLength == step) {
+			return true;
+		}
 	}
 }
 
@@ -186,6 +202,9 @@ function calcArea(object) {
 	function generateError(maxInput, minInput) {
 		return { maxInput, minInput };
 	}
+
+	let filled = filledInput();
+
 	// Расчет площади Прямая
 	if (activSizeForm.name == "table-size-norm") {
 		const area = object.size["bot"] * object.size["left"];
@@ -193,10 +212,10 @@ function calcArea(object) {
 	}
 	// Расчет площади Г-образная
 	if (activSizeForm.name == "table-size-g") {
-		if (object.size["top"] <= object.size["bot-right"] && object.size["top"] != 0) {
+		if (object.size["top"] <= object.size["bot-right"] && filled) {
 			return generateError("top", "bot-right");
 		}
-		if (object.size["right"] <= object.size["left-top"] && object.size["right"] != 0) {
+		if (object.size["right"] <= object.size["left-top"] && filled) {
 			return generateError("right", "left-top");
 		}
 		const area_left = (object.size["top"] - object.size["bot-right"]) * (object.size["right"] - object.size["left-top"]);
@@ -205,14 +224,14 @@ function calcArea(object) {
 	}
 	// Расчет площади П-образная
 	if (activSizeForm.name == "table-size-p") {
-		if (object.size["left"] <= object.size["body"]) {
+		if (object.size["left"] <= object.size["body"] && filled) {
 			return generateError("left", "body");
 		}
-		if (object.size["right"] <= object.size["body"]) {
+		if (object.size["right"] <= object.size["body"] && filled) {
 			return generateError("right", "body");
 		}
-		if (object.size["top"] <= object.size["bot-left"] + object.size["bot-right"]) {
-			return generateError("top", "left-top");
+		if (object.size["top"] <= object.size["bot-left"] + object.size["bot-right"] && filled) {
+			return generateError("top", "bot-left");
 		}
 		const area_left = object.size["left"] * object.size["bot-left"];
 		const area_right = object.size["right"] * object.size["bot-right"];
@@ -224,30 +243,25 @@ function calcArea(object) {
 for (const radioItem of radioForm) {
 	radioItem.addEventListener("change", (event) => {
 		activSizeForm.name = event.target.value;
-		activSizeForm.size = {};
+		// activSizeForm.size = {};
 
 		let inputActive = document.querySelectorAll("#" + activSizeForm["name"] + " [data-table-size]");
 		for (const inputItem of inputActive) {
 			activSizeForm.size[inputItem.dataset.tableSize] = Number(inputItem.value);
 			inputItem.addEventListener("change", (event) => {
 				activSizeForm.size[event.target.dataset.tableSize] = Number(event.target.value);
-				// console.log(calcArea(activSizeForm));
+				console.log(calcArea(activSizeForm));
 				errorInput(calcArea(activSizeForm));
 			});
 		}
 	});
 }
 
-for (const inputItem of inputSize) {
-	// Минимальное значение для инпута, указывается в min=""
-	inputItem.addEventListener("change", () => {
-		if (inputItem.min > inputItem.value) {
-			inputItem.value = inputItem.min;
-		}
-	});
-	// inputItem.addEventListener("change", (event) => {
-	// 	if (event.target.min > event.target.value) {
-	// 		event.target.value = event.target.min;
-	// 	}
-	// });
-}
+// for (const inputItem of inputSize) {
+// 	// Минимальное значение для инпута, указывается в min=""
+// 	inputItem.addEventListener("change", () => {
+// 		if (inputItem.min > inputItem.value) {
+// 			inputItem.value = inputItem.min;
+// 		}
+// 	});
+// }
