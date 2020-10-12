@@ -1,0 +1,78 @@
+header.header__wrap
+    .header
+        a(href="#").header__logo
+            svg(width="160", height="64").header__logo
+                use(xlink:href="./assets/images/sprite.svg#logo")
+
+        .header__body
+            .header__kontacts
+                .header__kontacts-item
+                    span.header__kontacts-city Кузьмолово
+                    span.header__kontacts-street Токсовское шоссе
+                    a(href="tel:+78123804144").header__kontacts-tel +7 (812) 380-41-44
+                .header__kontacts-item
+                    span.header__kontacts-city Велигонты
+                    span.header__kontacts-street Ропшинское шоссе
+                    a(href="tel:+78123804144").header__kontacts-tel +7 (812) 380-41-44
+                .header__kontacts-item
+                    span.header__kontacts-city Сертолово
+                    span.header__kontacts-street Выборгское шоссе
+                    a(href="tel:+78123804144").header__kontacts-tel +7 (812) 380-41-44
+                .header__kontacts-item
+                    span.header__kontacts-city Санкт-Петербург
+                    span.header__kontacts-street МЦ Аквилон
+                    a(href="tel:+78123804144").header__kontacts-tel +7 (812) 380-41-44
+                .header__kontacts-item
+                    span.header__kontacts-city Заневка
+                    span.header__kontacts-street Колтушское шоссе
+                    a(href="tel:+78123804144").header__kontacts-tel +7 (812) 380-41-44
+            
+            .header__menu-second-wrap
+                nav.header__main-menu.main-menu
+                    ul.main-menu__list
+                        li.main-menu__item
+                            a(href="#", data-drop-linc).main-menu__linc Продукция
+                            ul(data-drop-menu).main-menu__drop-list
+                                li.main-menu__drop-item
+                                    a(href="#").main-menu__drop-linc Пункт меню 1
+                                li.main-menu__drop-item
+                                    a(href="#").main-menu__drop-linc Пункт меню 2
+                                li.main-menu__drop-item
+                                    a(href="#").main-menu__drop-linc Пункт меню 3
+                        li.main-menu__item
+                            a(href="#", data-drop-linc).main-menu__linc Материалы
+                            ul(data-drop-menu).main-menu__drop-list
+                                li.main-menu__drop-item
+                                    a(href="#").main-menu__drop-linc Пункт меню 1
+                                li.main-menu__drop-item
+                                    a(href="#").main-menu__drop-linc Пункт меню 2
+                                li.main-menu__drop-item
+                                    a(href="#").main-menu__drop-linc Пункт меню 3
+                                li.main-menu__drop-item
+                                    a(href="#").main-menu__drop-linc Пункт меню 4
+                        li.main-menu__item
+                            a(href="#").main-menu__linc Калькулятор стоимости
+                        li.main-menu__item
+                            a(href="#").main-menu__linc Акции
+                        li.main-menu__item
+                            a(href="#").main-menu__linc Контакты 
+                    
+                    ul.main-menu__list.main-menu__list_second
+                        li.main-menu__item
+                            a(href="#").main-menu__linc О нас
+                        li.main-menu__item
+                            a(href="#").main-menu__linc Статьи
+                        li.main-menu__item
+                            a(href="#").main-menu__linc Прайс-лист
+                        li.main-menu__item
+                            a(href="#").main-menu__linc Доставка и оплата
+                
+                label.header__second
+                    svg.header__second-icon
+                        use(xlink:href="./assets/images/sprite.svg#icon-search")
+                    input(type="search", name="search" placeholder="Найти").input.input_contact.header__second-input
+
+                button(data-burger-button).header__burger-button
+                    span
+
+                

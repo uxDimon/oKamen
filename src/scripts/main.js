@@ -1,11 +1,11 @@
-// // Бургер меню
-// const burgerButton = document.querySelector(".header__top-burger");
-// const burgerManu = document.querySelector(".header__bot");
+// Бургер меню
+const burgerButton = document.querySelector("[data-burger-button]");
+const burgerManu = document.querySelector(".header__main-menu");
 
-// burgerButton.addEventListener("click", () => {
-// 	burgerManu.classList.toggle("is-active");
-// 	burgerButton.classList.toggle("is-active");
-// });
+burgerButton.addEventListener("click", () => {
+	burgerManu.classList.toggle("main-menu_active");
+	burgerButton.classList.toggle("header__burger-button_active");
+});
 
 // // Табы
 // const tabsButton = document.querySelectorAll(".stages-work__button");
