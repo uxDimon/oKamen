@@ -149,8 +149,54 @@ a {
 }
 
 .input_contact {
-	border: none;
+	border: 1px solid $color-white;
 	background-color: $color-white;
+
+	&:focus {
+		border-color: #c0c0c0;
+		outline: none;
+	}
+}
+
+.input_contact_invalid {
+	border-color: #c03030;
+}
+
+textarea.input_contact {
+	padding-top: 12px;
+	padding-bottom: 12px;
+}
+
+.input-file {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: transparent;
+	height: 44px;
+	border-radius: 3px;
+	border: 1px dashed rgba(22, 22, 21, 0.3);
+	cursor: pointer;
+
+	> span {
+		display: flex;
+		align-items: center;
+		font-family: $font-Manrope;
+		font-size: 12px;
+		line-height: 125%;
+
+		&::before {
+			content: "";
+			background: url("../images/sprite.svg#icon-unload") no-repeat center;
+			margin-right: 16px;
+			width: 23px;
+			height: 20px;
+		}
+	}
+
+	> input {
+		position: absolute;
+		visibility: hidden;
+	}
 }
 
 .checkbox-button,
@@ -293,6 +339,7 @@ a {
 
 @import "./pages/calculator.scss";
 
+@import "./common/contact.scss";
 @import "./common/footer.scss";
 
 // @media screen and (max-width: 1344px) {

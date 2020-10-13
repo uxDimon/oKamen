@@ -1,0 +1,45 @@
+article.contact__wrap
+    .contact
+        form.contact__form
+            h2.contact__h Запишитесь на консультацию
+            span.contact__option-text Что вас интересует?
+            .contact__option-wrap
+                label.contact__option-item
+                    input(type="radio", name="contact-product", checked)
+                    span Столешница
+                label.contact__option-item
+                    input(type="radio", name="contact-product")
+                    span Подоконник
+                label.contact__option-item
+                    input(type="radio", name="contact-product")
+                    span Лестница
+
+            .contact__input
+                <!-- Класс для не заполненного поля .input_contact_invalid -->
+                input(type="text", name="name" placeholder="Имя").input.input_contact
+                input(type="tel", name="tel" placeholder="Телефон", required).input.input_contact
+                textarea(name="message" placeholder="Сообщение").input.input_contact.contact__input-textarea
+                
+                label.contact__input-file.input-file
+                    span Загрузите файл (по желанию)
+                    input(type="file", name="file" onchange='uploadFile(this)')
+
+            .contact__button-wrap
+                button(type="submit").button.contact__button Отправить
+
+                .contact__type-contact
+                    span.contact__type-contact-text Выберите способ связи
+                    .contact__type-contact-wrap
+                        label(tabindex="0").contact__type-contact-item
+                            input(type="radio", name="contact-type-contact", checked)
+                            span Телефон    
+                        label(tabindex="0").contact__type-contact-item
+                            input(type="radio", name="contact-type-contact")
+                            span WhatsApp
+                        label(tabindex="0").contact__type-contact-item
+                            input(type="radio", name="contact-type-contact")
+                            span Viber
+
+            span.contact__conf Отправляя личные данные, Вы соглашаетесь с политикой конфиденциальности
+
+        img(src="./assets/images/kontakt.png", alt="Запишитесь на консультацию").contact__img

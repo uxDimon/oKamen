@@ -7,6 +7,11 @@ burgerButton.addEventListener("click", () => {
 	burgerButton.classList.toggle("header__burger-button_active");
 });
 
+// input file
+function uploadFile(target) {
+	document.querySelector(".input-file > span").innerHTML = target.files[0].name;
+}
+
 // // Табы
 // const tabsButton = document.querySelectorAll(".stages-work__button");
 // const tabsContainerSW = document.querySelectorAll(".stages-work__tabs-item");
@@ -33,19 +38,19 @@ burgerButton.addEventListener("click", () => {
 // mainTab(tabsButton, tabsContainerSW);
 // mainTab(tabsButtonCalc, tabsContainerCalc);
 
-// // Маска для телефона
-// document.querySelectorAll(".phone-mask").forEach((item) => {
-// 	let telMask = IMask(item, {
-// 		mask: "+{7}(000)000-00-00",
-// 	});
-// 	/*Добавление и удаление класса при снятии фокуса с data-type="tel"*/
-// 	telMask.on("accept", function () {
-// 		item.setCustomValidity("Укажите полностью номер телефона.");
-// 	});
-// 	telMask.on("complete", function () {
-// 		item.setCustomValidity("");
-// 	});
-// });
+// Маска для телефона
+document.querySelectorAll("input[type='tel']").forEach((item) => {
+	let telMask = IMask(item, {
+		mask: "+{7}(000)000-00-00",
+	});
+	/*Добавление и удаление класса при снятии фокуса с data-type="tel"*/
+	telMask.on("accept", function () {
+		item.setCustomValidity("Укажите полностью номер телефона.");
+	});
+	telMask.on("complete", function () {
+		item.setCustomValidity("");
+	});
+});
 
 // // Слайдер https://www.npmjs.com/package/tiny-slider
 // if (document.querySelector(".slider-main")) {

@@ -1,0 +1,133 @@
+.contact__wrap {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.contact {
+	width: 100%;
+	max-width: var(--content-max-weight);
+	display: flex;
+	justify-content: space-between;
+}
+
+.contact__form {
+	width: 100%;
+	max-width: 560px;
+}
+
+.contact__h {
+	font-weight: bold;
+	font-size: 40px;
+	line-height: 120%;
+	margin-bottom: 64px;
+}
+
+.contact__option-text {
+	font-family: $font-Manrope;
+	font-size: 16px;
+	line-height: 125%;
+	margin-bottom: 20px;
+	display: block;
+}
+
+.contact__option-wrap {
+	display: grid;
+	grid-auto-flow: column;
+	grid-column-gap: 68px;
+	justify-content: start;
+	padding: 24px 0;
+	border-top: 1px solid transparentize($color-gold, 0.7);
+	border-bottom: 1px solid transparentize($color-gold, 0.7);
+	margin-bottom: 32px;
+}
+
+.contact__option-item {
+	cursor: pointer;
+
+	input {
+		display: none;
+	}
+
+	span {
+		font-size: 18px;
+		line-height: 125%;
+		color: $color-dark-gray;
+	}
+
+	input:checked + span {
+		color: $color-bronze;
+	}
+}
+
+.contact__input {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-gap: 16px;
+	margin-bottom: 36px;
+}
+
+.contact__input-textarea,
+.contact__input-file {
+	grid-column-end: span 2;
+}
+
+.contact__input-textarea {
+	height: 84px;
+	min-height: 40px;
+	max-height: 200px;
+	resize: vertical;
+}
+
+.contact__button-wrap {
+	display: flex;
+}
+
+.contact__button {
+	margin-right: 32px;
+}
+
+.contact__type-contact-text {
+	font-family: $font-Manrope;
+	font-weight: 500;
+	font-size: 14px;
+	line-height: 114%;
+	margin-bottom: 14px;
+	display: block;
+}
+
+.contact__type-contact-wrap {
+	display: grid;
+	grid-auto-flow: column;
+	grid-column-gap: 16px;
+	margin-bottom: 20px;
+}
+
+.contact__type-contact-item {
+	cursor: pointer;
+	display: flex;
+
+	> input {
+		display: none;
+	}
+
+	> span {
+		font-family: $font-Manrope;
+		font-weight: 500;
+		font-size: 12px;
+		line-height: 125%;
+		color: rgba(0, 0, 0, 0.5);
+	}
+
+	> input:checked + span {
+		color: $color-black;
+	}
+}
+
+.contact__conf {
+	font-family: $font-Manrope;
+	font-weight: 500;
+	font-size: 12px;
+	line-height: 125%;
+	color: rgba(0, 0, 0, 0.5);
+}
