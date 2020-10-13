@@ -1,0 +1,129 @@
+.footer__wrap {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.footer {
+	width: 100%;
+	max-width: var(--content-max-weight);
+}
+
+.footer__body {
+	display: flex;
+	justify-content: stretch;
+	margin-top: 64px;
+	margin-bottom: 72px;
+}
+
+.footer__body-text-social {
+	flex: 0 0 730px;
+	padding: 0 18px 0 73px;
+	position: relative;
+
+	&::after {
+		position: absolute;
+		content: "";
+		background-color: $color-white;
+		top: 42px;
+		right: 110px;
+		bottom: 0;
+		width: 100vw;
+		z-index: 1;
+	}
+}
+
+.footer__body-text {
+	font-family: $font-Manrope;
+	font-weight: bold;
+	font-size: 64px;
+	line-height: 112%;
+	color: $color-dark-lite;
+	margin-bottom: 56px;
+	display: inline-block;
+	position: relative;
+	z-index: 2;
+}
+
+.footer__body-social {
+	display: grid;
+	grid-auto-flow: column;
+	grid-column-gap: 52px;
+	justify-content: start;
+	margin-bottom: 36px;
+	position: relative;
+	z-index: 2;
+}
+
+.footer__body-social-linc {
+	svg use {
+		fill: #989898;
+	}
+
+	&:hover .icon-insta use {
+		fill: #f00075;
+	}
+	&:hover .icon-vk use {
+		fill: #2787f5;
+	}
+	&:hover .icon-yuotube use {
+		fill: #ff0000;
+	}
+	&:hover .icon-facebook use {
+		fill: #1877f2;
+	}
+
+	svg {
+		width: 28px;
+		height: 28px;
+		color: inherit;
+	}
+}
+
+.footer__body-meny {
+	flex: 0 0 510px;
+	padding: 0 18px;
+	display: flex;
+	justify-content: center;
+}
+
+.footer__body-meny-list {
+	display: grid;
+	grid-auto-flow: row;
+	grid-row-gap: 8px;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.footer__body-meny-linc {
+	font-family: $font-Manrope;
+	font-weight: bold;
+	font-size: 24px;
+	line-height: 133%;
+	color: $color-black;
+}
+
+.footer__bot {
+	display: grid;
+	grid-auto-flow: column;
+	grid-column-gap: 100px;
+	justify-content: center;
+	margin-bottom: 52px;
+}
+
+.footer__bot-item {
+	font-family: $font-Manrope;
+	font-weight: 600;
+	font-size: 14px;
+	line-height: 114%;
+	color: $color-dark-gray;
+
+	a {
+		color: $color-dark-gray;
+	}
+}
+
+.footer__bot-item_ra a {
+	color: $color-black;
+}

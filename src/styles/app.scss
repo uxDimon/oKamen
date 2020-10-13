@@ -6,6 +6,7 @@
 // Цвета
 $color-black: #161615;
 $color-dark-gray: #4f4f4f;
+$color-dark-lite: #989898;
 $color-gray: #e8e8e8;
 $color-white: #ffffff;
 $color-gold: #b0894e;
@@ -289,7 +290,10 @@ a {
 }
 
 @import "./common/header.scss";
+
 @import "./pages/calculator.scss";
+
+@import "./common/footer.scss";
 
 // @media screen and (max-width: 1344px) {
 
