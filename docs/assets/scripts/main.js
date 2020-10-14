@@ -1,11 +1,16 @@
-// // Бургер меню
-// const burgerButton = document.querySelector(".header__top-burger");
-// const burgerManu = document.querySelector(".header__bot");
+// Бургер меню
+const burgerButton = document.querySelector("[data-burger-button]");
+const burgerManu = document.querySelector(".header__main-menu");
 
-// burgerButton.addEventListener("click", () => {
-// 	burgerManu.classList.toggle("is-active");
-// 	burgerButton.classList.toggle("is-active");
-// });
+burgerButton.addEventListener("click", () => {
+	burgerManu.classList.toggle("main-menu_active");
+	burgerButton.classList.toggle("header__burger-button_active");
+});
+
+// input file
+function uploadFile(target) {
+	document.querySelector(".input-file > span").innerHTML = target.files[0].name;
+}
 
 // // Табы
 // const tabsButton = document.querySelectorAll(".stages-work__button");
@@ -33,73 +38,57 @@
 // mainTab(tabsButton, tabsContainerSW);
 // mainTab(tabsButtonCalc, tabsContainerCalc);
 
-// // Маска для телефона
-// document.querySelectorAll(".phone-mask").forEach((item) => {
-// 	let telMask = IMask(item, {
-// 		mask: "+{7}(000)000-00-00",
-// 	});
-// 	/*Добавление и удаление класса при снятии фокуса с data-type="tel"*/
-// 	telMask.on("accept", function () {
-// 		item.setCustomValidity("Укажите полностью номер телефона.");
-// 	});
-// 	telMask.on("complete", function () {
-// 		item.setCustomValidity("");
-// 	});
-// });
+// Маска для телефона
+document.querySelectorAll("input[type='tel']").forEach((item) => {
+	let telMask = IMask(item, {
+		mask: "+{7}(000)000-00-00",
+	});
+	/*Добавление и удаление класса при снятии фокуса с data-type="tel"*/
+	telMask.on("accept", function () {
+		item.setCustomValidity("Укажите полностью номер телефона.");
+	});
+	telMask.on("complete", function () {
+		item.setCustomValidity("");
+	});
+});
 
-// // Слайдер https://www.npmjs.com/package/tiny-slider
-// if (document.querySelector(".slider-main")) {
-// 	var injury = tns({
-// 		container: ".slider-main",
-// 		items: 1,
-// 		gutter: 20,
-// 		mouseDrag: true,
-// 		// autoHeight: true,
-// 		speed: 400,
-// 		controls: false,
-// 		navPosition: "bottom",
-// 	});
-// }
+// Слайдер https://swiperjs.com/api
+var mySwiper2 = new Swiper(".slider-main2", {
+	loop: true,
+	spaceBetween: 30,
+	effect: "fade",
+});
 
-// if (document.querySelector(".other-public__slider")) {
-// 	var injury = tns({
-// 		container: ".other-public__slider",
-// 		gutter: 24,
-// 		items: 1,
-// 		mouseDrag: true,
-// 		autoWidth: true,
-// 		loop: false,
-// 		speed: 300,
-// 		controlsText: ["", ""],
-// 		nav: false,
-// 		navPosition: "bottom",
-// 		responsive: {
-// 			768: {
-// 				items: 2,
-// 				gutter: 64,
-// 			},
-// 		},
-// 	});
-// }
+function paginationVal(number) {
+	if (number < 10) {
+		number = "0" + number;
+	}
+	return number;
+}
 
-// if (document.querySelector(".gem-wiki__slider")) {
-// 	var injury = tns({
-// 		container: ".gem-wiki__slider",
-// 		items: 3,
-// 		gutter: 16,
-// 		mouseDrag: true,
-// 		autoWidth: true,
-// 		loop: false,
-// 		speed: 250,
-// 		controls: false,
-// 		nav: false,
-// 		responsive: {
-// 			768: {
-// 				gutter: 32,
-// 			},
-// 		},
-// 	});
-// }
+var mySwiper1 = new Swiper(".slider-main1", {
+	loop: true,
+	spaceBetween: 30,
+	navigation: {
+		nextEl: ".slider-main1__button-next",
+		prevEl: ".slider-main1__button-prev",
+	},
+	pagination: {
+		el: ".slider-main1__pagination_wrap",
+		type: "fraction",
+		formatFractionCurrent: function (number) {
+			return paginationVal(number);
+		},
+		formatFractionTotal: function (number) {
+			return paginationVal(number);
+		},
+	},
+	on: {
+		transitionStart: function (slider) {
+			mySwiper2.slideToLoop(slider.realIndex);
+		},
+	},
+});
 
 // // Галерея в статьях
 // const mainGalleryWrap = document.querySelectorAll(".main-gallery__wrap");

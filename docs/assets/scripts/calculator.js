@@ -5,6 +5,7 @@ function listShowItem(items, idItem, display = "block") {
 	}
 	document.querySelector("#" + idItem).style.display = display;
 
+	// Скрывает блок с размерами при переходи на вкладку 'Итог'
 	const activeSize = document.querySelector(".options__size-wrap");
 	if (idItem == "total") {
 		activeSize.style.display = "none";
@@ -113,56 +114,136 @@ numberRounding.addEventListener("input", (event) => {
 
 // Доп опции в чекбоксе
 const moreInput = document.querySelectorAll("[data-calc-more-input]");
-{
-	function onOffMoreInput(data, boolean) {
-		const wrap = document.querySelector("#" + data),
-			items = wrap.querySelectorAll("input");
-		let styleOpacity = "0.3";
-		if (boolean) {
-			styleOpacity = "1";
-			for (const i of items) {
-				i.removeAttribute("disabled");
-			}
-		} else {
-			for (const i of items) {
-				i.setAttribute("disabled", "");
-			}
-		}
-		wrap.style.opacity = styleOpacity;
-	}
 
-	for (const inputItem of moreInput) {
-		const inputData = inputItem.dataset.calcMoreInput;
-		onOffMoreInput(inputData, false);
-		inputItem.addEventListener("change", (event) => {
-			onOffMoreInput(inputData, event.target.checked);
-		});
+function onOffMoreInput(data, boolean) {
+	const wrap = document.querySelector("#" + data),
+		items = wrap.querySelectorAll("input");
+	let styleOpacity = "0.3";
+	if (boolean) {
+		styleOpacity = "1";
+		for (const i of items) {
+			i.removeAttribute("disabled");
+		}
+	} else {
+		for (const i of items) {
+			i.setAttribute("disabled", "");
+		}
 	}
+	wrap.style.opacity = styleOpacity;
+}
+
+for (const inputItem of moreInput) {
+	const inputData = inputItem.dataset.calcMoreInput;
+	onOffMoreInput(inputData, false);
+	inputItem.addEventListener("change", (event) => {
+		onOffMoreInput(inputData, event.target.checked);
+	});
 }
 
 // Расчет площади
-// const inputSize = document.querySelectorAll("[data-table-size]");
+const inputSize = document.querySelectorAll("[data-table-size]");
 let activSizeForm = {
 	name: "",
 	size: {},
 };
 
+let errorHtmlText = "Не может быть меньше размера", // Текст ошибки
+	errorHtmlClass = "options__size-error", // Класс ошибки
+	errorInputClass = "options__size-min-error", // Класс ошибки инпута с большим значением
+	errorHtml = `<span class="${errorHtmlClass}">${errorHtmlText}</span>`,
+	errorItems,
+	errorOn = false;
+
+function errorInput(object) {
+	// Вводит ошибку если значение внесено некорректно
+	function removeError() {
+		// Удаляет ошибки
+		for (const i of document.querySelectorAll(`#${activSizeForm.name} .${errorHtmlClass}`)) {
+			i.remove();
+		}
+		for (const i of document.querySelectorAll(`#${activSizeForm.name} .${errorInputClass}`)) {
+			i.classList.remove(errorInputClass);
+		}
+		errorOn = false;
+	}
+	if (!Number.isInteger(object)) {
+		let inputError = document.querySelector(`#${activSizeForm.name} [data-table-size = "${object.maxInput}"]`).parentNode;
+		let inputMinError = document.querySelector(`#${activSizeForm.name} [data-table-size = "${object.minInput}"]`);
+		errorItems = { inputError: inputError, inputMinError: inputMinError };
+
+		if (errorOn) {
+			removeError();
+		}
+
+		errorItems.inputError.insertAdjacentHTML("beforeend", errorHtml);
+		errorItems.inputMinError.classList.add(errorInputClass);
+		errorOn = true;
+	}
+
+	if (Number.isInteger(object) && errorOn) {
+		removeError();
+	}
+}
+
+function filledInput() {
+	const objectLength = Object.keys(activSizeForm.size).length;
+	let step = 0;
+	for (const key in activSizeForm.size) {
+		step++;
+		if (activSizeForm.size[key] == 0) {
+			return false;
+		} else if (objectLength == step) {
+			return true;
+		}
+	}
+}
+
 function calcArea(object) {
+	function generateError(maxInput, minInput) {
+		return { maxInput, minInput };
+	}
+
+	let filled = filledInput();
+
+	// Расчет площади Прямая
 	if (activSizeForm.name == "table-size-norm") {
 		const area = object.size["bot"] * object.size["left"];
 		return area;
 	}
+	// Расчет площади Г-образная
 	if (activSizeForm.name == "table-size-g") {
+		if (object.size["top"] <= object.size["bot-right"] && filled) {
+			return generateError("top", "bot-right");
+		}
+		if (object.size["right"] <= object.size["left-top"] && filled) {
+			return generateError("right", "left-top");
+		}
 		const area_left = (object.size["top"] - object.size["bot-right"]) * (object.size["right"] - object.size["left-top"]);
 		const area_right = (object.size["top"] - object.size["bot-right"]) * object.size["right"];
 		return area_left + area_right;
+	}
+	// Расчет площади П-образная
+	if (activSizeForm.name == "table-size-p") {
+		if (object.size["left"] <= object.size["body"] && filled) {
+			return generateError("left", "body");
+		}
+		if (object.size["right"] <= object.size["body"] && filled) {
+			return generateError("right", "body");
+		}
+		if (object.size["top"] <= object.size["bot-left"] + object.size["bot-right"] && filled) {
+			return generateError("top", "bot-left");
+		}
+		const area_left = object.size["left"] * object.size["bot-left"];
+		const area_right = object.size["right"] * object.size["bot-right"];
+		const area_body = (object.size["top"] - (object.size["bot-left"] + object.size["bot-right"])) * object.size["body"];
+		return area_left + area_right + area_body;
 	}
 }
 
 for (const radioItem of radioForm) {
 	radioItem.addEventListener("change", (event) => {
 		activSizeForm.name = event.target.value;
-		activSizeForm.size = {};
+		// activSizeForm.size = {};
 
 		let inputActive = document.querySelectorAll("#" + activSizeForm["name"] + " [data-table-size]");
 		for (const inputItem of inputActive) {
@@ -170,13 +251,17 @@ for (const radioItem of radioForm) {
 			inputItem.addEventListener("change", (event) => {
 				activSizeForm.size[event.target.dataset.tableSize] = Number(event.target.value);
 				console.log(calcArea(activSizeForm));
+				errorInput(calcArea(activSizeForm));
 			});
 		}
 	});
 }
 
-// getValueInputs(inputSizeNorm, normalInput);
-
-// function sizeNormal(input) {
-
+// for (const inputItem of inputSize) {
+// 	// Минимальное значение для инпута, указывается в min=""
+// 	inputItem.addEventListener("change", () => {
+// 		if (inputItem.min > inputItem.value) {
+// 			inputItem.value = inputItem.min;
+// 		}
+// 	});
 // }
