@@ -1,0 +1,162 @@
+.slider-main {
+	width: 100%;
+	max-width: var(--content-max-weight);
+	display: flex;
+	position: relative;
+	margin-bottom: 176px;
+}
+
+.slider-main__front {
+	width: 100%;
+	max-width: 300px;
+	position: relative;
+	margin-right: 10px;
+}
+
+.slider-main__text-wrap {
+	position: absolute;
+	top: 24px;
+	left: 0;
+	position: relative;
+	padding: 40px 0;
+	z-index: 2;
+
+	&::before {
+		content: "";
+		position: absolute;
+		top: 0;
+		right: -10px;
+		bottom: 0;
+		width: 100vw;
+		background-color: $color-gray;
+		z-index: -1;
+	}
+}
+
+.slider-main__text-h1 {
+	width: 630px;
+	font-weight: bold;
+	font-size: 48px;
+	line-height: 117%;
+	margin: 0;
+	margin-bottom: 44px;
+}
+
+.slider-main__slider2 {
+	position: absolute;
+	width: 100%;
+	left: 0;
+	bottom: 0;
+}
+
+.slider-main2__item {
+	background-color: $color-bek;
+	display: flex;
+	flex-direction: column;
+}
+
+.slider-main2__name {
+	font-family: $font-Manrope;
+	font-weight: bold;
+	font-size: 24px;
+	line-height: 133%;
+	color: $color-dark-blue;
+	margin-bottom: 8px;
+}
+
+.slider-main2__prise {
+	font-size: 18px;
+	margin-bottom: 24px;
+}
+
+.slider-main__slider1 {
+	min-height: 690px;
+}
+
+.slider-main1__item {
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+
+.slider-main1__name {
+	font-family: $font-Manrope;
+	font-weight: 500;
+	position: absolute;
+	bottom: 20px;
+	left: 44px;
+	color: $color-gray;
+
+	&::before {
+		content: "— ";
+	}
+}
+
+.slider-main1__img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.slider-main1__nav {
+	position: absolute;
+	right: 44px;
+	bottom: 20px;
+	z-index: 2;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+}
+
+.slider-main1__button-prev,
+.slider-main1__button-next {
+	margin: 0;
+	padding: 0;
+	background-color: $color-gray;
+	border: none;
+	width: 26px;
+	height: 26px;
+	mask: url("../images/sprite.svg#arrow-mask");
+	mask-repeat: no-repeat;
+	mask-position: center;
+	mask-size: 26px;
+	cursor: pointer;
+}
+
+.slider-main1__button-prev {
+	margin-right: 16px;
+}
+
+.slider-main1__button-next {
+	transform: rotate(180deg);
+}
+
+.slider-main1__pagination_wrap {
+	font-family: $font-Manrope;
+	color: $color-gray;
+	font-weight: 500;
+	font-size: 18px;
+	line-height: 133%;
+	display: flex;
+	align-items: center;
+
+	.swiper-pagination-current {
+		font-size: 24px;
+		margin-right: 4px;
+		margin-top: 2px;
+	}
+
+	.swiper-pagination-total {
+		margin-left: 4px;
+	}
+
+	&::before {
+		content: "";
+		width: 146px;
+		height: 1px;
+		display: block;
+		background-color: $color-gray;
+		margin-right: 16px;
+		margin-top: 3px;
+	}
+}

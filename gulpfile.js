@@ -20,7 +20,11 @@ const paths = {
 		dest: "build/assets/",
 	},
 	styles: {
-		src: "src/styles/**/*.*",
+		src: "src/styles/**/*.scss",
+		dest: "build/assets/styles/",
+	},
+	css: {
+		src: "src/styles/*.css",
 		dest: "build/assets/styles/",
 	},
 	scripts: {
@@ -64,6 +68,11 @@ function styles() {
 //scripts
 function scripts() {
 	return gulp.src(paths.scripts.src).pipe(gulp.dest(paths.scripts.dest));
+}
+
+//scripts
+function css() {
+	return gulp.src(paths.css.src).pipe(gulp.dest(paths.css.dest));
 }
 
 //fonts
@@ -139,9 +148,10 @@ exports.clean = clean;
 exports.images = images;
 exports.scripts = scripts;
 exports.fonts = fonts;
+exports.css = css;
 
 // просто работаем
-gulp.task("default", gulp.series(gulp.parallel(styles, templates, images, scripts, fonts), gulp.parallel(watch, server)));
+gulp.task("default", gulp.series(gulp.parallel(styles, templates, images, scripts, fonts, css), gulp.parallel(watch, server)));
 
 // контрольная сборка на продакшен
 gulp.task("build", gulp.parallel(clean, gulp.parallel(styles, templates, images, scripts, fonts)));
