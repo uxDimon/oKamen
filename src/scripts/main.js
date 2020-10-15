@@ -62,9 +62,16 @@ function paginationVal(number) {
 
 var styleAge = new Swiper(".style-age__slider", {
 	slidesPerView: "auto",
-	// centeredSlides: true,
 	spaceBetween: 30,
-	// grabCursor: true,
+});
+
+var reviews = new Swiper(".reviews__slider", {
+	loop: true,
+	spaceBetween: 30,
+	navigation: {
+		nextEl: ".reviews__slider-next",
+		prevEl: ".reviews__slider-prev",
+	},
 });
 
 var mySwiper2 = new Swiper(".slider-main2", {

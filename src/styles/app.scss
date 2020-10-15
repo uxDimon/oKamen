@@ -103,6 +103,7 @@ a {
 	justify-content: center;
 	text-align: center;
 	text-decoration: none;
+	min-width: 190px;
 
 	&:disabled {
 		cursor: default;
