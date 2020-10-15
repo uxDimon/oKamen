@@ -60,6 +60,13 @@ function paginationVal(number) {
 	return number;
 }
 
+var styleAge = new Swiper(".style-age__slider", {
+	slidesPerView: "auto",
+	// centeredSlides: true,
+	spaceBetween: 30,
+	// grabCursor: true,
+});
+
 var mySwiper2 = new Swiper(".slider-main2", {
 	loop: true,
 	spaceBetween: 30,
