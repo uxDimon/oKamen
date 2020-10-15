@@ -115,6 +115,16 @@ a {
 	}
 }
 
+.button__ghost {
+	border: 1px solid $color-gold;
+	background-color: transparent;
+	color: $color-black;
+
+	&:hover {
+		border-color: lighten($color-gold, 5%);
+	}
+}
+
 .button_gray {
 	background-color: #acacac;
 }
@@ -375,6 +385,7 @@ textarea.input_contact {
 
 @import "./pages/calculator.scss";
 @import "./pages/index.scss";
+@import "./common/our-projects.scss";
 
 @import "./common/contact.scss";
 @import "./common/footer.scss";
