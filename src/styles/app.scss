@@ -108,6 +108,11 @@ a {
 		cursor: default;
 		opacity: 0.7;
 	}
+
+	&:hover {
+		text-decoration: none;
+		background-color: lighten($color-gold, 5%);
+	}
 }
 
 .button_gray {
