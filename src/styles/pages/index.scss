@@ -21,11 +21,20 @@
 	}
 }
 
-.seo-block__text {
+.seo-block__text__wrap {
+	margin: 48px 30px 24px 0;
 	width: 100%;
 	max-width: 800px;
+}
+
+.seo-block__text {
 	font-size: 24px;
-	margin: 60px 0 24px 0;
+}
+
+.seo-block__h2 {
+	font-weight: bold;
+	font-size: 30px;
+	margin: 0 0 36px 0;
 }
 
 .seo-block__right {

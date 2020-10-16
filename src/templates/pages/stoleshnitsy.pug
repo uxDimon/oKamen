@@ -1,0 +1,35 @@
+extends ../template
+
+block variables
+    - var title = 'Главная'
+    - var contactForm = true
+
+block content
+    main
+        nav.bread-crumbs__wrap
+            ul.bread-crumbs
+                li.bread-crumbs__item
+                    a(href="#").bread-crumbs__linc Главная
+                li.bread-crumbs__item
+                    a(href="#").bread-crumbs__linc Продукция
+                li.bread-crumbs__item
+                    span(href="#").bread-crumbs__linc Кварцевый агломерат
+
+        h1.h2.page__h1 Столешницы
+
+        include ../components/page-slider.pug 
+
+        .seo-block
+            .seo-block__text__wrap
+                h2.seo-block__h2 Эстетичная элегантность
+                p.seo-block__text Мы работаем со всеми типами натурального и искусственного камня: от традиционного гранита и оникса до современных разработок в изготовлении искусственного камня. Используем профессиональный камнеобрабатывающий инструмент и приспособления. Работаем так, чтобы создаваемые изделия были долговечными и удобными в эксплуатации
+
+            .seo-block__right
+                h3.seo-block__right-h Бесплатный выездменеджера
+                p.seo-block__right-text — с образцами камней на объект для составления предварительного расчёта стоимости столешницы
+                p.seo-block__right-text-linc Воспользуйтесь заявкой или свяжитесь с нами по <a href="tel:+78123804144">телефону</a>
+
+        
+
+
+        

@@ -66,11 +66,31 @@ var styleAge = new Swiper(".style-age__slider", {
 });
 
 var reviews = new Swiper(".reviews__slider", {
+	autoHeight: true,
 	loop: true,
 	spaceBetween: 30,
 	navigation: {
-		nextEl: ".reviews__slider-next",
 		prevEl: ".reviews__slider-prev",
+		nextEl: ".reviews__slider-next",
+	},
+});
+
+var pageSlider = new Swiper(".page-slider", {
+	loop: true,
+	spaceBetween: 30,
+	navigation: {
+		prevEl: ".page-slider-prev",
+		nextEl: ".page-slider-next",
+	},
+	pagination: {
+		el: ".page-slider-pagination",
+		type: "fraction",
+		formatFractionCurrent: function (number) {
+			return paginationVal(number);
+		},
+		formatFractionTotal: function (number) {
+			return paginationVal(number);
+		},
 	},
 });
 
@@ -84,8 +104,8 @@ var mySwiper1 = new Swiper(".slider-main1", {
 	loop: true,
 	spaceBetween: 30,
 	navigation: {
-		nextEl: ".slider-main1-next",
 		prevEl: ".slider-main1-prev",
+		nextEl: ".slider-main1-next",
 	},
 	pagination: {
 		el: ".slider-main1-pagination",
