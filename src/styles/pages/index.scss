@@ -95,6 +95,33 @@
 	}
 }
 
+.seo-block3 {
+	width: 100%;
+	max-width: var(--content-max-weight);
+	margin-bottom: 176px;
+	padding-bottom: 58px;
+	position: relative;
+
+	&::before {
+		position: absolute;
+		content: "";
+		right: 55%;
+		bottom: 0;
+		width: 100vw;
+		height: 180px;
+		background-color: #ececec;
+		z-index: -1;
+	}
+}
+
+.seo-block3__h2 {
+	margin: 0 0 40px 0;
+}
+
+.seo-block3__text {
+	font-size: 24px;
+}
+
 // style-age
 .style-age {
 	width: 100%;
