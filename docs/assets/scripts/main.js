@@ -12,32 +12,22 @@ function uploadFile(target) {
 	document.querySelector(".input-file > span").innerHTML = target.files[0].name;
 }
 
-// // Табы
-// const tabsButton = document.querySelectorAll(".stages-work__button");
-// const tabsContainerSW = document.querySelectorAll(".stages-work__tabs-item");
+// Табы
+const tabsBlock = document.querySelectorAll("[data-tabs]");
+let tab = document.querySelectorAll(".product-tab__tab");
 
-// const tabsButtonCalc = document.querySelectorAll(".calculator__head-booton");
-// const tabsContainerCalc = document.querySelectorAll(".calculator__body");
+let buttnTab = document.querySelectorAll("[data-buttn-tab]");
 
-// function mainTab(tabsButton, tabsContainer) {
-// 	for (const i of tabsButton) {
-// 		i.addEventListener("click", () => {
-// 			for (const b of tabsButton) {
-// 				b.classList.add("button_hgost-neutral");
-// 			}
-// 			i.classList.remove("button_hgost-neutral");
+for (const t of buttnTab) {
+	t.addEventListener("change", (event) => {
+		for (const t of tab) {
+			t.style.display = "none";
+		}
+		document.querySelector("#" + event.target.dataset.buttnTab).style.display = "block";
+	});
+}
 
-// 			for (const c of tabsContainer) {
-// 				c.classList.remove("tab-container-active");
-// 			}
-// 			document.querySelector("#" + i.value).classList.add("tab-container-active");
-// 		});
-// 	}
-// }
-
-// mainTab(tabsButton, tabsContainerSW);
-// mainTab(tabsButtonCalc, tabsContainerCalc);
-
+// https://imask.js.org/
 // Маска для телефона
 document.querySelectorAll("input[type='tel']").forEach((item) => {
 	let telMask = IMask(item, {
@@ -51,6 +41,21 @@ document.querySelectorAll("input[type='tel']").forEach((item) => {
 		item.setCustomValidity("");
 	});
 });
+
+for (const input of document.querySelectorAll(".input_prise-wrap input")) {
+	let priseMask = IMask(input, {
+		mask: "num {₽}",
+		blocks: {
+			num: {
+				// nested masks are available!
+				mask: Number,
+				thousandsSeparator: " ",
+				// min: 0,
+				max: 99999999,
+			},
+		},
+	});
+}
 
 // Слайдер https://swiperjs.com/api
 function paginationVal(number) {
