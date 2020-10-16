@@ -1,0 +1,112 @@
+extends ../template
+
+block variables
+    - var title = 'Кварцевый агломерат'
+    - var contactForm = false
+
+block content
+    main
+        nav.bread-crumbs__wrap
+            ul.bread-crumbs
+                li.bread-crumbs__item
+                    a(href="#").bread-crumbs__linc Главная
+                li.bread-crumbs__item
+                    a(href="#").bread-crumbs__linc Продукция
+                li.bread-crumbs__item
+                    span(href="#").bread-crumbs__linc Кварцевый агломерат
+        
+        .product-card
+            img(src="./assets/images/product1.png", alt="Vicostone Dark Emperador BQ8560").product-card__img
+            .product-card__info
+                h1.product-card__name Vicostone Dark Emperador BQ8560
+                span.product-card__art Арт. 177311
+                .product-card__radio-wrap
+                    label.radio-button.product-card__radio
+                        input(type="radio", name="height" checked)
+                        span Толщина 20 мм <span class='options__radio-text-gray'>(11 000 ₽ за 1 <span class='m2'>м2</span>)</span>
+                    label.radio-button.product-card__radio
+                        input(type="radio", name="height")
+                        span Толщина 30 мм <span class='options__radio-text-gray'>(14 000 ₽ за 1 <span class='m2'>м2</span>)</span>
+                
+                .product-card__feature-wrap
+                    span.product-card__feature Цвет: 
+                        span серый quarty
+                    span.product-card__feature Производитель: 
+                        span Vicostone
+
+                button.button.product-card__button Оставить заявку
+        
+        div(data-tabs).product-tab
+            .product-tab__button-wrap
+                label.contact__option-item
+                    input(type="radio", name="contact-product", data-buttn-tab="tab1" checked)
+                    span О камне
+                label.contact__option-item
+                    input(type="radio", name="contact-product", data-buttn-tab="tab2")
+                    span Производитель
+                label.contact__option-item
+                    input(type="radio", name="contact-product", data-buttn-tab="tab3")
+                    span Отзывы
+                label.contact__option-item
+                    input(type="radio", name="contact-product", data-buttn-tab="tab4")
+                    span Доставка
+
+            .product-tab__tab-wrap
+                #tab1.product-tab__tab
+                    p Vicostone Venatino BQ8660 состоит до 93% из природного кварца – прочнейшего природного компонента, 5% полиэфирных смол и 2% красящих пигментов, поэтому этот материал является достаточно стойким к любым внешним воздействиям. Он идеально подходит для изготовления кухонных столешниц, подоконников и барных стоек.
+                    p В отличие от натурального камня, продукция из агломерата Vicostone способна переносить большие нагрузки, устойчива к перепаду температур, воздействию растворителей и кислот, обладает антибактериальными свойствами и безопасна при контакте с пищей.
+                    p Кварцевый агломерат Vicostone Venatino BQ8660 практически не имеет срока годности и эксплуатации – по всему миру можно найти интерьеры, в которых после десятилетий эксплуатации изделия выглядят как новые.
+                    p Материал выпускается в плитах размером 3050х1440/3050х700 мм и толщинах 20 и 30 мм. Мировая гарантия составляет 15 лет. Отличительной особенностью декоров кварцевого камня Vicostone является полная имитация натурального мрамора и гранита. При этом данный материал является намного более практичным.
+                    p Применение современных технологий при изготовлении искусственного камня позволило заводу Vicostone стать одним из ведущих игроков на рынке агломерата.
+                #tab2.product-tab__tab
+                    p Кварцевый агломерат Vicostone Venatino BQ8660 практически не имеет срока годности и эксплуатации – по всему миру можно найти интерьеры, в которых после десятилетий эксплуатации изделия выглядят как новые.
+                    p Материал выпускается в плитах размером 3050х1440/3050х700 мм и толщинах 20 и 30 мм. Мировая гарантия составляет 15 лет. Отличительной особенностью декоров кварцевого камня Vicostone является полная имитация натурального мрамора и гранита. При этом данный материал является намного более практичным.
+                    p Применение современных технологий при изготовлении искусственного камня позволило заводу Vicostone стать одним из ведущих игроков на рынке агломерата.
+                #tab3.product-tab__tab
+                    p Vicostone Venatino BQ8660 состоит до 93% из природного кварца – прочнейшего природного компонента, 5% полиэфирных смол и 2% красящих пигментов, поэтому этот материал является достаточно стойким к любым внешним воздействиям. Он идеально подходит для изготовления кухонных столешниц, подоконников и барных стоек.
+                    p В отличие от натурального камня, продукция из агломерата Vicostone способна переносить большие нагрузки, устойчива к перепаду температур, воздействию растворителей и кислот, обладает антибактериальными свойствами и безопасна при контакте с пищей.
+                    p Кварцевый агломерат Vicostone Venatino BQ8660 практически не имеет срока годности и эксплуатации – по всему миру можно найти интерьеры, в которых после десятилетий эксплуатации изделия выглядят как новые.
+                #tab4.product-tab__tab
+                    p Vicostone Venatino BQ8660 состоит до 93% из природного кварца – прочнейшего природного компонента, 5% полиэфирных смол и 2% красящих пигментов, поэтому этот материал является достаточно стойким к любым внешним воздействиям. Он идеально подходит для изготовления кухонных столешниц, подоконников и барных стоек.
+                    p В отличие от натурального камня, продукция из агломерата Vicostone способна переносить большие нагрузки, устойчива к перепаду температур, воздействию растворителей и кислот, обладает антибактериальными свойствами и безопасна при контакте с пищей.
+                    p Материал выпускается в плитах размером 3050х1440/3050х700 мм и толщинах 20 и 30 мм. Мировая гарантия составляет 15 лет. Отличительной особенностью декоров кварцевого камня Vicostone является полная имитация натурального мрамора и гранита. При этом данный материал является намного более практичным.
+                    p Применение современных технологий при изготовлении искусственного камня позволило заводу Vicostone стать одним из ведущих игроков на рынке агломерата.
+
+        .catalog
+            h2.h2.catalog__h2 Похожие типы камней          
+            ul.catalog-list.catalog__catalog-list 
+                li.catalog-list__item
+                    img(src="./assets/images/material-granit.png", alt="Caesarstone 4011 Cloudburst Concrete").catalog-list__img
+                    span.catalog-list__name Caesarstone 4011 Cloudburst Concrete
+                    span.catalog-list__prise От 111 165 руб.
+                    a(href="#").arrow-linc Подробнее
+                li.catalog-list__item
+                    img(src="./assets/images/material-granit.png", alt="Caesarstone 4011 Cloudburst Concrete").catalog-list__img
+                    span.catalog-list__name Caesarstone 4011 Cloudburst Concrete
+                    span.catalog-list__prise От 111 165 руб.
+                    a(href="#").arrow-linc Подробнее
+                li.catalog-list__item
+                    img(src="./assets/images/material-granit.png", alt="Caesarstone 4011 Cloudburst Concrete").catalog-list__img
+                    span.catalog-list__name Caesarstone 4011 Cloudburst Concrete
+                    span.catalog-list__prise От 111 165 руб.
+                    a(href="#").arrow-linc Подробнее
+                li.catalog-list__item
+                    img(src="./assets/images/material-granit.png", alt="Caesarstone 4011 Cloudburst Concrete").catalog-list__img
+                    span.catalog-list__name Caesarstone 4011 Cloudburst Concrete
+                    span.catalog-list__prise От 111 165 руб.
+                    a(href="#").arrow-linc Подробнее
+                li.catalog-list__item
+                    img(src="./assets/images/material-granit.png", alt="Caesarstone 4011 Cloudburst Concrete").catalog-list__img
+                    span.catalog-list__name Caesarstone 4011 Cloudburst Concrete
+                    span.catalog-list__prise От 111 165 руб.
+                    a(href="#").arrow-linc Подробнее
+
+
+
+
+
+
+
+
+
+
