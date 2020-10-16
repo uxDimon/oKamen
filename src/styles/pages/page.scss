@@ -48,3 +48,94 @@
 	max-width: var(--content-max-weight);
 	margin: 0 0 44px 0;
 }
+
+// materials
+.materials {
+	width: 100%;
+	max-width: var(--content-max-weight);
+	margin-bottom: 176px;
+}
+
+.materials__h2 {
+	margin: 0 0 40px 0;
+}
+
+.materials__list {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-column-gap: 16px;
+	grid-row-gap: 32px;
+}
+
+.materials__heading {
+	font-family: $font-Manrope;
+	font-weight: 600;
+	font-size: 20px;
+	margin-bottom: 14px;
+	display: block;
+}
+
+.materials__img {
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+	border-radius: 3px;
+	margin-bottom: 8px;
+	width: 100%;
+	height: 145px;
+	object-fit: cover;
+	display: block;
+}
+
+.materials__img_m-20 {
+	margin-bottom: 20px;
+}
+
+.materials__text-wrap {
+	font-family: $font-Manrope;
+	font-weight: bold;
+	margin-bottom: 16px;
+}
+
+.materials__prise {
+	font-size: 14px;
+	margin-left: 8px;
+}
+
+.materials__button {
+	height: 32px;
+}
+
+// cost-calculation
+.cost-calculation {
+	width: 100%;
+	max-width: var(--content-max-weight);
+	margin-bottom: 176px;
+}
+
+.cost-calculation_h2 {
+	margin: 0 0 40px 0;
+}
+
+.cost-calculation__content {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-column-gap: 84px;
+}
+
+.cost-calculation__img {
+	object-fit: cover;
+	width: 100%;
+	height: 210px;
+}
+
+.cost-calculation__text-wrap {
+	align-self: center;
+}
+
+.cost-calculation__text {
+	font-size: 24px;
+	margin: 0 0 20px 0;
+}
+
+.cost-calculation__button {
+	width: 100%;
+}
