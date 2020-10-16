@@ -53,12 +53,6 @@ document.querySelectorAll("input[type='tel']").forEach((item) => {
 });
 
 // Слайдер https://swiperjs.com/api
-var mySwiper2 = new Swiper(".slider-main2", {
-	loop: true,
-	spaceBetween: 30,
-	effect: "fade",
-});
-
 function paginationVal(number) {
 	if (number < 10) {
 		number = "0" + number;
@@ -66,15 +60,55 @@ function paginationVal(number) {
 	return number;
 }
 
+var styleAge = new Swiper(".style-age__slider", {
+	slidesPerView: "auto",
+	spaceBetween: 30,
+});
+
+var reviews = new Swiper(".reviews__slider", {
+	autoHeight: true,
+	loop: true,
+	spaceBetween: 30,
+	navigation: {
+		prevEl: ".reviews__slider-prev",
+		nextEl: ".reviews__slider-next",
+	},
+});
+
+var pageSlider = new Swiper(".page-slider", {
+	loop: true,
+	spaceBetween: 30,
+	navigation: {
+		prevEl: ".page-slider-prev",
+		nextEl: ".page-slider-next",
+	},
+	pagination: {
+		el: ".page-slider-pagination",
+		type: "fraction",
+		formatFractionCurrent: function (number) {
+			return paginationVal(number);
+		},
+		formatFractionTotal: function (number) {
+			return paginationVal(number);
+		},
+	},
+});
+
+var mySwiper2 = new Swiper(".slider-main2", {
+	loop: true,
+	spaceBetween: 30,
+	effect: "fade",
+});
+
 var mySwiper1 = new Swiper(".slider-main1", {
 	loop: true,
 	spaceBetween: 30,
 	navigation: {
-		nextEl: ".slider-main1__button-next",
-		prevEl: ".slider-main1__button-prev",
+		prevEl: ".slider-main1-prev",
+		nextEl: ".slider-main1-next",
 	},
 	pagination: {
-		el: ".slider-main1__pagination_wrap",
+		el: ".slider-main1-pagination",
 		type: "fraction",
 		formatFractionCurrent: function (number) {
 			return paginationVal(number);
@@ -89,6 +123,33 @@ var mySwiper1 = new Swiper(".slider-main1", {
 		},
 	},
 });
+
+let manySliders = document.querySelectorAll(".many-sliders__item");
+
+for (const slider of manySliders) {
+	const nextButton = slider.querySelector(".slider-nav__button-next"),
+		prevButton = slider.querySelector(".slider-nav__button-prev"),
+		paginationBlock = slider.querySelector(".slider-nav__pagination");
+
+	let manySliders = new Swiper(slider, {
+		loop: true,
+		spaceBetween: 30,
+		navigation: {
+			nextEl: nextButton,
+			prevEl: prevButton,
+		},
+		pagination: {
+			el: paginationBlock,
+			type: "fraction",
+			formatFractionCurrent: function (number) {
+				return paginationVal(number);
+			},
+			formatFractionTotal: function (number) {
+				return paginationVal(number);
+			},
+		},
+	});
+}
 
 // // Галерея в статьях
 // const mainGalleryWrap = document.querySelectorAll(".main-gallery__wrap");
