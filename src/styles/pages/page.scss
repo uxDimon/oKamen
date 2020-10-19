@@ -59,7 +59,7 @@
 	max-width: $content-max-weight;
 	padding-right: var(--content-p-r);
 	padding-left: var(--content-p-l);
-	margin-bottom: 176px;
+	margin-bottom: var(--block-m-b);
 }
 
 .materials__h2 {
@@ -116,7 +116,7 @@
 	max-width: $content-max-weight;
 	padding-right: var(--content-p-r);
 	padding-left: var(--content-p-l);
-	margin-bottom: 176px;
+	margin-bottom: var(--block-m-b);
 }
 
 .cost-calculation_h2 {
@@ -201,7 +201,7 @@
 	max-width: $content-max-weight;
 	padding-right: var(--content-p-r);
 	padding-left: var(--content-p-l);
-	margin-bottom: 176px;
+	margin-bottom: var(--block-m-b);
 	display: flex;
 	flex-direction: column;
 }
@@ -306,7 +306,7 @@
 	max-width: $content-max-weight;
 	padding-right: var(--content-p-r);
 	padding-left: var(--content-p-l);
-	margin-bottom: 176px;
+	margin-bottom: var(--block-m-b);
 }
 
 .product-tab__button-wrap {

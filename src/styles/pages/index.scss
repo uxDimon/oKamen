@@ -7,7 +7,7 @@
 	justify-content: space-between;
 	align-items: flex-start;
 	position: relative;
-	margin-bottom: 176px;
+	margin-bottom: var(--block-m-b);
 
 	&::before {
 		content: "";
@@ -80,7 +80,7 @@
 	padding-right: var(--content-p-r);
 	padding-left: var(--content-p-l);
 	display: flex;
-	margin-bottom: 176px;
+	margin-bottom: var(--block-m-b);
 }
 
 .seo-block2__img {
@@ -104,7 +104,7 @@
 	max-width: $content-max-weight;
 	padding-right: var(--content-p-r);
 	padding-left: var(--content-p-l);
-	margin-bottom: 176px;
+	margin-bottom: var(--block-m-b);
 	padding-bottom: 58px;
 	position: relative;
 
@@ -135,7 +135,7 @@
 	padding-right: var(--content-p-r);
 	padding-left: var(--content-p-l);
 	display: flex;
-	margin-bottom: 176px;
+	margin-bottom: var(--block-m-b);
 	position: relative;
 
 	&::before {
@@ -193,7 +193,7 @@
 	max-width: $content-max-weight;
 	padding-right: var(--content-p-r);
 	padding-left: var(--content-p-l);
-	margin-bottom: 176px;
+	margin-bottom: var(--block-m-b);
 	display: flex;
 	flex-direction: column;
 }
@@ -254,7 +254,7 @@
 	max-width: $content-max-weight;
 	padding-right: var(--content-p-r);
 	padding-left: var(--content-p-l);
-	margin-bottom: 176px;
+	margin-bottom: var(--block-m-b);
 	display: grid;
 	grid-template-columns: 1fr 780px;
 	grid-column-gap: 100px;

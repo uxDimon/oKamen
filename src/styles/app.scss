@@ -2,6 +2,7 @@
 	// Размеры
 	--content-p-r: 0;
 	--content-p-l: 0;
+	--block-m-b: 176px;
 }
 
 // Размеры
@@ -443,9 +444,15 @@ textarea.input_contact {
 }
 
 @media screen and (max-width: 960px) {
+	:root {
+		--block-m-b: 104px;
+	}
 }
 
 @media screen and (max-width: 768px) {
+	:root {
+		--block-m-b: 84px;
+	}
 }
 // @media screen and (max-width: 1274px) {
 
