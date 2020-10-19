@@ -1,11 +1,47 @@
+const activeClass = "_active";
+
 // Бургер меню
-const burgerButton = document.querySelector("[data-burger-button]");
-const burgerManu = document.querySelector(".header__main-menu");
+const burgerButton = document.querySelector("[data-burger-button]"),
+	burgerManu = document.querySelector(".header__main-menu"),
+	burgerArea = document.querySelector("[data-close-area='burger']");
+
+const dropKontactsButton = document.querySelector("[data-drop-kontacts-button]"),
+	dropKontactsBlock = document.querySelector(".header__kontacts"),
+	dropKontactsArea = document.querySelector("[data-close-area='kontacts']");
+
+const closeArea = document.querySelectorAll("[data-close-area]");
+
+function removeActiveClass() {
+	for (const active of document.querySelectorAll("." + activeClass)) {
+		active.classList.remove(activeClass);
+	}
+}
 
 burgerButton.addEventListener("click", () => {
-	burgerManu.classList.toggle("main-menu_active");
-	burgerButton.classList.toggle("header__burger-button_active");
+	dropKontactsButton.classList.remove(activeClass);
+	dropKontactsBlock.classList.remove(activeClass);
+	dropKontactsArea.classList.remove(activeClass);
+
+	burgerManu.classList.toggle(activeClass);
+	burgerButton.classList.toggle(activeClass);
+	burgerArea.classList.toggle(activeClass);
 });
+
+dropKontactsButton.addEventListener("click", () => {
+	burgerManu.classList.remove(activeClass);
+	burgerButton.classList.remove(activeClass);
+	burgerArea.classList.remove(activeClass);
+
+	dropKontactsButton.classList.toggle(activeClass);
+	dropKontactsBlock.classList.toggle(activeClass);
+	dropKontactsArea.classList.toggle(activeClass);
+});
+
+for (const cA of closeArea) {
+	cA.addEventListener("click", () => {
+		removeActiveClass();
+	});
+}
 
 // input file
 function uploadFile(target) {

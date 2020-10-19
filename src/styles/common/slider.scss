@@ -1,6 +1,8 @@
 .slider-main {
 	width: 100%;
-	max-width: var(--content-max-weight);
+	max-width: $content-max-weight;
+	padding-right: var(--content-p-r);
+	padding-left: var(--content-p-l);
 	display: flex;
 	position: relative;
 	margin-bottom: 176px;
@@ -165,7 +167,9 @@
 
 .many-sliders {
 	width: 100%;
-	max-width: var(--content-max-weight);
+	max-width: $content-max-weight;
+	padding-right: var(--content-p-r);
+	padding-left: var(--content-p-l);
 	display: grid;
 	grid-template-columns: 847px 1fr;
 	grid-template-rows: repeat(2, 216px);
@@ -255,7 +259,9 @@
 // page-slider
 .page-slider__wrap {
 	width: 100%;
-	max-width: var(--content-max-weight);
+	max-width: $content-max-weight;
+	padding-right: var(--content-p-r);
+	padding-left: var(--content-p-l);
 	position: relative;
 	margin-bottom: 176px;
 

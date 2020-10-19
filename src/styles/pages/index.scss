@@ -1,6 +1,8 @@
 .seo-block {
 	width: 100%;
-	max-width: var(--content-max-weight);
+	max-width: $content-max-weight;
+	padding-right: var(--content-p-r);
+	padding-left: var(--content-p-l);
 	display: flex;
 	justify-content: space-between;
 	align-items: flex-start;
@@ -74,7 +76,9 @@
 // seo-block2
 .seo-block2 {
 	width: 100%;
-	max-width: var(--content-max-weight);
+	max-width: $content-max-weight;
+	padding-right: var(--content-p-r);
+	padding-left: var(--content-p-l);
 	display: flex;
 	margin-bottom: 176px;
 }
@@ -97,7 +101,9 @@
 
 .seo-block3 {
 	width: 100%;
-	max-width: var(--content-max-weight);
+	max-width: $content-max-weight;
+	padding-right: var(--content-p-r);
+	padding-left: var(--content-p-l);
 	margin-bottom: 176px;
 	padding-bottom: 58px;
 	position: relative;
@@ -125,7 +131,9 @@
 // style-age
 .style-age {
 	width: 100%;
-	max-width: var(--content-max-weight);
+	max-width: $content-max-weight;
+	padding-right: var(--content-p-r);
+	padding-left: var(--content-p-l);
 	display: flex;
 	margin-bottom: 176px;
 	position: relative;
@@ -182,7 +190,9 @@
 // work-steps
 .work-steps {
 	width: 100%;
-	max-width: var(--content-max-weight);
+	max-width: $content-max-weight;
+	padding-right: var(--content-p-r);
+	padding-left: var(--content-p-l);
 	margin-bottom: 176px;
 	display: flex;
 	flex-direction: column;
@@ -241,7 +251,9 @@
 // reviews
 .reviews {
 	width: 100%;
-	max-width: var(--content-max-weight);
+	max-width: $content-max-weight;
+	padding-right: var(--content-p-r);
+	padding-left: var(--content-p-l);
 	margin-bottom: 176px;
 	display: grid;
 	grid-template-columns: 1fr 780px;

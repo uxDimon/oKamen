@@ -1,6 +1,8 @@
 .our-projects {
 	width: 100%;
-	max-width: var(--content-max-weight);
+	max-width: $content-max-weight;
+	padding-right: var(--content-p-r);
+	padding-left: var(--content-p-l);
 	margin-bottom: 176px;
 	display: flex;
 	flex-direction: column;

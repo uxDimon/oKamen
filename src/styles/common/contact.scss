@@ -7,7 +7,9 @@
 
 .contact {
 	width: 100%;
-	max-width: var(--content-max-weight);
+	max-width: $content-max-weight;
+	padding-right: var(--content-p-r);
+	padding-left: var(--content-p-l);
 	display: flex;
 	justify-content: space-between;
 }

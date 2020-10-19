@@ -1,7 +1,9 @@
 // bread-crumbs
 .bread-crumbs__wrap {
 	width: 100%;
-	max-width: var(--content-max-weight);
+	max-width: $content-max-weight;
+	padding-right: var(--content-p-r);
+	padding-left: var(--content-p-l);
 }
 
 .bread-crumbs {
@@ -45,14 +47,18 @@
 // .page__h1
 .page__h1 {
 	width: 100%;
-	max-width: var(--content-max-weight);
+	max-width: $content-max-weight;
+	padding-right: var(--content-p-r);
+	padding-left: var(--content-p-l);
 	margin: 0 0 44px 0;
 }
 
 // materials
 .materials {
 	width: 100%;
-	max-width: var(--content-max-weight);
+	max-width: $content-max-weight;
+	padding-right: var(--content-p-r);
+	padding-left: var(--content-p-l);
 	margin-bottom: 176px;
 }
 
@@ -107,7 +113,9 @@
 // cost-calculation
 .cost-calculation {
 	width: 100%;
-	max-width: var(--content-max-weight);
+	max-width: $content-max-weight;
+	padding-right: var(--content-p-r);
+	padding-left: var(--content-p-l);
 	margin-bottom: 176px;
 }
 
@@ -190,7 +198,9 @@
 // catalog
 .catalog {
 	width: 100%;
-	max-width: var(--content-max-weight);
+	max-width: $content-max-weight;
+	padding-right: var(--content-p-r);
+	padding-left: var(--content-p-l);
 	margin-bottom: 176px;
 	display: flex;
 	flex-direction: column;
@@ -233,7 +243,9 @@
 // product
 .product-card {
 	width: 100%;
-	max-width: var(--content-max-weight);
+	max-width: $content-max-weight;
+	padding-right: var(--content-p-r);
+	padding-left: var(--content-p-l);
 	display: flex;
 	margin-bottom: 76px;
 }
@@ -291,7 +303,9 @@
 
 .product-tab {
 	width: 100%;
-	max-width: var(--content-max-weight);
+	max-width: $content-max-weight;
+	padding-right: var(--content-p-r);
+	padding-left: var(--content-p-l);
 	margin-bottom: 176px;
 }
 

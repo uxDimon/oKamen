@@ -1,7 +1,11 @@
 :root {
 	// Размеры
-	--content-max-weight: 1240px;
+	--content-p-r: 0;
+	--content-p-l: 0;
 }
+
+// Размеры
+$content-max-weight: 1240px;
 
 // Цвета
 $color-black: #161615;
@@ -431,7 +435,19 @@ textarea.input_contact {
 @import "./common/contact.scss";
 @import "./common/footer.scss";
 
-// @media screen and (max-width: 1344px) {
+@media screen and (max-width: 1274px) {
+	:root {
+		--content-p-r: 16px;
+		--content-p-l: 16px;
+	}
+}
+
+@media screen and (max-width: 960px) {
+}
+
+@media screen and (max-width: 768px) {
+}
+// @media screen and (max-width: 1274px) {
 
 // }
 
