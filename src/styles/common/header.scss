@@ -394,11 +394,8 @@
 
 	.main-menu__list_second {
 		position: static;
-		visibility: visible;
 		margin: 24px 0 0 0;
 		padding: 24px 0 0 0;
-		transform: translateY(0);
-		opacity: 1;
 		border-color: transparentize($color-bronze, 0.85);
 		background-color: transparent;
 	}
