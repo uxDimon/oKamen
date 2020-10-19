@@ -1,28 +1,28 @@
 .header__wrap {
+	position: relative;
+	z-index: 11;
 	display: flex;
 	flex-direction: column;
-	align-items: center;
 	padding-bottom: 45px;
-	position: relative;
 	background-color: $color-bek;
-	z-index: 11;
+	align-items: center;
 }
 
 .header {
+	position: relative;
+	display: flex;
 	width: 100%;
 	max-width: $content-max-weight;
 	padding-right: var(--content-p-r);
 	padding-left: var(--content-p-l);
-	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	position: relative;
 }
 
 .header__logo {
+	display: block;
 	margin-right: 16px;
 	flex-shrink: 0;
-	display: block;
 }
 
 .header__body {
@@ -32,35 +32,35 @@
 
 .header__kontacts {
 	display: flex;
-	justify-content: space-between;
 	padding: 8px 0 16px 0;
 	border-bottom: 1px solid transparentize($color-dark-gray, 0.85);
+	justify-content: space-between;
 }
 
 .header__kontacts-button {
 	display: none;
-	font-family: $font-Manrope;
-	font-weight: 500;
-	font-size: 14px;
-	align-items: center;
-	border: none;
-	background: none;
 	margin: 0;
 	padding: 0;
 	cursor: pointer;
+	border: none;
+	background: none;
+	font-family: $font-Manrope;
+	font-size: 14px;
+	font-weight: 500;
+	align-items: center;
 
 	&::after {
-		content: "";
 		display: block;
 		width: 10px;
 		height: 6px;
 		margin-top: 3px;
 		margin-left: 8px;
+		content: "";
+		transform: rotate(-90deg);
 		background-image: url("../images/sprite.svg#icon-arrow-drop");
 		background-repeat: no-repeat;
 		background-position: center;
 		background-size: 11px;
-		transform: rotate(-90deg);
 	}
 }
 
@@ -71,9 +71,9 @@
 .header__kontacts-item {
 	display: flex;
 	flex-direction: column;
+	color: $color-dark-gray;
 	font-family: $font-Manrope;
 	font-size: 14px;
-	color: $color-dark-gray;
 }
 
 .header__kontacts-city {
@@ -85,16 +85,16 @@
 }
 
 .header__kontacts-tel {
+	text-decoration: none;
 	color: $color-black;
 	font-weight: 300;
-	text-decoration: none;
 }
 
 .header__menu-second-wrap {
-	display: flex;
-	align-items: center;
 	position: relative;
+	display: flex;
 	margin: 16px 0;
+	align-items: center;
 }
 
 .header__main-menu {
@@ -107,12 +107,12 @@
 
 .main-menu__list {
 	display: grid;
+	margin: 0;
+	padding: 0;
+	list-style: none;
 	grid-auto-flow: column;
 	grid-column-gap: 52px;
 	justify-content: start;
-	list-style: none;
-	margin: 0;
-	padding: 0;
 }
 
 .main-menu__item {
@@ -120,23 +120,23 @@
 }
 
 .main-menu__linc {
-	font-weight: 500;
-	font-size: 16px;
 	color: $color-black;
+	font-size: 16px;
+	font-weight: 500;
 }
 
 .main-menu__linc[data-drop-linc] {
 	position: relative;
+	z-index: 2;
 	display: flex;
 	align-items: center;
-	z-index: 2;
 
 	&::after {
-		content: "";
 		display: block;
 		width: 10px;
 		height: 6px;
 		margin-left: 12px;
+		content: "";
 		background-image: url("../images/sprite.svg#icon-arrow-drop");
 		background-repeat: no-repeat;
 		background-position: center;
@@ -145,16 +145,16 @@
 }
 
 .main-menu__drop-list {
-	visibility: hidden;
-	opacity: 0;
-	transform: translateY(-20px);
 	position: absolute;
-	list-style: none;
+	z-index: 1;
+	visibility: hidden;
 	width: max-content;
 	margin: 0 0 0 -12px;
 	padding: 0;
+	list-style: none;
+	transform: translateY(-20px);
+	opacity: 0;
 	background-color: $color-bek;
-	z-index: 1;
 }
 
 .header__kontacts-button::after,
@@ -169,8 +169,8 @@
 	&:hover [data-drop-menu],
 	&:focus-within [data-drop-menu] {
 		visibility: visible;
-		opacity: 1;
 		transform: translateY(0);
+		opacity: 1;
 	}
 }
 
@@ -179,30 +179,30 @@
 }
 
 .main-menu__drop-linc {
-	font-size: 16px;
 	color: $color-dark-gray;
+	font-size: 16px;
 }
 
 .main-menu__list_second {
-	visibility: hidden;
-	opacity: 0;
-	transform: translateY(-10px);
-	transition: 100ms ease-in 0ms;
-	transition-property: visibility, opacity, transform;
 	position: absolute;
 	top: 100%;
 	left: 0;
+	visibility: hidden;
 	margin-top: 16px;
 	padding: 10px 0;
-	background-color: $color-bek;
+	transition: 100ms ease-in 0ms;
+	transition-property: visibility, opacity, transform;
+	transform: translateY(-10px);
+	opacity: 0;
 	border-top: 1px solid transparentize($color-dark-gray, 0.85);
+	background-color: $color-bek;
 }
 
 .main-menu._active {
 	.main-menu__list_second {
 		visibility: visible;
-		opacity: 1;
 		transform: translateY(0);
+		opacity: 1;
 	}
 }
 
@@ -215,65 +215,65 @@
 
 .header__second-icon {
 	position: relative;
+	z-index: 2;
 	display: block;
-	cursor: pointer;
 	width: 24px;
 	height: 24px;
-	z-index: 2;
+	cursor: pointer;
 }
 
 .header__second-input {
 	position: absolute;
-	opacity: 0;
+	z-index: 1;
+	right: 0;
 	width: 0;
 	height: 36px;
-	right: 0;
 	margin-right: -6px;
-	z-index: 1;
 	padding: 0;
 	transition: 200ms ease-in-out 0ms;
 	transition-property: width, opacity;
+	opacity: 0;
 	box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.08);
 
 	&::-webkit-search-cancel-button {
-		-webkit-appearance: none;
-		background-image: url("data:image/svg+xml,%3Csvg width='18' height='18' viewBox='0 0 23 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5.65685 6.34315L11.3137 12M16.9706 17.6569L11.3137 12M11.3137 12L16.9706 6.34315M11.3137 12L5.65685 17.6569' stroke='%23161615' stroke-width='1.5'/%3E%3C/svg%3E%0A");
-		height: 18px;
 		width: 18px;
+		height: 18px;
 		cursor: pointer;
+		background-image: url("data:image/svg+xml,%3Csvg width='18' height='18' viewBox='0 0 23 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5.65685 6.34315L11.3137 12M16.9706 17.6569L11.3137 12M11.3137 12L16.9706 6.34315M11.3137 12L5.65685 17.6569' stroke='%23161615' stroke-width='1.5'/%3E%3C/svg%3E%0A");
+		-webkit-appearance: none;
 	}
 
 	&:not(:placeholder-shown),
 	&:focus {
 		width: 300px;
+		padding: 0 30px 0 18px;
 		opacity: 1;
 		outline: none;
-		padding: 0 30px 0 18px;
 	}
 }
 
 .header__burger-button {
 	position: relative;
-	justify-content: center;
 	width: 32px;
 	height: 24px;
 	margin-left: 20px;
 	padding: 0;
+	cursor: pointer;
 	border: none;
 	background-color: transparent;
-	cursor: pointer;
+	justify-content: center;
 
 	span,
 	&::before,
 	&::after {
-		content: "";
+		left: 0;
 		display: block;
 		width: 100%;
 		height: 1px;
-		background-color: $color-black;
-		left: 0;
+		content: "";
 		transition: 150ms ease-in-out 0ms;
 		transition-property: top, transform, opacity, width;
+		background-color: $color-black;
 	}
 
 	&::before {
@@ -293,28 +293,28 @@
 	}
 
 	&::before {
-		width: 24px;
 		top: 50%;
+		width: 24px;
 		transform: rotate(45deg);
 	}
 
 	&::after {
-		width: 24px;
 		top: 50%;
 		bottom: auto;
+		width: 24px;
 		transform: rotate(-45deg);
 	}
 }
 
 .close-area {
-	display: none;
 	position: fixed;
+	z-index: 10;
 	top: 0;
 	right: 0;
-	left: 0;
 	bottom: 0;
+	left: 0;
+	display: none;
 	background-color: rgba(0, 0, 0, 0.6);
-	z-index: 10;
 }
 
 @media screen and (max-width: 1060px) {
@@ -325,8 +325,8 @@
 
 @media screen and (max-width: 960px) {
 	.header__wrap {
-		padding-bottom: 0;
 		margin-bottom: 45px;
+		padding-bottom: 0;
 	}
 
 	.header__logo {
@@ -343,26 +343,26 @@
 	}
 
 	.header__kontacts {
-		visibility: hidden;
-		opacity: 0;
-		transform: translateX(-50%);
 		position: absolute;
+		z-index: 98;
 		top: 100%;
 		right: 0;
 		left: 0;
-		z-index: 98;
-		padding: 24px 16px;
 		display: grid;
-		grid-auto-flow: row;
-		grid-row-gap: 36px;
+		visibility: hidden;
+		padding: 24px 16px;
+		transform: translateX(-50%);
+		opacity: 0;
 		border-bottom: none;
 		background-color: $color-white;
+		grid-auto-flow: row;
+		grid-row-gap: 36px;
 	}
 
 	.header__kontacts._active {
 		visibility: visible;
-		opacity: 1;
 		transform: translateX(0);
+		opacity: 1;
 	}
 
 	.header__kontacts-tel {
@@ -375,16 +375,16 @@
 	}
 
 	.main-menu {
-		visibility: hidden;
-		opacity: 0;
-		transform: translateX(50%);
 		position: absolute;
+		z-index: 99;
 		top: 100%;
 		right: 0;
 		left: 0;
-		z-index: 99;
-		background-color: $color-white;
+		visibility: hidden;
 		padding: 24px 16px;
+		transform: translateX(50%);
+		opacity: 0;
+		background-color: $color-white;
 	}
 
 	.main-menu__list {
@@ -393,14 +393,14 @@
 	}
 
 	.main-menu__list_second {
-		visibility: visible;
-		opacity: 1;
-		transform: translateY(0);
 		position: static;
-		background-color: transparent;
-		padding: 24px 0 0 0;
+		visibility: visible;
 		margin: 24px 0 0 0;
+		padding: 24px 0 0 0;
+		transform: translateY(0);
+		opacity: 1;
 		border-color: transparentize($color-bronze, 0.85);
+		background-color: transparent;
 	}
 
 	.main-menu__linc[data-drop-linc]::after {
@@ -413,8 +413,8 @@
 
 	.main-menu._active {
 		visibility: visible;
-		opacity: 1;
 		transform: translate(0);
+		opacity: 1;
 	}
 
 	.close-area._active {
