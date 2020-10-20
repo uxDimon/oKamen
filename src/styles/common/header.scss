@@ -387,6 +387,13 @@
 		background-color: $color-white;
 	}
 
+	.main-menu._active {
+		visibility: visible;
+		transform: translate(0);
+		opacity: 1;
+		left: 0;
+	}
+
 	.main-menu__list {
 		grid-auto-flow: revert;
 		grid-row-gap: 16px;
@@ -406,12 +413,6 @@
 
 	.main-menu__drop-list {
 		display: none;
-	}
-
-	.main-menu._active {
-		visibility: visible;
-		transform: translate(0);
-		opacity: 1;
 	}
 
 	.close-area._active {

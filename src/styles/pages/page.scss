@@ -7,17 +7,18 @@
 }
 
 .bread-crumbs {
-	display: grid;
-	grid-auto-flow: column;
-	grid-column-gap: 12px;
-	justify-content: start;
 	list-style: none;
 	padding: 0;
-	margin: 0 0 60px 0;
+	margin: 0 0 52px 0;
+
+	display: flex;
+	flex-wrap: wrap;
 }
 
 .bread-crumbs__item {
 	display: flex;
+	margin-right: 12px;
+	margin-bottom: 18px;
 
 	&::after {
 		margin-left: 12px;
@@ -325,5 +326,107 @@
 	display: none;
 	&:first-child {
 		display: block;
+	}
+}
+
+@media screen and (max-width: 1274px) {
+}
+
+@media screen and (max-width: 960px) {
+	.catalog__filter {
+		display: grid;
+		grid-template-columns: repeat(2, calc(50% - 4px));
+		grid-gap: 8px;
+
+		.input_prise-wrap {
+			width: 100%;
+			margin-right: 0;
+		}
+
+		.input {
+			margin-right: 0;
+		}
+	}
+
+	.catalog__filter-button {
+		grid-column: 1/3;
+		justify-self: center;
+	}
+
+	.catalog-list {
+		grid-template-columns: repeat(4, 1fr);
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.page__h1 {
+		margin-bottom: 24px;
+	}
+
+	.materials__list {
+		grid-template-columns: 1fr;
+	}
+
+	.materials__h2 {
+		margin-bottom: 18px;
+	}
+
+	.materials__heading {
+		font-size: 14px;
+	}
+
+	.catalog-list {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.seo-block3 {
+		padding-bottom: 0;
+	}
+
+	.seo-block3__h2 {
+		margin-bottom: 16px;
+	}
+
+	.seo-block3__text {
+		font-size: 14px;
+	}
+
+	.cost-calculation_h2 {
+		margin-bottom: 18px;
+	}
+
+	.cost-calculation__content {
+		grid-template-columns: 1fr;
+		grid-row-gap: 16px;
+	}
+
+	.cost-calculation__img {
+		height: 150px;
+	}
+
+	.cost-calculation__text {
+		font-size: 14px;
+		margin-bottom: 40px;
+	}
+
+	.cost-calculation__text-wrap {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.cost-calculation__button {
+		align-self: center;
+		width: auto;
+	}
+}
+
+@media screen and (max-width: 590px) {
+	.catalog__filter {
+		grid-template-columns: 100%;
+	}
+
+	.catalog__filter-button {
+		grid-column: auto;
+		justify-self: stretch;
 	}
 }

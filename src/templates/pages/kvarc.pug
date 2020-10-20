@@ -15,7 +15,7 @@ block content
                 li.bread-crumbs__item
                     span(href="#").bread-crumbs__linc Кварцевый агломерат
 
-        h1.h2.page__h1 Кварцевый агломерат
+        h1.h1.page__h1 Кварцевый агломерат
 
         include ../components/page-slider.pug 
 
@@ -49,9 +49,11 @@ block content
             h2.h2.catalog__h2 Разновидность камня
             .catalog__filter
                 .input_prise-wrap
-                    label.input_prise-min Цена от
+                    label.input_prise-min 
+                        span Цена от
                         input(type="text")
-                    label.input_prise-max до
+                    label.input_prise-max 
+                        span до
                         input(type="text")
 
                 select().input.input_select

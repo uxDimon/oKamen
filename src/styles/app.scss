@@ -82,6 +82,12 @@ a {
 	font-feature-settings: "numr" on;
 }
 
+.h1 {
+	font-weight: bold;
+	font-size: 48px;
+	line-height: 1.2;
+}
+
 .h2 {
 	font-weight: bold;
 	font-size: 40px;
@@ -198,6 +204,7 @@ a {
 	align-items: center;
 	width: max-content;
 	flex-shrink: 0;
+	width: 300px;
 }
 
 .input_prise-min,
@@ -211,20 +218,33 @@ a {
 	display: flex;
 	align-items: center;
 
+	span {
+		width: max-content;
+		flex-shrink: 0;
+	}
+
 	input {
 		font-family: $font-Manrope;
 		font-size: 14px;
-		width: 87px;
+		min-width: 87px;
 		height: 100%;
 		margin: 0 0 0 12px;
 		border: none;
 		padding: 0;
 		background-color: transparent;
+		flex-shrink: 1;
 
 		&:focus {
 			outline: none;
 		}
 	}
+}
+
+.input_prise-min {
+	width: 60%;
+}
+.input_prise-max {
+	width: 40%;
 }
 
 .input_select {
@@ -458,8 +478,16 @@ textarea.input_contact {
 		font-size: 16px;
 	}
 
+	.h1 {
+		font-size: 28px;
+	}
+
 	.h2 {
 		font-size: 24px;
+	}
+
+	.button {
+		height: 32px;
 	}
 
 	.arrow-linc {
