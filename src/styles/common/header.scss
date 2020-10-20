@@ -159,9 +159,12 @@
 
 .header__kontacts-button::after,
 .header__kontacts,
-.main-menu,
+.main-menu {
+	transition: 200ms ease-out 0ms;
+	transition-property: visibility, opacity, transform;
+}
 .main-menu__drop-list {
-	transition: 150ms ease-in 0ms;
+	transition: 150ms ease-out 0ms;
 	transition-property: visibility, opacity, transform;
 }
 
@@ -382,14 +385,15 @@
 		left: 0;
 		visibility: hidden;
 		padding: 24px 16px;
-		transform: translateX(50%);
+		transform: translateX(50%) scaleX(0);
+		// transform-origin: left;
 		opacity: 0;
 		background-color: $color-white;
 	}
 
 	.main-menu._active {
 		visibility: visible;
-		transform: translate(0);
+		transform: translate(0) scaleX(1);
 		opacity: 1;
 		left: 0;
 	}
