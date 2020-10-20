@@ -18,6 +18,7 @@
           <svg class="header__logo" width="160" height="64">
             <use xlink:href="./assets/images/sprite.svg#logo"></use>
           </svg></a>
+        <button class="header__kontacts-button" data-drop-kontacts-button>Адреса</button>
         <div class="header__body">
           <div class="header__kontacts">
             <div class="header__kontacts-item"><span class="header__kontacts-city">Кузьмолово</span><span class="header__kontacts-street">Токсовское шоссе</span><a class="header__kontacts-tel" href="tel:+78123804144">+7 (812) 380-41-44</a></div>
@@ -74,7 +75,7 @@
           <li class="bread-crumbs__item"><span class="bread-crumbs__linc" href="#">Кварцевый агломерат</span></li>
         </ul>
       </nav>
-      <h1 class="h2 page__h1">Кварцевый агломерат</h1>
+      <h1 class="h1 page__h1">Кварцевый агломерат</h1>
       <div class="page-slider__wrap">
         <div class="page-slider swiper-container">
           <div class="swiper-wrapper">
@@ -123,10 +124,10 @@
         <h2 class="h2 catalog__h2">Разновидность камня</h2>
         <div class="catalog__filter">
           <div class="input_prise-wrap">
-            <label class="input_prise-min">Цена от
+            <label class="input_prise-min"> <span>Цена от</span>
               <input type="text">
             </label>
-            <label class="input_prise-max">до
+            <label class="input_prise-max"> <span>до</span>
               <input type="text">
             </label>
           </div>
@@ -176,15 +177,17 @@
       </div>
       <article class="our-projects">
         <h2 class="h2 our-projects__h2">Выполненные проекты</h2>
-        <div class="our-projects__wrap">
-          <div class="our-projects__item"><img class="our-projects__img" src="./assets/images/slider1.png" alt="Caesarstone 4011 Cloudburst Concrete"><span class="our-projects__name">Caesarstone 4011 Cloudburst Concrete</span><span class="our-projects__prise">111 165 руб.</span><a class="arrow-linc our-projects__arrow-linc" href="#">Подробнее о проекте</a></div>
-          <div class="our-projects__item"><img class="our-projects__img" src="./assets/images/slider2.png" alt="Caesarstone 4011 Cloudburst Concrete"><span class="our-projects__name">Caesarstone 4011 Cloudburst Concrete</span><span class="our-projects__prise">111 165 руб.</span><a class="arrow-linc our-projects__arrow-linc" href="#">Подробнее о проекте</a></div>
-          <div class="our-projects__item"><img class="our-projects__img" src="./assets/images/slider3.png" alt="Caesarstone 4011 Cloudburst Concrete"><span class="our-projects__name">Caesarstone 4011 Cloudburst Concrete</span><span class="our-projects__prise">111 165 руб.</span><a class="arrow-linc our-projects__arrow-linc" href="#">Подробнее о проекте</a></div>
-          <div class="our-projects__item"><img class="our-projects__img" src="./assets/images/slider4.png" alt="Caesarstone 4011 Cloudburst Concrete"><span class="our-projects__name">Caesarstone 4011 Cloudburst Concrete</span><span class="our-projects__prise">111 165 руб.</span><a class="arrow-linc our-projects__arrow-linc" href="#">Подробнее о проекте</a></div>
-          <div class="our-projects__item"><img class="our-projects__img" src="./assets/images/slider4.png" alt="Caesarstone 4011 Cloudburst Concrete"><span class="our-projects__name">Caesarstone 4011 Cloudburst Concrete</span><span class="our-projects__prise">111 165 руб.</span><a class="arrow-linc our-projects__arrow-linc" href="#">Подробнее о проекте</a></div>
-          <div class="our-projects__item"><img class="our-projects__img" src="./assets/images/slider3.png" alt="Caesarstone 4011 Cloudburst Concrete"><span class="our-projects__name">Caesarstone 4011 Cloudburst Concrete</span><span class="our-projects__prise">111 165 руб.</span><a class="arrow-linc our-projects__arrow-linc" href="#">Подробнее о проекте</a></div>
-          <div class="our-projects__item"><img class="our-projects__img" src="./assets/images/slider2.png" alt="Caesarstone 4011 Cloudburst Concrete"><span class="our-projects__name">Caesarstone 4011 Cloudburst Concrete</span><span class="our-projects__prise">111 165 руб.</span><a class="arrow-linc our-projects__arrow-linc" href="#">Подробнее о проекте</a></div>
-          <div class="our-projects__item"><img class="our-projects__img" src="./assets/images/slider1.png" alt="Caesarstone 4011 Cloudburst Concrete"><span class="our-projects__name">Caesarstone 4011 Cloudburst Concrete</span><span class="our-projects__prise">111 165 руб.</span><a class="arrow-linc our-projects__arrow-linc" href="#">Подробнее о проекте</a></div>
+        <div class="swiper-container our-projects-slider">
+          <div class="swiper-wrapper our-projects__wrap">
+            <div class="our-projects__item swiper-slide"><img class="our-projects__img" src="./assets/images/slider1.png" alt="Caesarstone 4011 Cloudburst Concrete"><span class="our-projects__name">Caesarstone 4011 Cloudburst Concrete</span><span class="our-projects__prise">111 165 руб.</span><a class="arrow-linc our-projects__arrow-linc" href="#">Подробнее о проекте</a></div>
+            <div class="our-projects__item swiper-slide"><img class="our-projects__img" src="./assets/images/slider2.png" alt="Caesarstone 4011 Cloudburst Concrete"><span class="our-projects__name">Caesarstone 4011 Cloudburst Concrete</span><span class="our-projects__prise">111 165 руб.</span><a class="arrow-linc our-projects__arrow-linc" href="#">Подробнее о проекте</a></div>
+            <div class="our-projects__item swiper-slide"><img class="our-projects__img" src="./assets/images/slider3.png" alt="Caesarstone 4011 Cloudburst Concrete"><span class="our-projects__name">Caesarstone 4011 Cloudburst Concrete</span><span class="our-projects__prise">111 165 руб.</span><a class="arrow-linc our-projects__arrow-linc" href="#">Подробнее о проекте</a></div>
+            <div class="our-projects__item swiper-slide"><img class="our-projects__img" src="./assets/images/slider4.png" alt="Caesarstone 4011 Cloudburst Concrete"><span class="our-projects__name">Caesarstone 4011 Cloudburst Concrete</span><span class="our-projects__prise">111 165 руб.</span><a class="arrow-linc our-projects__arrow-linc" href="#">Подробнее о проекте</a></div>
+            <div class="our-projects__item swiper-slide"><img class="our-projects__img" src="./assets/images/slider4.png" alt="Caesarstone 4011 Cloudburst Concrete"><span class="our-projects__name">Caesarstone 4011 Cloudburst Concrete</span><span class="our-projects__prise">111 165 руб.</span><a class="arrow-linc our-projects__arrow-linc" href="#">Подробнее о проекте</a></div>
+            <div class="our-projects__item swiper-slide"><img class="our-projects__img" src="./assets/images/slider3.png" alt="Caesarstone 4011 Cloudburst Concrete"><span class="our-projects__name">Caesarstone 4011 Cloudburst Concrete</span><span class="our-projects__prise">111 165 руб.</span><a class="arrow-linc our-projects__arrow-linc" href="#">Подробнее о проекте</a></div>
+            <div class="our-projects__item swiper-slide"><img class="our-projects__img" src="./assets/images/slider2.png" alt="Caesarstone 4011 Cloudburst Concrete"><span class="our-projects__name">Caesarstone 4011 Cloudburst Concrete</span><span class="our-projects__prise">111 165 руб.</span><a class="arrow-linc our-projects__arrow-linc" href="#">Подробнее о проекте</a></div>
+            <div class="our-projects__item swiper-slide"><img class="our-projects__img" src="./assets/images/slider1.png" alt="Caesarstone 4011 Cloudburst Concrete"><span class="our-projects__name">Caesarstone 4011 Cloudburst Concrete</span><span class="our-projects__prise">111 165 руб.</span><a class="arrow-linc our-projects__arrow-linc" href="#">Подробнее о проекте</a></div>
+          </div>
         </div><a class="button button__ghost our-projects__button" href="#">Рассчитать стоимость изделия</a>
       </article>
       <div class="cost-calculation">
@@ -199,7 +202,7 @@
     <article class="contact__wrap">
       <div class="contact">
         <form class="contact__form">
-          <h2 class="contact__h">Запишитесь на консультацию</h2><span class="contact__option-text">Что вас интересует?</span>
+          <h2 class="h2 contact__h">Запишитесь на консультацию</h2><span class="contact__option-text">Что вас интересует?</span>
           <div class="contact__option-wrap">
             <label class="contact__option-item">
               <input type="radio" name="contact-product" checked><span>Столешница</span>
@@ -267,9 +270,11 @@
             </ul>
           </nav>
         </div>
-        <div class="footer__bot"><span class="footer__bot-item">Телефон: <a href="tel:+78123452312">+7 812 345 23 12</a></span><span class="footer__bot-item">Почта: <a href="mailto:okamen@info.ru">okamen@info.ru</a></span><span class="footer__bot-item"><a href="#">Правовая информация</a></span><span class="footer__bot-item footer__bot-item_ra">Сделано в <a href="#">RA-Studio</a></span></div>
+        <div class="footer__bot"><span class="footer__bot-item footer__bot-item_kontact">Телефон: <a href="tel:+78123452312">+7 812 345 23 12</a></span><span class="footer__bot-item footer__bot-item_kontact">Почта: <a href="mailto:okamen@info.ru">okamen@info.ru</a></span><span class="footer__bot-item"><a href="#">Правовая информация</a></span><span class="footer__bot-item footer__bot-item_ra">Сделано в <a href="#">RA-Studio</a></span></div>
       </div>
     </footer>
+    <div class="close-area" data-close-area="burger"></div>
+    <div class="close-area" data-close-area="kontacts"></div>
     <script src="assets/scripts/imask.min.js"></script>
     <script src="assets/scripts/accordion.min.js"></script>
     <script src="assets/scripts/swiper-bundle.min.js"></script>
