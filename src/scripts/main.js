@@ -101,6 +101,29 @@ function paginationVal(number) {
 	return number;
 }
 
+let styleProjects;
+let sliderOn = false;
+
+function initSlider() {
+	if (document.body.clientWidth >= 768) {
+		styleProjects.destroy();
+		sliderOn = false;
+	}
+	if (document.body.clientWidth < 768 && !sliderOn) {
+		styleProjects = new Swiper(".our-projects-slider", {
+			slidesPerView: "auto",
+			spaceBetween: 20,
+		});
+		sliderOn = true;
+	}
+}
+
+window.onresize = function (event) {
+	initSlider();
+};
+
+initSlider();
+
 var styleAge = new Swiper(".style-age__slider", {
 	slidesPerView: "auto",
 	spaceBetween: 30,
