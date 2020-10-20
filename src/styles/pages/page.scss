@@ -193,7 +193,7 @@
 .catalog-list__prise {
 	font-family: $font-Manrope;
 	color: $color-dark-gray;
-	margin-bottom: 16px;
+	margin-bottom: 14px;
 }
 
 // catalog
@@ -247,19 +247,23 @@
 	max-width: $content-max-weight;
 	padding-right: var(--content-p-r);
 	padding-left: var(--content-p-l);
-	display: flex;
 	margin-bottom: 76px;
-}
-
-.product-card__info {
-	display: flex;
-	flex-direction: column;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-column-gap: 72px;
 }
 
 .product-card__img {
 	object-fit: cover;
-	margin-right: 72px;
+	// margin-right: 72px;
 	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+	height: 100%;
+	width: 100%;
+	grid-row: 1 / span 4;
+}
+
+.product-card__name-wrap {
+	margin-bottom: 38px;
 }
 
 .product-card__name {
@@ -311,15 +315,24 @@
 }
 
 .product-tab__button-wrap {
-	display: grid;
-	grid-auto-flow: column;
-	grid-column-gap: 68px;
+	display: flex;
 	justify-content: start;
 	padding: 24px 0;
 	border-top: 1px solid transparentize($color-gold, 0.7);
 	border-bottom: 1px solid transparentize($color-gold, 0.7);
 	margin-bottom: 32px;
 	width: 100%;
+	overflow: auto;
+
+	.contact__option-item {
+		width: max-content;
+		margin-right: 68px;
+		flex-shrink: 0;
+
+		&:last-child {
+			margin-right: 0;
+		}
+	}
 }
 
 .product-tab__tab {
@@ -330,6 +343,9 @@
 }
 
 @media screen and (max-width: 1274px) {
+	.product-card {
+		grid-column-gap: 32px;
+	}
 }
 
 @media screen and (max-width: 960px) {
@@ -359,6 +375,10 @@
 }
 
 @media screen and (max-width: 768px) {
+	.bread-crumbs {
+		margin-bottom: 22px;
+	}
+
 	.page__h1 {
 		margin-bottom: 24px;
 	}
@@ -417,6 +437,43 @@
 	.cost-calculation__button {
 		align-self: center;
 		width: auto;
+	}
+
+	.product-card {
+		grid-template-columns: 1fr;
+		margin-bottom: 52px;
+	}
+
+	.product-card__img {
+		height: 220px;
+		grid-row: 2 / span 1;
+		margin-bottom: 20px;
+	}
+
+	.product-card__name-wrap {
+		margin-bottom: 20px;
+	}
+
+	.product-card__name {
+		font-size: 16px;
+		margin-bottom: 8px;
+	}
+
+	.product-card__radio-wrap {
+		margin-bottom: 24px;
+	}
+
+	.product-card__feature-wrap {
+		margin-bottom: 32px;
+	}
+
+	.product-tab__button-wrap {
+		padding: 16px 0;
+		margin-bottom: 28px;
+
+		.contact__option-item {
+			margin-right: 32px;
+		}
 	}
 }
 

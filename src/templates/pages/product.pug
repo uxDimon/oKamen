@@ -17,24 +17,24 @@ block content
         
         .product-card
             img(src="./assets/images/product1.png", alt="Vicostone Dark Emperador BQ8560").product-card__img
-            .product-card__info
+            .product-card__name-wrap
                 h1.product-card__name Vicostone Dark Emperador BQ8560
                 span.product-card__art Арт. 177311
-                .product-card__radio-wrap
-                    label.radio-button.product-card__radio
-                        input(type="radio", name="height" checked)
-                        span Толщина 20 мм <span class='options__radio-text-gray'>(11 000 ₽ за 1 <span class='m2'>м2</span>)</span>
-                    label.radio-button.product-card__radio
-                        input(type="radio", name="height")
-                        span Толщина 30 мм <span class='options__radio-text-gray'>(14 000 ₽ за 1 <span class='m2'>м2</span>)</span>
-                
-                .product-card__feature-wrap
-                    span.product-card__feature Цвет: 
-                        span серый quarty
-                    span.product-card__feature Производитель: 
-                        span Vicostone
+            .product-card__radio-wrap
+                label.radio-button.product-card__radio
+                    input(type="radio", name="height" checked)
+                    span Толщина 20 мм <span class='options__radio-text-gray'>(11 000 ₽ за 1 <span class='m2'>м2</span>)</span>
+                label.radio-button.product-card__radio
+                    input(type="radio", name="height")
+                    span Толщина 30 мм <span class='options__radio-text-gray'>(14 000 ₽ за 1 <span class='m2'>м2</span>)</span>
+            
+            .product-card__feature-wrap
+                span.product-card__feature Цвет: 
+                    span серый quarty
+                span.product-card__feature Производитель: 
+                    span Vicostone
 
-                button.button.product-card__button Оставить заявку
+            button.button.product-card__button Оставить заявку
         
         div(data-tabs).product-tab
             .product-tab__button-wrap
