@@ -418,6 +418,25 @@
 	.work-steps__item-h-wrap {
 		margin-bottom: 8px;
 	}
+
+	.reviews {
+		grid-template-columns: 1fr;
+	}
+
+	.reviews__h {
+		grid-column: auto;
+		margin-bottom: 26px;
+	}
+
+	.reviews__slider {
+		grid-column: auto;
+		grid-row: auto;
+		margin-bottom: 40px;
+	}
+
+	.reviews__button {
+		justify-self: center;
+	}
 }
 
 @media screen and (max-width: 768px) {
@@ -521,5 +540,25 @@
 
 	.work-steps__item {
 		margin-bottom: 68px;
+	}
+
+	.reviews__slider-item {
+		padding: 12px 12px 56px 12px;
+	}
+
+	.reviews__slider-linc {
+		top: auto;
+		right: auto;
+		left: 12px;
+		bottom: 24px;
+	}
+
+	.reviews__slider-name {
+		font-size: 14px;
+		align-self: end;
+	}
+
+	.reviews__slider-text {
+		font-size: 14px;
 	}
 }
