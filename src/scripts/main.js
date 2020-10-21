@@ -49,18 +49,18 @@ function uploadFile(target) {
 }
 
 // Табы
-const tabsBlock = document.querySelectorAll("[data-tabs]");
-let tab = document.querySelectorAll(".product-tab__tab");
+for (const tabs of document.querySelectorAll("[data-tab]")) {
+	const buttons = tabs.querySelectorAll("[data-buttn-tab]");
+	const items = tabs.querySelectorAll("[data-item-tab]");
 
-let buttnTab = document.querySelectorAll("[data-buttn-tab]");
-
-for (const t of buttnTab) {
-	t.addEventListener("change", (event) => {
-		for (const t of tab) {
-			t.style.display = "none";
-		}
-		document.querySelector("#" + event.target.dataset.buttnTab).style.display = "block";
-	});
+	for (const button of buttons) {
+		button.addEventListener("change", (event) => {
+			for (const item of items) {
+				item.style.display = "none";
+			}
+			tabs.querySelector(`[data-item-tab=${event.target.dataset.buttnTab}]`).style.display = "block";
+		});
+	}
 }
 
 // https://imask.js.org/
@@ -80,13 +80,13 @@ document.querySelectorAll("input[type='tel']").forEach((item) => {
 
 for (const input of document.querySelectorAll(".input_prise-wrap input")) {
 	let priseMask = IMask(input, {
-		mask: "num {₽}",
+		mask: "{₽} num",
 		blocks: {
 			num: {
 				// nested masks are available!
 				mask: Number,
 				thousandsSeparator: " ",
-				// min: 0,
+				min: 0,
 				max: 99999999,
 			},
 		},

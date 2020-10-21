@@ -335,7 +335,7 @@
 	}
 }
 
-.product-tab__tab {
+[data-item-tab] {
 	display: none;
 	&:first-child {
 		display: block;
