@@ -190,6 +190,9 @@ a {
 	border-radius: 3px;
 	background-color: transparent;
 	margin: 0;
+
+	-webkit-border-radius: 3px;
+	-webkit-box-shadow: none;
 }
 
 .input {
@@ -197,6 +200,7 @@ a {
 	font-weight: normal;
 	font-size: 14px;
 	line-height: 125%;
+	box-shadow: none;
 }
 
 .input_prise-wrap {
