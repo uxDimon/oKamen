@@ -105,7 +105,7 @@ let styleProjects;
 let sliderOn = false;
 
 function initSlider() {
-	if (document.body.clientWidth >= 768) {
+	if (document.body.clientWidth >= 768 && sliderOn) {
 		styleProjects.destroy();
 		sliderOn = false;
 	}
@@ -118,7 +118,7 @@ function initSlider() {
 	}
 }
 
-window.onresize = function (event) {
+window.onresize = function () {
 	initSlider();
 };
 
