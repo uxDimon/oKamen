@@ -386,7 +386,7 @@
 		visibility: hidden;
 		padding: 24px 16px;
 		transform: translateX(50%) scaleX(0);
-		// transform-origin: left;
+		transform-origin: right;
 		opacity: 0;
 		background-color: $color-white;
 	}

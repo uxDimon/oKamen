@@ -9,13 +9,6 @@
 	position: relative;
 }
 
-// .slider-main__front {
-// 	width: 100%;
-// 	max-width: 300px;
-// 	position: relative;
-// 	margin-right: 10px;
-// }
-
 .slider-main__text-wrap {
 	top: 24px;
 	left: 0;
@@ -74,7 +67,6 @@
 	height: 690px;
 	width: calc(((100vw - 1240px) / 2) + 100%);
 	max-width: 1270px;
-	// width: 100%;
 	grid-column: 2/2;
 	grid-row: span 2;
 }
