@@ -1,3 +1,46 @@
+let materials = [
+	{
+		type: "granit",
+		color: "black",
+		id: "1",
+		name: "Caesarstone 4011 Cloudburst granit",
+		prise: 12400,
+		imgName: "gr-1",
+	},
+	{
+		type: "cvarc",
+		color: "read",
+		id: "2",
+		name: "Caesarstone 4011 Cloudburst rvarc",
+		prise: 6200,
+		imgName: "rv-1",
+	},
+	{
+		type: "mramor",
+		color: "yellow",
+		id: "3",
+		name: "Caesarstone 4011 Cloudburst mramor",
+		prise: 8400,
+		imgName: "mr-1",
+	},
+	{
+		type: "granit",
+		color: "read",
+		id: "4",
+		name: "Caesarstone 8011 Cloudburst granit",
+		prise: 13100,
+		imgName: "gr-2",
+	},
+	{
+		type: "granit",
+		color: "read",
+		id: "5",
+		name: "Caesarstone 8011 Cloudburst granit",
+		prise: 12100,
+		imgName: "gr-2",
+	},
+];
+
 function listShowItem(items, idItem, display = "block") {
 	// Показывает нужный элемент остальные скрывает
 	for (const blockItem of items) {
@@ -85,9 +128,29 @@ const radioForm = document.querySelectorAll('input[name="form"]'),
 choiceForm(radioForm, blockForm);
 
 // Выберите разновидность и цвет камня
-const selectMaterials = document.querySelectorAll("select[data-select-materials]"),
-	materialsList = document.querySelectorAll(".options__materials-wrap");
-choiceForm(selectMaterials, materialsList, "grid");
+const filterSelect = document.querySelectorAll("select[data-calc-filter]");
+let filterArray;
+
+// // Фильтры
+function filterMaterials() {
+	// Фильтрует Материалы в зависимости от занчений select[data-calc-filter]
+	filterArray = materials;
+	for (const filter of filterSelect) {
+		if (filter.value != "all") {
+			filterArray = filterArray.filter((item) => item[filter.dataset.calcFilter] == filter.value);
+		}
+	}
+}
+
+for (const filterS of filterSelect) {
+	filterS.addEventListener("change", () => {
+		filterMaterials();
+	});
+}
+
+filterMaterials();
+
+// console.log(filterArray);
 
 // Количество углов
 const radioRounding = document.querySelectorAll('input[name="rounding"]'),

@@ -4,17 +4,13 @@
 	display: none;
 }
 
-// #category,
+#category,
 #form,
-#materials,
+// #materials,
 #parameters,
 #notch,
 #services,
 #total {
-	display: none;
-}
-
-#mramor {
 	display: none;
 }
 
@@ -29,6 +25,7 @@
 .calc__body {
 	max-width: 610px;
 	width: 100%;
+	color:black
 }
 
 .calc__body_total {

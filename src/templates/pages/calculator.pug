@@ -88,72 +88,26 @@ block content
                 .calc__body#materials
                     .calc__options.options
                         h2.options__heading Выберите разновидность и цвет камня
-                        select(data-select-materials = 'color').input.input_select.options__select
-                            option(value="granit") Желтый
-                            option(value="mramor") Красный
-                            option(value="mramor") Черный
-                        select(data-select-materials = 'table').input.input_select.options__select
+                        select(data-calc-filter = 'color').input.input_select.options__select
+                            option(value="all") Любой
+                            option(value="black") Черный
+                            option(value="read") Красный
+                            option(value="yellow") Желтый
+                        select(data-calc-filter = 'type').input.input_select.options__select
+                            option(value="all") Любой
                             option(value="granit") Гранит
+                            option(value="cvarc") Кварцевый агломерат
                             option(value="mramor") Мрамор
 
                         h3.options__materials-heading Выберите ниже понравившийся вам вариант
-                        .options__materials-wrap#granit
+                        .options__materials-wrap
                             .options__materials
                                 input#radio-granit-1(type="radio", name="granit" value="")
                                 label(for="radio-granit-1")
                                     img(src="./assets/images/grab.png", alt="Алановское").options__materials-img
                                     span.options__materials-name Алановское
                                     span.options__materials-price 26 650 ₽ за <span class='m2'>м2</span>
-
-                            .options__materials
-                                input#radio-granit-2(type="radio", name="granit" value="")
-                                label(for="radio-granit-2")
-                                    img(src="./assets/images/grab-read.png", alt="Алановское").options__materials-img
-                                    span.options__materials-name Алановское
-                                    span.options__materials-price 26 650 ₽ за <span class='m2'>м2</span>
-
-                            .options__materials
-                                input#radio-granit-3(type="radio", name="granit" value="")
-                                label(for="radio-granit-3")
-                                    img(src="./assets/images/grab-yellow.png", alt="Алановское").options__materials-img
-                                    span.options__materials-name Алановское
-                                    span.options__materials-price 26 650 ₽ за <span class='m2'>м2</span>
-                        
-                        .options__materials-wrap#mramor
-                            .options__materials
-                                input#radio-mramor-1(type="radio", name="mramor" value="")
-                                label(for="radio-mramor-1")
-                                    img(src="./assets/images/grab.png", alt="Алановское").options__materials-img
-                                    span.options__materials-name Алановское
-                                    span.options__materials-price 26 650 ₽ за <span class='m2'>м2</span>
-
-                            .options__materials
-                                input#radio-mramor-2(type="radio", name="mramor" value="")
-                                label(for="radio-mramor-2")
-                                    img(src="./assets/images/grab-read.png", alt="Алановское").options__materials-img
-                                    span.options__materials-name Алановское
-                                    span.options__materials-price 26 650 ₽ за <span class='m2'>м2</span>
-
-                            .options__materials
-                                input#radio-mramor-3(type="radio", name="mramor" value="")
-                                label(for="radio-mramor-3")
-                                    img(src="./assets/images/grab-yellow.png", alt="Алановское").options__materials-img
-                                    span.options__materials-name Алановское
-                                    span.options__materials-price 26 650 ₽ за <span class='m2'>м2</span>
-                            .options__materials
-                                input#radio-mramor-4(type="radio", name="mramor" value="")
-                                label(for="radio-mramor-4")
-                                    img(src="./assets/images/grab-read.png", alt="Алановское").options__materials-img
-                                    span.options__materials-name Алановское
-                                    span.options__materials-price 26 650 ₽ за <span class='m2'>м2</span>
-
-                            .options__materials
-                                input#radio-mramor-5(type="radio", name="mramor" value="")
-                                label(for="radio-mramor-5")
-                                    img(src="./assets/images/grab-yellow.png", alt="Алановское").options__materials-img
-                                    span.options__materials-name Алановское
-                                    span.options__materials-price 26 650 ₽ за <span class='m2'>м2</span>
-                            
+                                                    
                     .calc__button-wrap
                         button(data-calc-previous-button = 'form').button.button_gray.calc__button Назад
                         button(data-calc-next-button = 'parameters').button.calc__button Далее
