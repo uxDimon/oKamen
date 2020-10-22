@@ -258,7 +258,6 @@ let errorHtmlText = "Не может быть меньше размера", // �
 	errorHtmlClass = "options__size-error", // Класс ошибки
 	errorInputClass = "options__size-min-error", // Класс ошибки инпута с большим значением
 	errorHtml = `<span class="${errorHtmlClass}">${errorHtmlText}</span>`,
-	errorItems,
 	errorOn = false;
 
 function errorInput(object) {
@@ -274,16 +273,21 @@ function errorInput(object) {
 		errorOn = false;
 	}
 	if (!Number.isInteger(object)) {
-		let inputError = document.querySelector(`#${activSizeForm.name} [data-table-size = "${object.maxInput}"]`).parentNode;
-		let inputMinError = document.querySelector(`#${activSizeForm.name} [data-table-size = "${object.minInput}"]`);
-		errorItems = { inputError: inputError, inputMinError: inputMinError };
+		let inputError = document.querySelector(`#${activSizeForm.name} [data-table-size = "${object.maxInput}"]`).parentNode,
+			inputMinError = [];
+
+		for (const min of object.minInput) {
+			inputMinError.push(document.querySelector(`#${activSizeForm.name} [data-table-size = "${min}"]`));
+		}
 
 		if (errorOn) {
 			removeError();
 		}
 
-		errorItems.inputError.insertAdjacentHTML("beforeend", errorHtml);
-		errorItems.inputMinError.classList.add(errorInputClass);
+		inputError.insertAdjacentHTML("beforeend", errorHtml);
+		for (const minError of inputMinError) {
+			minError.classList.add(errorInputClass);
+		}
 		errorOn = true;
 	}
 
@@ -320,10 +324,10 @@ function calcArea(object) {
 	// Расчет площади Г-образная
 	if (activSizeForm.name == "table-size-g") {
 		if (object.size["top"] <= object.size["bot-right"] && filled) {
-			return generateError("top", "bot-right");
+			return generateError("top", ["bot-right"]);
 		}
 		if (object.size["right"] <= object.size["left-top"] && filled) {
-			return generateError("right", "left-top");
+			return generateError("right", ["left-top"]);
 		}
 		const area_left = (object.size["top"] - object.size["bot-right"]) * (object.size["right"] - object.size["left-top"]);
 		const area_right = (object.size["top"] - object.size["bot-right"]) * object.size["right"];
@@ -332,13 +336,13 @@ function calcArea(object) {
 	// Расчет площади П-образная
 	if (activSizeForm.name == "table-size-p") {
 		if (object.size["left"] <= object.size["body"] && filled) {
-			return generateError("left", "body");
+			return generateError("left", ["body"]);
 		}
 		if (object.size["right"] <= object.size["body"] && filled) {
-			return generateError("right", "body");
+			return generateError("right", ["body"]);
 		}
 		if (object.size["top"] <= object.size["bot-left"] + object.size["bot-right"] && filled) {
-			return generateError("top", "bot-left");
+			return generateError("top", ["bot-left", "bot-right"]);
 		}
 		const area_left = object.size["left"] * object.size["bot-left"];
 		const area_right = object.size["right"] * object.size["bot-right"];

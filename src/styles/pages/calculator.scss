@@ -5,8 +5,8 @@
 }
 
 #category,
-#form,
-// #materials,
+// #form,
+#materials,
 #parameters,
 #notch,
 #services,
@@ -570,15 +570,23 @@
 	margin-top: -8px;
 	padding: 6px 8px;
 	background-color: #926a31;
-	// border: 1px solid $color-white;
 	border-radius: 4px;
 	max-width: 250px;
 	min-width: max-content;
+	z-index: 1;
 }
 
-.options__size-min-error {
-	border: 1px solid #926a31;
-	box-shadow: 0 0 6px #926a31;
+.options__size-input[data-table-size="right"] ~ .options__size-error {
+	top: 32px;
+	right: -25px;
+	transform: translateX(0);
+}
+
+.options__size-input[data-table-size="left"] ~ .options__size-error {
+	top: 32px;
+	right: auto;
+	left: -25px;
+	transform: translateX(0);
 }
 
 .options__size-input {
@@ -593,6 +601,23 @@
 	font-size: 14px;
 	line-height: 16px;
 	text-align: center;
+}
+
+.options__size-min-error {
+	border: 1px solid #9e2f2f;
+	color: #9e2f2f;
+	animation: 800ms ease-in-out infinite alternate;
+	animation-name: minerror;
+}
+
+@keyframes minerror {
+	from {
+		box-shadow: 0 0 1px #9e2f2f;
+	}
+
+	to {
+		box-shadow: 0 0 8px #d13030;
+	}
 }
 
 .options__size-text {
