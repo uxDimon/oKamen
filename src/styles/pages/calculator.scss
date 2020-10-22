@@ -25,7 +25,7 @@
 .calc__body {
 	max-width: 610px;
 	width: 100%;
-	color:black
+	color: black;
 }
 
 .calc__body_total {
@@ -651,12 +651,6 @@
 			box-sizing: border-box;
 		}
 	}
-
-	span {
-		font-weight: 500;
-		font-size: 12px;
-		line-height: 12px;
-	}
 }
 
 .options__materials-img {
@@ -667,7 +661,19 @@
 }
 
 .options__materials-name {
+	font-family: $font-Manrope;
+	color: $color-dark-blue;
+	font-weight: 500;
+	font-size: 12px;
+	line-height: 1.2;
 	margin-bottom: 4px;
+	display: block;
+}
+
+.options__materials-price {
+	color: $color-dark-gray;
+	font-size: 14px;
+	line-height: 1.2;
 }
 
 .options__rounding-range-wrap {

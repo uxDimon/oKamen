@@ -1,43 +1,67 @@
 let materials = [
 	{
-		type: "granit",
+		type: "cvarc",
 		color: "black",
-		id: "1",
-		name: "Caesarstone 4011 Cloudburst granit",
-		prise: 12400,
-		imgName: "gr-1",
+		id: "00",
+		name: "Caesarstone 4011 Cloudburst",
+		prise: 6200,
+		imgName: "kv-01",
 	},
 	{
 		type: "cvarc",
 		color: "read",
-		id: "2",
-		name: "Caesarstone 4011 Cloudburst rvarc",
+		id: "01",
+		name: "Caesarstone 4011 Cloudburst",
 		prise: 6200,
-		imgName: "rv-1",
+		imgName: "kv-02",
+	},
+	{
+		type: "cvarc",
+		color: "yellow",
+		id: "02",
+		name: "4011 Cloudburst",
+		prise: 6200,
+		imgName: "kv-03",
 	},
 	{
 		type: "mramor",
-		color: "yellow",
-		id: "3",
-		name: "Caesarstone 4011 Cloudburst mramor",
+		color: "black",
+		id: "03",
+		name: "Caesarstone 4011 Cloudburst",
 		prise: 8400,
-		imgName: "mr-1",
+		imgName: "mr-01",
+	},
+	{
+		type: "mramor",
+		color: "read",
+		id: "04",
+		name: "Caesarstone 4011 Cloudburst",
+		prise: 8400,
+		imgName: "mr-02",
+	},
+	{
+		type: "granit",
+		color: "black",
+		id: "05",
+		name: "Caesarstone 4011",
+		prise: 12400,
+		imgName: "gr-01",
 	},
 	{
 		type: "granit",
 		color: "read",
-		id: "4",
-		name: "Caesarstone 8011 Cloudburst granit",
+		id: "06",
+		name: "Caesarstone 8011 Cloudburst",
 		prise: 13100,
-		imgName: "gr-2",
+		imgName: "gr-02",
 	},
 	{
 		type: "granit",
-		color: "read",
-		id: "5",
-		name: "Caesarstone 8011 Cloudburst granit",
+		color: "yellow",
+		id: "07",
+		name: " 8011 Cloudburst",
 		prise: 12100,
-		imgName: "gr-2",
+		imgName: "gr-03",
 	},
 ];
 
@@ -128,7 +152,9 @@ const radioForm = document.querySelectorAll('input[name="form"]'),
 choiceForm(radioForm, blockForm);
 
 // Выберите разновидность и цвет камня
-const filterSelect = document.querySelectorAll("select[data-calc-filter]");
+const filterSelect = document.querySelectorAll("select[data-calc-filter]"),
+	materialsWrap = document.querySelector(".options__materials-wrap");
+
 let filterArray;
 
 // // Фильтры
@@ -142,15 +168,33 @@ function filterMaterials() {
 	}
 }
 
+// // Рендер карточик материалов
+function renderMaterial() {
+	materialsWrap.innerHTML = "";
+	for (const material of filterArray) {
+		const cardHtml = `
+		<div class="options__materials">
+			<input id="radio-materials-${material.id}" type="radio" name="granit" value="${material.id}">
+			<label for="radio-materials-${material.id}">
+				<img class="options__materials-img" src="./assets/images/material/${material.type}/${material.imgName}.png" alt="${material.name}">
+				<span class="options__materials-name">${material.name}</span>
+				<span class="options__materials-price">${material.prise} ₽ за <span class="m2">м2</span></span>
+			</label>
+        </div>
+		`;
+		materialsWrap.insertAdjacentHTML("beforeend", cardHtml);
+	}
+}
+
 for (const filterS of filterSelect) {
 	filterS.addEventListener("change", () => {
 		filterMaterials();
+		renderMaterial();
 	});
 }
 
 filterMaterials();
-
-// console.log(filterArray);
+renderMaterial();
 
 // Количество углов
 const radioRounding = document.querySelectorAll('input[name="rounding"]'),
