@@ -66,28 +66,28 @@ let materials = [
 ];
 
 let getOptions = {
-	table:{
-		form:{
-			norm:{
-				name:'Прямая',
-				imgName: 'norm',
+	table: {
+		form: {
+			norm: {
+				name: "Прямая",
+				imgName: "norm",
 			},
-			g:{
-				name:'Г-образная',
-				imgName: 'g',
+			g: {
+				name: "Г-образная",
+				imgName: "g",
 			},
-			p:{
-				name:'П-образная',
-				imgName: 'p',
+			p: {
+				name: "П-образная",
+				imgName: "p",
 			},
 		},
 		materials,
 		parameters,
 		notch,
 		services,
-		total
+		total,
 	},
-}
+};
 
 let selectedOptions = {
 	category: "",
@@ -181,7 +181,7 @@ const listCalcNextButton = document.querySelectorAll("button[data-calc-next-butt
 calcNextButton(listCalcNextButton, roadMapButton);
 calcPreviousButton(listCalcPreviousButton, roadMapButton);
 
-// Выберите подходящую форму столешницы
+// Выберите подходящую форму
 const radioForm = document.querySelectorAll('input[name="form"]'),
 	blockForm = document.querySelectorAll(".options__size");
 choiceForm(radioForm, blockForm);
@@ -189,7 +189,6 @@ choiceForm(radioForm, blockForm);
 // Выберите разновидность и цвет камня
 const filterSelect = document.querySelectorAll("select[data-calc-filter]"),
 	materialsWrap = document.querySelector(".options__materials-wrap");
-
 let filterArray;
 
 // // Фильтры
