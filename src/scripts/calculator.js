@@ -65,6 +65,41 @@ let materials = [
 	},
 ];
 
+let getOptions = {
+	table:{
+		form:{
+			norm:{
+				name:'Прямая',
+				imgName: 'norm',
+			},
+			g:{
+				name:'Г-образная',
+				imgName: 'g',
+			},
+			p:{
+				name:'П-образная',
+				imgName: 'p',
+			},
+		},
+		materials,
+		parameters,
+		notch,
+		services,
+		total
+	},
+}
+
+let selectedOptions = {
+	category: "",
+	form: "",
+	formArea: "",
+	materials: "",
+	parameters: {},
+	notch: {},
+	services: {},
+	prise: "",
+};
+
 function listShowItem(items, idItem, display = "block") {
 	// Показывает нужный элемент остальные скрывает
 	for (const blockItem of items) {
@@ -263,7 +298,7 @@ let errorHtmlText = "Не может быть меньше размера", // �
 function errorInput(object) {
 	// Вводит ошибку если значение внесено некорректно
 	function removeError() {
-		// Удаляет ошибки
+		// Удаляет старые ошибки
 		for (const i of document.querySelectorAll(`#${activSizeForm.name} .${errorHtmlClass}`)) {
 			i.remove();
 		}
@@ -350,6 +385,10 @@ function calcArea(object) {
 		return area_left + area_right + area_body;
 	}
 }
+
+// Рендер площади
+const sizeArea = document.querySelector;
+function rencerArea(area) {}
 
 for (const radioItem of radioForm) {
 	radioItem.addEventListener("change", (event) => {
