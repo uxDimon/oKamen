@@ -102,6 +102,100 @@
 	margin: 0 0 28px 0;
 }
 
+.options-input__wrap {
+	display: grid;
+	grid-auto-flow: column;
+	grid-column-gap: 44px;
+	justify-content: start;
+}
+
+.options-input {
+	input {
+		display: none;
+
+		&:checked + label .options-input__radio::after {
+			background-color: $color-bronze;
+		}
+
+		&:checked + label {
+			cursor: default;
+		}
+	}
+
+	label {
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+		cursor: pointer;
+	}
+}
+
+.options-input__name-top {
+	font-weight: 500;
+	font-size: 18px;
+	margin-bottom: 12px;
+}
+
+.options-input__body {
+	display: flex;
+	align-items: stretch;
+	height: 100%;
+}
+
+.options-input__img {
+	align-self: flex-start;
+	display: block;
+}
+
+.options-input__radio {
+	position: relative;
+	width: 16px;
+	height: 16px;
+	margin-right: 20px;
+
+	&::before,
+	&::after {
+		content: "";
+		position: absolute;
+		box-sizing: border-box;
+	}
+
+	&::before {
+		width: 16px;
+		height: 16px;
+		border-radius: 16px;
+		top: 50%;
+		left: 0;
+		transform: translateY(-50%);
+		background-color: transparent;
+		border: 1px solid $color-black;
+	}
+
+	&::after {
+		width: 10px;
+		height: 10px;
+		border-radius: 10px;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		transition: background-color 150ms ease-in-out 0ms;
+	}
+}
+
+.options-input__radio_top {
+	align-self: flex-start;
+}
+.options-input__radio_center {
+	align-self: center;
+}
+.options-input__radio_bot {
+	align-self: flex-end;
+}
+
+.options-input > input[name="category"] + label .options-input__name-top {
+	margin-bottom: 24px;
+}
+
 .options__radio-wrap {
 	display: flex;
 	flex-wrap: wrap;
@@ -209,6 +303,11 @@
 		width: 146px;
 		height: 100px;
 		margin-left: 34px;
+
+		img {
+			width: 100%;
+			height: auto;
+		}
 	}
 
 	.options__radio-text {
@@ -265,43 +364,8 @@
 		}
 	}
 
-	label[for="form-g"] .options__radio-img {
-		&::before {
-			content: "";
-			background-position: -21px 0;
-			top: -1px;
-			z-index: 1;
-		}
-	}
-
-	label[for="form-p"] .options__radio-img {
-		&::before {
-			content: "";
-			background-position: -21px 0;
-			top: -1px;
-			z-index: 1;
-		}
-
-		&::after {
-			content: "";
-			background-position: -21px -49px;
-			bottom: -1px;
-			z-index: 1;
-		}
-	}
-
-	label[for="form-norm"] {
-		&::before,
-		&::after {
-			// right: auto;
-			// left: 38px;
-		}
-	}
-
 	label::before,
 	label::after {
-		// right: auto;
-		// left: 60px;
 		bottom: 33%;
 	}
 }

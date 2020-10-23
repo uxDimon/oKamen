@@ -35,25 +35,50 @@ block content
                 .calc__body#category
                     .calc__options.options
                         h2.options__heading Выберите подходящую категорию
-                        .options__radio-wrap.options__radio-img-l-wrap
+                        .options-input__wrap
+                            .options-input
+                                input#category-table(type="radio", name="category" value="table")
+                                label(for="category-table" tabindex="1")
+                                    span.options-input__name-top Столешница
+                                    .options-input__body
+                                        .options-input__radio.options-input__radio_bot
+                                        img(src="./assets/images/calc-svg/category-table.svg", alt="Столешница").options-input__img
+
+                            .options-input
+                                input#category-windowsill(type="radio", name="category" value="windowsill")
+                                label(for="category-windowsill" tabindex="1")
+                                    span.options-input__name-top Подоконник
+                                    .options-input__body
+                                        .options-input__radio.options-input__radio_bot
+                                        img(src="./assets/images/calc-svg/category-windowsill.svg", alt="Подоконник").options-input__img
+
+                            .options-input
+                                input#category-stage(type="radio", name="category" value="stage")
+                                label(for="category-stage" tabindex="1")
+                                    span.options-input__name-top Ступени
+                                    .options-input__body
+                                        .options-input__radio.options-input__radio_bot
+                                        img(src="./assets/images/calc-svg/category-stage.svg", alt="Ступени").options-input__img
+    
+                        //- .options__radio-wrap.options__radio-img-l-wrap
                             .options__radio.options__radio-img-l
                                 input#table-table(type="radio", name="category" value="table")
                                 label(for="table-table" tabindex="1")
                                     span.options__radio-text Столешница
-                                    svg.options__radio-img
-                                        use(xlink:href="./assets/images/sprite.svg#category-table")
-                            .options__radio.options__radio-img-l
-                                input#table-windowsill(type="radio", name="category" value="windowsill")
-                                label(for="table-windowsill" tabindex="1")
-                                    span.options__radio-text Подоконник
-                                    svg.options__radio-img
-                                        use(xlink:href="./assets/images/sprite.svg#category-windowsill")
-                            .options__radio.options__radio-img-l
-                                input#table-stage(type="radio", name="category" value="stage")
-                                label(for="table-stage" tabindex="1")
-                                    span.options__radio-text Ступени
-                                    svg.options__radio-img
-                                        use(xlink:href="./assets/images/sprite.svg#category-stage")
+                                    .options__radio-img
+                                        img(src="./assets/images/calc-svg/icons/category-table.svg", alt="Столешница")
+                            //- .options__radio.options__radio-img-l
+                            //-     input#table-windowsill(type="radio", name="category" value="Подоконник")
+                            //-     label(for="table-windowsill" tabindex="1")
+                            //-         span.options__radio-text Подоконник
+                            //-         .options__radio-img
+                            //-             img(src="./assets/images/calc-svg/icons/category-windowsill.svg", alt="Столешница")
+                            //- .options__radio.options__radio-img-l
+                            //-     input#table-stage(type="radio", name="category" value="stage")
+                            //-     label(for="table-stage" tabindex="1")
+                            //-         span.options__radio-text Ступени
+                            //-         .options__radio-img
+                            //-             img(src="./assets/images/calc-svg/icons/category-stage.svg", alt="Ступени")
                     .calc__button-wrap
                         button(disabled).button.button_gray.calc__button Назад
                         button(data-calc-next-button = 'form', data-radio-required = 'category').button.calc__button Далее
@@ -61,25 +86,34 @@ block content
                 .calc__body#form
                     .calc__options.options
                         h2.options__heading Выберите подходящую форму столешницы
-                        .options__radio-wrap
+                        div(data-render-options='form').options-input__wrap
+                            .options-input
+                                input#form-norm(type="radio", name="form" value="form-size-norm")
+                                label(for="form-norm" tabindex="1")
+                                    span.options-input__name-top Прямая
+                                    .options-input__body
+                                        .options-input__radio.options-input__radio_center
+                                        img(src="./assets/images/calc-svg/form-norm.svg", alt="Прямая").options-input__img
+
+                        //- .options__radio-wrap
                             .options__radio.options__radio-img-m
-                                input#form-norm(type="radio", name="form" value="table-size-norm")
+                                input#form-norm(type="radio", name="form" value="form-size-norm")
                                 label(for="form-norm")
                                     span.options__radio-text Прямая
                                     .options__radio-img-wrap
                                         .options__radio-img
-                            .options__radio.options__radio-img-m
-                                input#form-g(type="radio", name="form" value="table-size-g")
-                                label(for="form-g")
-                                    span.options__radio-text Г-образная
-                                    .options__radio-img-wrap
-                                        .options__radio-img
-                            .options__radio.options__radio-img-m
-                                input#form-p(type="radio", name="form" value="table-size-p")
-                                label(for="form-p")
-                                    span.options__radio-text П-образная
-                                    .options__radio-img-wrap
-                                        .options__radio-img
+                            //- .options__radio.options__radio-img-m
+                            //-     input#form-g(type="radio", name="form" value="form-size-g")
+                            //-     label(for="form-g")
+                            //-         span.options__radio-text Г-образная
+                            //-         .options__radio-img-wrap
+                            //-             .options__radio-img
+                            //- .options__radio.options__radio-img-m
+                            //-     input#form-p(type="radio", name="form" value="form-size-p")
+                            //-     label(for="form-p")
+                            //-         span.options__radio-text П-образная
+                            //-         .options__radio-img-wrap
+                            //-             .options__radio-img
 
                     .calc__button-wrap
                         button(data-calc-previous-button = 'category').button.button_gray.calc__button Назад
@@ -327,76 +361,76 @@ block content
                             span Назад
 
                 .options__size-wrap
-                    .options__size.options__size_norm#table-size-norm
+                    .options__size.options__size_norm#form-size-norm
                         .options__size-img-wrap
                             img(src="./assets/images/grab.png", alt="").options__size-img    
                         .options__size-arrow-horizon.size-arrow-horizon_bot
                             .size-arrow
                             lable.options__size-lable
-                                input(type="number" step="1" min="30" max="900" data-table-size='bot').options__size-input
+                                input(type="number" step="1" min="30" max="900" data-form-size='bot').options__size-input
                                 span.options__size-text см
                             .size-arrow.size-arrow_end
                         .options__size-arrow-vertical.size-arrow-vertical_left
                             .size-arrow
                             lable.options__size-lable
-                                input(type="number" step="1" min="30" max="900" data-table-size='left').options__size-input
+                                input(type="number" step="1" min="30" max="900" data-form-size='left').options__size-input
                                 span.options__size-text см
                             .size-arrow.size-arrow_end
 
-                    .options__size.options__size_g#table-size-g
+                    .options__size.options__size_g#form-size-g
                         .options__size-img-wrap
                             img(src="./assets/images/grab.png", alt="").options__size-img 
 
                         .options__size-arrow-horizon.size-arrow-horizon_top
                             .size-arrow
                             lable.options__size-lable
-                                input(type="number" step="1" min="30" max="900" data-table-size='top').options__size-input
+                                input(type="number" step="1" min="30" max="900" data-form-size='top').options__size-input
                                 span.options__size-text см
                             .size-arrow.size-arrow_end
                             
                         .options__size-arrow-vertical.size-arrow-vertical_right
                             .size-arrow
                             lable.options__size-lable
-                                input(type="number" step="1" min="30" max="900" data-table-size='right').options__size-input
+                                input(type="number" step="1" min="30" max="900" data-form-size='right').options__size-input
                                 span.options__size-text см
                             .size-arrow.size-arrow_end
 
                         .options__size-arrow-horizon.size-arrow-horizon_bot
                             .size-arrow
                             lable.options__size-lable
-                                input(type="number" step="1" min="30" max="900" data-table-size='bot-right').options__size-input
+                                input(type="number" step="1" min="30" max="900" data-form-size='bot-right').options__size-input
                                 span.options__size-text см
                             .size-arrow.size-arrow_end
 
                         .options__size-arrow-vertical.size-arrow-vertical_left
                             .size-arrow
                             lable.options__size-lable
-                                input(type="number" step="1" min="30" max="900" data-table-size='left-top').options__size-input
+                                input(type="number" step="1" min="30" max="900" data-form-size='left-top').options__size-input
                                 span.options__size-text см
                             .size-arrow.size-arrow_end
 
-                    .options__size.options__size_p#table-size-p
+                    .options__size.options__size_p#form-size-p
                         .options__size-img-wrap
                             img(src="./assets/images/grab.png", alt="").options__size-img 
 
                         .options__size-arrow-horizon.size-arrow-horizon_top-floor-2
                             .size-arrow
                             lable.options__size-lable
-                                input(type="number" step="1" min="30" max="900" data-table-size='top').options__size-input
+                                input(type="number" step="1" min="30" max="900" data-form-size='top').options__size-input
                                 span.options__size-text см
                             .size-arrow.size-arrow_end
                         
                         .options__size-arrow-vertical.size-arrow-vertical_right
                             .size-arrow
                             lable.options__size-lable
-                                input(type="number" step="1" min="30" max="900" data-table-size='right').options__size-input
+                                input(type="number" step="1" min="30" max="900" data-form-size='right').options__size-input
                                 span.options__size-text см
                             .size-arrow.size-arrow_end
 
                         .options__size-arrow-horizon.size-arrow-horizon_bot.size-arrow-horizon_bot_2
                             .size-arrow
                             lable.options__size-lable
-                                input(type="number" step="1" min="30" max="900" data-table-size='bot-right').options__size-input
+                                input(type="number" step="1" min="30" max="900" data-form-size='bot-right').options__size-input
                                 span.options__size-text см
                             .size-arrow.size-arrow_end
 
@@ -404,21 +438,21 @@ block content
                             .size-arrow
                             .size-line
                             lable.options__size-lable
-                                input(type="number" step="1" min="30" max="900" data-table-size='body').options__size-input
+                                input(type="number" step="1" min="30" max="900" data-form-size='body').options__size-input
                                 span.options__size-text см
                             .size-arrow.size-arrow_end
 
                         .options__size-arrow-horizon.size-arrow-horizon_bot.size-arrow-horizon_bot_1
                             .size-arrow
                             lable.options__size-lable
-                                input(type="number" step="1" min="30" max="900" data-table-size='bot-left').options__size-input
+                                input(type="number" step="1" min="30" max="900" data-form-size='bot-left').options__size-input
                                 span.options__size-text см
                             .size-arrow.size-arrow_end
 
                         .options__size-arrow-vertical.size-arrow-vertical_left
                             .size-arrow
                             lable.options__size-lable
-                                input(type="number" step="1" min="30" max="900" data-table-size='left').options__size-input
+                                input(type="number" step="1" min="30" max="900" data-form-size='left').options__size-input
                                 span.options__size-text см
                             .size-arrow.size-arrow_end
                     

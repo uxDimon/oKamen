@@ -65,41 +65,6 @@ let materials = [
 	},
 ];
 
-let getOptions = {
-	table: {
-		form: {
-			norm: {
-				name: "Прямая",
-				imgName: "norm",
-			},
-			g: {
-				name: "Г-образная",
-				imgName: "g",
-			},
-			p: {
-				name: "П-образная",
-				imgName: "p",
-			},
-		},
-		materials,
-		parameters,
-		notch,
-		services,
-		total,
-	},
-};
-
-let selectedOptions = {
-	category: "",
-	form: "",
-	formArea: "",
-	materials: "",
-	parameters: {},
-	notch: {},
-	services: {},
-	prise: "",
-};
-
 function listShowItem(items, idItem, display = "block") {
 	// Показывает нужный элемент остальные скрывает
 	for (const blockItem of items) {
@@ -185,6 +150,68 @@ calcPreviousButton(listCalcPreviousButton, roadMapButton);
 const radioForm = document.querySelectorAll('input[name="form"]'),
 	blockForm = document.querySelectorAll(".options__size");
 choiceForm(radioForm, blockForm);
+
+let selectedOptions = {
+	category: "table",
+	form: "",
+	formArea: "",
+	materials: "",
+	parameters: {},
+	notch: {},
+	services: {},
+	prise: "",
+};
+
+let getOptions = {
+	table: {
+		form: {
+			norm: {
+				name: "Прямая",
+				imgName: "form-norm",
+			},
+			g: {
+				name: "Г-образная",
+				imgName: "form-g",
+			},
+			p: {
+				name: "П-образная",
+				imgName: "form-p",
+			},
+		},
+		materials: "",
+		parameters: "",
+		notch: "",
+		services: "",
+		total: "",
+	},
+};
+
+// Рендер опций
+function htmlOptionForm(itemObject, itemName) {
+	return `
+		<div class="options-input">
+			<input id="form-${itemName}" type="radio" name="form" value="form-size-${itemName}">
+			<label for="form-${itemName}" tabindex="1">
+				<span class="options-input__name-top">${itemObject.name}</span>
+				<div class="options-input__body">
+					<div class="options-input__radio options-input__radio_center"></div>
+					<img class="options-input__img" src="./assets/images/calc-svg/${itemObject.imgName}.svg" alt="${itemObject.name}">
+				</div>
+			</label>
+		</div>
+	`;
+}
+
+function renderOptions(option) {
+	const optionWrap = document.querySelector(`[data-render-options="${option}"]`);
+	const optionList = getOptions[selectedOptions.category][option];
+	optionWrap.innerHTML = "";
+	for (const optionItem in optionList) {
+		optionWrap.insertAdjacentHTML("beforeend", htmlOptionForm(optionList[optionItem], optionItem));
+	}
+}
+// // Форма
+renderOptions("form");
 
 // Выберите разновидность и цвет камня
 const filterSelect = document.querySelectorAll("select[data-calc-filter]"),
@@ -282,7 +309,7 @@ for (const inputItem of moreInput) {
 }
 
 // Расчет площади
-const inputSize = document.querySelectorAll("[data-table-size]");
+const inputSize = document.querySelectorAll("[data-form-size]");
 let activSizeForm = {
 	name: "",
 	size: {},
@@ -307,11 +334,11 @@ function errorInput(object) {
 		errorOn = false;
 	}
 	if (!Number.isInteger(object)) {
-		let inputError = document.querySelector(`#${activSizeForm.name} [data-table-size = "${object.maxInput}"]`).parentNode,
+		let inputError = document.querySelector(`#${activSizeForm.name} [data-form-size = "${object.maxInput}"]`).parentNode,
 			inputMinError = [];
 
 		for (const min of object.minInput) {
-			inputMinError.push(document.querySelector(`#${activSizeForm.name} [data-table-size = "${min}"]`));
+			inputMinError.push(document.querySelector(`#${activSizeForm.name} [data-form-size = "${min}"]`));
 		}
 
 		if (errorOn) {
@@ -351,12 +378,12 @@ function calcArea(object) {
 	let filled = filledInput();
 
 	// Расчет площади Прямая
-	if (activSizeForm.name == "table-size-norm") {
+	if (activSizeForm.name == "form-size-norm") {
 		const area = object.size["bot"] * object.size["left"];
 		return area;
 	}
 	// Расчет площади Г-образная
-	if (activSizeForm.name == "table-size-g") {
+	if (activSizeForm.name == "form-size-g") {
 		if (object.size["top"] <= object.size["bot-right"] && filled) {
 			return generateError("top", ["bot-right"]);
 		}
@@ -368,7 +395,7 @@ function calcArea(object) {
 		return area_left + area_right;
 	}
 	// Расчет площади П-образная
-	if (activSizeForm.name == "table-size-p") {
+	if (activSizeForm.name == "form-size-p") {
 		if (object.size["left"] <= object.size["body"] && filled) {
 			return generateError("left", ["body"]);
 		}
@@ -394,7 +421,7 @@ for (const radioItem of radioForm) {
 		activSizeForm.name = event.target.value;
 		// activSizeForm.size = {};
 
-		let inputActive = document.querySelectorAll("#" + activSizeForm["name"] + " [data-table-size]");
+		let inputActive = document.querySelectorAll("#" + activSizeForm["name"] + " [data-form-size]");
 		for (const inputItem of inputActive) {
 			activSizeForm.size[inputItem.dataset.tableSize] = Number(inputItem.value);
 			inputItem.addEventListener("change", (event) => {
