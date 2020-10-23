@@ -67,18 +67,18 @@ block content
                                     span.options__radio-text Столешница
                                     .options__radio-img
                                         img(src="./assets/images/calc-svg/icons/category-table.svg", alt="Столешница")
-                            //- .options__radio.options__radio-img-l
-                            //-     input#table-windowsill(type="radio", name="category" value="Подоконник")
-                            //-     label(for="table-windowsill" tabindex="1")
-                            //-         span.options__radio-text Подоконник
-                            //-         .options__radio-img
-                            //-             img(src="./assets/images/calc-svg/icons/category-windowsill.svg", alt="Столешница")
-                            //- .options__radio.options__radio-img-l
-                            //-     input#table-stage(type="radio", name="category" value="stage")
-                            //-     label(for="table-stage" tabindex="1")
-                            //-         span.options__radio-text Ступени
-                            //-         .options__radio-img
-                            //-             img(src="./assets/images/calc-svg/icons/category-stage.svg", alt="Ступени")
+                            .options__radio.options__radio-img-l
+                                input#table-windowsill(type="radio", name="category" value="Подоконник")
+                                label(for="table-windowsill" tabindex="1")
+                                    span.options__radio-text Подоконник
+                                    .options__radio-img
+                                        img(src="./assets/images/calc-svg/icons/category-windowsill.svg", alt="Столешница")
+                            .options__radio.options__radio-img-l
+                                input#table-stage(type="radio", name="category" value="stage")
+                                label(for="table-stage" tabindex="1")
+                                    span.options__radio-text Ступени
+                                    .options__radio-img
+                                        img(src="./assets/images/calc-svg/icons/category-stage.svg", alt="Ступени")
                     .calc__button-wrap
                         button(disabled).button.button_gray.calc__button Назад
                         button(data-calc-next-button = 'form', data-radio-required = 'category').button.calc__button Далее
@@ -87,7 +87,7 @@ block content
                     .calc__options.options
                         h2.options__heading Выберите подходящую форму столешницы
                         div(data-render-options='form').options-input__wrap
-                            .options-input
+                            //- .options-input
                                 input#form-norm(type="radio", name="form" value="form-size-norm")
                                 label(for="form-norm" tabindex="1")
                                     span.options-input__name-top Прямая
@@ -102,18 +102,18 @@ block content
                                     span.options__radio-text Прямая
                                     .options__radio-img-wrap
                                         .options__radio-img
-                            //- .options__radio.options__radio-img-m
-                            //-     input#form-g(type="radio", name="form" value="form-size-g")
-                            //-     label(for="form-g")
-                            //-         span.options__radio-text Г-образная
-                            //-         .options__radio-img-wrap
-                            //-             .options__radio-img
-                            //- .options__radio.options__radio-img-m
-                            //-     input#form-p(type="radio", name="form" value="form-size-p")
-                            //-     label(for="form-p")
-                            //-         span.options__radio-text П-образная
-                            //-         .options__radio-img-wrap
-                            //-             .options__radio-img
+                            .options__radio.options__radio-img-m
+                                input#form-g(type="radio", name="form" value="form-size-g")
+                                label(for="form-g")
+                                    span.options__radio-text Г-образная
+                                    .options__radio-img-wrap
+                                        .options__radio-img
+                            .options__radio.options__radio-img-m
+                                input#form-p(type="radio", name="form" value="form-size-p")
+                                label(for="form-p")
+                                    span.options__radio-text П-образная
+                                    .options__radio-img-wrap
+                                        .options__radio-img
 
                     .calc__button-wrap
                         button(data-calc-previous-button = 'category').button.button_gray.calc__button Назад
@@ -456,10 +456,10 @@ block content
                                 span.options__size-text см
                             .size-arrow.size-arrow_end
                     
-                    .options__size-info
-                        span.options__size-info-item Площадь 
-                            sapn(data-size-area) 0
-                            span.m2 м2
+                        .options__size-info
+                            span.options__size-info-item Площадь 
+                                sapn(data-size-area) 0
+                                span.m2 м2
 
 
     script(src="assets/scripts/calculator.js")

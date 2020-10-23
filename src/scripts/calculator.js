@@ -135,22 +135,6 @@ function choiceForm(input, block, display) {
 	}
 }
 
-// Переключает вкладки настроек калькулятора
-const roadMapButton = document.querySelectorAll("button[data-calc-tab]"),
-	calcBody = document.querySelectorAll(".calc__body");
-calcTab(roadMapButton, calcBody, "data-calc-tab");
-
-// Кнопки назад далее
-const listCalcNextButton = document.querySelectorAll("button[data-calc-next-button]"),
-	listCalcPreviousButton = document.querySelectorAll("button[data-calc-previous-button]");
-calcNextButton(listCalcNextButton, roadMapButton);
-calcPreviousButton(listCalcPreviousButton, roadMapButton);
-
-// Выберите подходящую форму
-const radioForm = document.querySelectorAll('input[name="form"]'),
-	blockForm = document.querySelectorAll(".options__size");
-choiceForm(radioForm, blockForm);
-
 let selectedOptions = {
 	category: "table",
 	form: "",
@@ -187,7 +171,7 @@ let getOptions = {
 };
 
 // Рендер опций
-function htmlOptionForm(itemObject, itemName) {
+const htmlOptionForm = function (itemObject, itemName) {
 	return `
 		<div class="options-input">
 			<input id="form-${itemName}" type="radio" name="form" value="form-size-${itemName}">
@@ -200,18 +184,22 @@ function htmlOptionForm(itemObject, itemName) {
 			</label>
 		</div>
 	`;
-}
+};
 
-function renderOptions(option) {
+function renderOptions(option, callBack) {
+	if (typeof callBack !== "function") {
+		return false;
+	}
+
 	const optionWrap = document.querySelector(`[data-render-options="${option}"]`);
 	const optionList = getOptions[selectedOptions.category][option];
 	optionWrap.innerHTML = "";
 	for (const optionItem in optionList) {
-		optionWrap.insertAdjacentHTML("beforeend", htmlOptionForm(optionList[optionItem], optionItem));
+		optionWrap.insertAdjacentHTML("beforeend", callBack(optionList[optionItem], optionItem));
 	}
 }
 // // Форма
-renderOptions("form");
+renderOptions("form", htmlOptionForm);
 
 // Выберите разновидность и цвет камня
 const filterSelect = document.querySelectorAll("select[data-calc-filter]"),
@@ -256,6 +244,22 @@ for (const filterS of filterSelect) {
 
 filterMaterials();
 renderMaterial();
+
+// Переключает вкладки настроек калькулятора
+const roadMapButton = document.querySelectorAll("button[data-calc-tab]"),
+	calcBody = document.querySelectorAll(".calc__body");
+calcTab(roadMapButton, calcBody, "data-calc-tab");
+
+// Кнопки назад далее
+const listCalcNextButton = document.querySelectorAll("button[data-calc-next-button]"),
+	listCalcPreviousButton = document.querySelectorAll("button[data-calc-previous-button]");
+calcNextButton(listCalcNextButton, roadMapButton);
+calcPreviousButton(listCalcPreviousButton, roadMapButton);
+
+// Выберите подходящую форму
+const radioForm = document.querySelectorAll('input[name="form"]'),
+	blockForm = document.querySelectorAll(".options__size");
+choiceForm(radioForm, blockForm);
 
 // Количество углов
 const radioRounding = document.querySelectorAll('input[name="rounding"]'),
@@ -426,6 +430,7 @@ for (const radioItem of radioForm) {
 			activSizeForm.size[inputItem.dataset.tableSize] = Number(inputItem.value);
 			inputItem.addEventListener("change", (event) => {
 				activSizeForm.size[event.target.dataset.tableSize] = Number(event.target.value);
+				console.log(activSizeForm);
 				console.log(calcArea(activSizeForm));
 				errorInput(calcArea(activSizeForm));
 			});
