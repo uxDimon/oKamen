@@ -149,21 +149,29 @@ let selectedOptions = {
 let getOptions = {
 	table: {
 		form: {
-			norm: {
-				name: "Прямая",
-				imgName: "form-norm",
-			},
-			g: {
-				name: "Г-образная",
-				imgName: "form-g",
-			},
-			p: {
-				name: "П-образная",
-				imgName: "form-p",
+			form: {
+				norm: {
+					name: "Прямая",
+					imgName: "form-norm",
+				},
+				g: {
+					name: "Г-образная",
+					imgName: "form-g",
+				},
+				p: {
+					name: "П-образная",
+					imgName: "form-p",
+				},
 			},
 		},
 		materials: "",
-		parameters: "",
+		parameters: {
+			thickness: {
+				name: "",
+				detail: "",
+				prise: "",
+			},
+		},
 		notch: "",
 		services: "",
 		total: "",
@@ -186,16 +194,26 @@ const htmlOptionForm = function (itemObject, itemName) {
 	`;
 };
 
-function renderOptions(option, callBack) {
-	if (typeof callBack !== "function") {
-		return false;
-	}
+const htmlOptionRadio = function (itemObject, itemName) {
+	return `
+		<label class="radio-button">
+			<input type="radio" name="height">
+			<span>3 см <span class="options__radio-text-gray">(3 000 ₽ за 1 <span class="m2">м2</span>)</span></span>
+		</label>
+	`;
+};
 
-	const optionWrap = document.querySelector(`[data-render-options="${option}"]`);
-	const optionList = getOptions[selectedOptions.category][option];
-	optionWrap.innerHTML = "";
-	for (const optionItem in optionList) {
-		optionWrap.insertAdjacentHTML("beforeend", callBack(optionList[optionItem], optionItem));
+function renderOptions(option, funcHtml) {
+	// Рендерит опции из getOptions
+	const optionPage = getOptions[selectedOptions.category][option];
+
+	for (const optionPageKey in optionPage) {
+		const optionList = optionPage[optionPageKey];
+		const optionWrap = document.querySelector(`[data-render-options="${optionPageKey}"]`);
+		optionWrap.innerHTML = "";
+		for (const optionListKey in optionList) {
+			optionWrap.insertAdjacentHTML("beforeend", funcHtml(optionList[optionListKey], optionListKey));
+		}
 	}
 }
 // // Форма
