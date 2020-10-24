@@ -149,13 +149,14 @@ block content
                 .calc__body#parameters
                     .calc__options.options
                         h3.options__heading Выберите подходящее форму скругления края столешницы
-                        .options__radio-wrap.options__radio-wrap_height
+                        div(data-render-options='thickness').options__radio-wrap.options__radio-wrap_height
                             label.radio-button
                                 input(type="radio", name="height" checked)
                                 span 2 см
                             label.radio-button
                                 input(type="radio", name="height")
                                 span 3 см <span class='options__radio-text-gray'>(3 000 ₽ за 1 <span class='m2'>м2</span>)</span>
+                        
                         .radio-wrap-border
 
                         h2.options__heading Выберите подходящую категорию

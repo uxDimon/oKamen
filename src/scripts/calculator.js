@@ -65,6 +65,14 @@ let materials = [
 	},
 ];
 
+function textM2(text) {
+	// Оборачивает в span class="m2" для отображения в квадрате или в кубе
+	text = text.replace(/м\d/gi, (a1) => {
+		return `<span class="m2">${a1}</span>`;
+	});
+	return text;
+}
+
 function listShowItem(items, idItem, display = "block") {
 	// Показывает нужный элемент остальные скрывает
 	for (const blockItem of items) {
@@ -167,9 +175,16 @@ let getOptions = {
 		materials: "",
 		parameters: {
 			thickness: {
-				name: "",
-				detail: "",
-				prise: "",
+				two: {
+					name: "2 см",
+					detail: "",
+					prise: 0,
+				},
+				three: {
+					name: "3 см",
+					detail: "(3 000 ₽ за 1 м2)",
+					prise: 3000,
+				},
 			},
 		},
 		notch: "",
@@ -179,10 +194,10 @@ let getOptions = {
 };
 
 // Рендер опций
-const htmlOptionForm = function (itemObject, itemName) {
+const htmlOptionForm = function (itemParent, itemObject, itemName) {
 	return `
 		<div class="options-input">
-			<input id="form-${itemName}" type="radio" name="form" value="form-size-${itemName}">
+			<input id="form-${itemName}" type="radio" name="${itemParent}" value="form-size-${itemName}">
 			<label for="form-${itemName}" tabindex="1">
 				<span class="options-input__name-top">${itemObject.name}</span>
 				<div class="options-input__body">
@@ -194,11 +209,11 @@ const htmlOptionForm = function (itemObject, itemName) {
 	`;
 };
 
-const htmlOptionRadio = function (itemObject, itemName) {
+const htmlOptionRadio = function (itemParent, itemObject, itemName) {
 	return `
 		<label class="radio-button">
-			<input type="radio" name="height">
-			<span>3 см <span class="options__radio-text-gray">(3 000 ₽ за 1 <span class="m2">м2</span>)</span></span>
+			<input type="radio" name="${itemParent}">
+			<span>${itemObject.name} <span class="options__radio-text-gray">${textM2(itemObject.detail)}</span></span>
 		</label>
 	`;
 };
@@ -212,12 +227,14 @@ function renderOptions(option, funcHtml) {
 		const optionWrap = document.querySelector(`[data-render-options="${optionPageKey}"]`);
 		optionWrap.innerHTML = "";
 		for (const optionListKey in optionList) {
-			optionWrap.insertAdjacentHTML("beforeend", funcHtml(optionList[optionListKey], optionListKey));
+			optionWrap.insertAdjacentHTML("beforeend", funcHtml(optionPageKey, optionList[optionListKey], optionListKey));
 		}
 	}
 }
 // // Форма
 renderOptions("form", htmlOptionForm);
+
+renderOptions("parameters", htmlOptionRadio);
 
 // Выберите разновидность и цвет камня
 const filterSelect = document.querySelectorAll("select[data-calc-filter]"),
