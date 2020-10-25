@@ -157,84 +157,262 @@ let selectedOptions = {
 let getOptions = {
 	table: {
 		form: {
-			form: {
-				norm: {
-					name: "Прямая",
-					imgName: "form-norm",
-				},
-				g: {
-					name: "Г-образная",
-					imgName: "form-g",
-				},
-				p: {
-					name: "П-образная",
-					imgName: "form-p",
-				},
+			norm: {
+				name: "Прямая",
+				imgName: "form-norm",
+			},
+			g: {
+				name: "Г-образная",
+				imgName: "form-g",
+			},
+			p: {
+				name: "П-образная",
+				imgName: "form-p",
 			},
 		},
-		materials: "",
-		parameters: {
-			thickness: {
-				two: {
-					name: "2 см",
-					detail: "",
-					prise: 0,
-				},
-				three: {
-					name: "3 см",
-					detail: "(3 000 ₽ за 1 м2)",
-					prise: 3000,
-				},
+		thickness: {
+			two: {
+				type: "radio",
+				name: "2 см",
+				detail: "",
+				prise: 0,
+			},
+			three: {
+				type: "radio",
+				name: "3 см",
+				detail: "(3 000 ₽ за 1 м2)",
+				prise: 3000,
 			},
 		},
-		notch: "",
-		services: "",
-		total: "",
+		rounding: {
+			a: {
+				name: "А",
+				detail: "",
+				imgName: "rounding-0",
+				prise: 0,
+			},
+			b: {
+				name: "Б",
+				detail: "(2 000 ₽ за 1 уг.)",
+				imgName: "rounding-1",
+				prise: 2000,
+			},
+			c: {
+				name: "В",
+				detail: "(4 000 ₽ за 1 уг.)",
+				imgName: "rounding-2",
+				prise: 4000,
+			},
+		},
+		chamfer_front: {
+			a: {
+				name: "А",
+				detail: "(2 000 ₽ за 1м)",
+				imgName: "chamfer-01",
+				prise: 2000,
+			},
+			b: {
+				name: "Б",
+				detail: "(2 300 ₽ за 1м)",
+				imgName: "chamfer-02",
+				prise: 2300,
+			},
+			c: {
+				name: "В",
+				detail: "(2 600 ₽ за 1м)",
+				imgName: "chamfer-01",
+				prise: 2600,
+			},
+			d: {
+				name: "Г",
+				detail: "(2 300 ₽ за 1м)",
+				imgName: "chamfer-02",
+				prise: 2300,
+			},
+		},
+		notch: {
+			sink: {
+				type: "checkbox",
+				name: "Вырез под мойку",
+				detail: "(от 3 000 ₽)",
+				prise: 0,
+				subcategories: {
+					up: {
+						type: "radio",
+						name: "Поверх столешницы",
+						detail: "(от 3 000 ₽)",
+						prise: 3000,
+					},
+					flush: {
+						type: "radio",
+						name: "Вровень со столешницей",
+						detail: "(от 5 000 ₽)",
+						prise: 5000,
+					},
+					down: {
+						type: "radio",
+						name: "Снизу столешницы",
+						detail: "(от 4 000 ₽)",
+						prise: 4000,
+					},
+				},
+			},
+			hob: {
+				type: "checkbox",
+				name: "Вырез под варочную панель",
+				detail: "(от 4 000 ₽)",
+				prise: 4000,
+			},
+			faucet: {
+				type: "checkbox",
+				name: "Вырез под смеситель",
+				detail: "(от 1 000 ₽)",
+				prise: 1000,
+			},
+			other: {
+				type: "checkbox",
+				name: "Иные вырезы",
+				detail: "(итоговая цена будет известна после фактических замеров)",
+				prise: 0,
+			},
+		},
+		secondary: {
+			stand: {
+				type: "checkbox",
+				name: "Подставка под горячее",
+				detail: "(от 3 000 ₽)",
+				prise: 0,
+			},
+			install_hob: {
+				type: "checkbox",
+				name: "Монтаж варочной панели",
+				detail: "(от 4 000 ₽)",
+				prise: 4000,
+			},
+			wall: {
+				type: "checkbox",
+				name: "Стеновые панели из камня",
+				detail: "(от 1 000 ₽)",
+				prise: 1000,
+			},
+		},
+		installation_services: {
+			dimension: {
+				type: "checkbox",
+				name: "Замер",
+				detail: "(бесплатно)",
+				prise: 0,
+			},
+			delivery: {
+				type: "checkbox",
+				name: "Доставка",
+				detail: "(от 3 000 ₽)",
+				prise: 3000,
+			},
+			install: {
+				type: "checkbox",
+				name: "Установка",
+				detail: "(от 3 000 ₽)",
+				prise: 3000,
+			},
+		},
 	},
 };
 
 // Рендер опций
-const htmlOptionForm = function (itemParent, itemObject, itemName) {
+function detail(str) {
+	if (str && str !== "") {
+		return ` <span class="options__radio-text-gray">${textM2(str)}</span>`;
+	} else {
+		return "";
+	}
+}
+
+const htmlOptionRadioImg = function (itemParent, itemObject, itemName, type = "radio") {
+	// Html для radio form
 	return `
 		<div class="options-input">
-			<input id="form-${itemName}" type="radio" name="${itemParent}" value="form-size-${itemName}">
-			<label for="form-${itemName}" tabindex="1">
-				<span class="options-input__name-top">${itemObject.name}</span>
+			<input id="${itemParent + "_" + itemName}" type="${type}" name="${itemParent}" value="${itemParent + "_" + itemName}">
+			<label for="${itemParent + "_" + itemName}" tabindex="1">				
 				<div class="options-input__body">
-					<div class="options-input__radio options-input__radio_center"></div>
+					<div class="options-input__radio"></div>
 					<img class="options-input__img" src="./assets/images/calc-svg/${itemObject.imgName}.svg" alt="${itemObject.name}">
 				</div>
+				<span class="options-input__name">${itemObject.name + detail(itemObject.detail)}</span>
 			</label>
 		</div>
 	`;
 };
 
-const htmlOptionRadio = function (itemParent, itemObject, itemName) {
+const htmlOptionInput = function (itemParent, itemObject, itemName, type = "radio") {
+	// Html для обычных radio
+	const subcategoriesCheck = itemObject.subcategories && itemObject.subcategories !== "";
+
+	function dataSubcategories() {
+		// Добавляет data атрибут если itemObject.subcategories
+		if (subcategoriesCheck) {
+			return ` data-subcategories = "subcategories-${itemName}"`;
+		} else {
+			return "";
+		}
+	}
+
+	function subcategories() {
+		// Добавляет подкатегории если itemObject.subcategories
+		if (subcategoriesCheck) {
+			let subcategoriesItem = "";
+			for (const subcategoriesItemKey in itemObject.subcategories) {
+				subcategoriesItem += `
+				<label class="${itemObject.subcategories[subcategoriesItemKey].type}-button">
+					<input type="${itemObject.subcategories[subcategoriesItemKey].type}" name="${itemName}" value="${itemName + "_" + subcategoriesItemKey}">
+					<span>${itemObject.subcategories[subcategoriesItemKey].name + detail(itemObject.subcategories[subcategoriesItemKey].detail)}</span>
+				</label>
+				`;
+			}
+			return `
+			<div id="subcategories-${itemName}" class="subcategories-input__wrap">
+				${subcategoriesItem}
+			</div>
+		`;
+		} else {
+			return "";
+		}
+	}
+
 	return `
-		<label class="radio-button">
-			<input type="radio" name="${itemParent}">
-			<span>${itemObject.name} <span class="options__radio-text-gray">${textM2(itemObject.detail)}</span></span>
+		<label class="${type}-button">
+			<input type="${type}" name="${itemParent}" value="${itemParent + "_" + itemName}" ${dataSubcategories()}>
+			<span>${itemObject.name + detail(itemObject.detail)}</span>
 		</label>
+		${subcategories()}
 	`;
 };
 
-function renderOptions(option, funcHtml) {
+function renderOptions() {
 	// Рендерит опции из getOptions
-	const optionPage = getOptions[selectedOptions.category][option];
+	const optionPage = getOptions[selectedOptions.category];
 
 	for (const optionPageKey in optionPage) {
-		const optionList = optionPage[optionPageKey];
 		const optionWrap = document.querySelector(`[data-render-options="${optionPageKey}"]`);
-		optionWrap.innerHTML = "";
-		for (const optionListKey in optionList) {
-			optionWrap.insertAdjacentHTML("beforeend", funcHtml(optionPageKey, optionList[optionListKey], optionListKey));
+		if (optionWrap) {
+			optionWrap.innerHTML = "";
+			for (const optionListKey in optionPage[optionPageKey]) {
+				let funcHtml = htmlOptionInput,
+					type;
+				if (optionPage[optionPageKey][optionListKey].imgName && optionPage[optionPageKey][optionListKey].imgName !== "") {
+					funcHtml = htmlOptionRadioImg;
+				}
+				if (optionPage[optionPageKey][optionListKey].type && optionPage[optionPageKey][optionListKey].type !== "") {
+					type = optionPage[optionPageKey][optionListKey].type;
+				}
+				optionWrap.insertAdjacentHTML("beforeend", funcHtml(optionPageKey, optionPage[optionPageKey][optionListKey], optionListKey, type));
+			}
 		}
 	}
 }
-// // Форма
-renderOptions("form", htmlOptionForm);
 
-renderOptions("parameters", htmlOptionRadio);
+// // Рендер
+renderOptions();
 
 // Выберите разновидность и цвет камня
 const filterSelect = document.querySelectorAll("select[data-calc-filter]"),
@@ -320,7 +498,7 @@ numberRounding.addEventListener("input", (event) => {
 });
 
 // Доп опции в чекбоксе
-const moreInput = document.querySelectorAll("[data-calc-more-input]");
+const moreInput = document.querySelectorAll("[data-subcategories]");
 
 function onOffMoreInput(data, boolean) {
 	const wrap = document.querySelector("#" + data),
@@ -340,7 +518,7 @@ function onOffMoreInput(data, boolean) {
 }
 
 for (const inputItem of moreInput) {
-	const inputData = inputItem.dataset.calcMoreInput;
+	const inputData = inputItem.dataset.subcategories;
 	onOffMoreInput(inputData, false);
 	inputItem.addEventListener("change", (event) => {
 		onOffMoreInput(inputData, event.target.checked);

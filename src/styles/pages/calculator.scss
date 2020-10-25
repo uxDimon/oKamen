@@ -7,9 +7,9 @@
 #category,
 #form,
 #materials,
-// #parameters,
+#parameters,
 #notch,
-#services,
+// #services,
 #total {
 	display: none;
 }
@@ -109,6 +109,11 @@
 	justify-content: start;
 }
 
+.options-input__wrap-row {
+	display: grid;
+	grid-row-gap: 16px;
+}
+
 .options-input {
 	input {
 		display: none;
@@ -130,16 +135,18 @@
 	}
 }
 
-.options-input__name-top {
+.options-input__name {
 	font-weight: 500;
 	font-size: 18px;
-	margin-bottom: 12px;
+	margin-top: 16px;
+	order: 10;
 }
 
 .options-input__body {
 	display: flex;
 	align-items: stretch;
 	height: 100%;
+	order: 10;
 }
 
 .options-input__img {
@@ -152,6 +159,7 @@
 	width: 16px;
 	height: 16px;
 	margin-right: 20px;
+	align-self: center;
 
 	&::before,
 	&::after {
@@ -182,18 +190,23 @@
 	}
 }
 
-.options-input__radio_top {
-	align-self: flex-start;
-}
-.options-input__radio_center {
-	align-self: center;
-}
+// .options-input__radio_top {
+// 	align-self: flex-start;
+// }
+
 .options-input__radio_bot {
 	align-self: flex-end;
 }
 
-.options-input > input[name="category"] + label .options-input__name-top {
+.options-input > input[name="category"] + label .options-input__name {
+	margin-top: 0;
 	margin-bottom: 24px;
+	order: 9;
+}
+.options-input > input[name="form"] + label .options-input__name {
+	margin-top: 0;
+	margin-bottom: 16px;
+	order: 9;
 }
 
 .options__radio-wrap {
@@ -230,7 +243,7 @@
 
 .radio-wrap-border-s_60 {
 	width: 60%;
-	margin-bottom: 16px;
+	margin: 16px 0;
 }
 
 .options__radio {

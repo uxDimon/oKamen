@@ -315,11 +315,17 @@ textarea.input_contact {
 
 .checkbox-button,
 .radio-button {
-	display: flex;
-	align-items: center;
-	font-weight: normal;
 	font-size: 16px;
 	line-height: 125%;
+	display: grid;
+	grid-template-columns: 16px 1fr;
+	grid-column-gap: 12px;
+
+	> span {
+		cursor: pointer;
+
+		align-self: center;
+	}
 
 	input {
 		visibility: hidden;
@@ -328,7 +334,8 @@ textarea.input_contact {
 		padding: 0;
 		width: 16px;
 		height: 16px;
-		margin-right: 12px;
+
+		align-self: center;
 
 		&::before,
 		&::after {
@@ -357,6 +364,10 @@ textarea.input_contact {
 		&:checked::after {
 			background-color: $color-gold;
 		}
+
+		&:disabled + span {
+			cursor: default;
+		}
 	}
 }
 
@@ -375,6 +386,18 @@ textarea.input_contact {
 	&::after {
 		border-radius: 10px;
 	}
+
+	&:checked + span {
+		cursor: default;
+	}
+}
+
+.subcategories-input__wrap {
+	grid-column: 1 / -1;
+	display: grid;
+	grid-auto-flow: row;
+	grid-row-gap: 16px;
+	margin-left: 22px;
 }
 
 .range {

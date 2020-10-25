@@ -39,26 +39,26 @@ block content
                             .options-input
                                 input#category-table(type="radio", name="category" value="table")
                                 label(for="category-table" tabindex="1")
-                                    span.options-input__name-top Столешница
                                     .options-input__body
                                         .options-input__radio.options-input__radio_bot
                                         img(src="./assets/images/calc-svg/category-table.svg", alt="Столешница").options-input__img
+                                    span.options-input__name Столешница
 
                             .options-input
                                 input#category-windowsill(type="radio", name="category" value="windowsill")
                                 label(for="category-windowsill" tabindex="1")
-                                    span.options-input__name-top Подоконник
                                     .options-input__body
                                         .options-input__radio.options-input__radio_bot
                                         img(src="./assets/images/calc-svg/category-windowsill.svg", alt="Подоконник").options-input__img
+                                    span.options-input__name Подоконник
 
                             .options-input
                                 input#category-stage(type="radio", name="category" value="stage")
                                 label(for="category-stage" tabindex="1")
-                                    span.options-input__name-top Ступени
                                     .options-input__body
                                         .options-input__radio.options-input__radio_bot
                                         img(src="./assets/images/calc-svg/category-stage.svg", alt="Ступени").options-input__img
+                                    span.options-input__name Ступени
     
                         //- .options__radio-wrap.options__radio-img-l-wrap
                             .options__radio.options__radio-img-l
@@ -148,8 +148,9 @@ block content
 
                 .calc__body#parameters
                     .calc__options.options
-                        h3.options__heading Выберите подходящее форму скругления края столешницы
-                        div(data-render-options='thickness').options__radio-wrap.options__radio-wrap_height
+                        h3.options__heading Выберите подходящую категорию
+                        div(data-render-options='thickness').options-input__wrap
+                        //- div(data-render-options='thickness').options__radio-wrap.options__radio-wrap_height
                             label.radio-button
                                 input(type="radio", name="height" checked)
                                 span 2 см
@@ -159,26 +160,26 @@ block content
                         
                         .radio-wrap-border
 
-                        h2.options__heading Выберите подходящую категорию
-                        .options__radio-wrap.options__radio-img-l-wrap
-                            .options__radio.options__radio-img-l
-                                input#rounding-0(type="radio", name="rounding" value="0" checked)
-                                label(for="rounding-0" tabindex="1")
-                                    svg.options__radio-img.img-rounding
-                                        use(xlink:href="./assets/images/sprite.svg#rounding-0")
-                                    span.options__radio-text-bot а
-                            .options__radio.options__radio-img-l
-                                input#rounding-1(type="radio", name="rounding" value="1")
-                                label(for="rounding-1" tabindex="1")
-                                    svg.options__radio-img.img-rounding
-                                        use(xlink:href="./assets/images/sprite.svg#rounding-1")
-                                    span.options__radio-text-bot б <span class='options__radio-text-gray'>(2 000 ₽ за 1 уг.)</span>
-                            .options__radio.options__radio-img-l
-                                input#rounding-2(type="radio", name="rounding" value="2")
-                                label(for="rounding-2" tabindex="1")
-                                    svg.options__radio-img.img-rounding
-                                        use(xlink:href="./assets/images/sprite.svg#rounding-2")
-                                    span.options__radio-text-bot в <span class='options__radio-text-gray'>(4 000 ₽ за 1 уг.)</span>
+                        h2.options__heading Выберите подходящее форму скругления края столешницы
+                        div(data-render-options='rounding').options-input__wrap 
+                            //- .options__radio.options__radio-img-l
+                            //-     input#rounding-0(type="radio", name="rounding" value="0" checked)
+                            //-     label(for="rounding-0" tabindex="1")
+                            //-         svg.options__radio-img.img-rounding
+                            //-             use(xlink:href="./assets/images/sprite.svg#rounding-0")
+                            //-         span.options__radio-text-bot а
+                            //- .options__radio.options__radio-img-l
+                            //-     input#rounding-1(type="radio", name="rounding" value="1")
+                            //-     label(for="rounding-1" tabindex="1")
+                            //-         svg.options__radio-img.img-rounding
+                            //-             use(xlink:href="./assets/images/sprite.svg#rounding-1")
+                            //-         span.options__radio-text-bot б <span class='options__radio-text-gray'>(2 000 ₽ за 1 уг.)</span>
+                            //- .options__radio.options__radio-img-l
+                            //-     input#rounding-2(type="radio", name="rounding" value="2")
+                            //-     label(for="rounding-2" tabindex="1")
+                            //-         svg.options__radio-img.img-rounding
+                            //-             use(xlink:href="./assets/images/sprite.svg#rounding-2")
+                            //-         span.options__radio-text-bot в <span class='options__radio-text-gray'>(4 000 ₽ за 1 уг.)</span>
                         
                         .options__rounding-range-wrap
                             h2.options__heading Количество углов: <span id='rounding-number-text'>1</span>
@@ -197,7 +198,8 @@ block content
                         .radio-wrap-border
 
                         h3.options__heading Выберите подходящее форму скругления края столешницы
-                        .options__radio-wrap.options__radio-wrap-s
+                        div(data-render-options='chamfer_front').options-input__wrap
+                        //- .options__radio-wrap.options__radio-wrap-s
                             .options__radio.options__radio-img-s
                                 input#bevel-a(type="radio", name="bevel-front" value="a")
                                 label(for="bevel-a")
@@ -226,31 +228,30 @@ block content
                 .calc__body#notch
                     .calc__options.options
                         h3.options__heading Выберите нужные вам вырезы в столешницы
-                        //- label.radio-button
-                            input(type="radio", name="")
-                            span Вырез под мойку
-                        label.checkbox-button.options__checkbox-button
-                            input(type="checkbox", name="" data-calc-more-input = 'notch-washing')
-                            span Вырез под мойку <span class='options__radio-text-gray'>(от 3 000 ₽)</span>
-                        #notch-washing.options__more-input-wrap
-                            label.radio-button.options__radio-button
-                                input(type="radio", name="notch-washing")
-                                span Поверх столешницы <span class='options__radio-text-gray'>(от 4 000 ₽)</span>
-                            label.radio-button.options__radio-button
-                                input(type="radio", name="notch-washing")
-                                span Вровень со столешницей <span class='options__radio-text-gray'>(от 5 000 ₽)</span>
-                            label.radio-button.options__radio-button
-                                input(type="radio", name="notch-washing")
-                                span Снизу столешницы <span class='options__radio-text-gray'>(от 4 000 ₽)</span>
-                        label.checkbox-button.options__checkbox-button
-                            input(type="checkbox", name="")
-                            span Вырез под варочную панель <span class='options__radio-text-gray'>(от 4 000 ₽)</span>
-                        label.checkbox-button.options__checkbox-button
-                            input(type="checkbox", name="")
-                            span Вырез под смеситель <span class='options__radio-text-gray'>(от 1 000 ₽)</span>
-                        label.checkbox-button.options__checkbox-button
-                            input(type="checkbox", name="")
-                            span Иные вырезы <span class='options__radio-text-gray'>(итоговая цена будет известна после фактических замеров)</span>
+                        div(data-render-options='notch').options-input__wrap-row 
+                        
+                        //- label.checkbox-button.options__checkbox-button
+                        //-     input(type="checkbox", name="" data-calc-more-input = 'notch-washing')
+                        //-     span Вырез под мойку <span class='options__radio-text-gray'>(от 3 000 ₽)</span>
+                        //- #notch-washing.options__more-input-wrap
+                        //-     label.radio-button.options__radio-button
+                        //-         input(type="radio", name="notch-washing")
+                        //-         span Поверх столешницы <span class='options__radio-text-gray'>(от 4 000 ₽)</span>
+                        //-     label.radio-button.options__radio-button
+                        //-         input(type="radio", name="notch-washing")
+                        //-         span Вровень со столешницей <span class='options__radio-text-gray'>(от 5 000 ₽)</span>
+                        //-     label.radio-button.options__radio-button
+                        //-         input(type="radio", name="notch-washing")
+                        //-         span Снизу столешницы <span class='options__radio-text-gray'>(от 4 000 ₽)</span>
+                        //- label.checkbox-button.options__checkbox-button
+                        //-     input(type="checkbox", name="")
+                        //-     span Вырез под варочную панель <span class='options__radio-text-gray'>(от 4 000 ₽)</span>
+                        //- label.checkbox-button.options__checkbox-button
+                        //-     input(type="checkbox", name="")
+                        //-     span Вырез под смеситель <span class='options__radio-text-gray'>(от 1 000 ₽)</span>
+                        //- label.checkbox-button.options__checkbox-button
+                        //-     input(type="checkbox", name="")
+                        //-     span Иные вырезы <span class='options__radio-text-gray'>(итоговая цена будет известна после фактических замеров)</span>
 
                     .calc__button-wrap
                         button(data-calc-previous-button = 'parameters').button.button_gray.calc__button Назад
@@ -259,25 +260,9 @@ block content
                 .calc__body#services
                     .calc__options.options
                         h3.options__heading Выберите нужные вам услуги
-                        label.checkbox-button.options__checkbox-button
-                            input(type="checkbox", name="" data-calc-more-input = 'notch-washing')
-                            span Подставка под горячее <span class='options__radio-text-gray'>(от 3 000 ₽)</span>
-                        label.checkbox-button.options__checkbox-button
-                            input(type="checkbox", name="")
-                            span Монтаж варочной панели <span class='options__radio-text-gray'>(от 4 000 ₽)</span>
-                        label.checkbox-button.options__checkbox-button
-                            input(type="checkbox", name="")
-                            span Стеновые панели из камня <span class='options__radio-text-gray'>(от 1 000 ₽)</span>
+                        div(data-render-options='secondary').options-input__wrap-row 
                         .radio-wrap-border-s_60
-                        label.checkbox-button.options__checkbox-button
-                            input(type="checkbox", name="")
-                            span Замер <span class='options__radio-text-gray'>(бесплатно)</span>
-                        label.checkbox-button.options__checkbox-button
-                            input(type="checkbox", name="")
-                            span Доставка <span class='options__radio-text-gray'>(от 3 000 ₽)</span>
-                        label.checkbox-button.options__checkbox-button
-                            input(type="checkbox", name="")
-                            span Установка <span class='options__radio-text-gray'>(от 3 000 ₽)</span>
+                        div(data-render-options='installation_services').options-input__wrap-row 
 
                     .calc__button-wrap
                         button(data-calc-previous-button = 'notch').button.button_gray.calc__button Назад
