@@ -4,8 +4,8 @@
 	display: none;
 }
 
-// #category,
-#form,
+#category,
+// #form,
 #materials,
 #parameters,
 #notch,
@@ -657,13 +657,13 @@
 	z-index: 1;
 }
 
-.options__size-input[data-table-size="right"] ~ .options__size-error {
+.options__size-input[data-form-size="right"] ~ .options__size-error {
 	top: 32px;
 	right: -25px;
 	transform: translateX(0);
 }
 
-.options__size-input[data-table-size="left"] ~ .options__size-error {
+.options__size-input[data-form-size="left"] ~ .options__size-error {
 	top: 32px;
 	right: auto;
 	left: -25px;

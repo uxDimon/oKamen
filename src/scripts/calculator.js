@@ -65,95 +65,6 @@ let materials = [
 	},
 ];
 
-function textM2(text) {
-	// Оборачивает в span class="m2" для отображения в квадрате или в кубе
-	text = text.replace(/м\d/gi, (a1) => {
-		return `<span class="m2">${a1}</span>`;
-	});
-	return text;
-}
-
-function listShowItem(items, idItem, display = "block") {
-	// Показывает нужный элемент остальные скрывает
-	for (const blockItem of items) {
-		blockItem.style.display = "none";
-	}
-	document.querySelector("#" + idItem).style.display = display;
-
-	// Скрывает блок с размерами при переходи на вкладку 'Итог'
-	const activeSize = document.querySelector(".options__size-wrap");
-	if (idItem == "total") {
-		activeSize.style.display = "none";
-	} else {
-		activeSize.style.display = "block";
-	}
-}
-
-function calcTab(button, block, data_attribute) {
-	//Табы для калькулятора черуз dataAttribute
-	for (const buttonItem of button) {
-		const buttonData = buttonItem.getAttribute(data_attribute);
-		buttonItem.addEventListener("click", () => {
-			listShowItem(block, buttonData);
-		});
-	}
-}
-
-function calcNextButton(buttons, roadMapButton) {
-	function removeDisable(roadMapButton, ntxtPoint) {
-		// Уберает disabled у кнопок навигации (roadMapButton)
-		for (const roadMapButtonItem of roadMapButton) {
-			if (roadMapButtonItem.dataset.calcTab == ntxtPoint) {
-				roadMapButtonItem.removeAttribute("disabled");
-			}
-		}
-	}
-
-	for (const buttonItem of buttons) {
-		const ntxtPoint = buttonItem.dataset.calcNextButton;
-		const radioRequired = buttonItem.dataset.radioRequired;
-
-		buttonItem.addEventListener("click", () => {
-			if (radioRequired != "" && document.querySelector(`input[name="${radioRequired}"]:checked`)) {
-				removeDisable(roadMapButton, ntxtPoint);
-				listShowItem(calcBody, ntxtPoint);
-			} else if (radioRequired == undefined) {
-				removeDisable(roadMapButton, ntxtPoint);
-				listShowItem(calcBody, ntxtPoint);
-			}
-		});
-	}
-}
-
-function calcPreviousButton(buttons) {
-	for (const buttonItem of buttons) {
-		const previousPoint = buttonItem.dataset.calcPreviousButton;
-		buttonItem.addEventListener("click", () => {
-			listShowItem(calcBody, previousPoint);
-		});
-	}
-}
-
-function choiceForm(input, block, display) {
-	// Выбор формы (столешнице, подоконника, ступеней)
-	for (const inputItem of input) {
-		inputItem.addEventListener("change", () => {
-			listShowItem(block, inputItem.value, display);
-		});
-	}
-}
-
-let selectedOptions = {
-	category: "table",
-	form: "",
-	formArea: "",
-	materials: "",
-	parameters: {},
-	notch: {},
-	services: {},
-	prise: "",
-};
-
 let getOptions = {
 	table: {
 		form: {
@@ -319,6 +230,98 @@ let getOptions = {
 	},
 };
 
+let selectedOptions = {
+	category: "table",
+	form: "",
+	formArea: "",
+	formEdgeSize: {},
+	materials: "",
+	parameters: {},
+	notch: {},
+	services: {},
+	prise: "",
+};
+
+function textM2(text) {
+	// Оборачивает в span class="m2" для отображения в квадрате или в кубе
+	text = text.replace(/м\d/gi, (a1) => {
+		return `<span class="m2">${a1}</span>`;
+	});
+	return text;
+}
+
+function listShowItem(items, idItem, display = "block") {
+	// Показывает нужный элемент остальные скрывает
+	for (const blockItem of items) {
+		blockItem.style.display = "none";
+	}
+	document.querySelector("#" + idItem).style.display = display;
+
+	// Скрывает блок с размерами при переходи на вкладку 'Итог'
+	const activeSize = document.querySelector(".options__size-wrap");
+	if (idItem == "total") {
+		activeSize.style.display = "none";
+	} else {
+		activeSize.style.display = "block";
+	}
+}
+
+function calcTab(button, block, data_attribute) {
+	//Табы для калькулятора черуз dataAttribute
+	for (const buttonItem of button) {
+		const buttonData = buttonItem.getAttribute(data_attribute);
+		buttonItem.addEventListener("click", () => {
+			listShowItem(block, buttonData);
+		});
+	}
+}
+
+function calcNextButton(buttons, roadMapButton) {
+	function removeDisable(roadMapButton, ntxtPoint) {
+		// Уберает disabled у кнопок навигации (roadMapButton)
+		for (const roadMapButtonItem of roadMapButton) {
+			if (roadMapButtonItem.dataset.calcTab == ntxtPoint) {
+				roadMapButtonItem.removeAttribute("disabled");
+			}
+		}
+	}
+
+	for (const buttonItem of buttons) {
+		const ntxtPoint = buttonItem.dataset.calcNextButton;
+		const radioRequired = buttonItem.dataset.radioRequired;
+
+		buttonItem.addEventListener("click", () => {
+			if (radioRequired != "" && document.querySelector(`input[name="${radioRequired}"]:checked`)) {
+				removeDisable(roadMapButton, ntxtPoint);
+				listShowItem(calcBody, ntxtPoint);
+			} else if (radioRequired == undefined) {
+				removeDisable(roadMapButton, ntxtPoint);
+				listShowItem(calcBody, ntxtPoint);
+			}
+		});
+	}
+}
+
+function calcPreviousButton(buttons) {
+	for (const buttonItem of buttons) {
+		const previousPoint = buttonItem.dataset.calcPreviousButton;
+		buttonItem.addEventListener("click", () => {
+			listShowItem(calcBody, previousPoint);
+		});
+	}
+}
+
+function choiceForm(input, block, display) {
+	// Выбор формы (столешнице, подоконника, ступеней)
+	for (const inputItem of input) {
+		inputItem.addEventListener("change", () => {
+			listShowItem(block, inputItem.value, display);
+			selectedOptions.form = inputItem.value;
+			inputFormSize();
+		});
+	}
+}
+
 // Рендер опций
 function detail(str) {
 	if (str && str !== "") {
@@ -332,8 +335,8 @@ const htmlOptionRadioImg = function (itemParent, itemObject, itemName, type = "r
 	// Html для radio form
 	return `
 		<div class="options-input">
-			<input id="${itemParent + "_" + itemName}" type="${type}" name="${itemParent}" value="${itemParent + "_" + itemName}">
-			<label for="${itemParent + "_" + itemName}" tabindex="1">				
+			<input id="options_${itemParent + "_" + itemName}" type="${type}" name="${itemParent}" value="${itemParent + "_" + itemName}">
+			<label for="options_${itemParent + "_" + itemName}" tabindex="1">				
 				<div class="options-input__body">
 					<div class="options-input__radio"></div>
 					<img class="options-input__img" src="./assets/images/calc-svg/${itemObject.imgName}.svg" alt="${itemObject.name}">
@@ -526,12 +529,6 @@ for (const inputItem of moreInput) {
 }
 
 // Расчет площади
-const inputSize = document.querySelectorAll("[data-form-size]");
-let activSizeForm = {
-	name: "",
-	size: {},
-};
-
 let errorHtmlText = "Не может быть меньше размера", // Текст ошибки
 	errorHtmlClass = "options__size-error", // Класс ошибки
 	errorInputClass = "options__size-min-error", // Класс ошибки инпута с большим значением
@@ -542,20 +539,20 @@ function errorInput(object) {
 	// Вводит ошибку если значение внесено некорректно
 	function removeError() {
 		// Удаляет старые ошибки
-		for (const i of document.querySelectorAll(`#${activSizeForm.name} .${errorHtmlClass}`)) {
+		for (const i of document.querySelectorAll(`#${selectedOptions.form} .${errorHtmlClass}`)) {
 			i.remove();
 		}
-		for (const i of document.querySelectorAll(`#${activSizeForm.name} .${errorInputClass}`)) {
+		for (const i of document.querySelectorAll(`#${selectedOptions.form} .${errorInputClass}`)) {
 			i.classList.remove(errorInputClass);
 		}
 		errorOn = false;
 	}
 	if (!Number.isInteger(object)) {
-		let inputError = document.querySelector(`#${activSizeForm.name} [data-form-size = "${object.maxInput}"]`).parentNode,
+		let inputError = document.querySelector(`#${selectedOptions.form} [data-form-size = "${object.maxInput}"]`).parentNode,
 			inputMinError = [];
 
 		for (const min of object.minInput) {
-			inputMinError.push(document.querySelector(`#${activSizeForm.name} [data-form-size = "${min}"]`));
+			inputMinError.push(document.querySelector(`#${selectedOptions.form} [data-form-size = "${min}"]`));
 		}
 
 		if (errorOn) {
@@ -574,12 +571,13 @@ function errorInput(object) {
 	}
 }
 
-function filledInput() {
-	const objectLength = Object.keys(activSizeForm.size).length;
+function filledInput(object) {
+	// Возвращает ошибку только если все поля заполнены
+	const objectLength = Object.keys(object).length;
 	let step = 0;
-	for (const key in activSizeForm.size) {
+	for (const key in object) {
 		step++;
-		if (activSizeForm.size[key] == 0) {
+		if (object[key] == 0) {
 			return false;
 		} else if (objectLength == step) {
 			return true;
@@ -592,63 +590,54 @@ function calcArea(object) {
 		return { maxInput, minInput };
 	}
 
-	let filled = filledInput();
-
 	// Расчет площади Прямая
-	if (activSizeForm.name == "form-size-norm") {
-		const area = object.size["bot"] * object.size["left"];
+	if (selectedOptions.form === "form_norm") {
+		const area = object["bot"] * object["left"];
 		return area;
 	}
 	// Расчет площади Г-образная
-	if (activSizeForm.name == "form-size-g") {
-		if (object.size["top"] <= object.size["bot-right"] && filled) {
+	if (selectedOptions.form === "form_g") {
+		if (object["top"] <= object["bot-right"] && filledInput(object)) {
 			return generateError("top", ["bot-right"]);
 		}
-		if (object.size["right"] <= object.size["left-top"] && filled) {
+		if (object["right"] <= object["left-top"] && filledInput(object)) {
 			return generateError("right", ["left-top"]);
 		}
-		const area_left = (object.size["top"] - object.size["bot-right"]) * (object.size["right"] - object.size["left-top"]);
-		const area_right = (object.size["top"] - object.size["bot-right"]) * object.size["right"];
+		const area_left = (object["top"] - object["bot-right"]) * (object["right"] - object["left-top"]);
+		const area_right = (object["top"] - object["bot-right"]) * object["right"];
 		return area_left + area_right;
 	}
 	// Расчет площади П-образная
-	if (activSizeForm.name == "form-size-p") {
-		if (object.size["left"] <= object.size["body"] && filled) {
+	if (selectedOptions.form === "form_p") {
+		if (object["left"] <= object["body"] && filledInput(object)) {
 			return generateError("left", ["body"]);
 		}
-		if (object.size["right"] <= object.size["body"] && filled) {
+		if (object["right"] <= object["body"] && filledInput(object)) {
 			return generateError("right", ["body"]);
 		}
-		if (object.size["top"] <= object.size["bot-left"] + object.size["bot-right"] && filled) {
+		if (object["top"] <= object["bot-left"] + object["bot-right"] && filledInput(object)) {
 			return generateError("top", ["bot-left", "bot-right"]);
 		}
-		const area_left = object.size["left"] * object.size["bot-left"];
-		const area_right = object.size["right"] * object.size["bot-right"];
-		const area_body = (object.size["top"] - (object.size["bot-left"] + object.size["bot-right"])) * object.size["body"];
+		const area_left = object["left"] * object["bot-left"];
+		const area_right = object["right"] * object["bot-right"];
+		const area_body = (object["top"] - (object["bot-left"] + object["bot-right"])) * object["body"];
 		return area_left + area_right + area_body;
 	}
 }
 
-// Рендер площади
-const sizeArea = document.querySelector;
-function rencerArea(area) {}
-
-for (const radioItem of radioForm) {
-	radioItem.addEventListener("change", (event) => {
-		activSizeForm.name = event.target.value;
-		// activSizeForm.size = {};
-
-		let inputActive = document.querySelectorAll("#" + activSizeForm["name"] + " [data-form-size]");
-		for (const inputItem of inputActive) {
-			activSizeForm.size[inputItem.dataset.tableSize] = Number(inputItem.value);
-			inputItem.addEventListener("change", (event) => {
-				activSizeForm.size[event.target.dataset.tableSize] = Number(event.target.value);
-				console.log(activSizeForm);
-				console.log(calcArea(activSizeForm));
-				errorInput(calcArea(activSizeForm));
-			});
-		}
-	});
+// расчет площади
+function inputFormSize() {
+	let inputActive = document.querySelectorAll(`#${selectedOptions.form} [data-form-size]`);
+	selectedOptions.formEdgeSize = {};
+	for (const inputItem of inputActive) {
+		selectedOptions.formEdgeSize[inputItem.dataset.formSize] = Number(inputItem.value);
+		inputItem.addEventListener("change", (event) => {
+			selectedOptions.formEdgeSize[event.target.dataset.formSize] = Number(event.target.value);
+			// errorInput(calcArea(selectedOptions.formEdgeSize));
+			selectedOptions.formArea = calcArea(selectedOptions.formEdgeSize);
+			errorInput(selectedOptions.formArea);
+		});
+	}
 }
 
 // for (const inputItem of inputSize) {
