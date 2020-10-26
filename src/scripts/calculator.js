@@ -318,6 +318,7 @@ function choiceForm(input, block, display) {
 			listShowItem(block, inputItem.value, display);
 			selectedOptions.form = inputItem.value;
 			inputFormSize();
+			areatext = document.querySelector(`#${selectedOptions.form} [data-size-area]`);
 		});
 	}
 }
@@ -625,17 +626,25 @@ function calcArea(object) {
 	}
 }
 
+// Рендер площади
+let areatext;
+function renderArea() {
+	if (typeof selectedOptions.formArea === "number" && filledInput(selectedOptions.formEdgeSize)) {
+		areatext.innerHTML = (selectedOptions.formArea / 10000).toFixed(2) + " ";
+	}
+}
+
 // расчет площади
 function inputFormSize() {
-	let inputActive = document.querySelectorAll(`#${selectedOptions.form} [data-form-size]`);
+	const inputActive = document.querySelectorAll(`#${selectedOptions.form} [data-form-size]`);
 	selectedOptions.formEdgeSize = {};
 	for (const inputItem of inputActive) {
 		selectedOptions.formEdgeSize[inputItem.dataset.formSize] = Number(inputItem.value);
 		inputItem.addEventListener("change", (event) => {
 			selectedOptions.formEdgeSize[event.target.dataset.formSize] = Number(event.target.value);
-			// errorInput(calcArea(selectedOptions.formEdgeSize));
 			selectedOptions.formArea = calcArea(selectedOptions.formEdgeSize);
 			errorInput(selectedOptions.formArea);
+			renderArea();
 		});
 	}
 }

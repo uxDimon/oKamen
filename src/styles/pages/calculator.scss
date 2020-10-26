@@ -632,6 +632,18 @@
 	transform: rotate(180deg);
 }
 
+.options__size-info {
+	font-family: $font-Manrope;
+	font-weight: 500;
+	margin-top: 75px;
+	font-size: 16px;
+	color: $color-dark-gray;
+
+	[data-size-area] {
+		color: $color-black;
+	}
+}
+
 // Столешница end
 
 .options__size-lable {
