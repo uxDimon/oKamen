@@ -236,10 +236,6 @@ let selectedOptions = {
 	formArea: "",
 	formEdgeSize: {},
 	materials: "",
-	parameters: {},
-	notch: {},
-	services: {},
-	prise: "",
 };
 
 function textM2(text) {
@@ -385,7 +381,7 @@ const htmlOptionInput = function (itemParent, itemObject, itemName, type = "radi
 
 	return `
 		<label class="${type}-button">
-			<input type="${type}" name="${itemParent}" value="${itemParent + "_" + itemName}" ${dataSubcategories()}>
+			<input type="${type}" name="${itemParent}" value="${itemName}" ${dataSubcategories()}>
 			<span>${itemObject.name + detail(itemObject.detail)}</span>
 		</label>
 		${subcategories()}
@@ -481,6 +477,39 @@ function renderArea() {
 		areatext.innerHTML = (selectedOptions.formArea / 10000).toFixed(2) + " ";
 	}
 }
+
+// Добавляет выбранные опции в selectedOptions
+function addOptions() {
+	function addEventInput(key, element, inputs) {
+		for (const inputItem of inputs) {
+			selectedOptions[key] = {};
+			if (inputItem.type === "radio") {
+				inputItem.addEventListener("change", (event) => {
+					selectedOptions[key][event.target.value] = element[event.target.value];
+				});
+			}
+			if (inputItem.type === "checkbox") {
+				inputItem.addEventListener("change", (event) => {
+					if (event.target.checked) {
+						selectedOptions[key][event.target.value] = element[event.target.value];
+					} else {
+						delete selectedOptions[key][event.target.value];
+					}
+				});
+			}
+		}
+	}
+	for (const key in getOptions[selectedOptions.category]) {
+		const element = getOptions[selectedOptions.category][key],
+			inputs = document.querySelectorAll(`[name="${key}"]`);
+
+		if (key !== "form") {
+			addEventInput(key, element, inputs);
+		}
+	}
+}
+
+addOptions();
 
 // Переключает вкладки настроек калькулятора
 const roadMapButton = document.querySelectorAll("button[data-calc-tab]"),
