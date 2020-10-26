@@ -429,18 +429,18 @@ function filterMaterials() {
 	filterArray = materials;
 	for (const filter of filterSelect) {
 		if (filter.value != "all") {
-			filterArray = filterArray.filter((item) => item[filter.dataset.calcFilter] == filter.value);
+			filterArray = filterArray.filter((item) => item[filter.dataset.calcFilter] === filter.value);
 		}
 	}
 }
 
-// // Рендер карточик материалов
 function renderMaterial() {
+	// Рендер карточик материалов
 	materialsWrap.innerHTML = "";
 	for (const material of filterArray) {
 		const cardHtml = `
 		<div class="options__materials">
-			<input id="radio-materials-${material.id}" type="radio" name="granit" value="${material.id}">
+			<input id="radio-materials-${material.id}" type="radio" name="material" value="${material.id}">
 			<label for="radio-materials-${material.id}">
 				<img class="options__materials-img" src="./assets/images/material/${material.type}/${material.imgName}.png" alt="${material.name}">
 				<span class="options__materials-name">${material.name}</span>
@@ -456,11 +456,31 @@ for (const filterS of filterSelect) {
 	filterS.addEventListener("change", () => {
 		filterMaterials();
 		renderMaterial();
+		materialInputСhoice();
 	});
 }
 
 filterMaterials();
 renderMaterial();
+materialInputСhoice();
+
+// Выберите разновидность и цвет камня
+function materialInputСhoice() {
+	const materialInputLost = document.querySelectorAll('[name="material"]');
+	for (const materialInput of materialInputLost) {
+		materialInput.addEventListener("change", (event) => {
+			selectedOptions.materials = materials.filter((item) => item.id === event.target.value)[0];
+		});
+	}
+}
+
+// Рендер площади
+let areatext;
+function renderArea() {
+	if (typeof selectedOptions.formArea === "number" && filledInput(selectedOptions.formEdgeSize)) {
+		areatext.innerHTML = (selectedOptions.formArea / 10000).toFixed(2) + " ";
+	}
+}
 
 // Переключает вкладки настроек калькулятора
 const roadMapButton = document.querySelectorAll("button[data-calc-tab]"),
@@ -623,14 +643,6 @@ function calcArea(object) {
 		const area_right = object["right"] * object["bot-right"];
 		const area_body = (object["top"] - (object["bot-left"] + object["bot-right"])) * object["body"];
 		return area_left + area_right + area_body;
-	}
-}
-
-// Рендер площади
-let areatext;
-function renderArea() {
-	if (typeof selectedOptions.formArea === "number" && filledInput(selectedOptions.formEdgeSize)) {
-		areatext.innerHTML = (selectedOptions.formArea / 10000).toFixed(2) + " ";
 	}
 }
 
