@@ -69,14 +69,17 @@ let getOptions = {
 	table: {
 		form: {
 			norm: {
+				type: "radio",
 				name: "Прямая",
 				imgName: "form-norm",
 			},
 			g: {
+				type: "radio",
 				name: "Г-образная",
 				imgName: "form-g",
 			},
 			p: {
+				type: "radio",
 				name: "П-образная",
 				imgName: "form-p",
 			},
@@ -97,18 +100,21 @@ let getOptions = {
 		},
 		rounding: {
 			a: {
+				type: "radio",
 				name: "А",
 				detail: "",
 				imgName: "rounding-0",
 				prise: 0,
 			},
 			b: {
+				type: "radio",
 				name: "Б",
 				detail: "(2 000 ₽ за 1 уг.)",
 				imgName: "rounding-1",
 				prise: 2000,
 			},
 			c: {
+				type: "radio",
 				name: "В",
 				detail: "(4 000 ₽ за 1 уг.)",
 				imgName: "rounding-2",
@@ -117,24 +123,28 @@ let getOptions = {
 		},
 		chamfer_front: {
 			a: {
+				type: "radio",
 				name: "А",
 				detail: "(2 000 ₽ за 1м)",
 				imgName: "chamfer-01",
 				prise: 2000,
 			},
 			b: {
+				type: "radio",
 				name: "Б",
 				detail: "(2 300 ₽ за 1м)",
 				imgName: "chamfer-02",
 				prise: 2300,
 			},
 			c: {
+				type: "radio",
 				name: "В",
 				detail: "(2 600 ₽ за 1м)",
 				imgName: "chamfer-01",
 				prise: 2600,
 			},
 			d: {
+				type: "radio",
 				name: "Г",
 				detail: "(2 300 ₽ за 1м)",
 				imgName: "chamfer-02",
@@ -162,6 +172,32 @@ let getOptions = {
 					},
 					down: {
 						type: "radio",
+						name: "Снизу столешницы",
+						detail: "(от 4 000 ₽)",
+						prise: 4000,
+					},
+				},
+			},
+			sink2: {
+				type: "checkbox",
+				name: "Вырез под мойку",
+				detail: "(от 3 000 ₽)",
+				prise: 0,
+				subcategories: {
+					up2: {
+						type: "checkbox",
+						name: "Поверх столешницы",
+						detail: "(от 3 000 ₽)",
+						prise: 3000,
+					},
+					flush2: {
+						type: "checkbox",
+						name: "Вровень со столешницей",
+						detail: "(от 5 000 ₽)",
+						prise: 5000,
+					},
+					down2: {
+						type: "checkbox",
 						name: "Снизу столешницы",
 						detail: "(от 4 000 ₽)",
 						prise: 4000,
@@ -236,6 +272,7 @@ let selectedOptions = {
 	formArea: "",
 	formEdgeSize: {},
 	materials: "",
+	secondaryOptions: {},
 };
 
 function textM2(text) {
@@ -332,7 +369,7 @@ const htmlOptionRadioImg = function (itemParent, itemObject, itemName, type = "r
 	// Html для radio form
 	return `
 		<div class="options-input">
-			<input id="options_${itemParent + "_" + itemName}" type="${type}" name="${itemParent}" value="${itemParent + "_" + itemName}">
+			<input id="options_${itemParent + "_" + itemName}" type="${type}" name="${itemParent}" value="${itemName}">
 			<label for="options_${itemParent + "_" + itemName}" tabindex="1">				
 				<div class="options-input__body">
 					<div class="options-input__radio"></div>
@@ -351,7 +388,7 @@ const htmlOptionInput = function (itemParent, itemObject, itemName, type = "radi
 	function dataSubcategories() {
 		// Добавляет data атрибут если itemObject.subcategories
 		if (subcategoriesCheck) {
-			return ` data-subcategories = "subcategories-${itemName}"`;
+			return ` data-subcategories = "${itemName}"`;
 		} else {
 			return "";
 		}
@@ -364,13 +401,13 @@ const htmlOptionInput = function (itemParent, itemObject, itemName, type = "radi
 			for (const subcategoriesItemKey in itemObject.subcategories) {
 				subcategoriesItem += `
 				<label class="${itemObject.subcategories[subcategoriesItemKey].type}-button">
-					<input type="${itemObject.subcategories[subcategoriesItemKey].type}" name="${itemName}" value="${itemName + "_" + subcategoriesItemKey}">
+					<input type="${itemObject.subcategories[subcategoriesItemKey].type}" name="${itemName}" value="${subcategoriesItemKey}">
 					<span>${itemObject.subcategories[subcategoriesItemKey].name + detail(itemObject.subcategories[subcategoriesItemKey].detail)}</span>
 				</label>
 				`;
 			}
 			return `
-			<div id="subcategories-${itemName}" class="subcategories-input__wrap">
+			<div id="${itemName}" class="subcategories-input__wrap">
 				${subcategoriesItem}
 			</div>
 		`;
@@ -482,30 +519,42 @@ function renderArea() {
 function addOptions() {
 	function addEventInput(key, element, inputs) {
 		for (const inputItem of inputs) {
-			selectedOptions[key] = {};
-			if (inputItem.type === "radio") {
-				inputItem.addEventListener("change", (event) => {
-					selectedOptions[key][event.target.value] = element[event.target.value];
-				});
-			}
-			if (inputItem.type === "checkbox") {
-				inputItem.addEventListener("change", (event) => {
-					if (event.target.checked) {
-						selectedOptions[key][event.target.value] = element[event.target.value];
-					} else {
-						delete selectedOptions[key][event.target.value];
-					}
-				});
-			}
+			selectedOptions.secondaryOptions[key] = {};
+			inputItem.addEventListener("change", (event) => {
+				console.log("1");
+				if (inputItem.type === "radio") {
+					selectedOptions.secondaryOptions[key] = {};
+				}
+				if (event.target.checked) {
+					selectedOptions.secondaryOptions[key][event.target.value] = element[event.target.value];
+				} else {
+					delete selectedOptions.secondaryOptions[key][event.target.value];
+				}
+			});
 		}
 	}
+
+	let subcategories = {};
+
 	for (const key in getOptions[selectedOptions.category]) {
 		const element = getOptions[selectedOptions.category][key],
 			inputs = document.querySelectorAll(`[name="${key}"]`);
 
+		for (const inputItem of inputs) {
+			if (element[inputItem.value].subcategories) {
+				subcategories[inputItem.value] = element[inputItem.value].subcategories;
+			}
+		}
+
 		if (key !== "form") {
 			addEventInput(key, element, inputs);
 		}
+	}
+
+	for (const keyS in subcategories) {
+		const elementS = subcategories[keyS],
+			inputsS = document.querySelectorAll(`[name="${keyS}"]`);
+		addEventInput(keyS, elementS, inputsS);
 	}
 }
 
@@ -565,6 +614,9 @@ function onOffMoreInput(data, boolean) {
 	} else {
 		for (const i of items) {
 			i.setAttribute("disabled", "");
+			i.checked = false;
+			let event = new Event("change");
+			i.dispatchEvent(event);
 		}
 	}
 	wrap.style.opacity = styleOpacity;
