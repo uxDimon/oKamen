@@ -228,7 +228,12 @@ block content
                 .options__size-wrap
                     div(dara-form-size = "form_norm").options__size.options__size_norm#form_norm
                         .options__size-img-wrap
-                            img(src="./assets/images/grab.png", alt="").options__size-img    
+                            div(style="border-top-left-radius: 2px; border-top-right-radius: 2px; border-bottom-left-radius: 2px; border-bottom-right-radius: 2px;").options__size-img-body
+                                input(type="checkbox", data-size-radius="border-top-left-radius").size-img-button
+                                input(type="checkbox", data-size-radius="border-top-right-radius").size-img-button
+                                input(type="checkbox", data-size-radius="border-bottom-left-radius").size-img-button
+                                input(type="checkbox", data-size-radius="border-bottom-right-radius").size-img-button
+
                         .options__size-arrow-horizon.size-arrow-horizon_bot
                             .size-arrow
                             lable.options__size-lable
@@ -250,10 +255,15 @@ block content
 
                     div(dara-form-size = "form_g").options__size.options__size_g#form_g
                         .options__size-img-wrap
-                            //- .options__size-img-body#mask1
-                            //- .options__size-img-bot
+                            div(style="border-top-left-radius: 2px; border-top-right-radius: 2px; border-bottom-left-radius: 2px;").options__size-img-body
+                                input(type="checkbox", data-size-radius="border-top-left-radius").size-img-button
+                                input(type="checkbox", data-size-radius="border-top-right-radius").size-img-button
+                                input(type="checkbox", data-size-radius="border-bottom-left-radius").size-img-button
 
-                            img(src="./assets/images/grab.png", alt="").options__size-img 
+                            div(style="border-bottom-right-radius: 2px; border-bottom-left-radius: 2px;").options__size-img-bot-right
+                                //- input(type="checkbox", data-size-togle).size-img-button__togle
+                                input(type="checkbox", data-size-radius="border-bottom-left-radius").size-img-button
+                                input(type="checkbox", data-size-radius="border-bottom-right-radius").size-img-button
 
                         .options__size-arrow-horizon.size-arrow-horizon_top
                             .size-arrow
@@ -290,7 +300,18 @@ block content
 
                     div(dara-form-size = "form_p").options__size.options__size_p#form_p
                         .options__size-img-wrap
-                            img(src="./assets/images/grab.png", alt="").options__size-img 
+                            div(style="border-top-left-radius: 2px; border-top-right-radius: 2px;").options__size-img-body
+                                input(type="checkbox", data-size-radius="border-top-left-radius").size-img-button
+                                input(type="checkbox", data-size-radius="border-top-right-radius").size-img-button
+
+                            div(style="border-bottom-right-radius: 2px; border-bottom-left-radius: 2px;").options__size-img-bot-right
+                                input(type="checkbox", data-size-radius="border-bottom-left-radius").size-img-button
+                                input(type="checkbox", data-size-radius="border-bottom-right-radius").size-img-button
+
+                            div(style="border-bottom-right-radius: 2px; border-bottom-left-radius: 2px;").options__size-img-bot-left
+                                input(type="checkbox", data-size-radius="border-bottom-left-radius").size-img-button
+                                input(type="checkbox", data-size-radius="border-bottom-right-radius").size-img-button
+
 
                         .options__size-arrow-horizon.size-arrow-horizon_top-floor-2
                             .size-arrow

@@ -630,6 +630,19 @@ for (const inputItem of moreInput) {
 	});
 }
 
+// Скругление углов
+const sizeImgButton = document.querySelectorAll("[data-size-radius]");
+
+for (const button of sizeImgButton) {
+	button.addEventListener("change", (event) => {
+		if (event.target.checked) {
+			button.parentElement.style[event.target.dataset.sizeRadius] = "";
+		} else {
+			button.parentElement.style[event.target.dataset.sizeRadius] = "2px";
+		}
+	});
+}
+
 // Расчет площади
 let errorHtmlText = "Не может быть меньше размера", // Текст ошибки
 	errorHtmlClass = "options__size-error", // Класс ошибки
