@@ -49,18 +49,18 @@ function uploadFile(target) {
 }
 
 // Табы
-const tabsBlock = document.querySelectorAll("[data-tabs]");
-let tab = document.querySelectorAll(".product-tab__tab");
+for (const tabs of document.querySelectorAll("[data-tab]")) {
+	const buttons = tabs.querySelectorAll("[data-buttn-tab]");
+	const items = tabs.querySelectorAll("[data-item-tab]");
 
-let buttnTab = document.querySelectorAll("[data-buttn-tab]");
-
-for (const t of buttnTab) {
-	t.addEventListener("change", (event) => {
-		for (const t of tab) {
-			t.style.display = "none";
-		}
-		document.querySelector("#" + event.target.dataset.buttnTab).style.display = "block";
-	});
+	for (const button of buttons) {
+		button.addEventListener("change", (event) => {
+			for (const item of items) {
+				item.style.display = "none";
+			}
+			tabs.querySelector(`[data-item-tab=${event.target.dataset.buttnTab}]`).style.display = "block";
+		});
+	}
 }
 
 // https://imask.js.org/
@@ -80,13 +80,13 @@ document.querySelectorAll("input[type='tel']").forEach((item) => {
 
 for (const input of document.querySelectorAll(".input_prise-wrap input")) {
 	let priseMask = IMask(input, {
-		mask: "num {₽}",
+		mask: "{₽} num",
 		blocks: {
 			num: {
 				// nested masks are available!
 				mask: Number,
 				thousandsSeparator: " ",
-				// min: 0,
+				min: 0,
 				max: 99999999,
 			},
 		},
@@ -130,9 +130,24 @@ var styleAge = new Swiper(".style-age__slider", {
 });
 
 var reviews = new Swiper(".reviews__slider", {
-	autoHeight: true,
-	loop: true,
-	spaceBetween: 30,
+	slidesPerView: 1,
+	slidesPerGroup: 1,
+	speed: 500,
+	// autoHeight: true,
+	// loop: true,
+	spaceBetween: 20,
+	breakpoints: {
+		// when window width is >= 768px
+		768: {
+			slidesPerView: 2,
+			slidesPerGroup: 2,
+		},
+		// when window width is >= 960px
+		960: {
+			slidesPerView: 3,
+			slidesPerGroup: 3,
+		},
+	},
 	navigation: {
 		prevEl: ".reviews__slider-prev",
 		nextEl: ".reviews__slider-next",

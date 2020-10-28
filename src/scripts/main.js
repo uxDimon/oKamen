@@ -130,9 +130,24 @@ var styleAge = new Swiper(".style-age__slider", {
 });
 
 var reviews = new Swiper(".reviews__slider", {
-	autoHeight: true,
-	loop: true,
-	spaceBetween: 30,
+	slidesPerView: 1,
+	slidesPerGroup: 1,
+	speed: 500,
+	// autoHeight: true,
+	// loop: true,
+	spaceBetween: 20,
+	breakpoints: {
+		// when window width is >= 768px
+		768: {
+			slidesPerView: 2,
+			slidesPerGroup: 2,
+		},
+		// when window width is >= 960px
+		960: {
+			slidesPerView: 3,
+			slidesPerGroup: 3,
+		},
+	},
 	navigation: {
 		prevEl: ".reviews__slider-prev",
 		nextEl: ".reviews__slider-next",
