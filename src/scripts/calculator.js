@@ -68,17 +68,17 @@ let materials = [
 let getOptions = {
 	table: {
 		form: {
-			norm: {
+			form_norm: {
 				type: "radio",
 				name: "Прямая",
 				imgName: "form-norm",
 			},
-			g: {
+			form_g: {
 				type: "radio",
 				name: "Г-образная",
 				imgName: "form-g",
 			},
-			p: {
+			form_p: {
 				type: "radio",
 				name: "П-образная",
 				imgName: "form-p",
