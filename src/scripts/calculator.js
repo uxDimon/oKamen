@@ -272,6 +272,7 @@ let selectedOptions = {
 	formArea: "",
 	formEdgeSize: {},
 	materials: "",
+	sizeRadius: 0,
 	secondaryOptions: {},
 };
 
@@ -576,28 +577,59 @@ const radioForm = document.querySelectorAll('input[name="form"]'),
 	blockForm = document.querySelectorAll(".options__size");
 choiceForm(radioForm, blockForm);
 
-// Количество углов
-const radioRounding = document.querySelectorAll('input[name="rounding"]'),
-	numberRoundingWrap = document.querySelector(".options__rounding-range-wrap"),
-	numberRounding = numberRoundingWrap.querySelector('input[name="rounding-number-range"]'),
-	numberRoundingNumber = numberRoundingWrap.querySelector("#rounding-number-text");
-
-for (const radioItem of radioRounding) {
-	radioItem.addEventListener("change", () => {
-		let styleOpacity = "0.3";
-		if (radioItem.value != "0") {
-			numberRounding.removeAttribute("disabled");
-			styleOpacity = "1";
-		} else {
-			numberRounding.setAttribute("disabled", "");
+// //  Убирает скруглённые углов при переключении формы
+for (const radio of radioForm) {
+	radio.addEventListener("change", () => {
+		for (const button of sizeRadiusButton) {
+			button.checked = false;
+			let event = new Event("change");
+			button.dispatchEvent(event);
 		}
-		numberRoundingWrap.style.opacity = styleOpacity;
+		selectedOptions.sizeRadius = 0;
 	});
 }
 
-numberRounding.addEventListener("input", (event) => {
-	numberRoundingNumber.innerHTML = event.target.value;
-});
+// Количество углов
+const radioRounding = document.querySelectorAll('input[name="rounding"]'),
+	sizeRadiusButton = document.querySelectorAll("[data-size-radius]"),
+	rootStyles = document.querySelector(":root"),
+	roundingNumberText = document.querySelector("#rounding-number-text");
+
+for (const radio of radioRounding) {
+	radio.addEventListener("change", (event) => {
+		let disp,
+			rounding,
+			sizeRadius = selectedOptions.sizeRadius;
+		if (event.target.value === "a") {
+			(disp = "none"), (rounding = 2), (sizeRadius = 0);
+		}
+		if (event.target.value === "b") {
+			(disp = "block"), (rounding = 20);
+		}
+		if (event.target.value === "c") {
+			(disp = "block"), (rounding = 40);
+		}
+		for (const button of sizeRadiusButton) {
+			button.style.display = disp;
+		}
+		rootStyles.style.setProperty("--form-rounding", rounding + "px");
+		roundingNumberText.innerHTML = sizeRadius;
+	});
+}
+
+// Скругление углов
+for (const button of sizeRadiusButton) {
+	button.addEventListener("change", (event) => {
+		if (event.target.checked) {
+			button.parentElement.style[event.target.dataset.sizeRadius] = "";
+			selectedOptions.sizeRadius += 1;
+		} else {
+			button.parentElement.style[event.target.dataset.sizeRadius] = "2px";
+			selectedOptions.sizeRadius -= 1;
+		}
+		roundingNumberText.innerHTML = selectedOptions.sizeRadius;
+	});
+}
 
 // Доп опции в чекбоксе
 const moreInput = document.querySelectorAll("[data-subcategories]");
@@ -627,19 +659,6 @@ for (const inputItem of moreInput) {
 	onOffMoreInput(inputData, false);
 	inputItem.addEventListener("change", (event) => {
 		onOffMoreInput(inputData, event.target.checked);
-	});
-}
-
-// Скругление углов
-const sizeImgButton = document.querySelectorAll("[data-size-radius]");
-
-for (const button of sizeImgButton) {
-	button.addEventListener("change", (event) => {
-		if (event.target.checked) {
-			button.parentElement.style[event.target.dataset.sizeRadius] = "";
-		} else {
-			button.parentElement.style[event.target.dataset.sizeRadius] = "2px";
-		}
 	});
 }
 

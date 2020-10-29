@@ -1,13 +1,13 @@
 #form_norm,
-#form_g,
+// #form_g,
 #form_p {
 	display: none;
 }
 
-// #category,
+#category,
 #form,
 #materials,
-#parameters,
+// #parameters,
 #notch,
 #services,
 #total {
@@ -601,7 +601,7 @@
 	left: 0;
 
 	&::before {
-		border-top-left-radius: 40px;
+		border-top-left-radius: var(--form-rounding);
 	}
 }
 .size-img-button[data-size-radius="border-top-right-radius"] {
@@ -609,7 +609,7 @@
 	right: 0;
 
 	&::before {
-		border-top-right-radius: 40px;
+		border-top-right-radius: var(--form-rounding);
 	}
 }
 .size-img-button[data-size-radius="border-bottom-left-radius"] {
@@ -617,7 +617,7 @@
 	left: 0;
 
 	&::before {
-		border-bottom-left-radius: 40px;
+		border-bottom-left-radius: var(--form-rounding);
 	}
 }
 .size-img-button[data-size-radius="border-bottom-right-radius"] {
@@ -625,7 +625,7 @@
 	right: 0;
 
 	&::before {
-		border-bottom-right-radius: 40px;
+		border-bottom-right-radius: var(--form-rounding);
 	}
 }
 
@@ -933,17 +933,22 @@
 }
 
 .options__rounding-range-wrap {
+	color: $color-dark-gray;
 	margin-top: 32px;
-	opacity: 0.3;
 
-	.options__heading {
-		margin-bottom: 8px;
+	#rounding-number-text {
+		color: $color-black;
 	}
+	// opacity: 0.3;
 
-	.options__rounding-range {
-		width: 100%;
-		max-width: 420px;
-	}
+	// .options__heading {
+	// 	margin-bottom: 8px;
+	// }
+
+	// .options__rounding-range {
+	// 	width: 100%;
+	// 	max-width: 420px;
+	// }
 }
 
 .options__checkbox-button,
