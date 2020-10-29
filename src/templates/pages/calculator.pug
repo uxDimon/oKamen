@@ -40,7 +40,7 @@ block content
                                 input#category-table(type="radio", name="category" value="table")
                                 label(for="category-table" tabindex="1")
                                     .options-input__body
-                                        .options-input__radio.options-input__radio_bot
+                                        .options-input__radio-chec.options-input__radio_bot
                                         img(src="./assets/images/calc-svg/category-table.svg", alt="Столешница").options-input__img
                                     span.options-input__name Столешница
 
@@ -48,7 +48,7 @@ block content
                                 input#category-windowsill(type="radio", name="category" value="windowsill")
                                 label(for="category-windowsill" tabindex="1")
                                     .options-input__body
-                                        .options-input__radio.options-input__radio_bot
+                                        .options-input__radio-chec.options-input__radio_bot
                                         img(src="./assets/images/calc-svg/category-windowsill.svg", alt="Подоконник").options-input__img
                                     span.options-input__name Подоконник
 
@@ -56,13 +56,13 @@ block content
                                 input#category-stage(type="radio", name="category" value="stage")
                                 label(for="category-stage" tabindex="1")
                                     .options-input__body
-                                        .options-input__radio.options-input__radio_bot
+                                        .options-input__radio-chec.options-input__radio_bot
                                         img(src="./assets/images/calc-svg/category-stage.svg", alt="Ступени").options-input__img
                                     span.options-input__name Ступени
     
                     .calc__button-wrap
                         button(disabled).button.button_gray.calc__button Назад
-                        button(data-calc-next-button = 'form', data-radio-required = 'category').button.calc__button Далее
+                        button(data-calc-next-button = 'form', data-radio-required = 'category' disabled).button.calc__button Далее
                 
                 .calc__body#form
                     .calc__options.options
@@ -71,7 +71,7 @@ block content
 
                     .calc__button-wrap
                         button(data-calc-previous-button = 'category').button.button_gray.calc__button Назад
-                        button(data-calc-next-button = 'materials', data-radio-required = 'form').button.calc__button Далее
+                        button(data-calc-next-button = 'materials', data-radio-required = 'form' disabled).button.calc__button Далее
                 
                 .calc__body#materials
                     .calc__options.options

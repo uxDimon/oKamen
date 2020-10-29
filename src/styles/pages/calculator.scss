@@ -115,17 +115,17 @@
 }
 
 .options-input {
-	input {
-		display: none;
+	// input {
+	// 	display: none;
 
-		&:checked + label .options-input__radio::after {
-			background-color: $color-bronze;
-		}
+	// 	&:checked + label .options-input__radio::after {
+	// 		background-color: $color-bronze;
+	// 	}
 
-		&:checked + label {
-			cursor: default;
-		}
-	}
+	// 	&:checked + label {
+	// 		cursor: default;
+	// 	}
+	// }
 
 	label {
 		display: flex;
@@ -152,42 +152,6 @@
 .options-input__img {
 	align-self: flex-start;
 	display: block;
-}
-
-.options-input__radio {
-	position: relative;
-	width: 16px;
-	height: 16px;
-	margin-right: 20px;
-	align-self: center;
-
-	&::before,
-	&::after {
-		content: "";
-		position: absolute;
-		box-sizing: border-box;
-	}
-
-	&::before {
-		width: 16px;
-		height: 16px;
-		border-radius: 16px;
-		top: 50%;
-		left: 0;
-		transform: translateY(-50%);
-		background-color: transparent;
-		border: 1px solid $color-black;
-	}
-
-	&::after {
-		width: 10px;
-		height: 10px;
-		border-radius: 10px;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%);
-		transition: background-color 150ms ease-in-out 0ms;
-	}
 }
 
 // .options-input__radio_top {
@@ -512,7 +476,6 @@
 
 :root {
 	--form-rounding: 40px;
-	--form-img: url("../images/grab.png");
 }
 
 .options__size-img-wrap {
@@ -520,12 +483,10 @@
 	height: 100%;
 	filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.2));
 	position: relative;
-	// background-image: url("../images/grab.png");
-	// mask-composite: add;
 }
 
 .options__size-img-body {
-	background-image: var(--form-img);
+	background-image: url("../images/grab.png");
 	background-position: 0 0;
 	position: absolute;
 	top: 0;
@@ -535,7 +496,7 @@
 }
 
 .options__size-img-bot-right {
-	background-image: var(--form-img);
+	background-image: url("../images/grab.png");
 	background-position: -245px -120px;
 	position: absolute;
 	top: 120px;
@@ -545,7 +506,7 @@
 }
 
 .options__size-img-bot-left {
-	background-image: var(--form-img);
+	background-image: url("../images/grab.png");
 	background-position: 0 -120px;
 	position: absolute;
 	top: 120px;
@@ -643,13 +604,6 @@
 		border-bottom-right-radius: var(--form-rounding);
 	}
 }
-
-// .options__size-img {
-// 	object-fit: cover;
-// 	display: block;
-// 	width: 100%;
-// 	height: 100%;
-// }
 
 .options__size-arrow-horizon {
 	display: flex;
@@ -847,6 +801,7 @@
 	font-size: 14px;
 	line-height: 16px;
 	text-align: center;
+	padding: 0;
 }
 
 .options__size-min-error {

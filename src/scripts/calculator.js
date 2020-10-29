@@ -322,16 +322,10 @@ function calcNextButton(buttons, roadMapButton) {
 
 	for (const buttonItem of buttons) {
 		const ntxtPoint = buttonItem.dataset.calcNextButton;
-		const radioRequired = buttonItem.dataset.radioRequired;
 
 		buttonItem.addEventListener("click", () => {
-			if (radioRequired != "" && document.querySelector(`input[name="${radioRequired}"]:checked`)) {
-				removeDisable(roadMapButton, ntxtPoint);
-				listShowItem(calcBody, ntxtPoint);
-			} else if (radioRequired == undefined) {
-				removeDisable(roadMapButton, ntxtPoint);
-				listShowItem(calcBody, ntxtPoint);
-			}
+			removeDisable(roadMapButton, ntxtPoint);
+			listShowItem(calcBody, ntxtPoint);
 		});
 	}
 }
@@ -373,7 +367,7 @@ const htmlOptionRadioImg = function (itemParent, itemObject, itemName, type = "r
 			<input id="options_${itemParent + "_" + itemName}" type="${type}" name="${itemParent}" value="${itemName}">
 			<label for="options_${itemParent + "_" + itemName}" tabindex="1">				
 				<div class="options-input__body">
-					<div class="options-input__radio"></div>
+					<div class="options-input__radio-chec"></div>
 					<img class="options-input__img" src="./assets/images/calc-svg/${itemObject.imgName}.svg" alt="${itemObject.name}">
 				</div>
 				<span class="options-input__name">${itemObject.name + detail(itemObject.detail)}</span>
@@ -401,8 +395,9 @@ const htmlOptionInput = function (itemParent, itemObject, itemName, type = "radi
 			let subcategoriesItem = "";
 			for (const subcategoriesItemKey in itemObject.subcategories) {
 				subcategoriesItem += `
-				<label class="${itemObject.subcategories[subcategoriesItemKey].type}-button">
+				<label class="custom-input">
 					<input type="${itemObject.subcategories[subcategoriesItemKey].type}" name="${itemName}" value="${subcategoriesItemKey}">
+					<div class="options-input__radio-chec"></div>
 					<span>${itemObject.subcategories[subcategoriesItemKey].name + detail(itemObject.subcategories[subcategoriesItemKey].detail)}</span>
 				</label>
 				`;
@@ -418,8 +413,9 @@ const htmlOptionInput = function (itemParent, itemObject, itemName, type = "radi
 	}
 
 	return `
-		<label class="${type}-button">
+		<label class="custom-input">
 			<input type="${type}" name="${itemParent}" value="${itemName}" ${dataSubcategories()}>
+			<div class="options-input__radio-chec"></div>
 			<span>${itemObject.name + detail(itemObject.detail)}</span>
 		</label>
 		${subcategories()}
@@ -571,6 +567,15 @@ const listCalcNextButton = document.querySelectorAll("button[data-calc-next-butt
 	listCalcPreviousButton = document.querySelectorAll("button[data-calc-previous-button]");
 calcNextButton(listCalcNextButton, roadMapButton);
 calcPreviousButton(listCalcPreviousButton, roadMapButton);
+
+for (const button of listCalcNextButton) {
+	const radios = document.querySelectorAll(`[name="${button.dataset.radioRequired}"]`);
+	for (const radio of radios) {
+		radio.addEventListener("change", () => {
+			button.removeAttribute("disabled");
+		});
+	}
+}
 
 // Выберите подходящую форму
 const radioForm = document.querySelectorAll('input[name="form"]'),
