@@ -586,6 +586,7 @@ for (const radio of radioForm) {
 			button.dispatchEvent(event);
 		}
 		selectedOptions.sizeRadius = 0;
+		roundingNumberText.innerHTML = selectedOptions.sizeRadius;
 	});
 }
 
@@ -594,6 +595,7 @@ const radioRounding = document.querySelectorAll('input[name="rounding"]'),
 	sizeRadiusButton = document.querySelectorAll("[data-size-radius]"),
 	rootStyles = document.querySelector(":root"),
 	roundingNumberText = document.querySelector("#rounding-number-text");
+let firstRounding = true;
 
 for (const radio of radioRounding) {
 	radio.addEventListener("change", (event) => {
@@ -609,6 +611,11 @@ for (const radio of radioRounding) {
 		if (event.target.value === "c") {
 			(disp = "block"), (rounding = 40);
 		}
+		if (firstRounding && event.target.value !== "a") {
+			for (const button of sizeRadiusButton) {
+				button.classList.add("size-img-button_animat");
+			}
+		}
 		for (const button of sizeRadiusButton) {
 			button.style.display = disp;
 		}
@@ -620,6 +627,12 @@ for (const radio of radioRounding) {
 // Скругление углов
 for (const button of sizeRadiusButton) {
 	button.addEventListener("change", (event) => {
+		if (firstRounding && event.target.checked) {
+			for (const button of sizeRadiusButton) {
+				button.classList.remove("size-img-button_animat");
+				firstRounding = false;
+			}
+		}
 		if (event.target.checked) {
 			button.parentElement.style[event.target.dataset.sizeRadius] = "";
 			selectedOptions.sizeRadius += 1;

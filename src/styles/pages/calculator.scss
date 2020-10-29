@@ -1,13 +1,13 @@
 #form_norm,
-// #form_g,
+#form_g,
 #form_p {
 	display: none;
 }
 
-#category,
+// #category,
 #form,
 #materials,
-// #parameters,
+#parameters,
 #notch,
 #services,
 #total {
@@ -579,6 +579,7 @@
 	cursor: pointer;
 	appearance: none;
 	overflow: hidden;
+	display: none;
 
 	&::before {
 		content: "";
@@ -593,6 +594,20 @@
 
 	&:hover::before {
 		opacity: 1;
+	}
+}
+
+.size-img-button_animat::before {
+	animation: size-img-button 800ms ease-in-out 0ms infinite alternate;
+	box-shadow: 0 0 35px 20px #ffffff;
+}
+@keyframes size-img-button {
+	0% {
+		opacity: 1;
+	}
+
+	100% {
+		opacity: 0;
 	}
 }
 
