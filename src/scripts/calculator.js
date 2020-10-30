@@ -755,9 +755,9 @@ function calcArea(object) {
 		if (object["right"] <= object["left-top"] && filledInput(object)) {
 			return generateError("right", ["left-top"]);
 		}
-		const area_left = (object["top"] - object["bot-right"]) * (object["right"] - object["left-top"]);
-		const area_right = (object["top"] - object["bot-right"]) * object["right"];
-		return area_left + area_right;
+		const area_main = object["top"] * object["right"],
+			area_minus = (object["top"] - object["bot-right"]) * (object["right"] - object["left-top"]);
+		return area_main - area_minus;
 	}
 	// Расчет площади П-образная
 	if (selectedOptions.form === "form_p") {
@@ -788,6 +788,7 @@ function inputFormSize() {
 			selectedOptions.formArea = calcArea(selectedOptions.formEdgeSize);
 			errorInput(selectedOptions.formArea);
 			renderArea();
+			console.log(selectedOptions.formArea);
 		});
 	}
 }
