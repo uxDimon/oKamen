@@ -770,9 +770,9 @@ function calcArea(object) {
 		if (object["top"] <= object["bot-left"] + object["bot-right"] && filledInput(object)) {
 			return generateError("top", ["bot-left", "bot-right"]);
 		}
-		const area_left = object["left"] * object["bot-left"];
-		const area_right = object["right"] * object["bot-right"];
-		const area_body = (object["top"] - (object["bot-left"] + object["bot-right"])) * object["body"];
+		const area_left = object["left"] * object["bot-left"],
+			area_right = object["right"] * object["bot-right"],
+			area_body = (object["top"] - (object["bot-left"] + object["bot-right"])) * object["body"];
 		return area_left + area_right + area_body;
 	}
 }

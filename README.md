@@ -1,1 +1,1 @@
-# https://uxdimon.github.io/RGL/map.html
+# https://uxdimon.github.io/oKamen/map.html
