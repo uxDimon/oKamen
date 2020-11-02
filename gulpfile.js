@@ -149,9 +149,10 @@ exports.images = images;
 exports.scripts = scripts;
 exports.fonts = fonts;
 exports.css = css;
+exports.svgSprite = svgSprite;
 
 // просто работаем
 gulp.task("default", gulp.series(gulp.parallel(styles, templates, images, scripts, fonts, css), gulp.parallel(watch, server)));
 
 // контрольная сборка на продакшен
-gulp.task("build", gulp.parallel(clean, gulp.parallel(styles, templates, images, scripts, fonts)));
+gulp.task("build", gulp.parallel(clean, gulp.parallel(styles, templates, images, scripts, fonts, svgSprite)));

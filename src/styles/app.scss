@@ -9,7 +9,8 @@
 $content-max-weight: 1240px;
 
 // Цвета
-$color-black: #161615;
+// $color-black: #161615;
+$color-black: #282220;
 $color-dark-gray: #4f4f4f;
 $color-dark-lite: #989898;
 $color-dark-blue: #293f54;
@@ -21,7 +22,8 @@ $color-bek: #f2f2f2;
 
 // Шрифты
 $font-Manrope: "Manrope", sans-serif;
-$font-Spectral: "Spectral", serif;
+// $font-Spectral: "Spectral", serif;
+$font-Spectral: "PF BeauSans Pro", sans-serif;
 
 // Анимация
 @mixin transition($property: all) {
@@ -242,7 +244,7 @@ select {
 .input_prise-min,
 .input_prise-max {
 	font-family: $font-Manrope;
-	font-weight: 700;
+	font-weight: 600;
 	font-size: 14px;
 	line-height: 1.14;
 	color: transparentize($color-black, 0.7);

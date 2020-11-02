@@ -333,7 +333,7 @@
 	}
 
 	.header__logo {
-		width: 70px;
+		width: 150px;
 		height: auto;
 	}
 
@@ -375,6 +375,7 @@
 	.header__menu-second-wrap {
 		position: static;
 		justify-content: flex-end;
+		width: 150px;
 	}
 
 	.main-menu {
@@ -428,5 +429,15 @@
 	.header__second-input:not(:placeholder-shown),
 	.header__second-input:focus {
 		width: 226px;
+	}
+}
+
+@media screen and (max-width: 500px) {
+	.header__logo {
+		width: 100px;
+	}
+
+	.header__menu-second-wrap {
+		width: auto;
 	}
 }

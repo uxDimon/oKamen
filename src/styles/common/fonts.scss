@@ -1,10 +1,3 @@
-/* manrope-300 - latin_cyrillic */
-@font-face {
-	font-family: "Manrope";
-	font-style: normal;
-	font-weight: 300;
-	src: local(""), url("../fonts/manrope-v3-latin_cyrillic-300.woff2") format("woff2"), /* Chrome 26+, Opera 23+, Firefox 39+ */ url("../fonts/manrope-v3-latin_cyrillic-300.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-}
 /* manrope-500 - latin_cyrillic */
 @font-face {
 	font-family: "Manrope";
@@ -26,13 +19,6 @@
 	font-style: normal;
 	font-weight: 600;
 	src: local(""), url("../fonts/manrope-v3-latin_cyrillic-600.woff2") format("woff2"), /* Chrome 26+, Opera 23+, Firefox 39+ */ url("../fonts/manrope-v3-latin_cyrillic-600.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-}
-/* manrope-700 - latin_cyrillic */
-@font-face {
-	font-family: "Manrope";
-	font-style: normal;
-	font-weight: 700;
-	src: local(""), url("../fonts/manrope-v3-latin_cyrillic-700.woff2") format("woff2"), /* Chrome 26+, Opera 23+, Firefox 39+ */ url("../fonts/manrope-v3-latin_cyrillic-700.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
 /* spectral-regular - latin_cyrillic */
@@ -58,4 +44,26 @@
 	font-weight: 600;
 	src: local("Spectral SemiBold"), local("Spectral-SemiBold"), url("../fonts/spectral-v6-latin_cyrillic-600.woff2") format("woff2"),
 		/* Chrome 26+, Opera 23+, Firefox 39+ */ url("../fonts/spectral-v6-latin_cyrillic-600.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+@font-face {
+	font-family: "PF BeauSans Pro Bbook";
+	src: url("../fonts/PFBeauSansPro-Bbook.eot");
+	src: local("PFBeauSansPro-Bbook"), url("../fonts/PFBeauSansPro-Bbook.woff") format("woff");
+	font-weight: 500;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "PF BeauSans Pro";
+	src: local("PFBeauSansPro-SemiBold"), url("../fonts/PFBeauSansPro-SemiBold.woff") format("woff");
+	font-weight: 600;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "PF BeauSans Pro";
+	src: local("PFBeauSansPro-Regular"), url("../fonts/PFBeauSansPro-Regular.woff") format("woff");
+	font-weight: normal;
+	font-style: normal;
 }
