@@ -14,8 +14,8 @@
   </head>
   <body>
     <header class="header__wrap">
-      <div class="header"><a class="header__logo" href="#">
-          <svg class="header__logo" width="160" height="64">
+      <div class="header"><a href="#">
+          <svg class="header__logo" width="223" height="50">
             <use xlink:href="./assets/images/sprite.svg#logo"></use>
           </svg></a>
         <button class="header__kontacts-button" data-drop-kontacts-button>Адреса</button>
@@ -111,7 +111,7 @@
                   <input id="category-table" type="radio" name="category" value="table">
                   <label for="category-table" tabindex="1">
                     <div class="options-input__body">
-                      <div class="options-input__radio options-input__radio_bot"></div><img class="options-input__img" src="./assets/images/calc-svg/category-table.svg" alt="Столешница">
+                      <div class="options-input__radio-chec options-input__radio_bot"></div><img class="options-input__img" src="./assets/images/calc-svg/category-table.svg" alt="Столешница">
                     </div><span class="options-input__name">Столешница</span>
                   </label>
                 </div>
@@ -119,7 +119,7 @@
                   <input id="category-windowsill" type="radio" name="category" value="windowsill">
                   <label for="category-windowsill" tabindex="1">
                     <div class="options-input__body">
-                      <div class="options-input__radio options-input__radio_bot"></div><img class="options-input__img" src="./assets/images/calc-svg/category-windowsill.svg" alt="Подоконник">
+                      <div class="options-input__radio-chec options-input__radio_bot"></div><img class="options-input__img" src="./assets/images/calc-svg/category-windowsill.svg" alt="Подоконник">
                     </div><span class="options-input__name">Подоконник</span>
                   </label>
                 </div>
@@ -127,7 +127,7 @@
                   <input id="category-stage" type="radio" name="category" value="stage">
                   <label for="category-stage" tabindex="1">
                     <div class="options-input__body">
-                      <div class="options-input__radio options-input__radio_bot"></div><img class="options-input__img" src="./assets/images/calc-svg/category-stage.svg" alt="Ступени">
+                      <div class="options-input__radio-chec options-input__radio_bot"></div><img class="options-input__img" src="./assets/images/calc-svg/category-stage.svg" alt="Ступени">
                     </div><span class="options-input__name">Ступени</span>
                   </label>
                 </div>
@@ -135,7 +135,7 @@
             </div>
             <div class="calc__button-wrap">
               <button class="button button_gray calc__button" disabled>Назад</button>
-              <button class="button calc__button" data-calc-next-button="form" data-radio-required="category">Далее</button>
+              <button class="button calc__button" data-calc-next-button="form" data-radio-required="category" disabled>Далее</button>
             </div>
           </div>
           <div class="calc__body" id="form">
@@ -145,7 +145,7 @@
             </div>
             <div class="calc__button-wrap">
               <button class="button button_gray calc__button" data-calc-previous-button="category">Назад</button>
-              <button class="button calc__button" data-calc-next-button="materials" data-radio-required="form">Далее</button>
+              <button class="button calc__button" data-calc-next-button="materials" data-radio-required="form" disabled>Далее</button>
             </div>
           </div>
           <div class="calc__body" id="materials">
@@ -178,22 +178,7 @@
               <div class="radio-wrap-border"></div>
               <h2 class="options__heading">Выберите подходящее форму скругления края столешницы</h2>
               <div class="options-input__wrap" data-render-options="rounding"> </div>
-              <div class="options__rounding-range-wrap">
-                <h2 class="options__heading">Количество углов: <span id='rounding-number-text'>1</span></h2>
-                <div class="options__rounding-range range-nick">
-                  <input class="range range-nick" type="range" name="rounding-number-range" min="1" max="8" step="1" value="1" disabled>
-                  <ul class="range-nick-wrpa">
-                    <li class="range-nick-item">1</li>
-                    <li class="range-nick-item">2</li>
-                    <li class="range-nick-item">3</li>
-                    <li class="range-nick-item">4</li>
-                    <li class="range-nick-item">5</li>
-                    <li class="range-nick-item">6</li>
-                    <li class="range-nick-item">7</li>
-                    <li class="range-nick-item">8</li>
-                  </ul>
-                </div>
-              </div>
+              <div class="options__rounding-range-wrap"><span>Количество углов: <span id='rounding-number-text'>0</span></span></div>
               <div class="radio-wrap-border"></div>
               <h3 class="options__heading">Выберите подходящее форму скругления края столешницы</h3>
               <div class="options-input__wrap" data-render-options="chamfer_front"></div>
@@ -307,7 +292,14 @@
           </div>
           <div class="options__size-wrap">
             <div class="options__size options__size_norm" dara-form-size="form_norm" id="form_norm">
-              <div class="options__size-img-wrap"><img class="options__size-img" src="./assets/images/grab.png" alt=""></div>
+              <div class="options__size-img-wrap">
+                <div class="options__size-img-body" style="border-top-left-radius: 2px; border-top-right-radius: 2px; border-bottom-left-radius: 2px; border-bottom-right-radius: 2px;">
+                  <input class="size-img-button" type="checkbox" data-size-radius="border-top-left-radius">
+                  <input class="size-img-button" type="checkbox" data-size-radius="border-top-right-radius">
+                  <input class="size-img-button" type="checkbox" data-size-radius="border-bottom-left-radius">
+                  <input class="size-img-button" type="checkbox" data-size-radius="border-bottom-right-radius">
+                </div>
+              </div>
               <div class="options__size-arrow-horizon size-arrow-horizon_bot">
                 <div class="size-arrow"></div>
                 <lable class="options__size-lable">
@@ -326,7 +318,17 @@
                   <sapn data-size-area>0 </sapn><span class="m2">м2</span></span></div>
             </div>
             <div class="options__size options__size_g" dara-form-size="form_g" id="form_g">
-              <div class="options__size-img-wrap"><img class="options__size-img" src="./assets/images/grab.png" alt=""></div>
+              <div class="options__size-img-wrap">
+                <div class="options__size-img-body" style="border-top-left-radius: 2px; border-top-right-radius: 2px; border-bottom-left-radius: 2px;">
+                  <input class="size-img-button" type="checkbox" data-size-radius="border-top-left-radius">
+                  <input class="size-img-button" type="checkbox" data-size-radius="border-top-right-radius">
+                  <input class="size-img-button" type="checkbox" data-size-radius="border-bottom-left-radius">
+                </div>
+                <div class="options__size-img-bot-right" style="border-bottom-right-radius: 2px; border-bottom-left-radius: 2px;">
+                  <input class="size-img-button" type="checkbox" data-size-radius="border-bottom-left-radius">
+                  <input class="size-img-button" type="checkbox" data-size-radius="border-bottom-right-radius">
+                </div>
+              </div>
               <div class="options__size-arrow-horizon size-arrow-horizon_top">
                 <div class="size-arrow"></div>
                 <lable class="options__size-lable">
@@ -359,7 +361,20 @@
                   <sapn data-size-area>0 </sapn><span class="m2">м2</span></span></div>
             </div>
             <div class="options__size options__size_p" dara-form-size="form_p" id="form_p">
-              <div class="options__size-img-wrap"><img class="options__size-img" src="./assets/images/grab.png" alt=""></div>
+              <div class="options__size-img-wrap">
+                <div class="options__size-img-body" style="border-top-left-radius: 2px; border-top-right-radius: 2px;">
+                  <input class="size-img-button" type="checkbox" data-size-radius="border-top-left-radius">
+                  <input class="size-img-button" type="checkbox" data-size-radius="border-top-right-radius">
+                </div>
+                <div class="options__size-img-bot-right" style="border-bottom-right-radius: 2px; border-bottom-left-radius: 2px;">
+                  <input class="size-img-button" type="checkbox" data-size-radius="border-bottom-left-radius">
+                  <input class="size-img-button" type="checkbox" data-size-radius="border-bottom-right-radius">
+                </div>
+                <div class="options__size-img-bot-left" style="border-bottom-right-radius: 2px; border-bottom-left-radius: 2px;">
+                  <input class="size-img-button" type="checkbox" data-size-radius="border-bottom-left-radius">
+                  <input class="size-img-button" type="checkbox" data-size-radius="border-bottom-right-radius">
+                </div>
+              </div>
               <div class="options__size-arrow-horizon size-arrow-horizon_top-floor-2">
                 <div class="size-arrow"></div>
                 <lable class="options__size-lable">

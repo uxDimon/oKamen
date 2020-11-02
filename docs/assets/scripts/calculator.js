@@ -272,6 +272,7 @@ let selectedOptions = {
 	formArea: "",
 	formEdgeSize: {},
 	materials: "",
+	sizeRadius: 0,
 	secondaryOptions: {},
 };
 
@@ -321,16 +322,10 @@ function calcNextButton(buttons, roadMapButton) {
 
 	for (const buttonItem of buttons) {
 		const ntxtPoint = buttonItem.dataset.calcNextButton;
-		const radioRequired = buttonItem.dataset.radioRequired;
 
 		buttonItem.addEventListener("click", () => {
-			if (radioRequired != "" && document.querySelector(`input[name="${radioRequired}"]:checked`)) {
-				removeDisable(roadMapButton, ntxtPoint);
-				listShowItem(calcBody, ntxtPoint);
-			} else if (radioRequired == undefined) {
-				removeDisable(roadMapButton, ntxtPoint);
-				listShowItem(calcBody, ntxtPoint);
-			}
+			removeDisable(roadMapButton, ntxtPoint);
+			listShowItem(calcBody, ntxtPoint);
 		});
 	}
 }
@@ -372,7 +367,7 @@ const htmlOptionRadioImg = function (itemParent, itemObject, itemName, type = "r
 			<input id="options_${itemParent + "_" + itemName}" type="${type}" name="${itemParent}" value="${itemName}">
 			<label for="options_${itemParent + "_" + itemName}" tabindex="1">				
 				<div class="options-input__body">
-					<div class="options-input__radio"></div>
+					<div class="options-input__radio-chec"></div>
 					<img class="options-input__img" src="./assets/images/calc-svg/${itemObject.imgName}.svg" alt="${itemObject.name}">
 				</div>
 				<span class="options-input__name">${itemObject.name + detail(itemObject.detail)}</span>
@@ -400,8 +395,9 @@ const htmlOptionInput = function (itemParent, itemObject, itemName, type = "radi
 			let subcategoriesItem = "";
 			for (const subcategoriesItemKey in itemObject.subcategories) {
 				subcategoriesItem += `
-				<label class="${itemObject.subcategories[subcategoriesItemKey].type}-button">
+				<label class="custom-input">
 					<input type="${itemObject.subcategories[subcategoriesItemKey].type}" name="${itemName}" value="${subcategoriesItemKey}">
+					<div class="options-input__radio-chec"></div>
 					<span>${itemObject.subcategories[subcategoriesItemKey].name + detail(itemObject.subcategories[subcategoriesItemKey].detail)}</span>
 				</label>
 				`;
@@ -417,8 +413,9 @@ const htmlOptionInput = function (itemParent, itemObject, itemName, type = "radi
 	}
 
 	return `
-		<label class="${type}-button">
+		<label class="custom-input">
 			<input type="${type}" name="${itemParent}" value="${itemName}" ${dataSubcategories()}>
+			<div class="options-input__radio-chec"></div>
 			<span>${itemObject.name + detail(itemObject.detail)}</span>
 		</label>
 		${subcategories()}
@@ -571,33 +568,86 @@ const listCalcNextButton = document.querySelectorAll("button[data-calc-next-butt
 calcNextButton(listCalcNextButton, roadMapButton);
 calcPreviousButton(listCalcPreviousButton, roadMapButton);
 
+for (const button of listCalcNextButton) {
+	const radios = document.querySelectorAll(`[name="${button.dataset.radioRequired}"]`);
+	for (const radio of radios) {
+		radio.addEventListener("change", () => {
+			button.removeAttribute("disabled");
+		});
+	}
+}
+
 // Выберите подходящую форму
 const radioForm = document.querySelectorAll('input[name="form"]'),
 	blockForm = document.querySelectorAll(".options__size");
 choiceForm(radioForm, blockForm);
 
-// Количество углов
-const radioRounding = document.querySelectorAll('input[name="rounding"]'),
-	numberRoundingWrap = document.querySelector(".options__rounding-range-wrap"),
-	numberRounding = numberRoundingWrap.querySelector('input[name="rounding-number-range"]'),
-	numberRoundingNumber = numberRoundingWrap.querySelector("#rounding-number-text");
-
-for (const radioItem of radioRounding) {
-	radioItem.addEventListener("change", () => {
-		let styleOpacity = "0.3";
-		if (radioItem.value != "0") {
-			numberRounding.removeAttribute("disabled");
-			styleOpacity = "1";
-		} else {
-			numberRounding.setAttribute("disabled", "");
+// //  Убирает скруглённые углов при переключении формы
+for (const radio of radioForm) {
+	radio.addEventListener("change", () => {
+		for (const button of sizeRadiusButton) {
+			button.checked = false;
+			let event = new Event("change");
+			button.dispatchEvent(event);
 		}
-		numberRoundingWrap.style.opacity = styleOpacity;
+		selectedOptions.sizeRadius = 0;
+		roundingNumberText.innerHTML = selectedOptions.sizeRadius;
 	});
 }
 
-numberRounding.addEventListener("input", (event) => {
-	numberRoundingNumber.innerHTML = event.target.value;
-});
+// Количество углов
+const radioRounding = document.querySelectorAll('input[name="rounding"]'),
+	sizeRadiusButton = document.querySelectorAll("[data-size-radius]"),
+	rootStyles = document.querySelector(":root"),
+	roundingNumberText = document.querySelector("#rounding-number-text");
+let firstRounding = true;
+
+for (const radio of radioRounding) {
+	radio.addEventListener("change", (event) => {
+		let disp,
+			rounding,
+			sizeRadius = selectedOptions.sizeRadius;
+		if (event.target.value === "a") {
+			(disp = "none"), (rounding = 2), (sizeRadius = 0);
+		}
+		if (event.target.value === "b") {
+			(disp = "block"), (rounding = 20);
+		}
+		if (event.target.value === "c") {
+			(disp = "block"), (rounding = 40);
+		}
+		if (firstRounding && event.target.value !== "a") {
+			for (const button of sizeRadiusButton) {
+				button.classList.add("size-img-button_animat");
+			}
+		}
+		for (const button of sizeRadiusButton) {
+			button.style.display = disp;
+		}
+		rootStyles.style.setProperty("--form-rounding", rounding + "px");
+		roundingNumberText.innerHTML = sizeRadius;
+	});
+}
+
+// Скругление углов
+for (const button of sizeRadiusButton) {
+	button.addEventListener("change", (event) => {
+		if (firstRounding && event.target.checked) {
+			for (const button of sizeRadiusButton) {
+				button.classList.remove("size-img-button_animat");
+				firstRounding = false;
+			}
+		}
+		if (event.target.checked) {
+			button.parentElement.style[event.target.dataset.sizeRadius] = "";
+			selectedOptions.sizeRadius += 1;
+		} else {
+			button.parentElement.style[event.target.dataset.sizeRadius] = "2px";
+			selectedOptions.sizeRadius -= 1;
+		}
+		roundingNumberText.innerHTML = selectedOptions.sizeRadius;
+	});
+}
 
 // Доп опции в чекбоксе
 const moreInput = document.querySelectorAll("[data-subcategories]");
@@ -705,9 +755,9 @@ function calcArea(object) {
 		if (object["right"] <= object["left-top"] && filledInput(object)) {
 			return generateError("right", ["left-top"]);
 		}
-		const area_left = (object["top"] - object["bot-right"]) * (object["right"] - object["left-top"]);
-		const area_right = (object["top"] - object["bot-right"]) * object["right"];
-		return area_left + area_right;
+		const area_main = object["top"] * object["right"],
+			area_minus = (object["top"] - object["bot-right"]) * (object["right"] - object["left-top"]);
+		return area_main - area_minus;
 	}
 	// Расчет площади П-образная
 	if (selectedOptions.form === "form_p") {
@@ -720,9 +770,9 @@ function calcArea(object) {
 		if (object["top"] <= object["bot-left"] + object["bot-right"] && filledInput(object)) {
 			return generateError("top", ["bot-left", "bot-right"]);
 		}
-		const area_left = object["left"] * object["bot-left"];
-		const area_right = object["right"] * object["bot-right"];
-		const area_body = (object["top"] - (object["bot-left"] + object["bot-right"])) * object["body"];
+		const area_left = object["left"] * object["bot-left"],
+			area_right = object["right"] * object["bot-right"],
+			area_body = (object["top"] - (object["bot-left"] + object["bot-right"])) * object["body"];
 		return area_left + area_right + area_body;
 	}
 }
@@ -738,6 +788,7 @@ function inputFormSize() {
 			selectedOptions.formArea = calcArea(selectedOptions.formEdgeSize);
 			errorInput(selectedOptions.formArea);
 			renderArea();
+			console.log(selectedOptions.formArea);
 		});
 	}
 }
