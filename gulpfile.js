@@ -1,4 +1,5 @@
 const gulp = require("gulp");
+const gulpif = require("gulp-if");
 const pug = require("gulp-pug");
 const del = require("del");
 const browserSync = require("browser-sync").create();
@@ -12,36 +13,43 @@ const sass = require("gulp-sass");
 const rename = require("gulp-rename");
 const sourcemaps = require("gulp-sourcemaps");
 
-const paths = {
-	root: "./build",
+let path = "build";
+let docs = true;
+if (process.title === "gulp prod") {
+	path = "docs";
+	docs = false;
+}
+
+let paths = {
+	root: `./${path}`,
 	templates: {
 		pages: "src/templates/pages/*.pug",
 		src: "src/templates/**/*.pug",
-		dest: "build/assets/",
+		dest: `${path}/assets/`,
 	},
 	styles: {
 		src: "src/styles/**/*.scss",
-		dest: "build/assets/styles/",
+		dest: `${path}/assets/styles/`,
 	},
 	css: {
 		src: "src/styles/*.css",
-		dest: "build/assets/styles/",
+		dest: `${path}/assets/styles/`,
 	},
 	scripts: {
 		src: "src/scripts/**/*.*",
-		dest: "build/assets/scripts/",
+		dest: `${path}/assets/scripts/`,
 	},
 	images: {
 		src: "src/images/**/*.*",
-		dest: "build/assets/images/",
+		dest: `${path}/assets/images/`,
 	},
 	svg: {
 		src: "src/images/svg/**/*.*",
-		dest: "build/assets/images/svg/",
+		dest: `${path}/assets/images/svg/`,
 	},
 	fonts: {
 		src: "src/fonts/**/*.*",
-		dest: "build/assets/fonts/",
+		dest: `${path}/assets/fonts/`,
 	},
 };
 
@@ -60,7 +68,7 @@ function styles() {
 		.pipe(sourcemaps.init())
 		.pipe(sass(/*{ outputStyle: "compressed" }*/))
 		.pipe(autoprefixer(["last 2 version", "> 1%", "maintained node versions", "not dead" /*"last 15 versions", "> 1%" , "ie 8", "ie 7"*/], { cascade: true })) // Создаем префиксы
-		.pipe(sourcemaps.write())
+		.pipe(gulpif(docs, sourcemaps.write()))
 		.pipe(rename({ suffix: ".min" }))
 		.pipe(gulp.dest(paths.styles.dest));
 }
@@ -82,21 +90,22 @@ function fonts() {
 
 // картинки
 function images() {
+	const docsNo = !docs;
+	function img() {
+		return imagemin({
+			// Сжимаем их с наилучшими настройками с учетом кеширования
+			interlaced: true,
+			progressive: true,
+			svgoPlugins: [{ removeViewBox: false }],
+			use: [pngquant()],
+			max: 90,
+			min: 60,
+		});
+	}
 	return gulp
 		.src(paths.images.src) // Берем все изображения из app
-		.pipe(
-			cache(
-				imagemin({
-					// Сжимаем их с наилучшими настройками с учетом кеширования
-					interlaced: true,
-					progressive: true,
-					svgoPlugins: [{ removeViewBox: false }],
-					use: [pngquant()],
-					max: 90,
-					min: 70,
-				})
-			)
-		)
+		.pipe(gulpif(docs, cache(img())))
+		.pipe(gulpif(docsNo, img()))
 		.pipe(gulp.dest(paths.images.dest)); // Выгружаем на продакшен
 }
 
@@ -111,7 +120,6 @@ function watch() {
 	gulp.watch(paths.templates.src, templates);
 	gulp.watch(paths.images.src, images);
 	gulp.watch(paths.scripts.src, scripts);
-
 	gulp.watch(paths.svg.src, svgSprite);
 }
 
@@ -155,4 +163,4 @@ exports.svgSprite = svgSprite;
 gulp.task("default", gulp.series(gulp.parallel(styles, templates, images, scripts, fonts, css), gulp.parallel(watch, server)));
 
 // контрольная сборка на продакшен
-gulp.task("build", gulp.parallel(clean, gulp.parallel(styles, templates, images, scripts, fonts, svgSprite)));
+gulp.task("prod", gulp.series(clean, gulp.parallel(styles, templates, images, scripts, fonts, css)));
