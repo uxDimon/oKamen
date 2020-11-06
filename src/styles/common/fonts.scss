@@ -4,6 +4,7 @@
 	font-style: normal;
 	font-weight: 500;
 	src: local(""), url("../fonts/manrope-v3-latin_cyrillic-500.woff2") format("woff2"), /* Chrome 26+, Opera 23+, Firefox 39+ */ url("../fonts/manrope-v3-latin_cyrillic-500.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+	font-display: swap;
 }
 /* manrope-regular - latin_cyrillic */
 @font-face {
@@ -12,6 +13,7 @@
 	font-weight: 400;
 	src: local(""), url("../fonts/manrope-v3-latin_cyrillic-regular.woff2") format("woff2"),
 		/* Chrome 26+, Opera 23+, Firefox 39+ */ url("../fonts/manrope-v3-latin_cyrillic-regular.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+	font-display: swap;
 }
 /* manrope-600 - latin_cyrillic */
 @font-face {
@@ -19,6 +21,7 @@
 	font-style: normal;
 	font-weight: 600;
 	src: local(""), url("../fonts/manrope-v3-latin_cyrillic-600.woff2") format("woff2"), /* Chrome 26+, Opera 23+, Firefox 39+ */ url("../fonts/manrope-v3-latin_cyrillic-600.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+	font-display: swap;
 }
 
 /* spectral-regular - latin_cyrillic */
@@ -28,6 +31,7 @@
 	font-weight: 400;
 	src: local("Spectral Regular"), local("Spectral-Regular"), url("../fonts/spectral-v6-latin_cyrillic-regular.woff2") format("woff2"),
 		/* Chrome 26+, Opera 23+, Firefox 39+ */ url("../fonts/spectral-v6-latin_cyrillic-regular.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+	font-display: swap;
 }
 /* spectral-500 - latin_cyrillic */
 @font-face {
@@ -36,6 +40,7 @@
 	font-weight: 500;
 	src: local("Spectral Medium"), local("Spectral-Medium"), url("../fonts/spectral-v6-latin_cyrillic-500.woff2") format("woff2"),
 		/* Chrome 26+, Opera 23+, Firefox 39+ */ url("../fonts/spectral-v6-latin_cyrillic-500.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+	font-display: swap;
 }
 /* spectral-600 - latin_cyrillic */
 @font-face {
@@ -44,6 +49,7 @@
 	font-weight: 600;
 	src: local("Spectral SemiBold"), local("Spectral-SemiBold"), url("../fonts/spectral-v6-latin_cyrillic-600.woff2") format("woff2"),
 		/* Chrome 26+, Opera 23+, Firefox 39+ */ url("../fonts/spectral-v6-latin_cyrillic-600.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+	font-display: swap;
 }
 
 @font-face {
@@ -52,6 +58,7 @@
 	src: local("PFBeauSansPro-Bbook"), url("../fonts/PFBeauSansPro-Bbook.woff") format("woff");
 	font-weight: 500;
 	font-style: normal;
+	font-display: swap;
 }
 
 @font-face {
@@ -59,6 +66,7 @@
 	src: local("PFBeauSansPro-SemiBold"), url("../fonts/PFBeauSansPro-SemiBold.woff") format("woff");
 	font-weight: 600;
 	font-style: normal;
+	font-display: swap;
 }
 
 @font-face {
@@ -66,4 +74,5 @@
 	src: local("PFBeauSansPro-Regular"), url("../fonts/PFBeauSansPro-Regular.woff") format("woff");
 	font-weight: normal;
 	font-style: normal;
+	font-display: swap;
 }
