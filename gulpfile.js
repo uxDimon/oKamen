@@ -63,14 +63,16 @@ function templates() {
 
 //scss
 function styles() {
-	return gulp
-		.src("./src/styles/app.scss")
-		.pipe(sourcemaps.init())
-		.pipe(sass(/*{ outputStyle: "compressed" }*/))
-		.pipe(autoprefixer(["last 2 version", "> 1%", "maintained node versions", "not dead" /*"last 15 versions", "> 1%" , "ie 8", "ie 7"*/], { cascade: true })) // Создаем префиксы
-		.pipe(gulpif(docs, sourcemaps.write()))
-		.pipe(rename({ suffix: ".min" }))
-		.pipe(gulp.dest(paths.styles.dest));
+	return (
+		gulp
+			.src("./src/styles/app.scss")
+			.pipe(sourcemaps.init())
+			.pipe(sass(/*{ outputStyle: "compressed" }*/))
+			.pipe(autoprefixer(["last 2 version", "> 1%", "maintained node versions", "not dead" /*"last 15 versions", "> 1%" , "ie 8", "ie 7"*/], { cascade: true })) // Создаем префиксы
+			.pipe(gulpif(docs, sourcemaps.write()))
+			// .pipe(rename({ suffix: ".min" }))
+			.pipe(gulp.dest(paths.styles.dest))
+	);
 }
 
 //scripts
@@ -92,21 +94,22 @@ function fonts() {
 function images() {
 	const docsNo = !docs;
 	function img() {
-		return imagemin({
-			// Сжимаем их с наилучшими настройками с учетом кеширования
-			interlaced: true,
-			progressive: true,
-			svgoPlugins: [{ removeViewBox: false }],
-			use: [pngquant()],
-			max: 90,
-			min: 60,
-		});
+		return imagemin([
+			imagemin.gifsicle({ interlaced: true }),
+			imagemin.mozjpeg({ quality: 80, progressive: true }),
+			imagemin.optipng({ optimizationLevel: 4, interlaced: true }),
+			imagemin.svgo({
+				plugins: [{ removeViewBox: false }, { cleanupIDs: false }],
+			}),
+		]);
 	}
-	return gulp
-		.src(paths.images.src) // Берем все изображения из app
-		.pipe(gulpif(docs, cache(img())))
-		.pipe(gulpif(docsNo, img()))
-		.pipe(gulp.dest(paths.images.dest)); // Выгружаем на продакшен
+	return (
+		gulp
+			.src(paths.images.src) // Берем все изображения из app
+			// .pipe(gulpif(docs, cache(img())))
+			// .pipe(gulpif(docsNo, img()))
+			.pipe(gulp.dest(paths.images.dest))
+	); // Выгружаем на продакшен
 }
 
 // очистка
