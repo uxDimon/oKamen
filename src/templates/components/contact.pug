@@ -21,8 +21,9 @@ article.contact__wrap
                 textarea(name="message" placeholder="Сообщение").input.input_contact.contact__input-textarea
                 
                 label.contact__input-file.input-file
-                    span Загрузите файл (по желанию)
-                    input(type="file", name="file" onchange='uploadFile(this)')
+                    //- span Загрузите файл (по желанию)
+                    span Загрузите файл (.jpg .png .pdf .exel .csd)
+                    input(type="file", name="file" onchange='uploadFile(this)' accept=".jpg, .jpeg, .png, .pdf, .exel, .csd")
 
             .contact__button-wrap
                 button(type="submit").button.contact__button Отправить
