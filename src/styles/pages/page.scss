@@ -342,9 +342,131 @@
 	}
 }
 
+// onas
+.onas {
+	width: 100%;
+	max-width: $content-max-weight;
+	padding-right: var(--content-p-r);
+	padding-left: var(--content-p-l);
+	margin-bottom: var(--block-m-b);
+	display: flex;
+	align-items: stretch;
+}
+
+.onas__text-wrap {
+	width: 60%;
+	padding: 50px 74px;
+	background-color: $color-gray;
+	font-size: 16px;
+}
+
+.onas__text {
+	margin-bottom: 30px;
+
+	p {
+		margin: 20px 0;
+
+		&:first-child {
+			margin-top: 0;
+		}
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+}
+
+.onas__text-list {
+	list-style: none;
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-row-gap: 8px;
+	margin: 0;
+	padding: 0;
+}
+
+.onas__text-list-item {
+	display: flex;
+	align-items: center;
+
+	&::before {
+		content: "";
+		display: block;
+		width: 20px;
+		height: 1px;
+		background-color: $color-gold;
+		margin-right: 12px;
+	}
+}
+
+.onas__number-wrap {
+	display: grid;
+	grid-auto-flow: column;
+	justify-content: space-between;
+	grid-column-gap: 10px;
+}
+
+.onas__number-iten {
+	font-family: $font-Manrope;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.onas__number {
+	font-family: $font-Manrope;
+	font-weight: 600;
+	font-size: 48px;
+	color: $color-gold;
+	display: inline-flex;
+	align-items: baseline;
+
+	span {
+		font-size: 24px;
+		margin-left: 5px;
+	}
+}
+
+.onas__number-text {
+	text-align: center;
+}
+
+.onas__logo-wrap {
+	padding: 60px 0;
+	width: 40%;
+	background-color: $color-black;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.onas__logo {
+	width: 74%;
+	max-width: 382px;
+	height: auto;
+}
+
 @media screen and (max-width: 1274px) {
 	.product-card {
 		grid-column-gap: 32px;
+	}
+}
+
+@media screen and (max-width: 1100px) {
+	.onas {
+		flex-direction: column;
+	}
+
+	.onas__text-wrap {
+		width: 100%;
+		order: 2;
+		padding-left: 16px;
+		padding-right: 16px;
+	}
+
+	.onas__logo-wrap {
+		width: 100%;
+		order: 1px;
 	}
 }
 
@@ -474,6 +596,22 @@
 		.contact__option-item {
 			margin-right: 32px;
 		}
+	}
+
+	.onas__text-wrap {
+		font-size: 14px;
+	}
+
+	.onas__text-wrap {
+		padding-top: 20px;
+	}
+}
+
+@media screen and (max-width: 640px) {
+	.onas__number-wrap {
+		grid-auto-flow: row;
+		grid-row-gap: 30px;
+		justify-content: center;
 	}
 }
 
