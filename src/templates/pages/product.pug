@@ -2,10 +2,10 @@ extends ../template
 
 block variables
     - var title = 'Кварцевый агломерат'
-    - var contactForm = false
+    - var contactForm = true
 
 block content
-    main
+    main.wrap-back
         nav.bread-crumbs__wrap
             ul.bread-crumbs
                 li.bread-crumbs__item
@@ -48,10 +48,7 @@ block content
                     span Производитель
                 label.contact__option-item
                     input(type="radio", name="contact-product", data-buttn-tab="tab3")
-                    span Отзывы
-                label.contact__option-item
-                    input(type="radio", name="contact-product", data-buttn-tab="tab4")
-                    span Доставка
+                    span Примеры выполненных работ
 
             .product-tab__tab-wrap
                 div(data-item-tab='tab1').product-tab__tab
@@ -65,14 +62,56 @@ block content
                     p Материал выпускается в плитах размером 3050х1440/3050х700 мм и толщинах 20 и 30 мм. Мировая гарантия составляет 15 лет. Отличительной особенностью декоров кварцевого камня Vicostone является полная имитация натурального мрамора и гранита. При этом данный материал является намного более практичным.
                     p Применение современных технологий при изготовлении искусственного камня позволило заводу Vicostone стать одним из ведущих игроков на рынке агломерата.
                 div(data-item-tab='tab3').product-tab__tab
-                    p Vicostone Venatino BQ8660 состоит до 93% из природного кварца – прочнейшего природного компонента, 5% полиэфирных смол и 2% красящих пигментов, поэтому этот материал является достаточно стойким к любым внешним воздействиям. Он идеально подходит для изготовления кухонных столешниц, подоконников и барных стоек.
-                    p В отличие от натурального камня, продукция из агломерата Vicostone способна переносить большие нагрузки, устойчива к перепаду температур, воздействию растворителей и кислот, обладает антибактериальными свойствами и безопасна при контакте с пищей.
-                    p Кварцевый агломерат Vicostone Venatino BQ8660 практически не имеет срока годности и эксплуатации – по всему миру можно найти интерьеры, в которых после десятилетий эксплуатации изделия выглядят как новые.
-                div(data-item-tab='tab4').product-tab__tab
-                    p Vicostone Venatino BQ8660 состоит до 93% из природного кварца – прочнейшего природного компонента, 5% полиэфирных смол и 2% красящих пигментов, поэтому этот материал является достаточно стойким к любым внешним воздействиям. Он идеально подходит для изготовления кухонных столешниц, подоконников и барных стоек.
-                    p В отличие от натурального камня, продукция из агломерата Vicostone способна переносить большие нагрузки, устойчива к перепаду температур, воздействию растворителей и кислот, обладает антибактериальными свойствами и безопасна при контакте с пищей.
-                    p Материал выпускается в плитах размером 3050х1440/3050х700 мм и толщинах 20 и 30 мм. Мировая гарантия составляет 15 лет. Отличительной особенностью декоров кварцевого камня Vicostone является полная имитация натурального мрамора и гранита. При этом данный материал является намного более практичным.
-                    p Применение современных технологий при изготовлении искусственного камня позволило заводу Vicostone стать одним из ведущих игроков на рынке агломерата.
+                    .swiper-container.our-projects-slider
+                        .swiper-wrapper.our-projects__wrap
+                            .our-projects__item.swiper-slide
+                                img(src="./assets/images/slider1.png", alt="Caesarstone 4011 Cloudburst Concrete").our-projects__img
+                                span.our-projects__name Caesarstone 4011 Cloudburst Concrete
+                                span.our-projects__prise 111 165 руб.
+                                a(href="#").arrow-linc.our-projects__arrow-linc Подробнее о проекте
+
+                            .our-projects__item.swiper-slide
+                                img(src="./assets/images/slider2.png", alt="Caesarstone 4011 Cloudburst Concrete").our-projects__img
+                                span.our-projects__name Caesarstone 4011 Cloudburst Concrete
+                                span.our-projects__prise 111 165 руб.
+                                a(href="#").arrow-linc.our-projects__arrow-linc Подробнее о проекте
+
+                            .our-projects__item.swiper-slide
+                                img(src="./assets/images/slider3.png", alt="Caesarstone 4011 Cloudburst Concrete").our-projects__img
+                                span.our-projects__name Caesarstone 4011 Cloudburst Concrete
+                                span.our-projects__prise 111 165 руб.
+                                a(href="#").arrow-linc.our-projects__arrow-linc Подробнее о проекте
+
+                            .our-projects__item.swiper-slide
+                                img(src="./assets/images/slider4.png", alt="Caesarstone 4011 Cloudburst Concrete").our-projects__img
+                                span.our-projects__name Caesarstone 4011 Cloudburst Concrete
+                                span.our-projects__prise 111 165 руб.
+                                a(href="#").arrow-linc.our-projects__arrow-linc Подробнее о проекте
+
+                            .our-projects__item.swiper-slide
+                                img(src="./assets/images/slider4.png", alt="Caesarstone 4011 Cloudburst Concrete").our-projects__img
+                                span.our-projects__name Caesarstone 4011 Cloudburst Concrete
+                                span.our-projects__prise 111 165 руб.
+                                a(href="#").arrow-linc.our-projects__arrow-linc Подробнее о проекте
+
+                            .our-projects__item.swiper-slide
+                                img(src="./assets/images/slider3.png", alt="Caesarstone 4011 Cloudburst Concrete").our-projects__img
+                                span.our-projects__name Caesarstone 4011 Cloudburst Concrete
+                                span.our-projects__prise 111 165 руб.
+                                a(href="#").arrow-linc.our-projects__arrow-linc Подробнее о проекте
+
+                            .our-projects__item.swiper-slide
+                                img(src="./assets/images/slider2.png", alt="Caesarstone 4011 Cloudburst Concrete").our-projects__img
+                                span.our-projects__name Caesarstone 4011 Cloudburst Concrete
+                                span.our-projects__prise 111 165 руб.
+                                a(href="#").arrow-linc.our-projects__arrow-linc Подробнее о проекте
+
+                            .our-projects__item.swiper-slide
+                                img(src="./assets/images/slider1.png", alt="Caesarstone 4011 Cloudburst Concrete").our-projects__img
+                                span.our-projects__name Caesarstone 4011 Cloudburst Concrete
+                                span.our-projects__prise 111 165 руб.
+                                a(href="#").arrow-linc.our-projects__arrow-linc Подробнее о проекте
+
 
         .catalog
             h2.h2.catalog__h2 Похожие типы камней          
@@ -103,7 +142,7 @@ block content
                     span.catalog-list__prise От 111 165 руб.
                     a(href="#").arrow-linc Подробнее
 
-
+        include ../components/seo-block2.pug
 
 
 

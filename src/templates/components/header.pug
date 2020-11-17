@@ -1,7 +1,9 @@
 header.header__wrap
     .header
         a(href="#")
-            svg(width="223", height="50").header__logo
+            svg(width="142", height="70").header__logo.header__logo_ver
+                use(xlink:href="./assets/images/sprite.svg#logo_ver-g")
+            svg(width="142", height="70").header__logo.header__logo_norm
                 use(xlink:href="./assets/images/sprite.svg#logo")
 
         button(data-drop-kontacts-button).header__kontacts-button Адреса
@@ -28,6 +30,7 @@ header.header__wrap
                     span.header__kontacts-city Заневка
                     span.header__kontacts-street Колтушское шоссе
                     a(href="tel:+78123804144").header__kontacts-tel +7 (812) 380-41-44
+                button.button.button__ghost.header__kontacts-button-feedback Обратная связь            
             
             .header__menu-second-wrap
                 nav.header__main-menu.main-menu
@@ -64,6 +67,8 @@ header.header__wrap
                             a(href="#").main-menu__linc Калькулятор стоимости
                         li.main-menu__item
                             a(href="#").main-menu__linc Акции
+                        li.main-menu__item
+                            a(href="#").main-menu__linc Сотрудничество 
                         li.main-menu__item
                             a(href="#").main-menu__linc Контакты 
                     

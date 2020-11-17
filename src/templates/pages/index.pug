@@ -6,17 +6,19 @@ block variables
 
 block content
     main
-        include ../components/slider-main.pug
+        article.wrap-back.wrap-back__slider-main
+            include ../components/slider-main.pug
         
-        article.seo-block
-            .seo-block__text__wrap
-                h2.seo-block__h2 Только лучшее качество
-                p.seo-block__text Изготавливаем по индивидуальному заказу столешницы из камня, подоконники и другие функциональные поверхности для жилых, офисных и общественных помещений. Наша складская программа обладает обширным ассортиментом долговечных покрытий, таких как мрамор, гранит, агломерат, керамика. Мы можем выполнить сложные технические задания по обработке материалов на собствен- ной производственной площадке в черте Санкт-Петербурга. Наши столешницы ориентированы на сложный сценарий использования, сочетают в себе отличные технические и потребительские характеристики
+        article.wrap-back.wrap-back__seo-block
+            .seo-block
+                .seo-block__text__wrap
+                    h2.seo-block__h2 Только лучшее качество
+                    p.seo-block__text Изготавливаем по индивидуальному заказу столешницы из камня, подоконники и другие функциональные поверхности для жилых, офисных и общественных помещений. Наша складская программа обладает обширным ассортиментом долговечных покрытий, таких как мрамор, гранит, агломерат, керамика. Мы можем выполнить сложные технические задания по обработке материалов на собствен- ной производственной площадке в черте Санкт-Петербурга. Наши столешницы ориентированы на сложный сценарий использования, сочетают в себе отличные технические и потребительские характеристики
 
-            .seo-block__right
-                h3.seo-block__right-h Бесплатный выезд менеджера
-                p.seo-block__right-text — с образцами камней на объект для составления предварительного расчёта стоимости столешницы
-                p.seo-block__right-text-linc Воспользуйтесь заявкой или свяжитесь с нами по <a href="tel:+78123804144">телефону</a>
+                .seo-block__right
+                    h3.seo-block__right-h Бесплатный выезд менеджера
+                    p.seo-block__right-text — с образцами камней на объект для составления предварительного расчёта стоимости столешницы
+                    p.seo-block__right-text-linc Воспользуйтесь заявкой или свяжитесь с нами по <a href="tel:+78123804144">телефону</a>
 
         //- article.many-sliders
             .many-sliders__item.swiper-container
@@ -98,179 +100,156 @@ block content
                         button.slider-nav__button-next
                     .slider-nav__pagination
 
-        article.style-age
-            .style-age__text-wrap
-                h2.h2.style-age__h2 Стиль на века
-                p.style-age__text Издавна природный камень ценится за его долговечность, высокую прочность, превосходные эстетические качества и экологичность. Но физико-химические характеристики, цвет, эксплуатационные качества во многом зависят от происхож- дения, места залегания и прочих условий
-            
-            .swiper-container.style-age__slider
-                .swiper-wrapper
-                    .swiper-slide
-                        .many-sliders__type Гранит
-                        img(src="./assets/images/slider1.png", alt="Кварцевый агломерат")
-                        .style-age__slider-text
-                            span.slider-main2__name Столешница
-                            span.slider-main2__prise от 28 878 руб.
-                            a(href="#").arrow-linc Подробнее
-                    .swiper-slide
-                        .many-sliders__type Кварцевый агломерат
-                        img(src="./assets/images/slider2.png", alt="Кварцевый агломерат")
-                        .style-age__slider-text
-                            span.slider-main2__name Мрамор
-                            span.slider-main2__prise от 28 878 руб.
-                            a(href="#").arrow-linc Подробнее
-                    .swiper-slide
-                        .many-sliders__type Гранит
-                        img(src="./assets/images/slider3.png", alt="Кварцевый агломерат")
-                        .style-age__slider-text
-                            span.slider-main2__name Ступени
-                            span.slider-main2__prise от 28 878 руб.
-                            a(href="#").arrow-linc Подробнее
-                    .swiper-slide
-                        .many-sliders__type Гранит
-                        img(src="./assets/images/slider4.png", alt="Кварцевый агломерат")
-                        .style-age__slider-text
-                            span.slider-main2__name Подоконник
-                            span.slider-main2__prise от 28 878 руб.
-                            a(href="#").arrow-linc Подробнее
+        article.wrap-back.wrap-back__style-age
+            .style-age
+                .style-age__text-wrap
+                    h2.h2.style-age__h2 Стиль на века
+                    p.style-age__text Издавна природный камень ценится за его долговечность, высокую прочность, превосходные эстетические качества и экологичность. Но физико-химические характеристики, цвет, эксплуатационные качества во многом зависят от происхож- дения, места залегания и прочих условий
+                
+                .swiper-container.style-age__slider
+                    .swiper-wrapper
+                        .swiper-slide
+                            .many-sliders__type Гранит
+                            img(src="./assets/images/slider1.png", alt="Кварцевый агломерат")
+                            .style-age__slider-text
+                                span.slider-main2__name Столешница
+                                span.slider-main2__prise от 28 878 руб.
+                                a(href="#").arrow-linc Подробнее
+                        .swiper-slide
+                            .many-sliders__type Кварцевый агломерат
+                            img(src="./assets/images/slider2.png", alt="Кварцевый агломерат")
+                            .style-age__slider-text
+                                span.slider-main2__name Мрамор
+                                span.slider-main2__prise от 28 878 руб.
+                                a(href="#").arrow-linc Подробнее
+                        .swiper-slide
+                            .many-sliders__type Гранит
+                            img(src="./assets/images/slider3.png", alt="Кварцевый агломерат")
+                            .style-age__slider-text
+                                span.slider-main2__name Ступени
+                                span.slider-main2__prise от 28 878 руб.
+                                a(href="#").arrow-linc Подробнее
+                        .swiper-slide
+                            .many-sliders__type Гранит
+                            img(src="./assets/images/slider4.png", alt="Кварцевый агломерат")
+                            .style-age__slider-text
+                                span.slider-main2__name Подоконник
+                                span.slider-main2__prise от 28 878 руб.
+                                a(href="#").arrow-linc Подробнее
         
-        article.seo-block2
-            img(src="./assets/images/seo.jpg", alt="О.Камень").seo-block2__img
+        article.wrap-back.wrap-back__seo-block2
+            include ../components/seo-block2.pug
 
-            .seo-block2__text-wrap
-                h2.h2.seo-block2__h Преимущества
-                p.seo-block2__text На рынке представлено очень много отделочных материалов. Но, несмотря на это, натуральный камень не теряет своей популярности. Компания «О. Камень» не первый год выпускает различные изделия из него. Она высоко востребована во всем Северо-Западном регионе страны. Продажа природного камня для декоративной отделки фасадов, цоколей, мощения дорог, обустройства и оформления земельных участков – основное направление нашей работы
-                //- p.seo-block2__text Отделка и кладка из натурального камня прослужит десятки, а то и сотни лет, чему есть наглядные доказательства в виде многочисленных исторических и архитектурных памятников, которые и по сей день радуют своим величием и красотой
+        article.wrap-back.wrap-back__work-steps
+            .work-steps
+                h2.h2.work-steps__h2 Этапы работы
 
-                .seo-block2__ficha-wrap
-                    .seo-block2__ficha
-                        svg
-                            use(xlink:href="./assets/images/sprite.svg#ficha-icon-1")
-                        .seo-block2__ficha-text-wrap
-                            h3.seo-block2__ficha-h Преимущества 1
-                            p.seo-block2__ficha-text Отделка и кладка из натурального камня прослужит десятки, а то и сотни лет, чему есть наглядные доказательства.
-                    
-                    .seo-block2__ficha
-                        svg
-                            use(xlink:href="./assets/images/sprite.svg#ficha-icon-1")
-                        .seo-block2__ficha-text-wrap
-                            h3.seo-block2__ficha-h Преимущества 2
-                            p.seo-block2__ficha-text Отделка и кладка из натурального камня прослужит десятки, а то и сотни лет, чему есть наглядные доказательства.
-                    
-                    .seo-block2__ficha
-                        svg
-                            use(xlink:href="./assets/images/sprite.svg#ficha-icon-1")
-                        .seo-block2__ficha-text-wrap
-                            h3.seo-block2__ficha-h Преимущества 3
-                            p.seo-block2__ficha-text Отделка и кладка из натурального камня прослужит десятки, а то и сотни лет, чему есть наглядные доказательства.
+                .work-steps__item-wrap
+                    .work-steps__item
+                        .work-steps__item-h-wrap
+                            h3.work-steps__item-h Предварительный расчет
+                            span.work-steps__item-h-number 01
+                        p.work-steps__item-text Представляем Вам короткое видео от момента выбора материала у нас в офисе до установки изделий на адресе клиента. Снят процесс изготовления и установки кухонной столешницы с пристеночным бортиком и вырезом под мойку, и отдельно стоящей островной части с вырезом под варочную панель
+                    .work-steps__item
+                        .work-steps__item-h-wrap
+                            h3.work-steps__item-h Замер и согласование
+                            span.work-steps__item-h-number 02
+                        p.work-steps__item-text Представляем Вам короткое видео от момента выбора материала у нас в офисе до установки изделий на адресе клиента. Снят процесс изготовления и установки кухонной столешницы с пристеночным бортиком и вырезом под мойку, и отдельно стоящей островной части с вырезом под варочную панель
+                    .work-steps__item
+                        .work-steps__item-h-wrap
+                            h3.work-steps__item-h Изготовление и установка
+                            span.work-steps__item-h-number 03
+                        p.work-steps__item-text Представляем Вам короткое видео от момента выбора материала у нас в офисе до установки изделий на адресе клиента. Снят процесс изготовления и установки кухонной столешницы с пристеночным бортиком и вырезом под мойку, и отдельно стоящей островной части с вырезом под варочную панель
+                
+                a(href="#").button.work-steps__button Рассчитать стоимость изделия
 
-        article.work-steps
-            h2.h2.work-steps__h2 Этапы работы
+        article.wrap-back.wrap-back__our-projects
+            include ../components/our-projects.pug
 
-            .work-steps__item-wrap
-                .work-steps__item
-                    .work-steps__item-h-wrap
-                        h3.work-steps__item-h Предварительный расчет
-                        span.work-steps__item-h-number 01
-                    p.work-steps__item-text Представляем Вам короткое видео от момента выбора материала у нас в офисе до установки изделий на адресе клиента. Снят процесс изготовления и установки кухонной столешницы с пристеночным бортиком и вырезом под мойку, и отдельно стоящей островной части с вырезом под варочную панель
-                .work-steps__item
-                    .work-steps__item-h-wrap
-                        h3.work-steps__item-h Замер и согласование
-                        span.work-steps__item-h-number 02
-                    p.work-steps__item-text Представляем Вам короткое видео от момента выбора материала у нас в офисе до установки изделий на адресе клиента. Снят процесс изготовления и установки кухонной столешницы с пристеночным бортиком и вырезом под мойку, и отдельно стоящей островной части с вырезом под варочную панель
-                .work-steps__item
-                    .work-steps__item-h-wrap
-                        h3.work-steps__item-h Изготовление и установка
-                        span.work-steps__item-h-number 03
-                    p.work-steps__item-text Представляем Вам короткое видео от момента выбора материала у нас в офисе до установки изделий на адресе клиента. Снят процесс изготовления и установки кухонной столешницы с пристеночным бортиком и вырезом под мойку, и отдельно стоящей островной части с вырезом под варочную панель
-            
-            a(href="#").button.work-steps__button Рассчитать стоимость изделия
+        article.wrap-back.wrap-back__reviews
+            .reviews
+                h2.h2.reviews__h Мнения клиентов о нас и нашей работе
 
-        include ../components/our-projects.pug
-
-        article.reviews
-            h2.h2.reviews__h Мнения клиентов о нас и нашей работе
-
-            .reviews__slider.swiper-container
-                .swiper-wrapper
-                    .swiper-slide.reviews__slider-item
-                        a(href="#").reviews__slider-linc Оригинал отзыва
-                        .reviews__slider-person
-                            img(src="./assets/images/avatar1.jpg", alt="Иван Аршонов").reviews__slider-img
-                            span.reviews__slider-name Иван Аршонов
-                            span.reviews__slider-data 20.02.2020
+                .reviews__slider.swiper-container
+                    .swiper-wrapper
+                        .swiper-slide.reviews__slider-item
+                            a(href="#").reviews__slider-linc Оригинал отзыва
+                            .reviews__slider-person
+                                img(src="./assets/images/avatar1.jpg", alt="Иван Аршонов").reviews__slider-img
+                                span.reviews__slider-name Иван Аршонов
+                                span.reviews__slider-data 20.02.2020
+                            
+                            p.reviews__slider-text Заказывал подставку под сабвуфер. Хочу поблагодарить Вас за понимание и сотрудничество. Заказом доволен. Получилось лучше чем я предполагал. В приложении результат. Надеюсь в будущем смогу на вас рассчитывать.
                         
-                        p.reviews__slider-text Заказывал подставку под сабвуфер. Хочу поблагодарить Вас за понимание и сотрудничество. Заказом доволен. Получилось лучше чем я предполагал. В приложении результат. Надеюсь в будущем смогу на вас рассчитывать.
-                    
-                    .swiper-slide.reviews__slider-item
-                        a(href="#").reviews__slider-linc Оригинал отзыва
-                        .reviews__slider-person
-                            img(src="./assets/images/avatar1.jpg", alt="Иван Аршонов").reviews__slider-img
-                            span.reviews__slider-name Иван Аршонов
-                            span.reviews__slider-data 20.02.2020
+                        .swiper-slide.reviews__slider-item
+                            a(href="#").reviews__slider-linc Оригинал отзыва
+                            .reviews__slider-person
+                                img(src="./assets/images/avatar1.jpg", alt="Иван Аршонов").reviews__slider-img
+                                span.reviews__slider-name Иван Аршонов
+                                span.reviews__slider-data 20.02.2020
+                            
+                            p.reviews__slider-text Заказывал подставку под сабвуфер. Хочу поблагодарить Вас за понимание и сотрудничество. Заказом доволен. Получилось лучше чем я предполагал.
+                                                
+                        .swiper-slide.reviews__slider-item
+                            a(href="#").reviews__slider-linc Оригинал отзыва
+                            .reviews__slider-person
+                                img(src="./assets/images/avatar1.jpg", alt="Иван Аршонов").reviews__slider-img
+                                span.reviews__slider-name Иван Аршонов
+                                span.reviews__slider-data 20.02.2020
+                            
+                            p.reviews__slider-text Заказывал подставку под сабвуфер. Хочу поблагодарить Вас за понимание и сотрудничество. Заказом доволен. Получилось лучше чем я предполагал. В приложении результат. Надеюсь в будущем смогу на вас рассчитывать.
                         
-                        p.reviews__slider-text Заказывал подставку под сабвуфер. Хочу поблагодарить Вас за понимание и сотрудничество. Заказом доволен. Получилось лучше чем я предполагал.
-                                            
-                    .swiper-slide.reviews__slider-item
-                        a(href="#").reviews__slider-linc Оригинал отзыва
-                        .reviews__slider-person
-                            img(src="./assets/images/avatar1.jpg", alt="Иван Аршонов").reviews__slider-img
-                            span.reviews__slider-name Иван Аршонов
-                            span.reviews__slider-data 20.02.2020
+                        .swiper-slide.reviews__slider-item
+                            a(href="#").reviews__slider-linc Оригинал отзыва
+                            .reviews__slider-person
+                                img(src="./assets/images/avatar1.jpg", alt="Иван Аршонов").reviews__slider-img
+                                span.reviews__slider-name Иван Аршонов
+                                span.reviews__slider-data 20.02.2020
+                            
+                            p.reviews__slider-text Заказывал подставку под сабвуфер. Хочу поблагодарить Вас за понимание и сотрудничество. Заказом доволен. Получилось лучше чем я предполагал.
+                                                
+                        .swiper-slide.reviews__slider-item
+                            a(href="#").reviews__slider-linc Оригинал отзыва
+                            .reviews__slider-person
+                                img(src="./assets/images/avatar1.jpg", alt="Иван Аршонов").reviews__slider-img
+                                span.reviews__slider-name Иван Аршонов
+                                span.reviews__slider-data 20.02.2020
+                            
+                            p.reviews__slider-text Заказывал подставку под сабвуфер. Хочу поблагодарить Вас за понимание и сотрудничество. Заказом доволен. Получилось лучше чем я предполагал. В приложении результат. Надеюсь в будущем смогу на вас рассчитывать.
                         
-                        p.reviews__slider-text Заказывал подставку под сабвуфер. Хочу поблагодарить Вас за понимание и сотрудничество. Заказом доволен. Получилось лучше чем я предполагал. В приложении результат. Надеюсь в будущем смогу на вас рассчитывать.
-                    
-                    .swiper-slide.reviews__slider-item
-                        a(href="#").reviews__slider-linc Оригинал отзыва
-                        .reviews__slider-person
-                            img(src="./assets/images/avatar1.jpg", alt="Иван Аршонов").reviews__slider-img
-                            span.reviews__slider-name Иван Аршонов
-                            span.reviews__slider-data 20.02.2020
+                        .swiper-slide.reviews__slider-item
+                            a(href="#").reviews__slider-linc Оригинал отзыва
+                            .reviews__slider-person
+                                img(src="./assets/images/avatar1.jpg", alt="Иван Аршонов").reviews__slider-img
+                                span.reviews__slider-name Иван Аршонов
+                                span.reviews__slider-data 20.02.2020
+                            
+                            p.reviews__slider-text Заказывал подставку под сабвуфер. Хочу поблагодарить Вас за понимание и сотрудничество. Заказом доволен. Получилось лучше чем я предполагал.
+                                                
+                        .swiper-slide.reviews__slider-item
+                            a(href="#").reviews__slider-linc Оригинал отзыва
+                            .reviews__slider-person
+                                img(src="./assets/images/avatar1.jpg", alt="Иван Аршонов").reviews__slider-img
+                                span.reviews__slider-name Иван Аршонов
+                                span.reviews__slider-data 20.02.2020
+                            
+                            p.reviews__slider-text Заказывал подставку под сабвуфер. Хочу поблагодарить Вас за понимание и сотрудничество. Заказом доволен. Получилось лучше чем я предполагал. В приложении результат. Надеюсь в будущем смогу на вас рассчитывать.
                         
-                        p.reviews__slider-text Заказывал подставку под сабвуфер. Хочу поблагодарить Вас за понимание и сотрудничество. Заказом доволен. Получилось лучше чем я предполагал.
-                                            
-                    .swiper-slide.reviews__slider-item
-                        a(href="#").reviews__slider-linc Оригинал отзыва
-                        .reviews__slider-person
-                            img(src="./assets/images/avatar1.jpg", alt="Иван Аршонов").reviews__slider-img
-                            span.reviews__slider-name Иван Аршонов
-                            span.reviews__slider-data 20.02.2020
-                        
-                        p.reviews__slider-text Заказывал подставку под сабвуфер. Хочу поблагодарить Вас за понимание и сотрудничество. Заказом доволен. Получилось лучше чем я предполагал. В приложении результат. Надеюсь в будущем смогу на вас рассчитывать.
-                    
-                    .swiper-slide.reviews__slider-item
-                        a(href="#").reviews__slider-linc Оригинал отзыва
-                        .reviews__slider-person
-                            img(src="./assets/images/avatar1.jpg", alt="Иван Аршонов").reviews__slider-img
-                            span.reviews__slider-name Иван Аршонов
-                            span.reviews__slider-data 20.02.2020
-                        
-                        p.reviews__slider-text Заказывал подставку под сабвуфер. Хочу поблагодарить Вас за понимание и сотрудничество. Заказом доволен. Получилось лучше чем я предполагал.
-                                            
-                    .swiper-slide.reviews__slider-item
-                        a(href="#").reviews__slider-linc Оригинал отзыва
-                        .reviews__slider-person
-                            img(src="./assets/images/avatar1.jpg", alt="Иван Аршонов").reviews__slider-img
-                            span.reviews__slider-name Иван Аршонов
-                            span.reviews__slider-data 20.02.2020
-                        
-                        p.reviews__slider-text Заказывал подставку под сабвуфер. Хочу поблагодарить Вас за понимание и сотрудничество. Заказом доволен. Получилось лучше чем я предполагал. В приложении результат. Надеюсь в будущем смогу на вас рассчитывать.
-                    
-                    .swiper-slide.reviews__slider-item
-                        a(href="#").reviews__slider-linc Оригинал отзыва
-                        .reviews__slider-person
-                            img(src="./assets/images/avatar1.jpg", alt="Иван Аршонов").reviews__slider-img
-                            span.reviews__slider-name Иван Аршонов
-                            span.reviews__slider-data 20.02.2020
-                        
-                        p.reviews__slider-text Заказывал подставку под сабвуфер. Хочу поблагодарить Вас за понимание и сотрудничество. Заказом доволен. Получилось лучше чем я предполагал.
-                                            
-                        
-                .slider-nav__button-wrap
-                    button.slider-nav__button-prev.reviews__slider-prev
-                    button.slider-nav__button-next.reviews__slider-next
-            
-            a(href="#").button.button__ghost.reviews__button Все отзывы
+                        .swiper-slide.reviews__slider-item
+                            a(href="#").reviews__slider-linc Оригинал отзыва
+                            .reviews__slider-person
+                                img(src="./assets/images/avatar1.jpg", alt="Иван Аршонов").reviews__slider-img
+                                span.reviews__slider-name Иван Аршонов
+                                span.reviews__slider-data 20.02.2020
+                            
+                            p.reviews__slider-text Заказывал подставку под сабвуфер. Хочу поблагодарить Вас за понимание и сотрудничество. Заказом доволен. Получилось лучше чем я предполагал.
+                                                
+                            
+                    .slider-nav__button-wrap
+                        button.slider-nav__button-prev.reviews__slider-prev
+                        button.slider-nav__button-next.reviews__slider-next
+                
+                a(href="#").button.button__ghost.reviews__button Все отзывы
 
     
 

@@ -5,7 +5,7 @@ block variables
     - var contactForm = true
 
 block content
-    main
+    main.wrap-back
         nav.bread-crumbs__wrap
             ul.bread-crumbs
                 li.bread-crumbs__item
@@ -28,22 +28,6 @@ block content
                 h3.seo-block__right-h Бесплатный выездменеджера
                 p.seo-block__right-text — с образцами камней на объект для составления предварительного расчёта стоимости столешницы
                 p.seo-block__right-text-linc Воспользуйтесь заявкой или свяжитесь с нами по <a href="tel:+78123804144">телефону</a>
-
-        .materials
-            h2.h2.materials__h2 Доступные материалы
-            .materials__list
-                .materials__items
-                    span.materials__heading Столешницы
-                    img(src="./assets/images/purpose-3.png", alt="").materials__img.materials__img_m-20
-                    a(href="#").button.materials__button Перейти в раздел
-                .materials__items
-                    span.materials__heading Подоконники
-                    img(src="./assets/images/purpose-2.png", alt="").materials__img.materials__img_m-20
-                    a(href="#").button.materials__button Перейти в раздел
-                .materials__items
-                    span.materials__heading Ступени
-                    img(src="./assets/images/purpose-1.png", alt="").materials__img.materials__img_m-20
-                    a(href="#").button.materials__button Перейти в раздел
 
         .catalog
             h2.h2.catalog__h2 Разновидность камня
@@ -191,5 +175,20 @@ block content
                 .cost-calculation__text-wrap
                     p.cost-calculation__text Вы можете с мельчайшими подробностями собрать свою столешницу в нашем калькуляторе и получить предварительный расчет
                     a(href="#").button.cost-calculation__button Рассчитать стоимость изделия
-
+        
+        .materials
+            h2.h2.materials__h2 Предназначение
+            .materials__list
+                .materials__items
+                    span.materials__heading Столешницы
+                    img(src="./assets/images/purpose-3.png", alt="").materials__img.materials__img_m-20
+                    a(href="#").button.materials__button Перейти в раздел
+                .materials__items
+                    span.materials__heading Подоконники
+                    img(src="./assets/images/purpose-2.png", alt="").materials__img.materials__img_m-20
+                    a(href="#").button.materials__button Перейти в раздел
+                .materials__items
+                    span.materials__heading Ступени
+                    img(src="./assets/images/purpose-1.png", alt="").materials__img.materials__img_m-20
+                    a(href="#").button.materials__button Перейти в раздел
 

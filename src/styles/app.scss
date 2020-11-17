@@ -2,7 +2,8 @@
 	// Размеры
 	--content-p-r: 0;
 	--content-p-l: 0;
-	--block-m-b: 176px;
+	--block-m-t: 100px;
+	--block-m-b: 100px;
 }
 
 // Размеры
@@ -55,9 +56,9 @@ body {
 	color: $color-black;
 
 	main {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
+		// display: flex;
+		// flex-direction: column;
+		// align-items: center;
 		overflow: hidden;
 	}
 }
@@ -94,6 +95,12 @@ a {
 	font-weight: bold;
 	font-size: 40px;
 	line-height: 1.2;
+}
+
+.wrap-back {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
 // Кнопки
@@ -599,13 +606,15 @@ input[type="radio"] {
 
 @media screen and (max-width: 960px) {
 	:root {
-		--block-m-b: 104px;
+		--block-m-t: 48px;
+		--block-m-b: 48px;
 	}
 }
 
 @media screen and (max-width: 768px) {
 	:root {
-		--block-m-b: 84px;
+		--block-m-t: 36px;
+		--block-m-b: 36px;
 	}
 
 	body {
@@ -643,3 +652,6 @@ input[type="radio"] {
 // @media screen and (max-width: 768px) {
 
 // }
+
+// padding-top: var(--block-m-t);
+// padding-bottom: var(--block-m-b);
