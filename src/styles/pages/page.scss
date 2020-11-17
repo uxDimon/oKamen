@@ -346,8 +346,6 @@
 .onas {
 	width: 100%;
 	max-width: $content-max-weight;
-	padding-right: var(--content-p-r);
-	padding-left: var(--content-p-l);
 	margin-bottom: var(--block-m-b);
 	display: flex;
 	align-items: stretch;
@@ -446,6 +444,97 @@
 	height: auto;
 }
 
+// con-page
+.con-page__wrap {
+	width: 100%;
+	max-width: $content-max-weight;
+	padding-right: var(--content-p-r);
+	padding-left: var(--content-p-l);
+	margin-bottom: var(--block-m-b);
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-gap: 30px;
+}
+
+.con-page {
+	padding: 30px;
+	background-color: $color-gray;
+}
+
+.con-page__head {
+	margin-bottom: 30px;
+}
+
+.con-page__h {
+	font-weight: 600;
+	font-size: 18px;
+}
+
+.con-page__body {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-column-gap: 20px;
+	grid-row-gap: 20px;
+}
+
+.con-page__body-item {
+	padding-left: 22px;
+	position: relative;
+	display: grid;
+	grid-auto-flow: row;
+	grid-row-gap: 6px;
+	font-size: 14px;
+	align-content: start;
+
+	&::before {
+		content: "";
+		display: block;
+		position: absolute;
+		top: 2px;
+		left: 0;
+		width: 12px;
+		height: 12px;
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: center;
+	}
+}
+
+.con-page__address.con-page__body-item::before {
+	background-image: url("../images/sprite.svg#icon-con-map-pin");
+}
+
+.con-page__time.con-page__body-item::before {
+	background-image: url("../images/sprite.svg#icon-con-clock");
+}
+
+.con-page__tel.con-page__body-item::before {
+	background-image: url("../images/sprite.svg#icon-con-phone");
+}
+
+.con-page__mail.con-page__body-item::before {
+	background-image: url("../images/sprite.svg#icon-con-mail");
+}
+
+.con-page__address {
+	grid-column: 1 / -1;
+}
+
+.con-page__time {
+	grid-row-end: span 2;
+}
+
+.con-page__text {
+	color: $color-dark-gray;
+}
+
+.con-page__map {
+	width: 100%;
+	max-width: $content-max-weight;
+	margin-bottom: var(--block-m-b);
+	height: 600px;
+}
+
 @media screen and (max-width: 1274px) {
 	.product-card {
 		grid-column-gap: 32px;
@@ -493,6 +582,14 @@
 
 	.catalog-list {
 		grid-template-columns: repeat(4, 1fr);
+	}
+
+	.con-page__wrap {
+		grid-template-columns: 1fr;
+	}
+
+	.con-page__map {
+		height: 400px;
 	}
 }
 
@@ -605,6 +702,10 @@
 	.onas__text-wrap {
 		padding-top: 20px;
 	}
+
+	.con-page {
+		padding: 20px;
+	}
 }
 
 @media screen and (max-width: 640px) {
@@ -612,6 +713,10 @@
 		grid-auto-flow: row;
 		grid-row-gap: 30px;
 		justify-content: center;
+	}
+
+	.con-page__body {
+		grid-template-columns: 1fr;
 	}
 }
 
