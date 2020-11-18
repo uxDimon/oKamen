@@ -43,6 +43,31 @@ for (const cA of closeArea) {
 	});
 }
 
+// header-fixed
+const headerManu = document.querySelector(".header"),
+	headerMenuWrap = document.querySelector(".header__wrap"),
+	numberScrollStart = document.querySelector(".header__menu-second-wrap").offsetTop;
+
+function headerHeight() {
+	headerMenuWrap.style.height = "";
+	headerMenuWrap.style.height = headerManu.offsetHeight + "px";
+}
+
+headerHeight();
+
+window.addEventListener("resize", () => {
+	console.log("1");
+	headerHeight();
+});
+
+window.addEventListener("scroll", () => {
+	if (pageYOffset >= numberScrollStart) {
+		headerManu.classList.add("header-fixed");
+	} else {
+		headerManu.classList.remove("header-fixed");
+	}
+});
+
 // input file
 function uploadFile(target) {
 	document.querySelector(".input-file > span").innerHTML = target.files[0].name;
