@@ -15,7 +15,10 @@
   <body>
     <header class="header__wrap">
       <div class="header"><a href="#">
-          <svg class="header__logo" width="223" height="50">
+          <svg class="header__logo header__logo_ver" width="142" height="70">
+            <use xlink:href="./assets/images/sprite.svg#logo_ver-g"></use>
+          </svg>
+          <svg class="header__logo header__logo_norm" width="142" height="70">
             <use xlink:href="./assets/images/sprite.svg#logo"></use>
           </svg></a>
         <button class="header__kontacts-button" data-drop-kontacts-button>Адреса</button>
@@ -26,15 +29,20 @@
             <div class="header__kontacts-item"><span class="header__kontacts-city">Сертолово</span><span class="header__kontacts-street">Выборгское шоссе</span><a class="header__kontacts-tel" href="tel:+78123804144">+7 (812) 380-41-44</a></div>
             <div class="header__kontacts-item"><span class="header__kontacts-city">Санкт-Петербург</span><span class="header__kontacts-street">МЦ Аквилон</span><a class="header__kontacts-tel" href="tel:+78123804144">+7 (812) 380-41-44</a></div>
             <div class="header__kontacts-item"><span class="header__kontacts-city">Заневка</span><span class="header__kontacts-street">Колтушское шоссе</span><a class="header__kontacts-tel" href="tel:+78123804144">+7 (812) 380-41-44</a></div>
+            <button class="button button__ghost header__kontacts-button-feedback">Обратная связь            </button>
           </div>
           <div class="header__menu-second-wrap">
             <nav class="header__main-menu main-menu">
               <ul class="main-menu__list">
                 <li class="main-menu__item"><a class="main-menu__linc" href="#" data-drop-linc>Продукция</a>
                   <ul class="main-menu__drop-list" data-drop-menu>
-                    <li class="main-menu__drop-item"><a class="main-menu__drop-linc" href="#">Пункт меню 1</a></li>
-                    <li class="main-menu__drop-item"><a class="main-menu__drop-linc" href="#">Пункт меню 2</a></li>
-                    <li class="main-menu__drop-item"><a class="main-menu__drop-linc" href="#">Пункт меню 3</a></li>
+                    <li class="main-menu__drop-item"><a class="main-menu__drop-linc" href="#">Столешницы</a></li>
+                    <li class="main-menu__drop-item"><a class="main-menu__drop-linc" href="#">Ступени</a></li>
+                    <li class="main-menu__drop-item"><a class="main-menu__drop-linc" href="#">Подоконники</a></li>
+                    <li class="main-menu__drop-item"><a class="main-menu__drop-linc" href="#">Рецепшен(барные стойки)</a></li>
+                    <li class="main-menu__drop-item"><a class="main-menu__drop-linc" href="#">Камины (биокамины)</a></li>
+                    <li class="main-menu__drop-item"><a class="main-menu__drop-linc" href="#">Облицовочная плитка</a></li>
+                    <li class="main-menu__drop-item"><a class="main-menu__drop-linc" href="#">Эксклюзивные изделия</a></li>
                   </ul>
                 </li>
                 <li class="main-menu__item"><a class="main-menu__linc" href="#" data-drop-linc>Материалы</a>
@@ -47,6 +55,7 @@
                 </li>
                 <li class="main-menu__item"><a class="main-menu__linc" href="#">Калькулятор стоимости</a></li>
                 <li class="main-menu__item"><a class="main-menu__linc" href="#">Акции</a></li>
+                <li class="main-menu__item"><a class="main-menu__linc" href="#">Сотрудничество </a></li>
                 <li class="main-menu__item"><a class="main-menu__linc" href="#">Контакты </a></li>
               </ul>
               <ul class="main-menu__list main-menu__list_second">
@@ -67,7 +76,7 @@
         </div>
       </div>
     </header>
-    <main>
+    <main class="wrap-back">
       <nav class="bread-crumbs__wrap">
         <ul class="bread-crumbs">
           <li class="bread-crumbs__item"><a class="bread-crumbs__linc" href="#">Главная</a></li>

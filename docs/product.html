@@ -15,7 +15,10 @@
   <body>
     <header class="header__wrap">
       <div class="header"><a href="#">
-          <svg class="header__logo" width="223" height="50">
+          <svg class="header__logo header__logo_ver" width="142" height="70">
+            <use xlink:href="./assets/images/sprite.svg#logo_ver-g"></use>
+          </svg>
+          <svg class="header__logo header__logo_norm" width="142" height="70">
             <use xlink:href="./assets/images/sprite.svg#logo"></use>
           </svg></a>
         <button class="header__kontacts-button" data-drop-kontacts-button>Адреса</button>
@@ -26,15 +29,20 @@
             <div class="header__kontacts-item"><span class="header__kontacts-city">Сертолово</span><span class="header__kontacts-street">Выборгское шоссе</span><a class="header__kontacts-tel" href="tel:+78123804144">+7 (812) 380-41-44</a></div>
             <div class="header__kontacts-item"><span class="header__kontacts-city">Санкт-Петербург</span><span class="header__kontacts-street">МЦ Аквилон</span><a class="header__kontacts-tel" href="tel:+78123804144">+7 (812) 380-41-44</a></div>
             <div class="header__kontacts-item"><span class="header__kontacts-city">Заневка</span><span class="header__kontacts-street">Колтушское шоссе</span><a class="header__kontacts-tel" href="tel:+78123804144">+7 (812) 380-41-44</a></div>
+            <button class="button button__ghost header__kontacts-button-feedback">Обратная связь            </button>
           </div>
           <div class="header__menu-second-wrap">
             <nav class="header__main-menu main-menu">
               <ul class="main-menu__list">
                 <li class="main-menu__item"><a class="main-menu__linc" href="#" data-drop-linc>Продукция</a>
                   <ul class="main-menu__drop-list" data-drop-menu>
-                    <li class="main-menu__drop-item"><a class="main-menu__drop-linc" href="#">Пункт меню 1</a></li>
-                    <li class="main-menu__drop-item"><a class="main-menu__drop-linc" href="#">Пункт меню 2</a></li>
-                    <li class="main-menu__drop-item"><a class="main-menu__drop-linc" href="#">Пункт меню 3</a></li>
+                    <li class="main-menu__drop-item"><a class="main-menu__drop-linc" href="#">Столешницы</a></li>
+                    <li class="main-menu__drop-item"><a class="main-menu__drop-linc" href="#">Ступени</a></li>
+                    <li class="main-menu__drop-item"><a class="main-menu__drop-linc" href="#">Подоконники</a></li>
+                    <li class="main-menu__drop-item"><a class="main-menu__drop-linc" href="#">Рецепшен(барные стойки)</a></li>
+                    <li class="main-menu__drop-item"><a class="main-menu__drop-linc" href="#">Камины (биокамины)</a></li>
+                    <li class="main-menu__drop-item"><a class="main-menu__drop-linc" href="#">Облицовочная плитка</a></li>
+                    <li class="main-menu__drop-item"><a class="main-menu__drop-linc" href="#">Эксклюзивные изделия</a></li>
                   </ul>
                 </li>
                 <li class="main-menu__item"><a class="main-menu__linc" href="#" data-drop-linc>Материалы</a>
@@ -47,6 +55,7 @@
                 </li>
                 <li class="main-menu__item"><a class="main-menu__linc" href="#">Калькулятор стоимости</a></li>
                 <li class="main-menu__item"><a class="main-menu__linc" href="#">Акции</a></li>
+                <li class="main-menu__item"><a class="main-menu__linc" href="#">Сотрудничество </a></li>
                 <li class="main-menu__item"><a class="main-menu__linc" href="#">Контакты </a></li>
               </ul>
               <ul class="main-menu__list main-menu__list_second">
@@ -67,7 +76,7 @@
         </div>
       </div>
     </header>
-    <main>
+    <main class="wrap-back">
       <nav class="bread-crumbs__wrap">
         <ul class="bread-crumbs">
           <li class="bread-crumbs__item"><a class="bread-crumbs__linc" href="#">Главная</a></li>
@@ -89,8 +98,11 @@
             <div class="options-input__radio-chec"></div><span>Толщина 30 мм <span class='options__radio-text-gray'>(14 000 ₽ за 1 <span class='m2'>м2</span>)</span></span>
           </label>
         </div>
-        <div class="product-card__feature-wrap"><span class="product-card__feature">Цвет: <span>серый quarty</span></span><span class="product-card__feature">Производитель: <span>Vicostone</span></span></div>
-        <button class="button product-card__button">Оставить заявку</button>
+        <div class="product-card__feature-wrap"><span class="product-card__feature">Цвет: <span>серый quarty</span></span><span class="product-card__feature">Производитель: <span>Vicostone (Австрия)</span></span></div>
+        <div class="product-card__button-wrap">
+          <button class="button">Оставить заявку</button>
+          <button class="button button__ghost">Рассчитать изделие из этого камня</button>
+        </div>
       </div>
       <div class="product-tab" data-tab>
         <div class="product-tab__button-wrap">
@@ -101,10 +113,7 @@
             <input type="radio" name="contact-product" data-buttn-tab="tab2"><span>Производитель</span>
           </label>
           <label class="contact__option-item">
-            <input type="radio" name="contact-product" data-buttn-tab="tab3"><span>Отзывы</span>
-          </label>
-          <label class="contact__option-item">
-            <input type="radio" name="contact-product" data-buttn-tab="tab4"><span>Доставка</span>
+            <input type="radio" name="contact-product" data-buttn-tab="tab3"><span>Примеры выполненных работ</span>
           </label>
         </div>
         <div class="product-tab__tab-wrap">
@@ -114,6 +123,7 @@
             <p>Кварцевый агломерат Vicostone Venatino BQ8660 практически не имеет срока годности и эксплуатации – по всему миру можно найти интерьеры, в которых после десятилетий эксплуатации изделия выглядят как новые.</p>
             <p>Материал выпускается в плитах размером 3050х1440/3050х700 мм и толщинах 20 и 30 мм. Мировая гарантия составляет 15 лет. Отличительной особенностью декоров кварцевого камня Vicostone является полная имитация натурального мрамора и гранита. При этом данный материал является намного более практичным.</p>
             <p>Применение современных технологий при изготовлении искусственного камня позволило заводу Vicostone стать одним из ведущих игроков на рынке агломерата.</p>
+            <p>Возникли вопросы? Позвоните                     <a href="tel:+78123804144">+7 (812) 380-41-44</a></p>
           </div>
           <div class="product-tab__tab" data-item-tab="tab2">
             <p>Кварцевый агломерат Vicostone Venatino BQ8660 практически не имеет срока годности и эксплуатации – по всему миру можно найти интерьеры, в которых после десятилетий эксплуатации изделия выглядят как новые.</p>
@@ -121,15 +131,13 @@
             <p>Применение современных технологий при изготовлении искусственного камня позволило заводу Vicostone стать одним из ведущих игроков на рынке агломерата.</p>
           </div>
           <div class="product-tab__tab" data-item-tab="tab3">
-            <p>Vicostone Venatino BQ8660 состоит до 93% из природного кварца – прочнейшего природного компонента, 5% полиэфирных смол и 2% красящих пигментов, поэтому этот материал является достаточно стойким к любым внешним воздействиям. Он идеально подходит для изготовления кухонных столешниц, подоконников и барных стоек.</p>
-            <p>В отличие от натурального камня, продукция из агломерата Vicostone способна переносить большие нагрузки, устойчива к перепаду температур, воздействию растворителей и кислот, обладает антибактериальными свойствами и безопасна при контакте с пищей.</p>
-            <p>Кварцевый агломерат Vicostone Venatino BQ8660 практически не имеет срока годности и эксплуатации – по всему миру можно найти интерьеры, в которых после десятилетий эксплуатации изделия выглядят как новые.</p>
-          </div>
-          <div class="product-tab__tab" data-item-tab="tab4">
-            <p>Vicostone Venatino BQ8660 состоит до 93% из природного кварца – прочнейшего природного компонента, 5% полиэфирных смол и 2% красящих пигментов, поэтому этот материал является достаточно стойким к любым внешним воздействиям. Он идеально подходит для изготовления кухонных столешниц, подоконников и барных стоек.</p>
-            <p>В отличие от натурального камня, продукция из агломерата Vicostone способна переносить большие нагрузки, устойчива к перепаду температур, воздействию растворителей и кислот, обладает антибактериальными свойствами и безопасна при контакте с пищей.</p>
-            <p>Материал выпускается в плитах размером 3050х1440/3050х700 мм и толщинах 20 и 30 мм. Мировая гарантия составляет 15 лет. Отличительной особенностью декоров кварцевого камня Vicostone является полная имитация натурального мрамора и гранита. При этом данный материал является намного более практичным.</p>
-            <p>Применение современных технологий при изготовлении искусственного камня позволило заводу Vicostone стать одним из ведущих игроков на рынке агломерата.</p>
+            <div class="img-gallery"><a class="img-gallery__item" href=""><img class="img-gallery__img" src="./assets/images/slider1.png" alt="Кухонная столешница">
+                <div class="img-gallery__text-wrap"><span class="img-gallery__name">Кухонная столешница</span><span class="img-gallery__prise">От 111 165 руб.</span><span class="arrow-linc">Подробнее</span></div></a><a class="img-gallery__item" href=""><img class="img-gallery__img" src="./assets/images/slider1.png" alt="Кухонная столешница">
+                <div class="img-gallery__text-wrap"><span class="img-gallery__name">Кухонная столешница</span><span class="img-gallery__prise">От 111 165 руб.</span><span class="arrow-linc">Подробнее</span></div></a><a class="img-gallery__item" href=""><img class="img-gallery__img" src="./assets/images/slider1.png" alt="Кухонная столешница">
+                <div class="img-gallery__text-wrap"><span class="img-gallery__name">Кухонная столешница</span><span class="img-gallery__prise">От 111 165 руб.</span><span class="arrow-linc">Подробнее</span></div></a><a class="img-gallery__item" href=""><img class="img-gallery__img" src="./assets/images/slider1.png" alt="Кухонная столешница">
+                <div class="img-gallery__text-wrap"><span class="img-gallery__name">Кухонная столешница</span><span class="img-gallery__prise">От 111 165 руб.</span><span class="arrow-linc">Подробнее</span></div></a><a class="img-gallery__item" href=""><img class="img-gallery__img" src="./assets/images/slider1.png" alt="Кухонная столешница">
+                <div class="img-gallery__text-wrap"><span class="img-gallery__name">Кухонная столешница</span><span class="img-gallery__prise">От 111 165 руб.</span><span class="arrow-linc">Подробнее</span></div></a><a class="img-gallery__item" href=""><img class="img-gallery__img" src="./assets/images/slider1.png" alt="Кухонная столешница">
+                <div class="img-gallery__text-wrap"><span class="img-gallery__name">Кухонная столешница</span><span class="img-gallery__prise">От 111 165 руб.</span><span class="arrow-linc">Подробнее</span></div></a></div>
           </div>
         </div>
       </div>
@@ -143,7 +151,84 @@
           <li class="catalog-list__item"><img class="catalog-list__img" src="./assets/images/material-granit.png" alt="Caesarstone 4011 Cloudburst Concrete"><span class="catalog-list__name">Caesarstone 4011 Cloudburst Concrete</span><span class="catalog-list__prise">От 111 165 руб.</span><a class="arrow-linc" href="#">Подробнее</a></li>
         </ul>
       </div>
+      <div class="seo-block2"><img class="seo-block2__img" src="./assets/images/seo.jpg" alt="О.Камень">
+        <div class="seo-block2__text-wrap">
+          <h2 class="h2 seo-block2__h">Преимущества</h2>
+          <p class="seo-block2__text">На рынке представлено очень много отделочных материалов. Но, несмотря на это, натуральный камень не теряет своей популярности. Компания «О. Камень» не первый год выпускает различные изделия из него. Она высоко востребована во всем Северо-Западном регионе страны. Продажа природного камня для декоративной отделки фасадов, цоколей, мощения дорог, обустройства и оформления земельных участков – основное направление нашей работы</p>
+          <div class="seo-block2__ficha-wrap">
+            <div class="seo-block2__ficha">
+              <svg>
+                <use xlink:href="./assets/images/sprite.svg#ficha-icon-1"></use>
+              </svg>
+              <div class="seo-block2__ficha-text-wrap">
+                <h3 class="seo-block2__ficha-h">Преимущества 1</h3>
+                <p class="seo-block2__ficha-text">Отделка и кладка из натурального камня прослужит десятки, а то и сотни лет, чему есть наглядные доказательства.</p>
+              </div>
+            </div>
+            <div class="seo-block2__ficha">
+              <svg>
+                <use xlink:href="./assets/images/sprite.svg#ficha-icon-1"></use>
+              </svg>
+              <div class="seo-block2__ficha-text-wrap">
+                <h3 class="seo-block2__ficha-h">Преимущества 2</h3>
+                <p class="seo-block2__ficha-text">Отделка и кладка из натурального камня прослужит десятки, а то и сотни лет, чему есть наглядные доказательства.</p>
+              </div>
+            </div>
+            <div class="seo-block2__ficha">
+              <svg>
+                <use xlink:href="./assets/images/sprite.svg#ficha-icon-1"></use>
+              </svg>
+              <div class="seo-block2__ficha-text-wrap">
+                <h3 class="seo-block2__ficha-h">Преимущества 3</h3>
+                <p class="seo-block2__ficha-text">Отделка и кладка из натурального камня прослужит десятки, а то и сотни лет, чему есть наглядные доказательства.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </main>
+    <article class="contact__wrap">
+      <div class="contact">
+        <form class="contact__form">
+          <h2 class="h2 contact__h">Запишитесь на бесплатную консультацию</h2><span class="contact__option-text">Что вас интересует?</span>
+          <div class="contact__option-wrap">
+            <label class="contact__option-item">
+              <input type="radio" name="contact-product" checked><span>Столешница</span>
+            </label>
+            <label class="contact__option-item">
+              <input type="radio" name="contact-product"><span>Подоконник</span>
+            </label>
+            <label class="contact__option-item">
+              <input type="radio" name="contact-product"><span>Лестница</span>
+            </label>
+          </div>
+          <div class="contact__input"><!-- Класс для не заполненного поля .input_contact_invalid -->
+            <input class="input input_contact" type="text" name="name" placeholder="Имя">
+            <input class="input input_contact" type="tel" name="tel" placeholder="Телефон" required>
+            <textarea class="input input_contact contact__input-textarea" name="message" placeholder="Сообщение"></textarea>
+            <label class="contact__input-file input-file"><span>Загрузите файл (.jpg .png .pdf .exel .csd)</span>
+              <input type="file" name="file" onchange="uploadFile(this)" accept=".jpg, .jpeg, .png, .pdf, .exel, .csd">
+            </label>
+          </div>
+          <div class="contact__button-wrap">
+            <button class="button contact__button" type="submit">Отправить</button>
+            <div class="contact__type-contact"><span class="contact__type-contact-text">Выберите способ связи</span>
+              <div class="contact__type-contact-wrap">
+                <label class="contact__type-contact-item" tabindex="0">
+                  <input type="radio" name="contact-type-contact" checked><span>Телефон    </span>
+                </label>
+                <label class="contact__type-contact-item" tabindex="0">
+                  <input type="radio" name="contact-type-contact"><span>WhatsApp</span>
+                </label>
+                <label class="contact__type-contact-item" tabindex="0">
+                  <input type="radio" name="contact-type-contact"><span>Viber</span>
+                </label>
+              </div>
+            </div>
+          </div><span class="contact__conf">Отправляя личные данные, Вы соглашаетесь с политикой конфиденциальности</span>
+        </form><img class="contact__img" src="./assets/images/kontakt.png" alt="Запишитесь на консультацию">
+      </div>
+    </article>
     <footer class="footer__wrap">
       <div class="footer">
         <div class="footer__body">

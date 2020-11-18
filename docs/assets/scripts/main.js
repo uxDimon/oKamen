@@ -269,9 +269,9 @@ for (const slider of manySliders) {
 // 	}
 // };
 
-// // Аккардион
-// if (document.querySelector(".faq")) {
-// 	new Accordion(".faq");
+// Аккардион
+// if (document.querySelector(".con-page__wrap")) {
+// 	new Accordion(".con-page__wrap");
 // }
 
 // if (document.querySelector(".footer__accordion")) {

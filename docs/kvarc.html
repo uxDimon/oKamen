@@ -15,7 +15,10 @@
   <body>
     <header class="header__wrap">
       <div class="header"><a href="#">
-          <svg class="header__logo" width="223" height="50">
+          <svg class="header__logo header__logo_ver" width="142" height="70">
+            <use xlink:href="./assets/images/sprite.svg#logo_ver-g"></use>
+          </svg>
+          <svg class="header__logo header__logo_norm" width="142" height="70">
             <use xlink:href="./assets/images/sprite.svg#logo"></use>
           </svg></a>
         <button class="header__kontacts-button" data-drop-kontacts-button>Адреса</button>
@@ -26,15 +29,20 @@
             <div class="header__kontacts-item"><span class="header__kontacts-city">Сертолово</span><span class="header__kontacts-street">Выборгское шоссе</span><a class="header__kontacts-tel" href="tel:+78123804144">+7 (812) 380-41-44</a></div>
             <div class="header__kontacts-item"><span class="header__kontacts-city">Санкт-Петербург</span><span class="header__kontacts-street">МЦ Аквилон</span><a class="header__kontacts-tel" href="tel:+78123804144">+7 (812) 380-41-44</a></div>
             <div class="header__kontacts-item"><span class="header__kontacts-city">Заневка</span><span class="header__kontacts-street">Колтушское шоссе</span><a class="header__kontacts-tel" href="tel:+78123804144">+7 (812) 380-41-44</a></div>
+            <button class="button button__ghost header__kontacts-button-feedback">Обратная связь            </button>
           </div>
           <div class="header__menu-second-wrap">
             <nav class="header__main-menu main-menu">
               <ul class="main-menu__list">
                 <li class="main-menu__item"><a class="main-menu__linc" href="#" data-drop-linc>Продукция</a>
                   <ul class="main-menu__drop-list" data-drop-menu>
-                    <li class="main-menu__drop-item"><a class="main-menu__drop-linc" href="#">Пункт меню 1</a></li>
-                    <li class="main-menu__drop-item"><a class="main-menu__drop-linc" href="#">Пункт меню 2</a></li>
-                    <li class="main-menu__drop-item"><a class="main-menu__drop-linc" href="#">Пункт меню 3</a></li>
+                    <li class="main-menu__drop-item"><a class="main-menu__drop-linc" href="#">Столешницы</a></li>
+                    <li class="main-menu__drop-item"><a class="main-menu__drop-linc" href="#">Ступени</a></li>
+                    <li class="main-menu__drop-item"><a class="main-menu__drop-linc" href="#">Подоконники</a></li>
+                    <li class="main-menu__drop-item"><a class="main-menu__drop-linc" href="#">Рецепшен(барные стойки)</a></li>
+                    <li class="main-menu__drop-item"><a class="main-menu__drop-linc" href="#">Камины (биокамины)</a></li>
+                    <li class="main-menu__drop-item"><a class="main-menu__drop-linc" href="#">Облицовочная плитка</a></li>
+                    <li class="main-menu__drop-item"><a class="main-menu__drop-linc" href="#">Эксклюзивные изделия</a></li>
                   </ul>
                 </li>
                 <li class="main-menu__item"><a class="main-menu__linc" href="#" data-drop-linc>Материалы</a>
@@ -47,6 +55,7 @@
                 </li>
                 <li class="main-menu__item"><a class="main-menu__linc" href="#">Калькулятор стоимости</a></li>
                 <li class="main-menu__item"><a class="main-menu__linc" href="#">Акции</a></li>
+                <li class="main-menu__item"><a class="main-menu__linc" href="#">Сотрудничество </a></li>
                 <li class="main-menu__item"><a class="main-menu__linc" href="#">Контакты </a></li>
               </ul>
               <ul class="main-menu__list main-menu__list_second">
@@ -67,7 +76,7 @@
         </div>
       </div>
     </header>
-    <main>
+    <main class="wrap-back">
       <nav class="bread-crumbs__wrap">
         <ul class="bread-crumbs">
           <li class="bread-crumbs__item"><a class="bread-crumbs__linc" href="#">Главная</a></li>
@@ -75,7 +84,10 @@
           <li class="bread-crumbs__item"><span class="bread-crumbs__linc" href="#">Кварцевый агломерат</span></li>
         </ul>
       </nav>
-      <h1 class="h1 page__h1">Кварцевый агломерат</h1>
+      <div class="title-button">
+        <h1 class="h1">Кварцевый агломерат</h1>
+        <button class="button">Заказать расчет</button>
+      </div>
       <div class="page-slider__wrap">
         <div class="page-slider swiper-container">
           <div class="swiper-wrapper">
@@ -112,19 +124,11 @@
           <p class="seo-block__right-text-linc">Воспользуйтесь заявкой или свяжитесь с нами по <a href="tel:+78123804144">телефону</a></p>
         </div>
       </div>
-      <div class="materials">
-        <h2 class="h2 materials__h2">Доступные материалы</h2>
-        <div class="materials__list">
-          <div class="materials__items"><span class="materials__heading">Столешницы</span><img class="materials__img materials__img_m-20" src="./assets/images/purpose-3.png" alt=""><a class="button materials__button" href="#">Перейти в раздел</a></div>
-          <div class="materials__items"><span class="materials__heading">Подоконники</span><img class="materials__img materials__img_m-20" src="./assets/images/purpose-2.png" alt=""><a class="button materials__button" href="#">Перейти в раздел</a></div>
-          <div class="materials__items"><span class="materials__heading">Ступени</span><img class="materials__img materials__img_m-20" src="./assets/images/purpose-1.png" alt=""><a class="button materials__button" href="#">Перейти в раздел</a></div>
-        </div>
-      </div>
       <div class="catalog">
-        <h2 class="h2 catalog__h2">Разновидность камня</h2>
+        <h2 class="h2 catalog__h2">Каталог натурального камня</h2>
         <div class="catalog__filter">
           <div class="input_prise-wrap">
-            <label class="input_prise-min"> <span>Цена от</span>
+            <label class="input_prise-min"> <span class="m2">Цена м2 от</span>
               <input type="text">
             </label>
             <label class="input_prise-max"> <span>до</span>
@@ -146,36 +150,42 @@
             <option value="mramor">Красный</option>
             <option value="mramor">Черный</option>
           </select>
-          <button class="button catalog__filter-button">Подобрать</button>
+          <button class="button catalog__filter-button">Показать</button>
         </div>
         <ul class="catalog-list catalog__catalog-list"> 
-          <li class="catalog-list__item"><img class="catalog-list__img" src="./assets/images/material-granit.png" alt="Caesarstone 4011 Cloudburst Concrete"><span class="catalog-list__name">Caesarstone 4011 Cloudburst Concrete</span><span class="catalog-list__prise">От 111 165 руб.</span><a class="arrow-linc" href="#">Подробнее</a></li>
-          <li class="catalog-list__item"><img class="catalog-list__img" src="./assets/images/material-kvarc.png" alt="Caesarstone 4011 Cloudburst Concrete"><span class="catalog-list__name">Caesarstone 4011 Cloudburst Concrete</span><span class="catalog-list__prise">От 111 165 руб.</span><a class="arrow-linc" href="#">Подробнее</a></li>
-          <li class="catalog-list__item"><img class="catalog-list__img" src="./assets/images/material-mramor.png" alt="Caesarstone 4011 Cloudburst Concrete"><span class="catalog-list__name">Caesarstone 4011 Cloudburst Concrete</span><span class="catalog-list__prise">От 111 165 руб.</span><a class="arrow-linc" href="#">Подробнее</a></li>
-          <li class="catalog-list__item"><img class="catalog-list__img" src="./assets/images/material-granit.png" alt="Caesarstone 4011 Cloudburst Concrete"><span class="catalog-list__name">Caesarstone 4011 Cloudburst Concrete</span><span class="catalog-list__prise">От 111 165 руб.</span><a class="arrow-linc" href="#">Подробнее</a></li>
-          <li class="catalog-list__item"><img class="catalog-list__img" src="./assets/images/material-kvarc.png" alt="Caesarstone 4011 Cloudburst Concrete"><span class="catalog-list__name">Caesarstone 4011 Cloudburst Concrete</span><span class="catalog-list__prise">От 111 165 руб.</span><a class="arrow-linc" href="#">Подробнее</a></li>
-          <li class="catalog-list__item"><img class="catalog-list__img" src="./assets/images/material-granit.png" alt="Caesarstone 4011 Cloudburst Concrete"><span class="catalog-list__name">Caesarstone 4011 Cloudburst Concrete</span><span class="catalog-list__prise">От 111 165 руб.</span><a class="arrow-linc" href="#">Подробнее</a></li>
-          <li class="catalog-list__item"><img class="catalog-list__img" src="./assets/images/material-kvarc.png" alt="Caesarstone 4011 Cloudburst Concrete"><span class="catalog-list__name">Caesarstone 4011 Cloudburst Concrete</span><span class="catalog-list__prise">От 111 165 руб.</span><a class="arrow-linc" href="#">Подробнее</a></li>
-          <li class="catalog-list__item"><img class="catalog-list__img" src="./assets/images/material-granit.png" alt="Caesarstone 4011 Cloudburst Concrete"><span class="catalog-list__name">Caesarstone 4011 Cloudburst Concrete</span><span class="catalog-list__prise">От 111 165 руб.</span><a class="arrow-linc" href="#">Подробнее</a></li>
-          <li class="catalog-list__item"><img class="catalog-list__img" src="./assets/images/material-kvarc.png" alt="Caesarstone 4011 Cloudburst Concrete"><span class="catalog-list__name">Caesarstone 4011 Cloudburst Concrete</span><span class="catalog-list__prise">От 111 165 руб.</span><a class="arrow-linc" href="#">Подробнее</a></li>
-          <li class="catalog-list__item"><img class="catalog-list__img" src="./assets/images/material-granit.png" alt="Caesarstone 4011 Cloudburst Concrete"><span class="catalog-list__name">Caesarstone 4011 Cloudburst Concrete</span><span class="catalog-list__prise">От 111 165 руб.</span><a class="arrow-linc" href="#">Подробнее</a></li>
-          <li class="catalog-list__item"><img class="catalog-list__img" src="./assets/images/material-kvarc.png" alt="Caesarstone 4011 Cloudburst Concrete"><span class="catalog-list__name">Caesarstone 4011 Cloudburst Concrete</span><span class="catalog-list__prise">От 111 165 руб.</span><a class="arrow-linc" href="#">Подробнее</a></li>
-          <li class="catalog-list__item"><img class="catalog-list__img" src="./assets/images/material-mramor.png" alt="Caesarstone 4011 Cloudburst Concrete"><span class="catalog-list__name">Caesarstone 4011 Cloudburst Concrete</span><span class="catalog-list__prise">От 111 165 руб.</span><a class="arrow-linc" href="#">Подробнее</a></li>
-          <li class="catalog-list__item"><img class="catalog-list__img" src="./assets/images/material-granit.png" alt="Caesarstone 4011 Cloudburst Concrete"><span class="catalog-list__name">Caesarstone 4011 Cloudburst Concrete</span><span class="catalog-list__prise">От 111 165 руб.</span><a class="arrow-linc" href="#">Подробнее</a></li>
-          <li class="catalog-list__item"><img class="catalog-list__img" src="./assets/images/material-kvarc.png" alt="Caesarstone 4011 Cloudburst Concrete"><span class="catalog-list__name">Caesarstone 4011 Cloudburst Concrete</span><span class="catalog-list__prise">От 111 165 руб.</span><a class="arrow-linc" href="#">Подробнее</a></li>
-          <li class="catalog-list__item"><img class="catalog-list__img" src="./assets/images/material-mramor.png" alt="Caesarstone 4011 Cloudburst Concrete"><span class="catalog-list__name">Caesarstone 4011 Cloudburst Concrete</span><span class="catalog-list__prise">От 111 165 руб.</span><a class="arrow-linc" href="#">Подробнее</a></li>
-          <li class="catalog-list__item"><img class="catalog-list__img" src="./assets/images/material-granit.png" alt="Caesarstone 4011 Cloudburst Concrete"><span class="catalog-list__name">Caesarstone 4011 Cloudburst Concrete</span><span class="catalog-list__prise">От 111 165 руб.</span><a class="arrow-linc" href="#">Подробнее</a></li>
-          <li class="catalog-list__item"><img class="catalog-list__img" src="./assets/images/material-kvarc.png" alt="Caesarstone 4011 Cloudburst Concrete"><span class="catalog-list__name">Caesarstone 4011 Cloudburst Concrete</span><span class="catalog-list__prise">От 111 165 руб.</span><a class="arrow-linc" href="#">Подробнее</a></li>
-          <li class="catalog-list__item"><img class="catalog-list__img" src="./assets/images/material-mramor.png" alt="Caesarstone 4011 Cloudburst Concrete"><span class="catalog-list__name">Caesarstone 4011 Cloudburst Concrete</span><span class="catalog-list__prise">От 111 165 руб.</span><a class="arrow-linc" href="#">Подробнее</a></li>
-          <li class="catalog-list__item"><img class="catalog-list__img" src="./assets/images/material-granit.png" alt="Caesarstone 4011 Cloudburst Concrete"><span class="catalog-list__name">Caesarstone 4011 Cloudburst Concrete</span><span class="catalog-list__prise">От 111 165 руб.</span><a class="arrow-linc" href="#">Подробнее</a></li>
-          <li class="catalog-list__item"><img class="catalog-list__img" src="./assets/images/material-kvarc.png" alt="Caesarstone 4011 Cloudburst Concrete"><span class="catalog-list__name">Caesarstone 4011 Cloudburst Concrete</span><span class="catalog-list__prise">От 111 165 руб.</span><a class="arrow-linc" href="#">Подробнее</a></li>
+          <li class="catalog-list__item"><img class="catalog-list__img" src="./assets/images/material-granit.png" alt="Caesarstone 4011 Cloudburst Concrete"><span class="catalog-list__name">Caesarstone 4011 Cloudburst Concrete</span><span class="catalog-list__prise">От 111 165 руб. <span class="m2">м2</span></span><a class="arrow-linc" href="#">Подробнее</a></li>
+          <li class="catalog-list__item"><img class="catalog-list__img" src="./assets/images/material-kvarc.png" alt="Caesarstone 4011 Cloudburst Concrete"><span class="catalog-list__name">Caesarstone 4011 Cloudburst Concrete</span><span class="catalog-list__prise">От 111 165 руб. <span class="m2">м2</span></span><a class="arrow-linc" href="#">Подробнее</a></li>
+          <li class="catalog-list__item"><img class="catalog-list__img" src="./assets/images/material-mramor.png" alt="Caesarstone 4011 Cloudburst Concrete"><span class="catalog-list__name">Caesarstone 4011 Cloudburst Concrete</span><span class="catalog-list__prise">От 111 165 руб. <span class="m2">м2</span></span><a class="arrow-linc" href="#">Подробнее</a></li>
+          <li class="catalog-list__item"><img class="catalog-list__img" src="./assets/images/material-granit.png" alt="Caesarstone 4011 Cloudburst Concrete"><span class="catalog-list__name">Caesarstone 4011 Cloudburst Concrete</span><span class="catalog-list__prise">От 111 165 руб. <span class="m2">м2</span></span><a class="arrow-linc" href="#">Подробнее</a></li>
+          <li class="catalog-list__item"><img class="catalog-list__img" src="./assets/images/material-kvarc.png" alt="Caesarstone 4011 Cloudburst Concrete"><span class="catalog-list__name">Caesarstone 4011 Cloudburst Concrete</span><span class="catalog-list__prise">От 111 165 руб. <span class="m2">м2</span></span><a class="arrow-linc" href="#">Подробнее</a></li>
+          <li class="catalog-list__item"><img class="catalog-list__img" src="./assets/images/material-granit.png" alt="Caesarstone 4011 Cloudburst Concrete"><span class="catalog-list__name">Caesarstone 4011 Cloudburst Concrete</span><span class="catalog-list__prise">От 111 165 руб. <span class="m2">м2</span></span><a class="arrow-linc" href="#">Подробнее</a></li>
+          <li class="catalog-list__item"><img class="catalog-list__img" src="./assets/images/material-kvarc.png" alt="Caesarstone 4011 Cloudburst Concrete"><span class="catalog-list__name">Caesarstone 4011 Cloudburst Concrete</span><span class="catalog-list__prise">От 111 165 руб. <span class="m2">м2</span></span><a class="arrow-linc" href="#">Подробнее</a></li>
+          <li class="catalog-list__item"><img class="catalog-list__img" src="./assets/images/material-granit.png" alt="Caesarstone 4011 Cloudburst Concrete"><span class="catalog-list__name">Caesarstone 4011 Cloudburst Concrete</span><span class="catalog-list__prise">От 111 165 руб. <span class="m2">м2</span></span><a class="arrow-linc" href="#">Подробнее</a></li>
+          <li class="catalog-list__item"><img class="catalog-list__img" src="./assets/images/material-kvarc.png" alt="Caesarstone 4011 Cloudburst Concrete"><span class="catalog-list__name">Caesarstone 4011 Cloudburst Concrete</span><span class="catalog-list__prise">От 111 165 руб. <span class="m2">м2 </span></span><a class="arrow-linc" href="#">Подробнее</a></li>
+          <li class="catalog-list__item"><img class="catalog-list__img" src="./assets/images/material-granit.png" alt="Caesarstone 4011 Cloudburst Concrete"><span class="catalog-list__name">Caesarstone 4011 Cloudburst Concrete</span><span class="catalog-list__prise">От 111 165 руб. <span class="m2">м2</span></span><a class="arrow-linc" href="#">Подробнее</a></li>
+          <li class="catalog-list__item"><img class="catalog-list__img" src="./assets/images/material-kvarc.png" alt="Caesarstone 4011 Cloudburst Concrete"><span class="catalog-list__name">Caesarstone 4011 Cloudburst Concrete</span><span class="catalog-list__prise">От 111 165 руб. <span class="m2">м2</span></span><a class="arrow-linc" href="#">Подробнее</a></li>
+          <li class="catalog-list__item"><img class="catalog-list__img" src="./assets/images/material-mramor.png" alt="Caesarstone 4011 Cloudburst Concrete"><span class="catalog-list__name">Caesarstone 4011 Cloudburst Concrete</span><span class="catalog-list__prise">От 111 165 руб. <span class="m2">м2</span></span><a class="arrow-linc" href="#">Подробнее</a></li>
+          <li class="catalog-list__item"><img class="catalog-list__img" src="./assets/images/material-granit.png" alt="Caesarstone 4011 Cloudburst Concrete"><span class="catalog-list__name">Caesarstone 4011 Cloudburst Concrete</span><span class="catalog-list__prise">От 111 165 руб. <span class="m2">м2</span></span><a class="arrow-linc" href="#">Подробнее</a></li>
+          <li class="catalog-list__item"><img class="catalog-list__img" src="./assets/images/material-kvarc.png" alt="Caesarstone 4011 Cloudburst Concrete"><span class="catalog-list__name">Caesarstone 4011 Cloudburst Concrete</span><span class="catalog-list__prise">От 111 165 руб. <span class="m2">м2</span></span><a class="arrow-linc" href="#">Подробнее</a></li>
+          <li class="catalog-list__item"><img class="catalog-list__img" src="./assets/images/material-mramor.png" alt="Caesarstone 4011 Cloudburst Concrete"><span class="catalog-list__name">Caesarstone 4011 Cloudburst Concrete</span><span class="catalog-list__prise">От 111 165 руб. <span class="m2">м2</span></span><a class="arrow-linc" href="#">Подробнее</a></li>
+          <li class="catalog-list__item"><img class="catalog-list__img" src="./assets/images/material-granit.png" alt="Caesarstone 4011 Cloudburst Concrete"><span class="catalog-list__name">Caesarstone 4011 Cloudburst Concrete</span><span class="catalog-list__prise">От 111 165 руб. <span class="m2">м2</span></span><a class="arrow-linc" href="#">Подробнее</a></li>
+          <li class="catalog-list__item"><img class="catalog-list__img" src="./assets/images/material-kvarc.png" alt="Caesarstone 4011 Cloudburst Concrete"><span class="catalog-list__name">Caesarstone 4011 Cloudburst Concrete</span><span class="catalog-list__prise">От 111 165 руб. <span class="m2">м2</span></span><a class="arrow-linc" href="#">Подробнее</a></li>
+          <li class="catalog-list__item"><img class="catalog-list__img" src="./assets/images/material-mramor.png" alt="Caesarstone 4011 Cloudburst Concrete"><span class="catalog-list__name">Caesarstone 4011 Cloudburst Concrete</span><span class="catalog-list__prise">От 111 165 руб. <span class="m2">м2</span></span><a class="arrow-linc" href="#">Подробнее</a></li>
         </ul><a class="button catalog__button" href="#">Посмотреть все варианты</a>
+      </div>
+      <div class="cost-calculation">
+        <h2 class="h2 cost-calculation_h2">Расчёт стоимости изделия</h2>
+        <div class="cost-calculation__content"><img class="cost-calculation__img" src="./assets/images/cost-calculation.png" alt="Расчёт стоимости изделия">
+          <div class="cost-calculation__text-wrap">
+            <p class="cost-calculation__text">Вы можете с мельчайшими подробностями собрать свою столешницу в нашем калькуляторе и получить предварительный расчет</p><a class="button cost-calculation__button" href="#">Рассчитать стоимость изделия</a>
+          </div>
+        </div>
       </div>
       <div class="seo-block3">
         <h2 class="h2 seo-block3__h2">О кварцевом агломерате</h2>
         <p class="seo-block3__text">Гранит начали использовать в качестве стройматериала много веков назад. Он применялся повсеместно при возведении Санкт-Петербурга. А некоторые объекты сохранились и по наше время, что подтверждает долговечность этой породы, ее высокую прочность, устойчивость к механическим повреждениям и климатическим воздействиям. СПб невозможно представить без гранитной Набережной. Из гранита построен Эрмитажный мост, скульптуры атлантов Эрмитажа, Александровская колонна и другие достопримечательности культурной столицы.</p>
       </div>
-      <article class="our-projects">
+      <div class="our-projects">
         <h2 class="h2 our-projects__h2">Выполненные проекты</h2>
         <div class="swiper-container our-projects-slider">
           <div class="swiper-wrapper our-projects__wrap">
@@ -183,19 +193,15 @@
             <div class="our-projects__item swiper-slide"><img class="our-projects__img" src="./assets/images/slider2.png" alt="Caesarstone 4011 Cloudburst Concrete"><span class="our-projects__name">Caesarstone 4011 Cloudburst Concrete</span><span class="our-projects__prise">111 165 руб.</span><a class="arrow-linc our-projects__arrow-linc" href="#">Подробнее о проекте</a></div>
             <div class="our-projects__item swiper-slide"><img class="our-projects__img" src="./assets/images/slider3.png" alt="Caesarstone 4011 Cloudburst Concrete"><span class="our-projects__name">Caesarstone 4011 Cloudburst Concrete</span><span class="our-projects__prise">111 165 руб.</span><a class="arrow-linc our-projects__arrow-linc" href="#">Подробнее о проекте</a></div>
             <div class="our-projects__item swiper-slide"><img class="our-projects__img" src="./assets/images/slider4.png" alt="Caesarstone 4011 Cloudburst Concrete"><span class="our-projects__name">Caesarstone 4011 Cloudburst Concrete</span><span class="our-projects__prise">111 165 руб.</span><a class="arrow-linc our-projects__arrow-linc" href="#">Подробнее о проекте</a></div>
-            <div class="our-projects__item swiper-slide"><img class="our-projects__img" src="./assets/images/slider4.png" alt="Caesarstone 4011 Cloudburst Concrete"><span class="our-projects__name">Caesarstone 4011 Cloudburst Concrete</span><span class="our-projects__prise">111 165 руб.</span><a class="arrow-linc our-projects__arrow-linc" href="#">Подробнее о проекте</a></div>
-            <div class="our-projects__item swiper-slide"><img class="our-projects__img" src="./assets/images/slider3.png" alt="Caesarstone 4011 Cloudburst Concrete"><span class="our-projects__name">Caesarstone 4011 Cloudburst Concrete</span><span class="our-projects__prise">111 165 руб.</span><a class="arrow-linc our-projects__arrow-linc" href="#">Подробнее о проекте</a></div>
-            <div class="our-projects__item swiper-slide"><img class="our-projects__img" src="./assets/images/slider2.png" alt="Caesarstone 4011 Cloudburst Concrete"><span class="our-projects__name">Caesarstone 4011 Cloudburst Concrete</span><span class="our-projects__prise">111 165 руб.</span><a class="arrow-linc our-projects__arrow-linc" href="#">Подробнее о проекте</a></div>
-            <div class="our-projects__item swiper-slide"><img class="our-projects__img" src="./assets/images/slider1.png" alt="Caesarstone 4011 Cloudburst Concrete"><span class="our-projects__name">Caesarstone 4011 Cloudburst Concrete</span><span class="our-projects__prise">111 165 руб.</span><a class="arrow-linc our-projects__arrow-linc" href="#">Подробнее о проекте</a></div>
           </div>
         </div><a class="button button__ghost our-projects__button" href="#">Рассчитать стоимость изделия</a>
-      </article>
-      <div class="cost-calculation">
-        <h2 class="h2 cost-calculation_h2">Расчёт стоимости изделия</h2>
-        <div class="cost-calculation__content"><img class="cost-calculation__img" src="./assets/images/cost-calculation.png" alt="Расчёт стоимости изделия">
-          <div class="cost-calculation__text-wrap">
-            <p class="cost-calculation__text">Вы можете с мельчайшими подробностями собрать свою столешницу в нашем калькуляторе и получить предварительный расчет</p><a class="button cost-calculation__button" href="#">Рассчитать стоимость изделия</a>
-          </div>
+      </div>
+      <div class="materials">
+        <h2 class="h2 materials__h2">Предназначение</h2>
+        <div class="materials__list">
+          <div class="materials__items"><span class="materials__heading">Столешницы</span><img class="materials__img materials__img_m-20" src="./assets/images/purpose-3.png" alt=""><a class="button materials__button" href="#">Перейти в раздел</a></div>
+          <div class="materials__items"><span class="materials__heading">Подоконники</span><img class="materials__img materials__img_m-20" src="./assets/images/purpose-2.png" alt=""><a class="button materials__button" href="#">Перейти в раздел</a></div>
+          <div class="materials__items"><span class="materials__heading">Ступени</span><img class="materials__img materials__img_m-20" src="./assets/images/purpose-1.png" alt=""><a class="button materials__button" href="#">Перейти в раздел</a></div>
         </div>
       </div>
     </main>
@@ -218,8 +224,8 @@
             <input class="input input_contact" type="text" name="name" placeholder="Имя">
             <input class="input input_contact" type="tel" name="tel" placeholder="Телефон" required>
             <textarea class="input input_contact contact__input-textarea" name="message" placeholder="Сообщение"></textarea>
-            <label class="contact__input-file input-file"><span>Загрузите файл (по желанию)</span>
-              <input type="file" name="file" onchange="uploadFile(this)">
+            <label class="contact__input-file input-file"><span>Загрузите файл (.jpg .png .pdf .exel .csd)</span>
+              <input type="file" name="file" onchange="uploadFile(this)" accept=".jpg, .jpeg, .png, .pdf, .exel, .csd">
             </label>
           </div>
           <div class="contact__button-wrap">
