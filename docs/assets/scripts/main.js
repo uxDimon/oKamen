@@ -49,14 +49,17 @@ const headerManu = document.querySelector(".header"),
 	numberScrollStart = document.querySelector(".header__menu-second-wrap").offsetTop;
 
 function headerHeight() {
+	headerManu.classList.remove("header-fixed");
 	headerMenuWrap.style.height = "";
 	headerMenuWrap.style.height = headerManu.offsetHeight + "px";
+	if (pageYOffset >= numberScrollStart) {
+		headerManu.classList.add("header-fixed");
+	}
 }
 
 headerHeight();
 
 window.addEventListener("resize", () => {
-	console.log("1");
 	headerHeight();
 });
 
