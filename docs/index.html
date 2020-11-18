@@ -76,7 +76,7 @@
         </div>
       </div>
     </header>
-    <main>
+    <main class="main-page">
       <article class="wrap-back wrap-back__slider-main">
         <div class="slider-main">
           <div class="slider-main__text-wrap">
@@ -277,9 +277,9 @@
           <div class="contact__input"><!-- Класс для не заполненного поля .input_contact_invalid -->
             <div class="contact__input-select-wrap"><span class="contact__option-text">Какой вид изделия Вас интересует?</span>
               <select class="input input_contact input_select" name="contact-product">
-                <option value="granit">Столешница</option>
-                <option value="mramor">Подоконник</option>
-                <option value="mramor">Лестница</option>
+                <option value="stol">Столешница</option>
+                <option value="podocnom">Подоконник</option>
+                <option value="lesnica">Лестница</option>
               </select>
             </div>
             <input class="input input_contact" type="text" name="name" placeholder="Имя">
@@ -311,7 +311,18 @@
     <footer class="footer__wrap">
       <div class="footer">
         <div class="footer__body">
-          <div class="footer__body-text-social"><span class="footer__body-text">Сочетание стиля и функциальности</span>
+          <nav class="footer__body-meny">
+            <ul class="footer__body-meny-list">
+              <li class="footer__body-meny-item"><a class="footer__body-meny-linc" href="#">О нас</a></li>
+              <li class="footer__body-meny-item"><a class="footer__body-meny-linc" href="#">Продукция</a></li>
+              <li class="footer__body-meny-item"><a class="footer__body-meny-linc" href="#">Материалы</a></li>
+              <li class="footer__body-meny-item"><a class="footer__body-meny-linc" href="#">Акции</a></li>
+              <li class="footer__body-meny-item"><a class="footer__body-meny-linc" href="#">Сотрудничество </a></li>
+              <li class="footer__body-meny-item"><a class="footer__body-meny-linc" href="#">Калькулятор стоимости</a></li>
+              <li class="footer__body-meny-item"><a class="footer__body-meny-linc" href="#">Контакты </a></li>
+            </ul>
+          </nav>
+          <div class="footer__body-text-social"><span class="footer__bot-item footer__bot-item_kontact">Телефон: <a href="tel:+78123452312">+7 812 345 23 12</a></span><span class="footer__bot-item footer__bot-item_kontact">Почта: <a href="mailto:okamen@info.ru">okamen@info.ru</a></span>
             <div class="footer__body-social"><a class="footer__body-social-linc" href="#">
                 <svg class="icon-insta">
                   <use xlink:href="./assets/images/sprite.svg#icon-insta"></use>
@@ -326,18 +337,8 @@
                   <use xlink:href="./assets/images/sprite.svg#icon-facebook"></use>
                 </svg></a></div>
           </div>
-          <nav class="footer__body-meny">
-            <ul class="footer__body-meny-list">
-              <li class="footer__body-meny-item"><a class="footer__body-meny-linc" href="#">О нас</a></li>
-              <li class="footer__body-meny-item"><a class="footer__body-meny-linc" href="#">Продукция</a></li>
-              <li class="footer__body-meny-item"><a class="footer__body-meny-linc" href="#">Материалы</a></li>
-              <li class="footer__body-meny-item"><a class="footer__body-meny-linc" href="#">Акции</a></li>
-              <li class="footer__body-meny-item"><a class="footer__body-meny-linc" href="#">Калькулятор стоимости</a></li>
-              <li class="footer__body-meny-item"><a class="footer__body-meny-linc" href="#">Контакты</a></li>
-            </ul>
-          </nav>
         </div>
-        <div class="footer__bot"><span class="footer__bot-item footer__bot-item_kontact">Телефон: <a href="tel:+78123452312">+7 812 345 23 12</a></span><span class="footer__bot-item footer__bot-item_kontact">Почта: <a href="mailto:okamen@info.ru">okamen@info.ru</a></span><span class="footer__bot-item"><a href="#">Правовая информация</a></span><span class="footer__bot-item footer__bot-item_ra">Сделано в <a href="#">RA-Studio</a></span></div>
+        <div class="footer__bot"><span class="footer__bot-item"><a href="#">Правовая информация</a></span><span class="footer__bot-item footer__bot-item_ra">Сделано в <a href="#">RA-Studio</a></span></div>
       </div>
     </footer>
     <div class="close-area" data-close-area="burger"></div>

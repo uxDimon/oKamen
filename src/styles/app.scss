@@ -2,8 +2,8 @@
 	// Размеры
 	--content-p-r: 0;
 	--content-p-l: 0;
-	--block-m-t: 90px;
-	--block-m-b: 90px;
+	--block-m-t: 70px;
+	--block-m-b: 70px;
 }
 
 // Размеры
@@ -101,6 +101,11 @@ a {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+}
+
+.main-page {
+	--block-m-t: 90px;
+	--block-m-b: 90px;
 }
 
 // Кнопки
