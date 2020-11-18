@@ -1970,17 +1970,6 @@ input[type="radio"] {
   width: 100%;
   max-width: 800px;
   position: relative; }
-  .seo-block__text__wrap::before {
-    content: "";
-    display: block;
-    position: absolute;
-    right: 20%;
-    bottom: -24px;
-    height: 200px;
-    left: -16px;
-    background-image: url("../images/bac-1.jpg");
-    z-index: -1;
-    opacity: 0.7; }
 
 .seo-block__text {
   font-size: 24px;
@@ -2610,7 +2599,7 @@ input[type="radio"] {
 .catalog__filter-button {
   height: 40px; }
 
-.catalog__catalog-list {
+.product__catalog .catalog__catalog-list {
   margin-bottom: 64px;
   grid-template-columns: repeat(5, 1fr); }
 
@@ -2877,7 +2866,7 @@ input[type="radio"] {
   .onas__logo-wrap {
     width: 100%;
     order: 1px; }
-  .catalog__catalog-list {
+  .product__catalog .catalog__catalog-list {
     grid-template-columns: repeat(3, 1fr); } }
 
 @media screen and (max-width: 960px) {
