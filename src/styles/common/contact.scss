@@ -37,7 +37,7 @@
 	font-family: $font-Manrope;
 	font-size: 16px;
 	line-height: 125%;
-	margin-bottom: 20px;
+	margin-bottom: 12px;
 	display: block;
 }
 
@@ -77,7 +77,13 @@
 	grid-gap: 16px;
 	margin-bottom: 36px;
 }
+.contact__input-select-wrap {
+	.input {
+		width: 100%;
+	}
+}
 
+.contact__input-select-wrap,
 .contact__input-textarea,
 .contact__input-file {
 	grid-column-end: span 2;

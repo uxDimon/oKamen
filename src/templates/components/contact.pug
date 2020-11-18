@@ -2,20 +2,27 @@ article.contact__wrap
     .contact
         form.contact__form
             h2.h2.contact__h Запишитесь на бесплатную консультацию
-            span.contact__option-text Что вас интересует?
-            .contact__option-wrap
-                label.contact__option-item
-                    input(type="radio", name="contact-product", checked)
-                    span Столешница
-                label.contact__option-item
-                    input(type="radio", name="contact-product")
-                    span Подоконник
-                label.contact__option-item
-                    input(type="radio", name="contact-product")
-                    span Лестница
+
+            //- .contact__option-wrap
+            //-     label.contact__option-item
+            //-         input(type="radio", name="contact-product", checked)
+            //-         span Столешница
+            //-     label.contact__option-item
+            //-         input(type="radio", name="contact-product")
+            //-         span Подоконник
+            //-     label.contact__option-item
+            //-         input(type="radio", name="contact-product")
+            //-         span Лестница
 
             .contact__input
                 <!-- Класс для не заполненного поля .input_contact_invalid -->
+                .contact__input-select-wrap
+                    span.contact__option-text Какой вид изделия Вас интересует?
+                    select(name="contact-product").input.input_contact.input_select
+                            option(value="granit") Столешница
+                            option(value="mramor") Подоконник
+                            option(value="mramor") Лестница
+                        
                 input(type="text", name="name" placeholder="Имя").input.input_contact
                 input(type="tel", name="tel" placeholder="Телефон", required).input.input_contact
                 textarea(name="message" placeholder="Сообщение").input.input_contact.contact__input-textarea

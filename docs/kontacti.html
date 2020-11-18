@@ -147,24 +147,20 @@
     <article class="contact__wrap">
       <div class="contact">
         <form class="contact__form">
-          <h2 class="h2 contact__h">Запишитесь на бесплатную консультацию</h2><span class="contact__option-text">Что вас интересует?</span>
-          <div class="contact__option-wrap">
-            <label class="contact__option-item">
-              <input type="radio" name="contact-product" checked><span>Столешница</span>
-            </label>
-            <label class="contact__option-item">
-              <input type="radio" name="contact-product"><span>Подоконник</span>
-            </label>
-            <label class="contact__option-item">
-              <input type="radio" name="contact-product"><span>Лестница</span>
-            </label>
-          </div>
+          <h2 class="h2 contact__h">Запишитесь на бесплатную консультацию</h2>
           <div class="contact__input"><!-- Класс для не заполненного поля .input_contact_invalid -->
+            <div class="contact__input-select-wrap"><span class="contact__option-text">Какой вид изделия Вас интересует?</span>
+              <select class="input input_contact input_select" name="contact-product">
+                <option value="granit">Столешница</option>
+                <option value="mramor">Подоконник</option>
+                <option value="mramor">Лестница</option>
+              </select>
+            </div>
             <input class="input input_contact" type="text" name="name" placeholder="Имя">
             <input class="input input_contact" type="tel" name="tel" placeholder="Телефон" required>
             <textarea class="input input_contact contact__input-textarea" name="message" placeholder="Сообщение"></textarea>
             <label class="contact__input-file input-file"><span>Загрузите файл (.jpg .png .pdf .exel .csd)</span>
-              <input type="file" name="file" onchange="uploadFile(this)" accept=".jpg, .jpeg, .png, .pdf, .exel, .csd">
+              <input type="file" name="file" onchange="uploadFile(this)" accept=".jpg, .jpeg, .png, .pdf, .xls, .csd">
             </label>
           </div>
           <div class="contact__button-wrap">
@@ -183,7 +179,7 @@
               </div>
             </div>
           </div><span class="contact__conf">Отправляя личные данные, Вы соглашаетесь с политикой конфиденциальности</span>
-        </form><img class="contact__img" src="./assets/images/kontakt.png" alt="Запишитесь на консультацию">
+        </form><img class="contact__img" src="./assets/images/kontakt.jpg" alt="Запишитесь на консультацию">
       </div>
     </article>
     <footer class="footer__wrap">
