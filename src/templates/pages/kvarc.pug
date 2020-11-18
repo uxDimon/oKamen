@@ -3,6 +3,7 @@ extends ../template
 block variables
     - var title = 'Кварцевый агломерат'
     - var contactForm = true
+    - var ourProjects8 = false
 
 block content
     main.wrap-back
@@ -14,8 +15,10 @@ block content
                     a(href="#").bread-crumbs__linc Продукция
                 li.bread-crumbs__item
                     span(href="#").bread-crumbs__linc Кварцевый агломерат
-
-        h1.h1.page__h1 Кварцевый агломерат
+        
+        .title-button
+            h1.h1 Кварцевый агломерат
+            button.button Заказать расчет
 
         include ../components/page-slider.pug 
 
@@ -30,11 +33,11 @@ block content
                 p.seo-block__right-text-linc Воспользуйтесь заявкой или свяжитесь с нами по <a href="tel:+78123804144">телефону</a>
 
         .catalog
-            h2.h2.catalog__h2 Разновидность камня
+            h2.h2.catalog__h2 Каталог натурального камня
             .catalog__filter
                 .input_prise-wrap
                     label.input_prise-min 
-                        span Цена от
+                        span.m2 Цена м2 от
                         input(type="text")
                     label.input_prise-max 
                         span до
@@ -55,118 +58,120 @@ block content
                     option(value="mramor") Красный
                     option(value="mramor") Черный
                 
-                button.button.catalog__filter-button Подобрать
+                button.button.catalog__filter-button Показать
             
             ul.catalog-list.catalog__catalog-list 
                 li.catalog-list__item
                     img(src="./assets/images/material-granit.png", alt="Caesarstone 4011 Cloudburst Concrete").catalog-list__img
                     span.catalog-list__name Caesarstone 4011 Cloudburst Concrete
-                    span.catalog-list__prise От 111 165 руб.
+                    span.catalog-list__prise От 111 165 руб. 
+                        span.m2 м2
                     a(href="#").arrow-linc Подробнее
                 li.catalog-list__item
                     img(src="./assets/images/material-kvarc.png", alt="Caesarstone 4011 Cloudburst Concrete").catalog-list__img
                     span.catalog-list__name Caesarstone 4011 Cloudburst Concrete
-                    span.catalog-list__prise От 111 165 руб.
+                    span.catalog-list__prise От 111 165 руб. 
+                        span.m2 м2
                     a(href="#").arrow-linc Подробнее
                 li.catalog-list__item
                     img(src="./assets/images/material-mramor.png", alt="Caesarstone 4011 Cloudburst Concrete").catalog-list__img
                     span.catalog-list__name Caesarstone 4011 Cloudburst Concrete
-                    span.catalog-list__prise От 111 165 руб.
+                    span.catalog-list__prise От 111 165 руб. 
+                        span.m2 м2
                     a(href="#").arrow-linc Подробнее
                 li.catalog-list__item
                     img(src="./assets/images/material-granit.png", alt="Caesarstone 4011 Cloudburst Concrete").catalog-list__img
                     span.catalog-list__name Caesarstone 4011 Cloudburst Concrete
-                    span.catalog-list__prise От 111 165 руб.
+                    span.catalog-list__prise От 111 165 руб. 
+                        span.m2 м2
                     a(href="#").arrow-linc Подробнее
                 li.catalog-list__item
                     img(src="./assets/images/material-kvarc.png", alt="Caesarstone 4011 Cloudburst Concrete").catalog-list__img
                     span.catalog-list__name Caesarstone 4011 Cloudburst Concrete
-                    span.catalog-list__prise От 111 165 руб.
+                    span.catalog-list__prise От 111 165 руб. 
+                        span.m2 м2
                     a(href="#").arrow-linc Подробнее
                 li.catalog-list__item
                     img(src="./assets/images/material-granit.png", alt="Caesarstone 4011 Cloudburst Concrete").catalog-list__img
                     span.catalog-list__name Caesarstone 4011 Cloudburst Concrete
-                    span.catalog-list__prise От 111 165 руб.
+                    span.catalog-list__prise От 111 165 руб. 
+                        span.m2 м2
                     a(href="#").arrow-linc Подробнее
                 li.catalog-list__item
                     img(src="./assets/images/material-kvarc.png", alt="Caesarstone 4011 Cloudburst Concrete").catalog-list__img
                     span.catalog-list__name Caesarstone 4011 Cloudburst Concrete
-                    span.catalog-list__prise От 111 165 руб.
+                    span.catalog-list__prise От 111 165 руб. 
+                        span.m2 м2
                     a(href="#").arrow-linc Подробнее
                 li.catalog-list__item
                     img(src="./assets/images/material-granit.png", alt="Caesarstone 4011 Cloudburst Concrete").catalog-list__img
                     span.catalog-list__name Caesarstone 4011 Cloudburst Concrete
-                    span.catalog-list__prise От 111 165 руб.
+                    span.catalog-list__prise От 111 165 руб. 
+                        span.m2 м2
                     a(href="#").arrow-linc Подробнее
                 li.catalog-list__item
                     img(src="./assets/images/material-kvarc.png", alt="Caesarstone 4011 Cloudburst Concrete").catalog-list__img
                     span.catalog-list__name Caesarstone 4011 Cloudburst Concrete
-                    span.catalog-list__prise От 111 165 руб.
+                    span.catalog-list__prise От 111 165 руб. 
+                        span.m2 м2 
                     a(href="#").arrow-linc Подробнее
                 li.catalog-list__item
                     img(src="./assets/images/material-granit.png", alt="Caesarstone 4011 Cloudburst Concrete").catalog-list__img
                     span.catalog-list__name Caesarstone 4011 Cloudburst Concrete
-                    span.catalog-list__prise От 111 165 руб.
+                    span.catalog-list__prise От 111 165 руб. 
+                        span.m2 м2
                     a(href="#").arrow-linc Подробнее
                 li.catalog-list__item
                     img(src="./assets/images/material-kvarc.png", alt="Caesarstone 4011 Cloudburst Concrete").catalog-list__img
                     span.catalog-list__name Caesarstone 4011 Cloudburst Concrete
-                    span.catalog-list__prise От 111 165 руб.
+                    span.catalog-list__prise От 111 165 руб. 
+                        span.m2 м2
                     a(href="#").arrow-linc Подробнее
                 li.catalog-list__item
                     img(src="./assets/images/material-mramor.png", alt="Caesarstone 4011 Cloudburst Concrete").catalog-list__img
                     span.catalog-list__name Caesarstone 4011 Cloudburst Concrete
-                    span.catalog-list__prise От 111 165 руб.
+                    span.catalog-list__prise От 111 165 руб. 
+                        span.m2 м2
                     a(href="#").arrow-linc Подробнее
                 li.catalog-list__item
                     img(src="./assets/images/material-granit.png", alt="Caesarstone 4011 Cloudburst Concrete").catalog-list__img
                     span.catalog-list__name Caesarstone 4011 Cloudburst Concrete
-                    span.catalog-list__prise От 111 165 руб.
+                    span.catalog-list__prise От 111 165 руб. 
+                        span.m2 м2
                     a(href="#").arrow-linc Подробнее
                 li.catalog-list__item
                     img(src="./assets/images/material-kvarc.png", alt="Caesarstone 4011 Cloudburst Concrete").catalog-list__img
                     span.catalog-list__name Caesarstone 4011 Cloudburst Concrete
-                    span.catalog-list__prise От 111 165 руб.
+                    span.catalog-list__prise От 111 165 руб. 
+                        span.m2 м2
                     a(href="#").arrow-linc Подробнее
                 li.catalog-list__item
                     img(src="./assets/images/material-mramor.png", alt="Caesarstone 4011 Cloudburst Concrete").catalog-list__img
                     span.catalog-list__name Caesarstone 4011 Cloudburst Concrete
-                    span.catalog-list__prise От 111 165 руб.
+                    span.catalog-list__prise От 111 165 руб. 
+                        span.m2 м2
                     a(href="#").arrow-linc Подробнее
                 li.catalog-list__item
                     img(src="./assets/images/material-granit.png", alt="Caesarstone 4011 Cloudburst Concrete").catalog-list__img
                     span.catalog-list__name Caesarstone 4011 Cloudburst Concrete
-                    span.catalog-list__prise От 111 165 руб.
+                    span.catalog-list__prise От 111 165 руб. 
+                        span.m2 м2
                     a(href="#").arrow-linc Подробнее
                 li.catalog-list__item
                     img(src="./assets/images/material-kvarc.png", alt="Caesarstone 4011 Cloudburst Concrete").catalog-list__img
                     span.catalog-list__name Caesarstone 4011 Cloudburst Concrete
-                    span.catalog-list__prise От 111 165 руб.
+                    span.catalog-list__prise От 111 165 руб. 
+                        span.m2 м2
                     a(href="#").arrow-linc Подробнее
                 li.catalog-list__item
                     img(src="./assets/images/material-mramor.png", alt="Caesarstone 4011 Cloudburst Concrete").catalog-list__img
                     span.catalog-list__name Caesarstone 4011 Cloudburst Concrete
-                    span.catalog-list__prise От 111 165 руб.
-                    a(href="#").arrow-linc Подробнее
-                li.catalog-list__item
-                    img(src="./assets/images/material-granit.png", alt="Caesarstone 4011 Cloudburst Concrete").catalog-list__img
-                    span.catalog-list__name Caesarstone 4011 Cloudburst Concrete
-                    span.catalog-list__prise От 111 165 руб.
-                    a(href="#").arrow-linc Подробнее
-                li.catalog-list__item
-                    img(src="./assets/images/material-kvarc.png", alt="Caesarstone 4011 Cloudburst Concrete").catalog-list__img
-                    span.catalog-list__name Caesarstone 4011 Cloudburst Concrete
-                    span.catalog-list__prise От 111 165 руб.
+                    span.catalog-list__prise От 111 165 руб. 
+                        span.m2 м2
                     a(href="#").arrow-linc Подробнее
 
             a(href="#").button.catalog__button Посмотреть все варианты
 
-        .seo-block3
-            h2.h2.seo-block3__h2 О кварцевом агломерате
-            p.seo-block3__text Гранит начали использовать в качестве стройматериала много веков назад. Он применялся повсеместно при возведении Санкт-Петербурга. А некоторые объекты сохранились и по наше время, что подтверждает долговечность этой породы, ее высокую прочность, устойчивость к механическим повреждениям и климатическим воздействиям. СПб невозможно представить без гранитной Набережной. Из гранита построен Эрмитажный мост, скульптуры атлантов Эрмитажа, Александровская колонна и другие достопримечательности культурной столицы.
-
-        include ../components/our-projects.pug
-        
         .cost-calculation
             h2.h2.cost-calculation_h2 Расчёт стоимости изделия
 
@@ -175,6 +180,12 @@ block content
                 .cost-calculation__text-wrap
                     p.cost-calculation__text Вы можете с мельчайшими подробностями собрать свою столешницу в нашем калькуляторе и получить предварительный расчет
                     a(href="#").button.cost-calculation__button Рассчитать стоимость изделия
+        
+        .seo-block3
+            h2.h2.seo-block3__h2 О кварцевом агломерате
+            p.seo-block3__text Гранит начали использовать в качестве стройматериала много веков назад. Он применялся повсеместно при возведении Санкт-Петербурга. А некоторые объекты сохранились и по наше время, что подтверждает долговечность этой породы, ее высокую прочность, устойчивость к механическим повреждениям и климатическим воздействиям. СПб невозможно представить без гранитной Набережной. Из гранита построен Эрмитажный мост, скульптуры атлантов Эрмитажа, Александровская колонна и другие достопримечательности культурной столицы.
+
+        include ../components/our-projects.pug
         
         .materials
             h2.h2.materials__h2 Предназначение
