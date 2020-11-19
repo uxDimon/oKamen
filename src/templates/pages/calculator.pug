@@ -217,7 +217,7 @@ block content
                                     span.options__total-price-number 94 360 ₽
 
                                     button.button.calc__button Заказать звонок
-                                    button.button.button_gray.calc__button Скачать расчёт в PDF
+                                    button.button.button_gray.calc__button Отправить по почте
 
                     .calc__button-wrap
                         button(data-calc-previous-button = 'services').button.button_arrow-left.calc__button
@@ -251,7 +251,9 @@ block content
                             span.options__size-info-item Площадь 
                                 sapn(data-size-area) 0 
                                 span.m2 м2
-
+                            span.options__size-info-prise Предварительная цена 
+                                sapn(data-size-prise) 12 400 
+                                sapn ₽
 
                     div(dara-form-size = "form_g").options__size.options__size_g#form_g
                         .options__size-img-wrap
@@ -297,6 +299,10 @@ block content
                             span.options__size-info-item Площадь 
                                 sapn(data-size-area) 0 
                                 span.m2 м2
+                            span.options__size-info-prise Предварительная цена 
+                                sapn(data-size-prise) 12 400 
+                                sapn ₽
+
 
                     div(dara-form-size = "form_p").options__size.options__size_p#form_p
                         .options__size-img-wrap
@@ -360,6 +366,10 @@ block content
                             span.options__size-info-item Площадь 
                                 sapn(data-size-area) 0 
                                 span.m2 м2
+                            span.options__size-info-prise Предварительная цена 
+                                sapn(data-size-prise) 12 400 
+                                sapn ₽
+
 
 
     script(src="assets/scripts/calculator.js")

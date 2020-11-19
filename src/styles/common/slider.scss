@@ -24,9 +24,19 @@
 		right: 0;
 		bottom: 0;
 		left: -16px;
-		// width: 100vw;
 		background-color: $color-gray;
 		z-index: -1;
+	}
+
+	&::after {
+		content: "";
+		position: absolute;
+		top: 0;
+		bottom: 86px;
+		left: -16px;
+		background-color: rgba(232, 232, 232, 0.3);
+		z-index: -1;
+		width: 660px;
 	}
 }
 
@@ -349,7 +359,7 @@
 		padding: 0;
 
 		&::before {
-			content: none;
+			bottom: 45px;
 		}
 	}
 

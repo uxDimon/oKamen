@@ -687,8 +687,9 @@ for (const inputItem of moreInput) {
 
 // Расчет площади
 let errorHtmlText = "Не может быть меньше размера", // Текст ошибки
+	errorHtmlClass = "options__size-error", // Класс ошибки
 	errorInputClass = "options__size-min-error", // Класс ошибки инпута с большим значением
-	errorHtml = `<span class="form-error options__size-error">${errorHtmlText}</span>`,
+	errorHtml = `<span class="form-error ${errorHtmlClass}">${errorHtmlText}</span>`,
 	errorOn = false;
 
 function errorInput(object) {
