@@ -124,31 +124,24 @@ let getOptions = {
 		chamfer_front: {
 			a: {
 				type: "radio",
-				name: "А",
+				name: "Фаска",
 				detail: "(2 000 ₽ за 1м)",
 				imgName: "chamfer-01",
 				prise: 2000,
 			},
 			b: {
 				type: "radio",
-				name: "Б",
+				name: "Полувалик",
 				detail: "(2 300 ₽ за 1м)",
-				imgName: "chamfer-02",
+				imgName: "chamfer-03",
 				prise: 2300,
 			},
 			c: {
 				type: "radio",
-				name: "В",
+				name: "Сложный профиль",
 				detail: "(2 600 ₽ за 1м)",
-				imgName: "chamfer-01",
+				imgName: "chamfer-08",
 				prise: 2600,
-			},
-			d: {
-				type: "radio",
-				name: "Г",
-				detail: "(2 300 ₽ за 1м)",
-				imgName: "chamfer-02",
-				prise: 2300,
 			},
 		},
 		notch: {
@@ -602,11 +595,20 @@ const radioRounding = document.querySelectorAll('input[name="rounding"]'),
 	roundingNumberText = document.querySelector("#rounding-number-text");
 let firstRounding = true;
 
+function warningsFillets() {
+	text = '<span class="form-error warnings-fillets">Выберете углы скругления</span>';
+	document.querySelector(`#${selectedOptions.form}`).insertAdjacentHTML("beforeend", text);
+}
+
 for (const radio of radioRounding) {
 	radio.addEventListener("change", (event) => {
 		let disp,
 			rounding,
-			sizeRadius = selectedOptions.sizeRadius;
+			sizeRadius = selectedOptions.sizeRadius,
+			warnings = document.querySelector(".warnings-fillets");
+		if (warnings) {
+			warnings.remove();
+		}
 		if (event.target.value === "a") {
 			(disp = "none"), (rounding = 2), (sizeRadius = 0);
 		}
@@ -620,6 +622,7 @@ for (const radio of radioRounding) {
 			for (const button of sizeRadiusButton) {
 				button.classList.add("size-img-button_animat");
 			}
+			warningsFillets();
 		}
 		for (const button of sizeRadiusButton) {
 			button.style.display = disp;
@@ -632,11 +635,13 @@ for (const radio of radioRounding) {
 // Скругление углов
 for (const button of sizeRadiusButton) {
 	button.addEventListener("change", (event) => {
+		let warnings = document.querySelector(".warnings-fillets");
 		if (firstRounding && event.target.checked) {
 			for (const button of sizeRadiusButton) {
 				button.classList.remove("size-img-button_animat");
 				firstRounding = false;
 			}
+			warnings.remove();
 		}
 		if (event.target.checked) {
 			button.parentElement.style[event.target.dataset.sizeRadius] = "";
@@ -682,9 +687,8 @@ for (const inputItem of moreInput) {
 
 // Расчет площади
 let errorHtmlText = "Не может быть меньше размера", // Текст ошибки
-	errorHtmlClass = "options__size-error", // Класс ошибки
 	errorInputClass = "options__size-min-error", // Класс ошибки инпута с большим значением
-	errorHtml = `<span class="${errorHtmlClass}">${errorHtmlText}</span>`,
+	errorHtml = `<span class="form-error options__size-error">${errorHtmlText}</span>`,
 	errorOn = false;
 
 function errorInput(object) {

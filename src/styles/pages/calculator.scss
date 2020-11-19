@@ -65,7 +65,7 @@
 }
 
 .calc__road-map-linc {
-	font-family: $font-Spectral;
+	font-family: $font-Manrope;
 	font-weight: 600;
 	font-size: 16px;
 	line-height: 24px;
@@ -107,6 +107,7 @@
 	grid-auto-flow: column;
 	grid-column-gap: 44px;
 	justify-content: start;
+	align-items: start;
 }
 
 .options-input__wrap-row {
@@ -115,17 +116,10 @@
 }
 
 .options-input {
-	// input {
-	// 	display: none;
-
-	// 	&:checked + label .options-input__radio::after {
-	// 		background-color: $color-bronze;
-	// 	}
-
-	// 	&:checked + label {
-	// 		cursor: default;
-	// 	}
-	// }
+	.options__radio-text-gray {
+		display: block;
+		margin-top: 2px;
+	}
 
 	label {
 		display: flex;
@@ -146,6 +140,7 @@
 	display: flex;
 	align-items: stretch;
 	height: 100%;
+	align-self: flex-start;
 	order: 10;
 }
 
@@ -386,8 +381,9 @@
 }
 
 .options__radio-text-gray {
+	font-family: $font-Manrope;
 	font-weight: normal;
-	font-size: 16px;
+	font-size: 14px;
 	line-height: 125%;
 	color: $color-dark-gray;
 	text-transform: none;
@@ -759,7 +755,7 @@
 	margin: 4px;
 }
 
-.options__size-error {
+.form-error {
 	font-size: 14px;
 	line-height: 1.2;
 	color: $color-white;
@@ -774,6 +770,10 @@
 	max-width: 250px;
 	min-width: max-content;
 	z-index: 1;
+}
+
+.warnings-fillets {
+	top: 25%;
 }
 
 .options__size-input[data-form-size="right"] ~ .options__size-error {
@@ -905,6 +905,7 @@
 .options__rounding-range-wrap {
 	color: $color-dark-gray;
 	margin-top: 32px;
+	font-family: $font-Manrope;
 
 	#rounding-number-text {
 		color: $color-black;
