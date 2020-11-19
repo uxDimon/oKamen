@@ -1,14 +1,53 @@
 footer.footer__wrap
     .footer
         .footer__body
+            .footer__body-infa
+                a(href="#").footer__body-infa-logo
+                    svg(width="223", height="50")
+                        use(xlink:href="./assets/images/sprite.svg#logo")
+                span.footer__body-infa-text.text_bold ООО "О.КАМЕНЬ"
+                span.footer__body-infa-text ИНН 7841073240 
+                span.footer__body-infa-text КПП 784101001
+                span.footer__body-infa-text ОГРН 1187847108350
+                span.footer__body-infa-text.text_bold Цены и услуги представленные на сайте не являются публичной офертой.
+
             nav.footer__body-meny
                 ul.footer__body-meny-list
                     li.footer__body-meny-item
                         a(href="#").footer__body-meny-linc О нас
+                        ul
+                            li
+                                a(href="#") Выполненные проекты
                     li.footer__body-meny-item
                         a(href="#").footer__body-meny-linc Продукция
+                        ul
+                            li
+                                a(href="#") Столешницы
+                            li
+                                a(href="#") Ступени
+                            li
+                                a(href="#") Подоконники
+                            li
+                                a(href="#") Ресепшн (барные стойки)
+                            li
+                                a(href="#") Камины (биокамины)
+                            li
+                                a(href="#") Облицовочная плитка
+                            li
+                                a(href="#") Эксклюзивные изделия
+
                     li.footer__body-meny-item
                         a(href="#").footer__body-meny-linc Материалы
+                        ul
+                            li
+                                a(href="#") Кварцевый агломерат
+                            li
+                                a(href="#") Гранит
+                            li
+                                a(href="#") Мрамор
+                            li
+                                a(href="#") Оникс
+
                     li.footer__body-meny-item
                         a(href="#").footer__body-meny-linc Акции
                     li.footer__body-meny-item
@@ -19,23 +58,33 @@ footer.footer__wrap
                         a(href="#").footer__body-meny-linc Контакты 
 
             .footer__body-text-social
-                span.footer__bot-item.footer__bot-item_kontact Телефон: 
-                    a(href="tel:+78123452312") +7 812 345 23 12
-                span.footer__bot-item.footer__bot-item_kontact Почта: 
-                    a(href="mailto:okamen@info.ru") okamen@info.ru
-                .footer__body-social
-                    a(href="#").footer__body-social-linc
-                        svg.icon-insta
-                            use(xlink:href="./assets/images/sprite.svg#icon-insta")
-                    a(href="#").footer__body-social-linc    
-                        svg.icon-vk
-                            use(xlink:href="./assets/images/sprite.svg#icon-vk")
-                    a(href="#").footer__body-social-linc
-                        svg.icon-yuotube
-                            use(xlink:href="./assets/images/sprite.svg#icon-yuotube")
-                    a(href="#").footer__body-social-linc
-                        svg.icon-facebook
-                            use(xlink:href="./assets/images/sprite.svg#icon-facebook")
+                a(href="tel:+78123452312").footer__body-tel +7 812 345 23 12
+                a(href="mailto:okamen@info.ru").footer__body-mail okamen@info.ru
+                .footer__body-social-wrap
+                    span.footer__body-social-text Мы в соцсетях:
+                    .footer__body-social
+                        a(href="#").footer__body-social-linc
+                            svg.icon-insta
+                                use(xlink:href="./assets/images/sprite.svg#icon-insta")
+                        a(href="#").footer__body-social-linc    
+                            svg.icon-vk
+                                use(xlink:href="./assets/images/sprite.svg#icon-vk")
+                        a(href="#").footer__body-social-linc
+                            svg.icon-yuotube
+                                use(xlink:href="./assets/images/sprite.svg#icon-yuotube")
+                        a(href="#").footer__body-social-linc
+                            svg.icon-facebook
+                                use(xlink:href="./assets/images/sprite.svg#icon-facebook")
+                
+                .footer__body-social-wrap.footer__pay
+                    span.footer__body-social-text Принимаем к оплате:
+                    .footer__body-social
+                        svg(width="50", height="32")
+                            use(xlink:href="./assets/images/sprite.svg#visa-logo")
+                        svg(width="52", height="32")
+                            use(xlink:href="./assets/images/sprite.svg#mc-logo")
+                        svg(width="57", height="32")
+                            use(xlink:href="./assets/images/sprite.svg#mir-logo")
 
 
         .footer__bot

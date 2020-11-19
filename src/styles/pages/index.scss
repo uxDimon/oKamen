@@ -11,6 +11,10 @@
 	padding-bottom: var(--block-m-b);
 }
 
+.wrap-back__seo-block {
+	background-color: $color-gray;
+}
+
 .seo-block__text__wrap {
 	margin: 48px 30px 24px 0;
 	width: 100%;
@@ -52,19 +56,7 @@
 	padding: 60px 20px 40px 30px;
 	position: relative;
 	font-size: 16px;
-
-	&::before {
-		content: "";
-		display: block;
-		position: absolute;
-		top: 0;
-		bottom: 0;
-		left: 0;
-		right: 0;
-		background-color: #ececec;
-		// width: 100vw;
-		z-index: -1;
-	}
+	background-color: #ececec;
 }
 
 .seo-block__right-h {
