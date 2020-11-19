@@ -98,8 +98,6 @@ body {
   line-height: 1.33;
   background: #f2f2f2;
   color: #282220; }
-  body main {
-    overflow: hidden; }
 
 h1,
 h2,
@@ -131,11 +129,20 @@ a {
 .wrap-back {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  overflow: hidden; }
+
+.wrap-back_calc {
+  display: flex;
+  flex-direction: column;
   align-items: center; }
 
 .main-page {
   --block-m-t: 90px;
   --block-m-b: 90px; }
+
+.text_bold {
+  font-weight: 600; }
 
 .button {
   font-family: "Manrope", sans-serif;
@@ -987,6 +994,15 @@ input[type="radio"] {
     left: -16px;
     background-color: #e8e8e8;
     z-index: -1; }
+  .slider-main__text-wrap::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 86px;
+    left: -16px;
+    background-color: rgba(232, 232, 232, 0.3);
+    z-index: -1;
+    width: 660px; }
 
 .slider-main__text-h1 {
   width: 630px;
@@ -1239,7 +1255,7 @@ input[type="radio"] {
     right: 16px;
     padding: 0; }
     .slider-main__text-wrap::before {
-      content: none; }
+      bottom: 45px; }
   .slider-main__text-h1 {
     font-size: 28px;
     width: 80%;
@@ -1338,7 +1354,7 @@ input[type="radio"] {
   align-items: baseline; }
 
 .calc__road-map-linc {
-  font-family: "PF BeauSans Pro", sans-serif;
+  font-family: "Manrope", sans-serif;
   font-weight: 600;
   font-size: 16px;
   line-height: 24px;
@@ -1372,11 +1388,16 @@ input[type="radio"] {
   display: grid;
   grid-auto-flow: column;
   grid-column-gap: 44px;
-  justify-content: start; }
+  justify-content: start;
+  align-items: start; }
 
 .options-input__wrap-row {
   display: grid;
   grid-row-gap: 16px; }
+
+.options-input .options__radio-text-gray {
+  display: block;
+  margin-top: 2px; }
 
 .options-input label {
   display: flex;
@@ -1394,6 +1415,7 @@ input[type="radio"] {
   display: flex;
   align-items: stretch;
   height: 100%;
+  align-self: flex-start;
   order: 10; }
 
 .options-input__img {
@@ -1483,8 +1505,9 @@ input[type="radio"] {
   width: max-content; }
 
 .options__radio-text-gray {
+  font-family: "Manrope", sans-serif;
   font-weight: normal;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 125%;
   color: #4f4f4f;
   text-transform: none; }
@@ -1498,10 +1521,12 @@ input[type="radio"] {
     margin-right: 48px; }
 
 .options__size {
-  position: relative;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 150px;
   width: 380px;
   height: 230px;
-  margin: 60px; }
+  margin: 60px 60px 120px 60px; }
 
 .options__size_norm {
   height: 120px; }
@@ -1527,6 +1552,7 @@ input[type="radio"] {
   border-bottom-left-radius: var(--form-rounding); }
 
 .options__size_p {
+  top: 200px;
   margin-top: 112px; }
   .options__size_p .size-arrow-horizon_bot_1 {
     right: 245px; }
@@ -1688,7 +1714,7 @@ input[type="radio"] {
   .options__size-arrow-vertical .size-arrow {
     background-image: url("../images/sprite.svg#arrow-vertical");
     background-position: top center;
-    background-size: 201px;
+    background-size: 370px;
     background-repeat: no-repeat;
     width: 7px;
     height: 100%;
@@ -1761,8 +1787,13 @@ input[type="radio"] {
   font-weight: 500;
   margin-top: 75px;
   font-size: 16px;
-  color: #4f4f4f; }
-  .options__size-info [data-size-area] {
+  color: #4f4f4f;
+  text-align: right;
+  display: grid;
+  grid-row-gap: 10px;
+  justify-content: end; }
+  .options__size-info [data-size-area],
+  .options__size-info [data-size-prise] {
     color: #282220; }
 
 .options__size-lable {
@@ -1770,7 +1801,7 @@ input[type="radio"] {
   align-items: center;
   margin: 4px; }
 
-.options__size-error {
+.form-error {
   font-size: 14px;
   line-height: 1.2;
   color: #ffffff;
@@ -1787,6 +1818,9 @@ input[type="radio"] {
   min-width: -moz-max-content;
   min-width: max-content;
   z-index: 1; }
+
+.warnings-fillets {
+  top: 25%; }
 
 .options__size-input[data-form-size="right"] ~ .options__size-error {
   top: 32px;
@@ -1900,7 +1934,8 @@ input[type="radio"] {
 
 .options__rounding-range-wrap {
   color: #4f4f4f;
-  margin-top: 32px; }
+  margin-top: 32px;
+  font-family: "Manrope", sans-serif; }
   .options__rounding-range-wrap #rounding-number-text {
     color: #282220; }
 
@@ -1930,13 +1965,11 @@ input[type="radio"] {
   font-weight: 600;
   margin-bottom: 8px; }
 
-.options__options-price-wrap {
-  display: flex;
-  justify-content: space-between; }
-
 .options__total-options-table {
   width: 100%;
-  margin-right: 60px; }
+  font-family: "Manrope", sans-serif;
+  font-size: 16px;
+  margin-bottom: 40px; }
   .options__total-options-table table {
     width: 100%;
     border-collapse: collapse; }
@@ -1950,13 +1983,13 @@ input[type="radio"] {
 
 .options__total-price-wrap {
   width: 100%;
-  max-width: 440px;
   padding: 24px;
   display: flex;
   flex-direction: column;
   align-items: center;
   background-color: #ffffff; }
   .options__total-price-wrap .button {
+    max-width: 440px;
     width: 100%;
     margin-bottom: 8px; }
     .options__total-price-wrap .button:last-child {
@@ -1968,10 +2001,10 @@ input[type="radio"] {
   font-size: 24px;
   line-height: 133%;
   text-align: center;
-  margin-bottom: 56px; }
+  margin-bottom: 36px; }
 
 .options__total-price-number {
-  font-weight: bold;
+  font-family: "Manrope", sans-serif;
   font-size: 28px;
   line-height: 114%;
   text-align: center;
@@ -1992,6 +2025,9 @@ input[type="radio"] {
   position: relative;
   padding-top: var(--block-m-t);
   padding-bottom: var(--block-m-b); }
+
+.wrap-back__seo-block {
+  background-color: #e8e8e8; }
 
 .seo-block__text__wrap {
   margin: 48px 30px 24px 0;
@@ -2014,17 +2050,8 @@ input[type="radio"] {
   width: 300px;
   padding: 60px 20px 40px 30px;
   position: relative;
-  font-size: 16px; }
-  .seo-block__right::before {
-    content: "";
-    display: block;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: #ececec;
-    z-index: -1; }
+  font-size: 16px;
+  background-color: #ececec; }
 
 .seo-block__right-h {
   font-weight: bold;
@@ -3237,8 +3264,31 @@ input[type="radio"] {
 .footer__body {
   display: flex;
   margin-top: 50px;
-  margin-bottom: 50px;
   justify-content: space-between; }
+
+.footer__body-meny {
+  width: 400px; }
+
+.footer__body-infa {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 280px; }
+
+.footer__body-infa-logo {
+  margin-bottom: 20px; }
+
+.footer__body-infa-text {
+  font-family: "Manrope", sans-serif;
+  font-size: 14px;
+  color: #989898;
+  margin-bottom: 5px; }
+
+.footer__body-infa-text.text_bold {
+  margin-bottom: 10px; }
+
+.footer__body-infa-text.text_bold:last-child {
+  margin-bottom: 0;
+  margin-top: 5px; }
 
 .footer__body-text-social {
   display: grid;
@@ -3246,6 +3296,23 @@ input[type="radio"] {
   grid-row-gap: 10px;
   align-content: start;
   justify-items: end; }
+
+.footer__body-tel {
+  font-family: "Manrope", sans-serif;
+  font-weight: 500;
+  font-size: 24px;
+  color: #282220; }
+
+.footer__body-mail {
+  font-family: "Manrope", sans-serif;
+  font-size: 14px;
+  color: #282220;
+  margin-bottom: 30px; }
+
+.footer__body-social-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end; }
 
 .footer__body-social {
   position: relative;
@@ -3256,8 +3323,13 @@ input[type="radio"] {
   justify-content: start;
   margin-top: 10px; }
 
+.footer__pay {
+  margin-top: 10px; }
+  .footer__pay svg use {
+    fill: #c0aa82; }
+
 .footer__body-social-linc svg use {
-  fill: #989898; }
+  fill: #c0aa82; }
 
 .footer__body-social-linc:hover .icon-insta use {
   fill: #f00075; }
@@ -3277,15 +3349,29 @@ input[type="radio"] {
   color: inherit; }
 
 .footer__body-meny-list {
-  display: grid;
+  display: flex;
   margin: 0;
   padding: 0;
   list-style: none;
-  grid-template-columns: repeat(2, 1fr);
-  grid-row-gap: 8px;
-  grid-column-gap: 40px; }
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 350px; }
 
-.footer__body-meny-linc {
+.footer__body-meny-item {
+  margin-bottom: 20px;
+  margin-right: 100px; }
+  .footer__body-meny-item ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: -webkit-max-content;
+    width: -moz-max-content;
+    width: max-content; }
+  .footer__body-meny-item a {
+    font-size: 14px;
+    color: #4f4f4f; }
+
+.footer__body-meny-item .footer__body-meny-linc {
   color: #282220;
   font-family: "Manrope", sans-serif;
   font-size: 16px;
