@@ -258,27 +258,9 @@ for (const slider of manySliders) {
 	});
 }
 
-// // Галерея в статьях
-// const mainGalleryWrap = document.querySelectorAll(".main-gallery__wrap");
-// if (mainGalleryWrap) {
-// 	for (const g of mainGalleryWrap) {
-// 		const mainGallery = g.querySelector(".main-gallery");
-// 		const mainGalleryControls = g.querySelector(".main-gallery-controls");
-
-// 		var injury = tns({
-// 			container: mainGallery,
-// 			navContainer: mainGalleryControls,
-// 			items: 1,
-// 			gutter: 20,
-// 			mouseDrag: true,
-// 			loop: false,
-// 			speed: 250,
-// 			controls: false,
-// 			navAsThumbnails: true,
-// 			lazyload: true,
-// 		});
-// 	}
-// }
+// Галерея
+// https://github.com/sachinchoolur/lightgallery.js
+lightGallery(document.querySelector(".img-gallery"));
 
 // // Убирает tabIndex у ссылок внутри не активных слайдов
 // window.onload = function () {
