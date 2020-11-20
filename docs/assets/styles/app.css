@@ -1304,11 +1304,11 @@ input[type="radio"] {
 #form_p {
   display: none; }
 
+#category,
 #form,
 #materials,
 #parameters,
 #notch,
-#services,
 #total {
   display: none; }
 

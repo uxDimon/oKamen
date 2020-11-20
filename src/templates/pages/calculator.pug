@@ -209,7 +209,6 @@ block content
                                 </label>
                                 
                             </div>
-                        
                     
                         <label class="custom-input">
                             <input type="checkbox" name="notch" value="other">
@@ -299,6 +298,31 @@ block content
                     .calc__options.options
                         h3.options__heading Выберите нужные вам услуги
                         div(data-render-options='secondary').options-input__wrap-row 
+                        div(style="margin-top: 16px;").options-input__wrap-row 
+                            <label class="custom-input">
+                                <input type="checkbox" name="notch" value="faucet" data-subcategories="faucet2">
+                                <div class="options-input__radio-chec"></div>
+                                <span>Стеновая панель <span class="options__radio-text-gray">(от 10 000 ₽)</span></span>
+                            </label>
+                            
+                                <div id="faucet2" class="subcategories-input__wrap" style="opacity: 0.3;">
+                                    
+                                    <label class="custom-input" style="grid-template-columns: 350px auto auto;justify-content: start;grid-column-gap: 0px;">
+                                        <span>Общая длина</span>
+                                        <input class="options__size-input" type="number" step="1" min="1" max="900" value = '0' disabled>
+                                        <span class="options__size-text">см</span>
+                                    </label>
+                                    <label class="custom-input" style="grid-template-columns: 350px auto auto;justify-content: start;grid-column-gap: 0px;">
+                                        <span>Средняя высота</span>
+                                        <input class="options__size-input" type="number" step="1" min="1" max="900" value = '0' disabled>
+                                        <span class="options__size-text">см</span>
+                                    </label>
+                                    <label class="custom-input" style="grid-template-columns: 350px auto auto;justify-content: start;grid-column-gap: 0px;">
+                                        <span>Количество розеток</span>
+                                        <input class="options__size-input" type="number" step="1" min="1" max="900" value = '0' disabled>
+                                    </label>
+
+                                </div>
                         .radio-wrap-border-s_60
                         div(data-render-options='installation_services').options-input__wrap-row 
 

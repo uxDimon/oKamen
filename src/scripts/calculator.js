@@ -124,21 +124,21 @@ let getOptions = {
 		chamfer_front: {
 			a: {
 				type: "radio",
-				name: "Фаска",
+				name: "Простой",
 				detail: "(2 000 ₽ за 1м)",
 				imgName: "chamfer-01",
 				prise: 2000,
 			},
 			b: {
 				type: "radio",
-				name: "Полувалик",
+				name: "Сложный",
 				detail: "(2 300 ₽ за 1м)",
 				imgName: "chamfer-03",
 				prise: 2300,
 			},
 			c: {
 				type: "radio",
-				name: "Сложный профиль",
+				name: "Сборный",
 				detail: "(2 600 ₽ за 1м)",
 				imgName: "chamfer-08",
 				prise: 2600,
@@ -254,12 +254,12 @@ let getOptions = {
 				detail: "(от 4 000 ₽)",
 				prise: 4000,
 			},
-			wall: {
-				type: "checkbox",
-				name: "Стеновые панели из камня",
-				detail: "(от 1 000 ₽)",
-				prise: 1000,
-			},
+			// wall: {
+			// 	type: "checkbox",
+			// 	name: "Стеновые панели из камня",
+			// 	detail: "(от 1 000 ₽)",
+			// 	prise: 1000,
+			// },
 		},
 		installation_services: {
 			dimension: {
