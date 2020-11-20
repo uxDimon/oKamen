@@ -14,21 +14,25 @@ block content
                     a(href="#").bread-crumbs__linc Продукция
                 li.bread-crumbs__item
                     span(href="#").bread-crumbs__linc Кварцевый агломерат
-
-        h1.h2.page__h1 Столешницы
+        
+        .title-button
+            h1.h1 Столешницы
+            button.button Заказать расчет
 
         include ../components/page-slider.pug 
 
+    .wrap-back.bac-gray
         .seo-block
             .seo-block__text__wrap
                 h2.seo-block__h2 Эстетичная элегантность
                 p.seo-block__text Мы работаем со всеми типами натурального и искусственного камня: от традиционного гранита и оникса до современных разработок в изготовлении искусственного камня. Используем профессиональный камнеобрабатывающий инструмент и приспособления. Работаем так, чтобы создаваемые изделия были долговечными и удобными в эксплуатации
 
             .seo-block__right
-                h3.seo-block__right-h Бесплатный выездменеджера
+                h3.seo-block__right-h Бесплатный выезд менеджера
                 p.seo-block__right-text — с образцами камней на объект для составления предварительного расчёта стоимости столешницы
                 p.seo-block__right-text-linc Воспользуйтесь заявкой или свяжитесь с нами по <a href="tel:+78123804144">телефону</a>
 
+    .wrap-back
         .materials
             h2.h2.materials__h2 Доступные материалы
             .materials__list
@@ -51,8 +55,10 @@ block content
                         span.materials__prise от 12 000 руб./<span class="m2">м2</span>
                     a(href="#").button.materials__button Перейти в каталог
 
+    .wrap-back.bac-gray
         include ../components/our-projects.pug
         
+    .wrap-back
         .cost-calculation
             h2.h2.cost-calculation_h2 Расчёт стоимости изделия
 
