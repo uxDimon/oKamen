@@ -171,43 +171,77 @@ let getOptions = {
 					},
 				},
 			},
-			sink2: {
+			hob: {
 				type: "checkbox",
-				name: "Вырез под мойку",
+				name: "Вырез под варочную панель",
 				detail: "(от 3 000 ₽)",
 				prise: 0,
 				subcategories: {
-					up2: {
-						type: "checkbox",
+					up: {
+						type: "radio",
 						name: "Поверх столешницы",
 						detail: "(от 3 000 ₽)",
 						prise: 3000,
 					},
-					flush2: {
-						type: "checkbox",
+					flush: {
+						type: "radio",
 						name: "Вровень со столешницей",
 						detail: "(от 5 000 ₽)",
 						prise: 5000,
 					},
-					down2: {
-						type: "checkbox",
-						name: "Снизу столешницы",
-						detail: "(от 4 000 ₽)",
-						prise: 4000,
-					},
 				},
 			},
-			hob: {
-				type: "checkbox",
-				name: "Вырез под варочную панель",
-				detail: "(от 4 000 ₽)",
-				prise: 4000,
-			},
+			// sink2: {
+			// 	type: "checkbox",
+			// 	name: "Вырез под мойку",
+			// 	detail: "(от 3 000 ₽)",
+			// 	prise: 0,
+			// 	subcategories: {
+			// 		up2: {
+			// 			type: "checkbox",
+			// 			name: "Поверх столешницы",
+			// 			detail: "(от 3 000 ₽)",
+			// 			prise: 3000,
+			// 		},
+			// 		flush2: {
+			// 			type: "checkbox",
+			// 			name: "Вровень со столешницей",
+			// 			detail: "(от 5 000 ₽)",
+			// 			prise: 5000,
+			// 		},
+			// 		down2: {
+			// 			type: "checkbox",
+			// 			name: "Снизу столешницы",
+			// 			detail: "(от 4 000 ₽)",
+			// 			prise: 4000,
+			// 		},
+			// 	},
+			// },
 			faucet: {
 				type: "checkbox",
 				name: "Вырез под смеситель",
 				detail: "(от 1 000 ₽)",
 				prise: 1000,
+				subcategories: {
+					up: {
+						type: "radio",
+						name: "Поверх столешницы",
+						detail: "(от 3 000 ₽)",
+						prise: 3000,
+					},
+					flush: {
+						type: "radio",
+						name: "Вровень со столешницей",
+						detail: "(от 5 000 ₽)",
+						prise: 5000,
+					},
+					down: {
+						type: "radio",
+						name: "Снизу столешницы",
+						detail: "(от 4 000 ₽)",
+						prise: 4000,
+					},
+				},
 			},
 			other: {
 				type: "checkbox",
@@ -596,7 +630,7 @@ const radioRounding = document.querySelectorAll('input[name="rounding"]'),
 let firstRounding = true;
 
 function warningsFillets() {
-	text = '<span class="form-error warnings-fillets">Выберете углы скругления</span>';
+	text = '<span class="form-error warnings-fillets">Выберите углы скругления</span>';
 	document.querySelector(`#${selectedOptions.form}`).insertAdjacentHTML("beforeend", text);
 }
 

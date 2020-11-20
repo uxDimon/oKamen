@@ -40,7 +40,8 @@ block content
                 button.button Оставить заявку
                 button.button.button__ghost Рассчитать изделие из этого камня
         
-        div(data-tab).product-tab
+    .wrap-back.bac-gray
+        div(data-tab).product-tab.bac-gray
             .product-tab__button-wrap
                 label.contact__option-item
                     input(type="radio", name="contact-product", data-buttn-tab="tab1" checked)
@@ -106,8 +107,8 @@ block content
                                 span.img-gallery__prise От 111 165 руб.
                                 //- span.arrow-linc Подробнее
 
-
-        .catalog
+    .wrap-back
+        div(style="padding-bottom: 0;").catalog
             h2.h2.catalog__h2 Похожие типы камней          
             ul.catalog-list.product__catalog-list
                 li.catalog-list__item
@@ -136,7 +137,7 @@ block content
                     span.catalog-list__prise От 111 165 руб.
                     a(href="#").arrow-linc Подробнее
 
-        include ../components/seo-block2.pug
+        //- include ../components/seo-block2.pug
 
 
 

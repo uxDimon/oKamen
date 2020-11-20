@@ -2,8 +2,8 @@
 	// Размеры
 	--content-p-r: 0;
 	--content-p-l: 0;
-	--block-m-t: 70px;
-	--block-m-b: 70px;
+	--block-m-t: 60px;
+	--block-m-b: 60px;
 }
 
 // Размеры
@@ -110,6 +110,10 @@ a {
 
 .text_bold {
 	font-weight: 600;
+}
+
+.bac-gray {
+	background-color: $color-gray;
 }
 
 // Кнопки

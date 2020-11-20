@@ -130,7 +130,79 @@ block content
                 .calc__body#notch
                     .calc__options.options
                         h3.options__heading Выберите нужные вам вырезы в столешницы
-                        div(data-render-options='notch').options-input__wrap-row 
+                        div(data-render-options='notch').options-input__wrap-row
+                    
+                    //- <div class="options-input__wrap-row">
+                    //-     <label class="custom-input" style="grid-template-columns: 16px 310px auto;">
+                    //-         <input type="checkbox" name="notch" value="sink" data-subcategories="sink">
+                    //-         <div class="options-input__radio-chec"></div>
+                    //-         <span>Вырез под мойку <span class="options__radio-text-gray">(от 3 000 ₽)</span></span>
+                    //-         <input class="options__size-input" type="number" step="1" min="1" max="900" value = '0'>
+                    //-     </label>
+                        
+                    //-         <div id="sink" class="subcategories-input__wrap" style="opacity: 0.3;">
+                                
+                    //-             <label class="custom-input">
+                    //-                 <input type="radio" name="sink" value="up" disabled="">
+                    //-                 <div class="options-input__radio-chec"></div>
+                    //-                 <span>Поверх столешницы <span class="options__radio-text-gray">(от 3 000 ₽)</span></span>
+                    //-             </label>
+                                
+                    //-             <label class="custom-input">
+                    //-                 <input type="radio" name="sink" value="flush" disabled="">
+                    //-                 <div class="options-input__radio-chec"></div>
+                    //-                 <span>Вровень со столешницей <span class="options__radio-text-gray">(от 5 000 ₽)</span></span>
+                    //-             </label>
+                                
+                    //-             <label class="custom-input">
+                    //-                 <input type="radio" name="sink" value="down" disabled="">
+                    //-                 <div class="options-input__radio-chec"></div>
+                    //-                 <span>Снизу столешницы <span class="options__radio-text-gray">(от 4 000 ₽)</span></span>
+                    //-             </label>
+                                
+                    //-         </div>
+                        
+                    
+                    //-     <label class="custom-input" style="grid-template-columns: 16px 310px auto;">
+                    //-         <input type="checkbox" name="notch" value="hob" data-subcategories="hob" >
+                    //-         <div class="options-input__radio-chec"></div>
+                    //-         <span>Вырез под варочную панель <span class="options__radio-text-gray">(от 3 000 ₽)</span></span>
+                    //-         <input class="options__size-input" type="number" step="1" min="1" max="900" value = '0'>
+                    //-     </label>
+                        
+                    //-         <div id="hob" class="subcategories-input__wrap" style="opacity: 0.3;">
+                                
+                    //-             <label class="custom-input">
+                    //-                 <input type="radio" name="hob" value="up" disabled="">
+                    //-                 <div class="options-input__radio-chec"></div>
+                    //-                 <span>Поверх столешницы <span class="options__radio-text-gray">(от 3 000 ₽)</span></span>
+                    //-             </label>
+                                
+                    //-             <label class="custom-input">
+                    //-                 <input type="radio" name="hob" value="flush" disabled="">
+                    //-                 <div class="options-input__radio-chec"></div>
+                    //-                 <span>Вровень со столешницей <span class="options__radio-text-gray">(от 5 000 ₽)</span></span>
+                    //-             </label>
+                                
+                    //-         </div>
+                        
+                    
+                    //-     <label class="custom-input" style="grid-template-columns: 16px 310px auto;">
+                    //-         <input type="checkbox" name="notch" value="faucet">
+                    //-         <div class="options-input__radio-chec"></div>
+                    //-         <span>Вырез под смеситель <span class="options__radio-text-gray">(от 1 000 ₽)</span></span>
+                    //-         <input class="options__size-input" type="number" step="1" min="1" max="900" value = '0'>
+
+                    //-     </label>
+                        
+                    
+                    //-     <label class="custom-input">
+                    //-         <input type="checkbox" name="notch" value="other">
+                    //-         <div class="options-input__radio-chec"></div>
+                    //-         <span>Иные вырезы <span class="options__radio-text-gray">(итоговая цена будет известна после фактических замеров)</span></span>
+                    //-     </label>
+                        
+                    //- </div>
                         
                     .calc__button-wrap
                         button(data-calc-previous-button = 'parameters').button.button_gray.calc__button Назад
@@ -252,7 +324,7 @@ block content
                                 sapn(data-size-area) 0 
                                 span.m2 м2
                             span.options__size-info-prise Предварительная цена 
-                                sapn(data-size-prise) 12 400 
+                                sapn(data-size-prise) 0 
                                 sapn ₽
 
                     div(dara-form-size = "form_g").options__size.options__size_g#form_g
@@ -300,7 +372,7 @@ block content
                                 sapn(data-size-area) 0 
                                 span.m2 м2
                             span.options__size-info-prise Предварительная цена 
-                                sapn(data-size-prise) 12 400 
+                                sapn(data-size-prise) 0 
                                 sapn ₽
 
 
@@ -367,7 +439,7 @@ block content
                                 sapn(data-size-area) 0 
                                 span.m2 м2
                             span.options__size-info-prise Предварительная цена 
-                                sapn(data-size-prise) 12 400 
+                                sapn(data-size-prise) 0 
                                 sapn ₽
 
 

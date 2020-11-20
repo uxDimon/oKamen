@@ -2,8 +2,8 @@
 :root {
   --content-p-r: 0;
   --content-p-l: 0;
-  --block-m-t: 70px;
-  --block-m-b: 70px; }
+  --block-m-t: 60px;
+  --block-m-b: 60px; }
 
 /* manrope-500 - latin_cyrillic */
 @font-face {
@@ -143,6 +143,9 @@ a {
 
 .text_bold {
   font-weight: 600; }
+
+.bac-gray {
+  background-color: #e8e8e8; }
 
 .button {
   font-family: "Manrope", sans-serif;
@@ -1314,7 +1317,8 @@ input[type="radio"] {
   max-width: 1240px;
   padding-right: var(--content-p-r);
   padding-left: var(--content-p-l);
-  margin-bottom: var(--block-m-b); }
+  margin-bottom: var(--block-m-b);
+  margin-top: var(--block-m-t); }
 
 .calc__body {
   max-width: 610px;
@@ -3115,7 +3119,9 @@ input[type="radio"] {
 
 .contact__img {
   -o-object-fit: cover;
-     object-fit: cover; }
+     object-fit: cover;
+  height: 570px;
+  width: 600px; }
 
 .contact__form {
   width: 100%;
