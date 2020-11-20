@@ -2034,7 +2034,7 @@ input[type="radio"] {
   background-color: #e8e8e8; }
 
 .seo-block__text__wrap {
-  margin: 48px 30px 24px 0;
+  margin-right: 30px;
   width: 100%;
   max-width: 800px;
   position: relative; }
@@ -2051,8 +2051,9 @@ input[type="radio"] {
   margin: 0 0 36px 0; }
 
 .seo-block__right {
+  margin-top: -33px;
   width: 300px;
-  padding: 60px 20px 40px 30px;
+  padding: 30px;
   position: relative;
   font-size: 16px;
   background-color: #ececec; }
@@ -2102,19 +2103,8 @@ input[type="radio"] {
   max-width: 1240px;
   padding-right: var(--content-p-r);
   padding-left: var(--content-p-l);
-  margin-bottom: var(--block-m-b);
   margin-top: var(--block-m-t);
-  padding-bottom: 58px;
   position: relative; }
-  .seo-block3::before {
-    position: absolute;
-    content: "";
-    right: 55%;
-    bottom: 0;
-    width: 100vw;
-    height: 180px;
-    background-color: #ececec;
-    z-index: -1; }
 
 .seo-block3__h2 {
   margin: 0 0 40px 0; }
@@ -2663,7 +2653,8 @@ input[type="radio"] {
   grid-template-columns: repeat(5, 1fr); }
 
 .catalog__button {
-  align-self: center; }
+  align-self: center;
+  margin-top: 40px; }
 
 .product-card {
   width: 100%;

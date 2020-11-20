@@ -16,7 +16,7 @@
 }
 
 .seo-block__text__wrap {
-	margin: 48px 30px 24px 0;
+	margin-right: 30px;
 	width: 100%;
 	max-width: 800px;
 	position: relative;
@@ -52,8 +52,9 @@
 }
 
 .seo-block__right {
+	margin-top: -33px;
 	width: 300px;
-	padding: 60px 20px 40px 30px;
+	padding: 30px;
 	position: relative;
 	font-size: 16px;
 	background-color: #ececec;
@@ -114,21 +115,9 @@
 	max-width: $content-max-weight;
 	padding-right: var(--content-p-r);
 	padding-left: var(--content-p-l);
-	margin-bottom: var(--block-m-b);
+	// margin-bottom: var(--block-m-b);
 	margin-top: var(--block-m-t);
-	padding-bottom: 58px;
 	position: relative;
-
-	&::before {
-		position: absolute;
-		content: "";
-		right: 55%;
-		bottom: 0;
-		width: 100vw;
-		height: 180px;
-		background-color: #ececec;
-		z-index: -1;
-	}
 }
 
 .seo-block3__h2 {
