@@ -201,8 +201,72 @@
           <div class="calc__body" id="notch">
             <div class="calc__options options">
               <h3 class="options__heading">Выберите нужные вам вырезы в столешницы</h3>
-              <div class="options-input__wrap-row" data-render-options="notch"></div>
-            </div>
+            </div><div class="options-input__wrap-row">
+<label class="custom-input">
+<input type="checkbox" name="notch" value="sink" data-subcategories="sink">
+<div class="options-input__radio-chec"></div>
+<span>Вырез под мойку <span class="options__radio-text-gray">(от 3 000 ₽)</span></span>
+</label>
+<div id="sink" class="subcategories-input__wrap" style="opacity: 0.3;">
+<label class="custom-input">
+<input type="radio" name="sink" value="up" disabled="">
+<div class="options-input__radio-chec"></div>
+<span>Поверх столешницы <span class="options__radio-text-gray">(от 3 000 ₽)</span></span>
+</label>
+<label class="custom-input">
+<input type="radio" name="sink" value="down" disabled="">
+<div class="options-input__radio-chec"></div>
+<span>Снизу столешницы <span class="options__radio-text-gray">(от 4 000 ₽)</span></span>
+</label>
+</div>
+<label class="custom-input">
+<input type="checkbox" name="notch" value="hob" data-subcategories="hob">
+<div class="options-input__radio-chec"></div>
+<span>Вырез под варочную панель <span class="options__radio-text-gray">(от 3 000 ₽)</span></span>
+</label>
+<div id="hob" class="subcategories-input__wrap" style="opacity: 0.3;">
+<label class="custom-input">
+<input type="radio" name="hob" value="up" disabled="">
+<div class="options-input__radio-chec"></div>
+<span>Поверх столешницы <span class="options__radio-text-gray">(от 3 000 ₽)</span></span>
+</label>
+<label class="custom-input">
+<input type="radio" name="hob" value="flush" disabled="">
+<div class="options-input__radio-chec"></div>
+<span>Вровень со столешницей <span class="options__radio-text-gray">(от 5 000 ₽)</span></span>
+</label>
+</div>
+<label class="custom-input">
+<input type="checkbox" name="notch" value="faucet" data-subcategories="faucet">
+<div class="options-input__radio-chec"></div>
+<span>Вырез под смеситель <span class="options__radio-text-gray">(от 1 000 ₽)</span></span>
+</label>
+<div id="faucet" class="subcategories-input__wrap" style="opacity: 0.3;">
+<label class="custom-input" style="grid-template-columns: 16px 310px auto;">
+<input type="checkbox" name="faucet" value="up" disabled="">
+<div class="options-input__radio-chec"></div>
+<span>До 30 мм</span>
+<input class="options__size-input" type="number" step="1" min="1" max="900" value = '0' disabled>
+</label>
+<label class="custom-input" style="grid-template-columns: 16px 310px auto;">
+<input type="checkbox" name="faucet" value="flush" disabled="">
+<div class="options-input__radio-chec"></div>
+<span>От 30 до 65 мм</span>
+<input class="options__size-input" type="number" step="1" min="1" max="900" value = '0' disabled>
+</label>
+<label class="custom-input" style="grid-template-columns: 16px 310px auto;">
+<input type="checkbox" name="faucet" value="down" disabled="">
+<div class="options-input__radio-chec"></div>
+<span>Свыше 65 мм</span>
+<input class="options__size-input" type="number" step="1" min="1" max="900" value = '0' disabled>
+</label>
+</div>
+<label class="custom-input">
+<input type="checkbox" name="notch" value="other">
+<div class="options-input__radio-chec"></div>
+<span>Иные вырезы <span class="options__radio-text-gray">(итоговая цена будет известна после фактических замеров)</span></span>
+</label>
+</div>
             <div class="calc__button-wrap">
               <button class="button button_gray calc__button" data-calc-previous-button="parameters">Назад</button>
               <button class="button calc__button" data-calc-next-button="services">Далее</button>
@@ -285,9 +349,12 @@
                       </tr>
                     </table>
                   </div>
-                  <div class="options__total-price-wrap"><span class="options__total-price-text">Предварительная стоимость</span><span class="options__total-price-number">94 360 ₽</span>
-                    <button class="button calc__button">Заказать звонок</button>
-                    <button class="button button_gray calc__button">Отправить по почте</button>
+                  <div class="options__total-price-wrap">
+                    <div class="options__total-price"><span class="options__total-price-text">Предварительная стоимость</span><span class="options__total-price-number">94 360 ₽</span></div>
+                    <div class="options__total-button">
+                      <button class="button calc__button">Заказать звонок</button>
+                      <button class="button button_gray calc__button">Отправить по почте</button>
+                    </div>
                   </div>
                 </div>
               </div>

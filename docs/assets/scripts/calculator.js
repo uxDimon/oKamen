@@ -157,12 +157,6 @@ let getOptions = {
 						detail: "(от 3 000 ₽)",
 						prise: 3000,
 					},
-					flush: {
-						type: "radio",
-						name: "Вровень со столешницей",
-						detail: "(от 5 000 ₽)",
-						prise: 5000,
-					},
 					down: {
 						type: "radio",
 						name: "Снизу столешницы",
@@ -225,21 +219,18 @@ let getOptions = {
 				subcategories: {
 					up: {
 						type: "radio",
-						name: "Поверх столешницы",
-						detail: "(от 3 000 ₽)",
-						prise: 3000,
+						name: "До 30 мм",
+						prise: 0,
 					},
 					flush: {
 						type: "radio",
-						name: "Вровень со столешницей",
-						detail: "(от 5 000 ₽)",
-						prise: 5000,
+						name: "От 30 до 65 мм",
+						prise: 0,
 					},
 					down: {
 						type: "radio",
-						name: "Снизу столешницы",
-						detail: "(от 4 000 ₽)",
-						prise: 4000,
+						name: "Свыше 65 мм",
+						prise: 0,
 					},
 				},
 			},
