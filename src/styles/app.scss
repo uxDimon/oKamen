@@ -116,6 +116,12 @@ a {
 	background-color: $color-gray;
 }
 
+.block-wrap {
+	width: 100%;
+	max-width: $content-max-weight;
+	padding: var(--block-m-t) var(--content-p-r) var(--block-m-b) var(--content-p-l);
+}
+
 // Кнопки
 .button {
 	font-family: $font-Manrope;
