@@ -121,7 +121,7 @@
 	padding: 0;
 	list-style: none;
 	grid-auto-flow: column;
-	grid-column-gap: 52px;
+	grid-column-gap: 30px;
 	justify-content: start;
 	align-items: baseline;
 }
@@ -145,13 +145,14 @@
 	&::after {
 		display: block;
 		width: 10px;
-		height: 6px;
-		margin-left: 12px;
+		height: 7px;
+		margin-left: 6px;
+		margin-top: 1px;
 		content: "";
 		background-image: url("../images/sprite.svg#icon-arrow-drop");
 		background-repeat: no-repeat;
 		background-position: center;
-		background-size: 11px;
+		background-size: cover;
 	}
 }
 
@@ -289,6 +290,7 @@
 	border: none;
 	background-color: transparent;
 	justify-content: center;
+	display: none;
 
 	span,
 	&::before,
@@ -499,6 +501,10 @@
 
 	.header-fixed .header__kontacts {
 		display: grid;
+	}
+
+	.header__burger-button {
+		display: block;
 	}
 }
 

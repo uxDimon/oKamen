@@ -68,13 +68,22 @@ header.header__wrap
                         li.main-menu__item
                             a(href="#").main-menu__linc Акции
                         li.main-menu__item
-                            a(href="#").main-menu__linc Сотрудничество 
+                            a(href="#", data-drop-linc).main-menu__linc Сотрудничество
+                            ul(data-drop-menu).main-menu__drop-list
+                                li.main-menu__drop-item
+                                    a(href="#").main-menu__drop-linc Прайс-лист
                         li.main-menu__item
-                            a(href="#").main-menu__linc Контакты 
+                            a(href="#", data-drop-linc).main-menu__linc О нас
+                            ul(data-drop-menu).main-menu__drop-list
+                                li.main-menu__drop-item
+                                    a(href="#").main-menu__drop-linc Статьи
+                        li.main-menu__item
+                            a(href="#", data-drop-linc).main-menu__linc Контакты
+                            ul(data-drop-menu).main-menu__drop-list
+                                li.main-menu__drop-item
+                                    a(href="#").main-menu__drop-linc Доставка и оплата
                     
                     ul.main-menu__list.main-menu__list_second
-                        li.main-menu__item
-                            a(href="#").main-menu__linc О нас
                         li.main-menu__item
                             a(href="#").main-menu__linc Статьи
                         li.main-menu__item
