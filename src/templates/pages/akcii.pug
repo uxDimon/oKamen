@@ -1,0 +1,69 @@
+extends ../template
+
+block variables
+    - var title = 'Акции'
+    - var contactForm = true
+
+block content
+    main
+        .wrap-back
+            nav.bread-crumbs__wrap
+                ul.bread-crumbs
+                    li.bread-crumbs__item
+                        a(href="#").bread-crumbs__linc Главная
+                    li.bread-crumbs__item
+                        a(href="#").bread-crumbs__linc Продукция
+                    li.bread-crumbs__item
+                        span(href="#").bread-crumbs__linc Кварцевый агломерат
+
+        .wrap-back.akcii
+            .block-wrap
+                h1.h1.akcii__h Акции
+                
+                ul.akcii-list
+                    li.akcii-list__item
+                        a(href="#").akcii-list__linc
+                            img(src="./assets/images/slider1.png", alt="Скидки на столешницы 10% до конца года!").akcii-list__img
+                            h3.akcii-list__h Скидки на столешницы 10% до конца года!
+                            p.akcii-list__text Мы работаем со всеми типами натурального и искусственного камня: от традиционного гранита и оникса до современных разработок в изготовлении искусственного камня.
+                            .akcii-list__date
+                                svg(width="13", height="15").akcii-list__date-icon
+                                    use(xlink:href="./assets/images/sprite.svg#icon-date")
+                                span.akcii-list__date-text с 10 ноября по 31 декабря
+                    li.akcii-list__item
+                        a(href="#").akcii-list__linc
+                            img(src="./assets/images/slider1.png", alt="Скидки на столешницы 10% до конца года!").akcii-list__img
+                            h3.akcii-list__h Скидки на столешницы 10% до конца года!
+                            p.akcii-list__text Мы работаем со всеми типами натурального и искусственного камня: от традиционного гранита и оникса до современных разработок в изготовлении искусственного камня.
+                            .akcii-list__date
+                                svg(width="13", height="15").akcii-list__date-icon
+                                    use(xlink:href="./assets/images/sprite.svg#icon-date")
+                                span.akcii-list__date-text с 10 ноября по 31 декабря
+                    li.akcii-list__item
+                        a(href="#").akcii-list__linc
+                            img(src="./assets/images/slider1.png", alt="Скидки на столешницы 10% до конца года!").akcii-list__img
+                            h3.akcii-list__h Скидки на столешницы 10% до конца года!
+                            p.akcii-list__text Мы работаем со всеми типами натурального и искусственного камня: от традиционного гранита и оникса до современных разработок в изготовлении искусственного камня.
+                            .akcii-list__date
+                                svg(width="13", height="15").akcii-list__date-icon
+                                    use(xlink:href="./assets/images/sprite.svg#icon-date")
+                                span.akcii-list__date-text с 10 ноября по 31 декабря
+                    li.akcii-list__item
+                        a(href="#").akcii-list__linc
+                            img(src="./assets/images/slider1.png", alt="Скидки на столешницы 10% до конца года!").akcii-list__img
+                            h3.akcii-list__h Скидки на столешницы 10% до конца года!
+                            p.akcii-list__text Мы работаем со всеми типами натурального и искусственного камня: от традиционного гранита и оникса до современных разработок в изготовлении искусственного камня.
+                            .akcii-list__date
+                                svg(width="13", height="15").akcii-list__date-icon
+                                    use(xlink:href="./assets/images/sprite.svg#icon-date")
+                                span.akcii-list__date-text с 10 ноября по 31 декабря
+
+                button.button.button__ghost.akcii__button Показать больше
+
+        .wrap-back
+            include ../components/cost-calculation.pug  
+
+
+
+
+
