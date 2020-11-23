@@ -11,6 +11,7 @@
     <link rel="apple-touch-icon" href="assets/images/fav.png">
     <link rel="stylesheet" type="text/css" href="assets/styles/swiper-bundle.min.css">
     <link rel="stylesheet" type="text/css" href="assets/styles/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/styles/accordion.min.css">
     <link rel="stylesheet" type="text/css" href="assets/styles/app.css">
   </head>
   <body>
@@ -56,11 +57,23 @@
                 </li>
                 <li class="main-menu__item"><a class="main-menu__linc" href="#">Калькулятор стоимости</a></li>
                 <li class="main-menu__item"><a class="main-menu__linc" href="#">Акции</a></li>
-                <li class="main-menu__item"><a class="main-menu__linc" href="#">Сотрудничество </a></li>
-                <li class="main-menu__item"><a class="main-menu__linc" href="#">Контакты </a></li>
+                <li class="main-menu__item"><a class="main-menu__linc" href="#" data-drop-linc>Сотрудничество</a>
+                  <ul class="main-menu__drop-list" data-drop-menu>
+                    <li class="main-menu__drop-item"><a class="main-menu__drop-linc" href="#">Прайс-лист</a></li>
+                  </ul>
+                </li>
+                <li class="main-menu__item"><a class="main-menu__linc" href="#" data-drop-linc>О нас</a>
+                  <ul class="main-menu__drop-list" data-drop-menu>
+                    <li class="main-menu__drop-item"><a class="main-menu__drop-linc" href="#">Статьи</a></li>
+                  </ul>
+                </li>
+                <li class="main-menu__item"><a class="main-menu__linc" href="#" data-drop-linc>Контакты</a>
+                  <ul class="main-menu__drop-list" data-drop-menu>
+                    <li class="main-menu__drop-item"><a class="main-menu__drop-linc" href="#">Доставка и оплата</a></li>
+                  </ul>
+                </li>
               </ul>
               <ul class="main-menu__list main-menu__list_second">
-                <li class="main-menu__item"><a class="main-menu__linc" href="#">О нас</a></li>
                 <li class="main-menu__item"><a class="main-menu__linc" href="#">Статьи</a></li>
                 <li class="main-menu__item"><a class="main-menu__linc" href="#">Прайс-лист</a></li>
                 <li class="main-menu__item"><a class="main-menu__linc" href="#">Доставка и оплата</a></li>
@@ -86,7 +99,7 @@
         </ul>
       </nav>
       <h1 class="h1 page__h1">Контакты</h1>
-      <div class="con-page__wrap">
+      <div class="con-page__main">
         <div class="con-page">
           <div class="con-page__head">
             <h2 class="con-page__h">О-Камень на Токсовском шоссе (Кузьмолово)</h2>
@@ -98,48 +111,50 @@
             <div class="con-page__body-item con-page__mail"><span class="con-page__name">Почта:</span><a class="con-page__text" href="mailto:3804144@mail.ru">3804144@mail.ru</a></div>
           </div>
         </div>
-        <div class="con-page">
-          <div class="con-page__head">
-            <h2 class="con-page__h">О-Камень на Ропшинском шоссе (Велигонты)</h2>
+        <div class="con-page__wrap">
+          <div class="con-page ac">
+            <div class="con-page__head ac-header">
+              <h2 class="con-page__h ac-trigger">О-Камень на Ропшинском шоссе (Велигонты)</h2>
+            </div>
+            <div class="con-page__body ac-panel">
+              <div class="con-page__body-item con-page__address"><span class="con-page__name">Адрес:</span><span class="con-page__text">Ленинградская область Ломоносовский район д. Велигонты Ропшинское шоссе д. 20А</span></div>
+              <div class="con-page__body-item con-page__time"><span class="con-page__name">График работы:</span><span class="con-page__text">Пн.-Пт.: с 9:00 до 19:00</span><span class="con-page__text">Сб: с 10:00 до 17:00</span><span class="con-page__text">Вс: по предварительному согласованию</span></div>
+              <div class="con-page__body-item con-page__tel"><span class="con-page__name">Телефон:</span><a class="con-page__text" href="tel:+78123804144">+7 (812) 380-41-44</a><a class="con-page__text" href="tel:+79533466885">+7 (953) 346-68-85 (Светлана)</a></div>
+              <div class="con-page__body-item con-page__mail"><span class="con-page__name">Почта:</span><a class="con-page__text" href="mailto:3804144@mail.ru">3804144@mail.ru</a></div>
+            </div>
           </div>
-          <div class="con-page__body">
-            <div class="con-page__body-item con-page__address"><span class="con-page__name">Адрес:</span><span class="con-page__text">Ленинградская область Ломоносовский район д. Велигонты Ропшинское шоссе д. 20А</span></div>
-            <div class="con-page__body-item con-page__time"><span class="con-page__name">График работы:</span><span class="con-page__text">Пн.-Пт.: с 9:00 до 19:00</span><span class="con-page__text">Сб: с 10:00 до 17:00</span><span class="con-page__text">Вс: по предварительному согласованию</span></div>
-            <div class="con-page__body-item con-page__tel"><span class="con-page__name">Телефон:</span><a class="con-page__text" href="tel:+78123804144">+7 (812) 380-41-44</a><a class="con-page__text" href="tel:+79533466885">+7 (953) 346-68-85 (Светлана)</a></div>
-            <div class="con-page__body-item con-page__mail"><span class="con-page__name">Почта:</span><a class="con-page__text" href="mailto:3804144@mail.ru">3804144@mail.ru</a></div>
+          <div class="con-page ac">
+            <div class="con-page__head ac-header">
+              <h2 class="con-page__h ac-trigger">О-Камень на Токсовском шоссе (Кузьмолово)</h2>
+            </div>
+            <div class="con-page__body ac-panel">
+              <div class="con-page__body-item con-page__address"><span class="con-page__name">Адрес:</span><span class="con-page__text">188663, Ленинградская область, Всеволожский район, пос. Кузьмоловский, 8-й км Токсовского шоссе. На шоссе большой ангар (белый верх, синий низ) с табличкой "О.Камень"</span></div>
+              <div class="con-page__body-item con-page__time"><span class="con-page__name">График работы:</span><span class="con-page__text">Пн.-Пт.: с 9:00 до 19:00</span><span class="con-page__text">Сб: с 10:00 до 17:00</span><span class="con-page__text">Вс: по предварительному согласованию</span></div>
+              <div class="con-page__body-item con-page__tel"><span class="con-page__name">Телефон:</span><a class="con-page__text" href="tel:+78123804144">+7 (812) 380-41-44</a></div>
+              <div class="con-page__body-item con-page__mail"><span class="con-page__name">Почта:</span><a class="con-page__text" href="mailto:3804144@mail.ru">3804144@mail.ru</a></div>
+            </div>
           </div>
-        </div>
-        <div class="con-page">
-          <div class="con-page__head">
-            <h2 class="con-page__h">О-Камень на Токсовском шоссе (Кузьмолово)</h2>
+          <div class="con-page ac">
+            <div class="con-page__head ac-header">
+              <h2 class="con-page__h ac-trigger">О-Камень на Токсовском шоссе (Кузьмолово)</h2>
+            </div>
+            <div class="con-page__body ac-panel">
+              <div class="con-page__body-item con-page__address"><span class="con-page__name">Адрес:</span><span class="con-page__text">188663, Ленинградская область, Всеволожский район, пос. Кузьмоловский, 8-й км Токсовского шоссе. На шоссе большой ангар (белый верх, синий низ) с табличкой "О.Камень"</span></div>
+              <div class="con-page__body-item con-page__time"><span class="con-page__name">График работы:</span><span class="con-page__text">Пн.-Пт.: с 9:00 до 19:00</span><span class="con-page__text">Сб: с 10:00 до 17:00</span><span class="con-page__text">Вс: по предварительному согласованию</span></div>
+              <div class="con-page__body-item con-page__tel"><span class="con-page__name">Телефон:</span><a class="con-page__text" href="tel:+78123804144">+7 (812) 380-41-44</a></div>
+              <div class="con-page__body-item con-page__mail"><span class="con-page__name">Почта:</span><a class="con-page__text" href="mailto:3804144@mail.ru">3804144@mail.ru</a></div>
+            </div>
           </div>
-          <div class="con-page__body">
-            <div class="con-page__body-item con-page__address"><span class="con-page__name">Адрес:</span><span class="con-page__text">188663, Ленинградская область, Всеволожский район, пос. Кузьмоловский, 8-й км Токсовского шоссе. На шоссе большой ангар (белый верх, синий низ) с табличкой "О.Камень"</span></div>
-            <div class="con-page__body-item con-page__time"><span class="con-page__name">График работы:</span><span class="con-page__text">Пн.-Пт.: с 9:00 до 19:00</span><span class="con-page__text">Сб: с 10:00 до 17:00</span><span class="con-page__text">Вс: по предварительному согласованию</span></div>
-            <div class="con-page__body-item con-page__tel"><span class="con-page__name">Телефон:</span><a class="con-page__text" href="tel:+78123804144">+7 (812) 380-41-44</a></div>
-            <div class="con-page__body-item con-page__mail"><span class="con-page__name">Почта:</span><a class="con-page__text" href="mailto:3804144@mail.ru">3804144@mail.ru</a></div>
-          </div>
-        </div>
-        <div class="con-page">
-          <div class="con-page__head">
-            <h2 class="con-page__h">О-Камень на Токсовском шоссе (Кузьмолово)</h2>
-          </div>
-          <div class="con-page__body">
-            <div class="con-page__body-item con-page__address"><span class="con-page__name">Адрес:</span><span class="con-page__text">188663, Ленинградская область, Всеволожский район, пос. Кузьмоловский, 8-й км Токсовского шоссе. На шоссе большой ангар (белый верх, синий низ) с табличкой "О.Камень"</span></div>
-            <div class="con-page__body-item con-page__time"><span class="con-page__name">График работы:</span><span class="con-page__text">Пн.-Пт.: с 9:00 до 19:00</span><span class="con-page__text">Сб: с 10:00 до 17:00</span><span class="con-page__text">Вс: по предварительному согласованию</span></div>
-            <div class="con-page__body-item con-page__tel"><span class="con-page__name">Телефон:</span><a class="con-page__text" href="tel:+78123804144">+7 (812) 380-41-44</a></div>
-            <div class="con-page__body-item con-page__mail"><span class="con-page__name">Почта:</span><a class="con-page__text" href="mailto:3804144@mail.ru">3804144@mail.ru</a></div>
-          </div>
-        </div>
-        <div class="con-page">
-          <div class="con-page__head">
-            <h2 class="con-page__h">О-Камень на Токсовском шоссе (Кузьмолово)</h2>
-          </div>
-          <div class="con-page__body">
-            <div class="con-page__body-item con-page__address"><span class="con-page__name">Адрес:</span><span class="con-page__text">188663, Ленинградская область, Всеволожский район, пос. Кузьмоловский, 8-й км Токсовского шоссе. На шоссе большой ангар (белый верх, синий низ) с табличкой "О.Камень"</span></div>
-            <div class="con-page__body-item con-page__time"><span class="con-page__name">График работы:</span><span class="con-page__text">Пн.-Пт.: с 9:00 до 19:00</span><span class="con-page__text">Сб: с 10:00 до 17:00</span><span class="con-page__text">Вс: по предварительному согласованию</span></div>
-            <div class="con-page__body-item con-page__tel"><span class="con-page__name">Телефон:</span><a class="con-page__text" href="tel:+78123804144">+7 (812) 380-41-44</a><a class="con-page__text" href="tel:+79533466885">+7 (953) 346-68-85 (Светлана)</a><a class="con-page__text" href="tel:+79112422701">+7 (911) 242-27-01 (Роман)</a></div>
-            <div class="con-page__body-item con-page__mail"><span class="con-page__name">Почта:</span><a class="con-page__text" href="mailto:3804144@mail.ru">3804144@mail.ru</a></div>
+          <div class="con-page ac">
+            <div class="con-page__head ac-header">
+              <h2 class="con-page__h ac-trigger">О-Камень на Токсовском шоссе (Кузьмолово)</h2>
+            </div>
+            <div class="con-page__body ac-panel">
+              <div class="con-page__body-item con-page__address"><span class="con-page__name">Адрес:</span><span class="con-page__text">188663, Ленинградская область, Всеволожский район, пос. Кузьмоловский, 8-й км Токсовского шоссе. На шоссе большой ангар (белый верх, синий низ) с табличкой "О.Камень"</span></div>
+              <div class="con-page__body-item con-page__time"><span class="con-page__name">График работы:</span><span class="con-page__text">Пн.-Пт.: с 9:00 до 19:00</span><span class="con-page__text">Сб: с 10:00 до 17:00</span><span class="con-page__text">Вс: по предварительному согласованию</span></div>
+              <div class="con-page__body-item con-page__tel"><span class="con-page__name">Телефон:</span><a class="con-page__text" href="tel:+78123804144">+7 (812) 380-41-44</a><a class="con-page__text" href="tel:+79533466885">+7 (953) 346-68-85 (Светлана)</a><a class="con-page__text" href="tel:+79112422701">+7 (911) 242-27-01 (Роман)</a></div>
+              <div class="con-page__body-item con-page__mail"><span class="con-page__name">Почта:</span><a class="con-page__text" href="mailto:3804144@mail.ru">3804144@mail.ru</a></div>
+            </div>
           </div>
         </div>
       </div>
@@ -259,6 +274,7 @@
     <div class="close-area" data-close-area="burger"></div>
     <div class="close-area" data-close-area="kontacts"></div>
     <script src="assets/scripts/imask.min.js"></script>
+    <script src="assets/scripts/accordion.min.js"></script>
     <script src="assets/scripts/swiper-bundle.min.js"></script>
     <script src="assets/scripts/focus-visible.js"></script>
     <script src="assets/scripts/lightgallery.min.js"></script>
