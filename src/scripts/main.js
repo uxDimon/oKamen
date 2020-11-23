@@ -132,25 +132,27 @@ function paginationVal(number) {
 let styleProjects;
 let sliderOn = false;
 
-function initSlider() {
-	if (document.body.clientWidth >= 768 && sliderOn) {
-		styleProjects.destroy();
-		sliderOn = false;
-	}
-	if (document.body.clientWidth < 768 && !sliderOn) {
-		styleProjects = new Swiper(".our-projects-slider", {
-			slidesPerView: "auto",
-			spaceBetween: 20,
-		});
-		sliderOn = true;
+function initSlider(itemClass) {
+	if (document.querySelector(itemClass)) {
+		if (document.body.clientWidth >= 768 && sliderOn) {
+			styleProjects.destroy();
+			sliderOn = false;
+		}
+		if (document.body.clientWidth < 768 && !sliderOn) {
+			styleProjects = new Swiper(itemClass, {
+				slidesPerView: "auto",
+				spaceBetween: 20,
+			});
+			sliderOn = true;
+		}
 	}
 }
 
 window.onresize = function () {
-	initSlider();
+	initSlider(".our-projects-slider");
 };
 
-initSlider();
+initSlider(".our-projects-slider");
 
 var styleAge = new Swiper(".style-age__slider", {
 	slidesPerView: "auto",
@@ -280,9 +282,10 @@ lightGallery(document.querySelector(".img-gallery"));
 // };
 
 // Аккардион
-// if (document.querySelector(".con-page__wrap")) {
-// 	new Accordion(".con-page__wrap");
-// }
+// https://github.com/michu2k/Accordion
+if (document.querySelector(".con-page__wrap")) {
+	new Accordion(".con-page__wrap");
+}
 
 // if (document.querySelector(".footer__accordion")) {
 // 	new Accordion(".footer__accordion");
