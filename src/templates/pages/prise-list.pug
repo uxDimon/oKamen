@@ -1,0 +1,54 @@
+extends ../template
+
+block variables
+    - var title = 'Прайс-лист'
+    - var contactForm = true
+
+block content
+    main
+        .wrap-back
+            nav.bread-crumbs__wrap
+                ul.bread-crumbs
+                    li.bread-crumbs__item
+                        a(href="#").bread-crumbs__linc Главная
+                    li.bread-crumbs__item
+                        a(href="#").bread-crumbs__linc Продукция
+                    li.bread-crumbs__item
+                        span(href="#").bread-crumbs__linc Кварцевый агломерат
+
+        .wrap-back.prise-list
+            .block-wrap
+                h1.h1.prise-list__h Прайс-лист
+                p.prise-list__text Скачайте прайс-лист на интересующую Вас продукцию
+
+                ul.prise-list__wrap
+                    li.prise-list__item
+                        a(href="").prise-list__linc Гранитная брусчатка
+                            svg(width="16", height="16")
+                                use(xlink:href="./assets/images/sprite.svg#icon-download")
+                    li.prise-list__item
+                        a(href="").prise-list__linc Камень для кладки
+                            svg(width="16", height="16")
+                                use(xlink:href="./assets/images/sprite.svg#icon-download")
+                    li.prise-list__item
+                        a(href="").prise-list__linc Галька декоративная
+                            svg(width="16", height="16")
+                                use(xlink:href="./assets/images/sprite.svg#icon-download")
+                    li.prise-list__item
+                        a(href="").prise-list__linc Глыбы
+                            svg(width="16", height="16")
+                                use(xlink:href="./assets/images/sprite.svg#icon-download")
+                    li.prise-list__item
+                        a(href="").prise-list__linc Известняки
+                            svg(width="16", height="16")
+                                use(xlink:href="./assets/images/sprite.svg#icon-download")
+                    li.prise-list__item
+                        a(href="").prise-list__linc Песчаники
+                            svg(width="16", height="16")
+                                use(xlink:href="./assets/images/sprite.svg#icon-download")
+
+        .wrap-back
+            include ../components/cost-calculation.pug  
+
+
+

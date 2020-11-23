@@ -63,6 +63,19 @@ h4,
 h5,
 h6 {
 	font-family: $font-Manrope;
+
+	&:first-child {
+		margin-top: 0;
+	}
+}
+
+p {
+	&:first-child {
+		margin-top: 0;
+	}
+	&:last-child {
+		margin-bottom: 0;
+	}
 }
 
 a {
