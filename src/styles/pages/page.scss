@@ -593,6 +593,7 @@
 .con-page__map {
 	width: 100%;
 	max-width: $content-max-weight;
+	margin-top: var(--block-m-t);
 	margin-bottom: var(--block-m-b);
 	height: 600px;
 }
@@ -803,6 +804,37 @@
 	align-self: center;
 }
 
+.dostavka {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-gap: 30px;
+}
+
+.dostavka__item {
+	padding: 30px 40px;
+	background-color: $color-gray;
+}
+
+.dostavka__head {
+	display: flex;
+	align-items: center;
+}
+
+.dostavka__img {
+	margin-right: 15px;
+}
+
+.dostavka__h {
+	font-weight: bold;
+	font-size: 18px;
+}
+
+.dostavka__text {
+	font-style: 16px;
+	margin-top: 20px;
+	margin-bottom: 0;
+}
+
 @media screen and (max-width: 1274px) {
 	.product-card {
 		grid-column-gap: 32px;
@@ -895,6 +927,10 @@
 
 	.akcii-list__linc {
 		padding: 20px;
+	}
+
+	.dostavka {
+		grid-template-columns: 1fr;
 	}
 }
 
@@ -1045,6 +1081,14 @@
 
 	.akcii__button {
 		margin-top: 40px;
+	}
+
+	.dostavka__item {
+		padding: 15px 20px;
+	}
+
+	.dostavka__h {
+		font-size: 16px;
 	}
 }
 

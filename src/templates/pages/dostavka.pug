@@ -1,0 +1,62 @@
+extends ../template
+
+block variables
+    - var title = 'Доставка и оплата'
+    - var contactForm = true
+
+block content
+    main
+        .wrap-back
+            nav.bread-crumbs__wrap
+                ul.bread-crumbs
+                    li.bread-crumbs__item
+                        a(href="#").bread-crumbs__linc Главная
+                    li.bread-crumbs__item
+                        a(href="#").bread-crumbs__linc Продукция
+                    li.bread-crumbs__item
+                        span(href="#").bread-crumbs__linc Кварцевый агломерат
+
+        .wrap-back
+            .block-wrap
+                h1.h1 Доставка
+                .dostavka
+                    .dostavka__item
+                        .dostavka__head
+                            svg(width="50", height="50").dostavka__img
+                                use(xlink:href="./assets/images/sprite.svg#icon-dos-01")
+                            h3.dostavka__h Самовывоз
+                        p.dostavka__text Вы всегда можете увезти Ваш камень своими силами с удобной площадки, мы обязательно сообщим Вам вес продукции, упаковку и количество мест.
+                    .dostavka__item
+                        .dostavka__head
+                            svg(width="50", height="50").dostavka__img
+                                use(xlink:href="./assets/images/sprite.svg#icon-dos-02")
+                            h3.dostavka__h Доставка по Спб и ЛО
+                        p.dostavka__text Условия доставки обговариваются отдельно, т.к. ее срок и стоимость зависят от объема заказа и удаленности региона. Но можно не волноваться за свой камень, он доедет в целости и сохранности.
+                    .dostavka__item
+                        .dostavka__head
+                            svg(width="50", height="50").dostavka__img
+                                use(xlink:href="./assets/images/sprite.svg#icon-dos-03")
+                            h3.dostavka__h Доставка по России
+                        p.dostavka__text Междугородняя перевозка, может быть осуществлена любой удобной Вам транспортной компанией. Стоимость и сроки доставки зависят от выбранной ТК
+
+        .wrap-back
+            .block-wrap
+                h1.h1 Оплата
+                .dostavka
+                    .dostavka__item
+                        .dostavka__head
+                            svg(width="50", height="50").dostavka__img
+                                use(xlink:href="./assets/images/sprite.svg#icon-dos-04")
+                            h3.dostavka__h Безналичный расчет
+                    .dostavka__item
+                        .dostavka__head
+                            svg(width="50", height="50").dostavka__img
+                                use(xlink:href="./assets/images/sprite.svg#icon-dos-05")
+                            h3.dostavka__h Оплата по карте
+                    .dostavka__item
+                        .dostavka__head
+                            svg(width="50", height="50").dostavka__img
+                                use(xlink:href="./assets/images/sprite.svg#icon-dos-06")
+                            h3.dostavka__h Наличный расчет
+
+
