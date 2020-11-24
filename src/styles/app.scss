@@ -23,8 +23,8 @@ $color-bek: #f2f2f2;
 
 // Шрифты
 $font-Manrope: "Manrope", sans-serif;
-// $font-Spectral: "Spectral", serif;
-$font-Spectral: "PF BeauSans Pro", sans-serif;
+// $font-BeauSans: "Spectral", serif;
+$font-BeauSans: "PF BeauSans Pro", sans-serif;
 
 // Анимация
 @mixin transition($property: all) {
@@ -47,7 +47,8 @@ $font-Spectral: "PF BeauSans Pro", sans-serif;
 body {
 	padding: 0;
 	margin: 0;
-	font-family: $font-Spectral;
+	font-feature-settings: "pnum" on, "lnum" on, "case" on;
+	font-family: $font-BeauSans;
 	font-style: normal;
 	font-weight: normal;
 	font-size: 18px;

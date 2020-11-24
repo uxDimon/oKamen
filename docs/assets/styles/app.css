@@ -32,54 +32,23 @@
   /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
   font-display: swap; }
 
-/* spectral-regular - latin_cyrillic */
 @font-face {
-  font-family: "Spectral";
-  font-style: normal;
-  font-weight: 400;
-  src: local("Spectral Regular"), local("Spectral-Regular"), url("../fonts/spectral-v6-latin_cyrillic-regular.woff2") format("woff2"), url("../fonts/spectral-v6-latin_cyrillic-regular.woff") format("woff");
-  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-  font-display: swap; }
+  font-family: "PF BeauSans Pro";
+  src: local("PFBeauSansPro-Regular"), url("../fonts/PFBeauSansPro-Regular.woff2") format("woff2"), url("../fonts/PFBeauSansPro-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
 
-/* spectral-500 - latin_cyrillic */
 @font-face {
-  font-family: "Spectral";
-  font-style: normal;
-  font-weight: 500;
-  src: local("Spectral Medium"), local("Spectral-Medium"), url("../fonts/spectral-v6-latin_cyrillic-500.woff2") format("woff2"), url("../fonts/spectral-v6-latin_cyrillic-500.woff") format("woff");
-  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-  font-display: swap; }
-
-/* spectral-600 - latin_cyrillic */
-@font-face {
-  font-family: "Spectral";
-  font-style: normal;
-  font-weight: 600;
-  src: local("Spectral SemiBold"), local("Spectral-SemiBold"), url("../fonts/spectral-v6-latin_cyrillic-600.woff2") format("woff2"), url("../fonts/spectral-v6-latin_cyrillic-600.woff") format("woff");
-  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-  font-display: swap; }
+  font-family: "PF BeauSans Pro";
+  src: local("PFBeauSansPro-Bold"), url("../fonts/PFBeauSansPro-Bold.woff2") format("woff2"), url("../fonts/PFBeauSansPro-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal; }
 
 @font-face {
   font-family: "PF BeauSans Pro Bbook";
-  src: url("../fonts/PFBeauSansPro-Bbook.eot");
-  src: local("PFBeauSansPro-Bbook"), url("../fonts/PFBeauSansPro-Bbook.woff") format("woff");
+  src: local("PFBeauSansPro-Bbook"), url("../fonts/PFBeauSansPro-Bbook.woff2") format("woff2"), url("../fonts/PFBeauSansPro-Bbook.woff") format("woff");
   font-weight: 500;
-  font-style: normal;
-  font-display: swap; }
-
-@font-face {
-  font-family: "PF BeauSans Pro";
-  src: local("PFBeauSansPro-SemiBold"), url("../fonts/PFBeauSansPro-SemiBold.woff") format("woff");
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap; }
-
-@font-face {
-  font-family: "PF BeauSans Pro";
-  src: local("PFBeauSansPro-Regular"), url("../fonts/PFBeauSansPro-Regular.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap; }
+  font-style: normal; }
 
 * {
   box-sizing: border-box;
@@ -91,6 +60,7 @@
 body {
   padding: 0;
   margin: 0;
+  font-feature-settings: "pnum" on, "lnum" on, "case" on;
   font-family: "PF BeauSans Pro", sans-serif;
   font-style: normal;
   font-weight: normal;
@@ -2888,7 +2858,8 @@ input[type="radio"] {
     transition: transform 200ms ease-in-out 0ms; }
 
 .con-page.is-active .con-page__h.ac-trigger::after {
-  transform: rotate(180deg); }
+  transform: rotate(180deg);
+  content: ""; }
 
 .con-page__body {
   display: grid;

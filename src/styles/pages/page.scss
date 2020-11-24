@@ -526,6 +526,7 @@
 
 .con-page.is-active .con-page__h.ac-trigger::after {
 	transform: rotate(180deg);
+	content: "";
 }
 
 .con-page__body {
