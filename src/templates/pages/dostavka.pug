@@ -4,9 +4,9 @@ block variables
     - var title = 'Доставка и оплата'
     - var contactForm = true
 
-block content
+block content 
     main
-        .wrap-back
+        .background-wrap
             nav.bread-crumbs__wrap
                 ul.bread-crumbs
                     li.bread-crumbs__item
@@ -16,8 +16,8 @@ block content
                     li.bread-crumbs__item
                         span(href="#").bread-crumbs__linc Кварцевый агломерат
 
-        .wrap-back
-            .block-wrap
+        .background-wrap
+            .block-wrap.block-wrap_first
                 h1.h1 Доставка
                 .dostavka
                     .dostavka__item
@@ -39,7 +39,7 @@ block content
                             h3.dostavka__h Доставка по России
                         p.dostavka__text Междугородняя перевозка, может быть осуществлена любой удобной Вам транспортной компанией. Стоимость и сроки доставки зависят от выбранной ТК
 
-        .wrap-back
+        .background-wrap
             .block-wrap
                 h1.h1 Оплата
                 .dostavka

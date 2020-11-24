@@ -5,54 +5,57 @@ block variables
     - var contactForm = true
 
 block content
-    main.wrap-back
-        nav.bread-crumbs__wrap
-            ul.bread-crumbs
-                li.bread-crumbs__item
-                    a(href="#").bread-crumbs__linc Главная
-                li.bread-crumbs__item
-                    a(href="#").bread-crumbs__linc Продукция
-                li.bread-crumbs__item
-                    span(href="#").bread-crumbs__linc Кварцевый агломерат
+    main
+        .background-wrap
+            nav.bread-crumbs__wrap
+                ul.bread-crumbs
+                    li.bread-crumbs__item
+                        a(href="#").bread-crumbs__linc Главная
+                    li.bread-crumbs__item
+                        a(href="#").bread-crumbs__linc Продукция
+                    li.bread-crumbs__item
+                        span(href="#").bread-crumbs__linc Кварцевый агломерат
+        
+        .background-wrap
+            .block-wrap.block-wrap_first
+                h1.h1 О нас
+                .onas
+                    .onas__text-wrap
+                        .onas__text
+                            p У нас мощное собственное производство и самый большой торгово-выставочный комплекс в Санкт- Петербурге, в котором трудятся опытные квалифицированные сотрудники, что позволяет нам обеспечить:
+                            ul.onas__text-list
+                                li.onas__text-list-item самые низкие цены
+                                li.onas__text-list-item гибкую систему скидок
+                                li.onas__text-list-item самый большой ассортимент
+                                li.onas__text-list-item постоянное наличие продукции
+                                li.onas__text-list-item оперативное выполнение заказов любой сложности
+                                li.onas__text-list-item комплексные поставки
+                                li.onas__text-list-item профессиональные консультации специалистов
+                                li.onas__text-list-item удобное расположение
+                                li.onas__text-list-item выставка, склад и бухгалтерия на одной территории
+                                li.onas__text-list-item бесплатно предоставляем образцы
 
-        h1.h1.page__h1 О нас
-
-        .onas
-            .onas__text-wrap
-                .onas__text
-                    p У нас мощное собственное производство и самый большой торгово-выставочный комплекс в Санкт- Петербурге, в котором трудятся опытные квалифицированные сотрудники, что позволяет нам обеспечить:
-                    ul.onas__text-list
-                        li.onas__text-list-item самые низкие цены
-                        li.onas__text-list-item гибкую систему скидок
-                        li.onas__text-list-item самый большой ассортимент
-                        li.onas__text-list-item постоянное наличие продукции
-                        li.onas__text-list-item оперативное выполнение заказов любой сложности
-                        li.onas__text-list-item комплексные поставки
-                        li.onas__text-list-item профессиональные консультации специалистов
-                        li.onas__text-list-item удобное расположение
-                        li.onas__text-list-item выставка, склад и бухгалтерия на одной территории
-                        li.onas__text-list-item бесплатно предоставляем образцы
-
-                .onas__number-wrap
-                    .onas__number-iten
-                        span.onas__number 40 
-                            span видов
-                        span.onas__number-text Натурального камня <br>в наличии
+                        .onas__number-wrap
+                            .onas__number-iten
+                                span.onas__number 40 
+                                    span видов
+                                span.onas__number-text Натурального камня <br>в наличии
+                            
+                            .onas__number-iten
+                                span.onas__number 18 
+                                    span лет
+                                span.onas__number-text Работаем в <br>отрасли
+                            
+                            .onas__number-iten
+                                span.onas__number 40 000 
+                                    span.m2 м2
+                                span.onas__number-text Общая площадь наших <br>складов
                     
-                    .onas__number-iten
-                        span.onas__number 18 
-                            span лет
-                        span.onas__number-text Работаем в <br>отрасли
-                    
-                    .onas__number-iten
-                        span.onas__number 40 000 
-                            span.m2 м2
-                        span.onas__number-text Общая площадь наших <br>складов
-            
-            .onas__logo-wrap
-                svg(width="382", height="190").onas__logo
-                    use(xlink:href="./assets/images/sprite.svg#logo_ver")
-
-        include ../components/our-projects.pug
+                    .onas__logo-wrap
+                        svg(width="382", height="190").onas__logo
+                            use(xlink:href="./assets/images/sprite.svg#logo_ver")
+        
+        .background-wrap
+            include ../components/our-projects.pug
 
 

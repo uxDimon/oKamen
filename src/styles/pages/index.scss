@@ -11,7 +11,7 @@
 	padding-bottom: var(--block-m-b);
 }
 
-.wrap-back__seo-block {
+.background-wrap__seo-block {
 	background-color: $color-gray;
 }
 
@@ -77,7 +77,7 @@
 }
 
 // seo-block2
-.wrap-back__seo-block2 {
+.background-wrap__seo-block2 {
 	background-color: $color-gray;
 }
 
@@ -218,7 +218,7 @@
 }
 
 // work-steps
-.wrap-back__work-steps {
+.background-wrap__work-steps {
 	background-image: url("../images/bac-2.jpg");
 	background-size: cover;
 }
@@ -288,7 +288,7 @@
 }
 
 // reviews
-.wrap-back__reviews {
+.background-wrap__reviews {
 	background-color: $color-gray;
 }
 
@@ -497,6 +497,7 @@
 	}
 
 	.seo-block__right {
+		background-color: transparent;
 		padding: 28px 0;
 		width: 100%;
 

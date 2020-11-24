@@ -6,7 +6,7 @@ block variables
 
 block content
     main
-        .wrap-back
+        .background-wrap
             nav.bread-crumbs__wrap
                 ul.bread-crumbs
                     li.bread-crumbs__item
@@ -16,9 +16,9 @@ block content
                     li.bread-crumbs__item
                         span(href="#").bread-crumbs__linc Кварцевый агломерат
 
-        .wrap-back.akcii
-            .block-wrap
-                h1.h1.akcii__h Акции
+        .background-wrap.akcii
+            .block-wrap.block-wrap_first
+                h1.h1 Акции
                 
                 ul.akcii-list
                     li.akcii-list__item
@@ -60,7 +60,7 @@ block content
 
                 button.button.button__ghost.akcii__button Показать больше
 
-        .wrap-back
+        .background-wrap
             include ../components/cost-calculation.pug  
 
 

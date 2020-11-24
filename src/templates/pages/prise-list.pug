@@ -6,7 +6,7 @@ block variables
 
 block content
     main
-        .wrap-back
+        .background-wrap
             nav.bread-crumbs__wrap
                 ul.bread-crumbs
                     li.bread-crumbs__item
@@ -16,8 +16,8 @@ block content
                     li.bread-crumbs__item
                         span(href="#").bread-crumbs__linc Кварцевый агломерат
 
-        .wrap-back.prise-list
-            .block-wrap
+        .background-wrap.prise-list
+            .block-wrap.block-wrap_first
                 h1.h1.prise-list__h Прайс-лист
                 p.prise-list__text Скачайте прайс-лист на интересующую Вас продукцию
 
@@ -47,7 +47,7 @@ block content
                             svg(width="16", height="16")
                                 use(xlink:href="./assets/images/sprite.svg#icon-download")
 
-        .wrap-back
+        .background-wrap
             include ../components/cost-calculation.pug  
 
 

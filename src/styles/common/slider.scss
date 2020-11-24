@@ -270,11 +270,11 @@
 // page-slider
 .page-slider__wrap {
 	width: 100%;
-	max-width: $content-max-weight;
-	padding-right: var(--content-p-r);
-	padding-left: var(--content-p-l);
+	// max-width: $content-max-weight;
+	// padding-right: var(--content-p-r);
+	// padding-left: var(--content-p-l);
 	position: relative;
-	margin-bottom: var(--block-m-b);
+	// margin-bottom: var(--block-m-b);
 
 	&::before {
 		content: "";
