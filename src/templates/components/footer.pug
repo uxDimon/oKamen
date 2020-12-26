@@ -92,3 +92,26 @@ footer.footer__wrap
                 a(href="#") Правовая информация
             span.footer__bot-item.footer__bot-item_ra Сделано в 
                 a(href="#") RA-Studio
+
+.popup__wrap(data-block-active="popup1")
+    .popup__clouse-area(data-control-active="popup1")
+    .popup
+        button.popup__clouse(data-control-active="popup1")
+        .popup__h Запишитесь на бесплатную консультацию
+        form.popup__form
+            input(type="text", name="name" placeholder="Имя").input.input_contact
+            input(type="tel", name="tel" placeholder="Телефон", required).input.input_contact
+            textarea(name="message" placeholder="Сообщение").input.input_contact.contact__input-textarea
+            select(name="contact-product").input.input_contact.input_select
+                option(value="stol") Столешница
+                option(value="podocnom") Подоконник
+                option(value="lesnica") Лестница 
+            button(type="submit", data-control-active="popup2" data-control-clouse="popup1").button.popup__button Отправить
+            .contact__conf Отправляя личные данные, Вы соглашаетесь с политикой конфиденциальности
+
+.popup__wrap(data-block-active="popup2")
+    .popup__clouse-area(data-control-active="popup2")
+    .popup
+        button.popup__clouse(data-control-active="popup2")
+        .popup__ok-h Ваша заявка успешно оформлена
+        .popup__ok Мы свяжемся с Вами в ближайшее время

@@ -264,68 +264,43 @@ for (const slider of manySliders) {
 // https://github.com/sachinchoolur/lightgallery.js
 lightGallery(document.querySelector(".img-gallery"));
 
-// // Убирает tabIndex у ссылок внутри не активных слайдов
-// window.onload = function () {
-// 	const tnsItem = document.querySelectorAll(".tns-slider .tns-item");
-
-// 	if (tnsItem) {
-// 		for (const i of tnsItem) {
-// 			console.log(i.ariaHidden);
-// 			if (i.ariaHidden) {
-// 				const tabs = i.querySelectorAll("a");
-// 				for (const t of tabs) {
-// 					t.tabIndex = -1;
-// 				}
-// 			}
-// 		}
-// 	}
-// };
-
 // Аккардион
 // https://github.com/michu2k/Accordion
 if (document.querySelector(".con-page__wrap")) {
 	new Accordion(".con-page__wrap");
 }
 
-// if (document.querySelector(".footer__accordion")) {
-// 	new Accordion(".footer__accordion");
-// }
+// Увеличения картинок
+// https://github.com/francoischalifour/medium-zoom
+mediumZoom(".article img", {
+	background: "#f2f2f2",
+});
 
-// // Увеличения картинок
-// // https://github.com/francoischalifour/medium-zoom
-// mediumZoom("[data-zoomable]", {
-// 	background: "#d9e2ec",
-// });
+// popup
+const blockActiveList = document.querySelectorAll("[data-block-active]");
 
-// // popup
-// const pooupBut = document.querySelectorAll(".popup-open");
+if (blockActiveList) {
+	for (const blockActive of blockActiveList) {
+		const controlActiveList = document.querySelectorAll(`[data-control-active="${blockActive.dataset.blockActive}"]`);
 
-// if (pooupBut) {
-// 	const pooupWindow = document.querySelector(".certificate-popup"),
-// 		pooupClose = document.querySelector(".popup--close"),
-// 		pooupCloseArea = document.querySelector(".popup--close-area");
+		for (const controlActive of controlActiveList) {
+			controlActive.addEventListener("click", () => {
+				blockActive.classList.toggle(activeClass);
+			});
+		}
+	}
+}
 
-// 	for (const i of pooupBut) {
-// 		i.addEventListener("click", () => {
-// 			pooupWindow.classList.add("certificate-popup-active");
-// 		});
-// 	}
+const controlClouseList = document.querySelectorAll("[data-control-clouse]");
 
-// 	pooupClose.addEventListener("click", () => {
-// 		pooupWindow.classList.remove("certificate-popup-active");
-// 	});
+if (controlClouseList) {
+	for (const controlClouse of controlClouseList) {
+		const blockClouse = document.querySelector(`[data-block-active="${controlClouse.dataset.controlClouse}"]`);
 
-// 	pooupCloseArea.addEventListener("click", () => {
-// 		pooupWindow.classList.remove("certificate-popup-active");
-// 	});
-// }
-
-// // cookies close
-// const cookiesBlock = document.querySelector(".cookies"),
-// 	cookiesClose = document.querySelector(".cookies__close");
-
-// if (cookiesBlock) {
-// 	cookiesClose.addEventListener("click", () => {
-// 		cookiesBlock.classList.add("cookies__close-none");
-// 	});
-// }
+		if (blockClouse) {
+			controlClouse.addEventListener("click", () => {
+				blockClouse.classList.remove(activeClass);
+			});
+		}
+	}
+}
