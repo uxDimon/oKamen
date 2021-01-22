@@ -270,7 +270,6 @@ if (document.querySelector(".con-page__wrap")) {
 	new Accordion(".con-page__wrap");
 }
 
-<<<<<<< HEAD
 // data-active
 const dataActiveControl = document.querySelectorAll("[data-active-control]");
 if (dataActiveControl) {
@@ -284,7 +283,8 @@ if (dataActiveControl) {
 			}
 			activeBlock.classList.toggle(activeClass);
 		});
-=======
+	}
+}
 // Увеличения картинок
 // https://github.com/francoischalifour/medium-zoom
 mediumZoom(".article img", {
@@ -317,6 +317,5 @@ if (controlClouseList) {
 				blockClouse.classList.remove(activeClass);
 			});
 		}
->>>>>>> 1172a2839a191bf01a4749286646ca107892dc0d
 	}
 }

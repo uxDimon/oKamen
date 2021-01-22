@@ -30,7 +30,7 @@
             <div class="header__kontacts-item"><span class="header__kontacts-city">Сертолово</span><span class="header__kontacts-street">Выборгское шоссе</span><a class="header__kontacts-tel" href="tel:+78123804144">+7 (812) 380-41-44</a></div>
             <div class="header__kontacts-item"><span class="header__kontacts-city">Санкт-Петербург</span><span class="header__kontacts-street">МЦ Аквилон</span><a class="header__kontacts-tel" href="tel:+78123804144">+7 (812) 380-41-44</a></div>
             <div class="header__kontacts-item"><span class="header__kontacts-city">Заневка</span><span class="header__kontacts-street">Колтушское шоссе</span><a class="header__kontacts-tel" href="tel:+78123804144">+7 (812) 380-41-44</a></div>
-            <button class="button button__ghost header__kontacts-button-feedback">Обратная связь            </button>
+            <button class="button button__ghost header__kontacts-button-feedback" data-control-active="popup1">Обратная связь            </button>
           </div>
           <div class="header__menu-second-wrap">
             <nav class="header__main-menu main-menu">
@@ -237,11 +237,57 @@
         <div class="footer__bot"><span class="footer__bot-item"><a href="#">Правовая информация</a></span><span class="footer__bot-item footer__bot-item_ra">Сделано в <a href="#">RA-Studio</a></span></div>
       </div>
     </footer>
+    <div class="popup__wrap" data-block-active="popup1">
+      <div class="popup__clouse-area" data-control-active="popup1"></div>
+      <div class="popup">
+        <button class="popup__clouse" data-control-active="popup1"></button>
+        <div class="popup__h">Запишитесь на бесплатную консультацию</div>
+        <form class="popup__form">
+          <input class="input input_contact" type="text" name="name" placeholder="Имя">
+          <input class="input input_contact" type="tel" name="tel" placeholder="Телефон" required>
+          <textarea class="input input_contact contact__input-textarea" name="message" placeholder="Сообщение"></textarea>
+          <select class="input input_contact input_select" name="contact-product">
+            <option value="stol">Столешница</option>
+            <option value="podocnom">Подоконник</option>
+            <option value="lesnica">Лестница </option>
+          </select>
+          <button class="button popup__button" type="submit" data-control-active="popup2" data-control-clouse="popup1">Отправить</button>
+          <div class="contact__conf">Отправляя личные данные, Вы соглашаетесь с политикой конфиденциальности</div>
+        </form>
+      </div>
+    </div>
+    <div class="popup__wrap _active" data-block-active="popups3">
+      <div class="popup__clouse-area" data-control-active="popups3"></div>
+      <div class="popup">
+        <button class="popup__clouse" data-control-active="popups3"></button>
+        <div class="popup__h">Оставить заявку на сотрудничество</div>
+        <p class="popup__text">Мы воплотим в реальность даже самые смелые Ваши проекты</p>
+        <form class="popup__form">
+          <input class="input input_contact" type="text" name="name" placeholder="Имя">
+          <input class="input input_contact" type="tel" name="tel" placeholder="Телефон" required>
+          <textarea class="input input_contact contact__input-textarea" name="message" placeholder="Сообщение"></textarea>
+          <label class="input-file"><span>Загрузите файл (.jpg .png .pdf .xls .csd)</span>
+            <input type="file" name="file" onchange="uploadFile(this)" accept=".jpg, .jpeg, .png, .pdf, .xls, .csd">
+          </label>
+          <button class="button popup__button" type="submit" data-control-active="popups3" data-control-clouse="popup1">Отправить</button>
+          <div class="contact__conf">Отправляя личные данные, Вы соглашаетесь с политикой конфиденциальности</div>
+        </form>
+      </div>
+    </div>
+    <div class="popup__wrap" data-block-active="popup2">
+      <div class="popup__clouse-area" data-control-active="popup2"></div>
+      <div class="popup">
+        <button class="popup__clouse" data-control-active="popup2"></button>
+        <div class="popup__ok-h">Ваша заявка успешно оформлена</div>
+        <div class="popup__ok">Мы свяжемся с Вами в ближайшее время</div>
+      </div>
+    </div>
     <div class="close-area" data-close-area="burger"></div>
     <div class="close-area" data-close-area="kontacts"></div>
     <script src="assets/scripts/imask.min.js"></script>
     <script src="assets/scripts/accordion.min.js"></script>
     <script src="assets/scripts/swiper-bundle.min.js"></script>
+    <script src="assets/scripts/medium-zoom.min.js"></script>
     <script src="assets/scripts/focus-visible.js"></script>
     <script src="assets/scripts/lightgallery.min.js"></script>
     <script src="assets/scripts/main.js"></script>
