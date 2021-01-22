@@ -109,6 +109,24 @@ footer.footer__wrap
             button(type="submit", data-control-active="popup2" data-control-clouse="popup1").button.popup__button Отправить
             .contact__conf Отправляя личные данные, Вы соглашаетесь с политикой конфиденциальности
 
+.popup__wrap._active(data-block-active="popups3")
+    .popup__clouse-area(data-control-active="popups3")
+    .popup
+        button.popup__clouse(data-control-active="popups3")
+        .popup__h Оставить заявку на сотрудничество
+        p.popup__text Мы воплотим в реальность даже самые смелые Ваши проекты
+        form.popup__form
+            input(type="text", name="name" placeholder="Имя").input.input_contact
+            input(type="tel", name="tel" placeholder="Телефон", required).input.input_contact
+            textarea(name="message" placeholder="Сообщение").input.input_contact.contact__input-textarea
+            label.input-file
+                //- span Загрузите файл (по желанию)
+                span Загрузите файл (.jpg .png .pdf .xls .csd)
+                input(type="file", name="file" onchange='uploadFile(this)' accept=".jpg, .jpeg, .png, .pdf, .xls, .csd")
+
+            button(type="submit", data-control-active="popups3" data-control-clouse="popup1").button.popup__button Отправить
+            .contact__conf Отправляя личные данные, Вы соглашаетесь с политикой конфиденциальности
+
 .popup__wrap(data-block-active="popup2")
     .popup__clouse-area(data-control-active="popup2")
     .popup
