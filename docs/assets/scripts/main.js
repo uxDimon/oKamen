@@ -264,68 +264,24 @@ for (const slider of manySliders) {
 // https://github.com/sachinchoolur/lightgallery.js
 lightGallery(document.querySelector(".img-gallery"));
 
-// // Убирает tabIndex у ссылок внутри не активных слайдов
-// window.onload = function () {
-// 	const tnsItem = document.querySelectorAll(".tns-slider .tns-item");
-
-// 	if (tnsItem) {
-// 		for (const i of tnsItem) {
-// 			console.log(i.ariaHidden);
-// 			if (i.ariaHidden) {
-// 				const tabs = i.querySelectorAll("a");
-// 				for (const t of tabs) {
-// 					t.tabIndex = -1;
-// 				}
-// 			}
-// 		}
-// 	}
-// };
-
 // Аккардион
 // https://github.com/michu2k/Accordion
 if (document.querySelector(".con-page__wrap")) {
 	new Accordion(".con-page__wrap");
 }
 
-// if (document.querySelector(".footer__accordion")) {
-// 	new Accordion(".footer__accordion");
-// }
+// data-active
+const dataActiveControl = document.querySelectorAll("[data-active-control]");
+if (dataActiveControl) {
+	for (const activeControl of dataActiveControl) {
+		const activeBlock = document.querySelector(`[data-active-block="${activeControl.dataset.activeControl}"]`);
+		const activeControlList = document.querySelectorAll(`[data-active-control="${activeControl.dataset.activeControl}"]`);
 
-// // Увеличения картинок
-// // https://github.com/francoischalifour/medium-zoom
-// mediumZoom("[data-zoomable]", {
-// 	background: "#d9e2ec",
-// });
-
-// // popup
-// const pooupBut = document.querySelectorAll(".popup-open");
-
-// if (pooupBut) {
-// 	const pooupWindow = document.querySelector(".certificate-popup"),
-// 		pooupClose = document.querySelector(".popup--close"),
-// 		pooupCloseArea = document.querySelector(".popup--close-area");
-
-// 	for (const i of pooupBut) {
-// 		i.addEventListener("click", () => {
-// 			pooupWindow.classList.add("certificate-popup-active");
-// 		});
-// 	}
-
-// 	pooupClose.addEventListener("click", () => {
-// 		pooupWindow.classList.remove("certificate-popup-active");
-// 	});
-
-// 	pooupCloseArea.addEventListener("click", () => {
-// 		pooupWindow.classList.remove("certificate-popup-active");
-// 	});
-// }
-
-// // cookies close
-// const cookiesBlock = document.querySelector(".cookies"),
-// 	cookiesClose = document.querySelector(".cookies__close");
-
-// if (cookiesBlock) {
-// 	cookiesClose.addEventListener("click", () => {
-// 		cookiesBlock.classList.add("cookies__close-none");
-// 	});
-// }
+		activeControl.addEventListener("click", () => {
+			for (const activeControlItem of activeControlList) {
+				activeControlItem.classList.toggle(activeClass);
+			}
+			activeBlock.classList.toggle(activeClass);
+		});
+	}
+}

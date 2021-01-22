@@ -161,10 +161,12 @@
 
 .footer__bot {
 	display: grid;
-	margin-bottom: 40px;
+	padding-top: 20px;
+	margin-bottom: 20px;
 	grid-auto-flow: column;
 	grid-row-gap: 10px;
 	justify-content: space-between;
+	border-top: 1px solid #dadada;
 }
 
 .footer__bot-item {
