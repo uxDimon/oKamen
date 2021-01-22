@@ -3115,6 +3115,7 @@ input[type="radio"] {
   margin-bottom: 0; }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 .sotr__background-wrap {
   overflow: revert; }
 
@@ -3217,6 +3218,8 @@ input[type="radio"] {
   .sotr-item li {
     font-size: 14px; } }
 =======
+=======
+>>>>>>> 1172a2839a191bf01a4749286646ca107892dc0d
 .article__head-wrap {
   background-color: #e8e8e8;
   padding-right: var(--content-p-r);
@@ -3381,6 +3384,9 @@ input[type="radio"] {
 .popup__ok {
   margin-bottom: 32px;
   text-align: center; }
+<<<<<<< HEAD
+>>>>>>> 1172a2839a191bf01a4749286646ca107892dc0d
+=======
 >>>>>>> 1172a2839a191bf01a4749286646ca107892dc0d
 
 @media screen and (max-width: 1274px) {
