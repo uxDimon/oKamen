@@ -1,0 +1,57 @@
+doctype html
+html
+    head
+        meta(charset="utf-8")
+        title #{title}
+        meta(content="" name="description")
+        meta(content="" name="keywords")
+        meta(name="viewport" content="width=device-width, initial-scale=1")
+        meta(content="ie=edge" http-equiv="x-ua-compatible")
+
+        link(rel="shortcut icon" href="assets/images/fav.png" type="image/x-icon")
+        link(rel="apple-touch-icon" href="assets/images/fav.png")
+
+        //- link(rel="stylesheet" type="text/css" href="assets/styles/swiper-bundle.min.css")
+        //- link(rel="stylesheet" type="text/css" href="assets/styles/lightgallery.min.css")
+
+        link(rel="stylesheet" type="text/css" href="assets/styles/app.css")
+        
+    body
+        include ../components/header.pug
+        
+        main.background-wrap_calc
+            .calc
+                h1.calc__heading Расчёт стоимости изделия
+                #calc-app
+                    nav.calc__road-map
+                        ol.calc__road-map-list
+                            li.calc__road-map-item
+                                button(data-calc-tab = 'category').calc__road-map-linc Категория
+                            li.calc__road-map-item
+                                button(data-calc-tab = 'form' disabled).calc__road-map-linc Форма
+                            li.calc__road-map-item
+                                button(data-calc-tab = 'materials' disabled).calc__road-map-linc Материалы
+                            li.calc__road-map-item
+                                button(data-calc-tab = 'parameters' disabled).calc__road-map-linc Параметры
+                            li.calc__road-map-item
+                                button(data-calc-tab = 'notch' disabled).calc__road-map-linc Вырезы
+                            li.calc__road-map-item
+                                button(data-calc-tab = 'services' disabled).calc__road-map-linc Доп. услуги
+                            li.calc__road-map-item
+                                button(data-calc-tab = 'total' disabled).calc__road-map-linc Итог
+
+
+        include ../components/footer.pug
+
+        div(data-close-area='burger').close-area
+        div(data-close-area='kontacts').close-area
+
+        //- script(src="assets/scripts/accordion.min.js")
+        //- script(src="assets/scripts/swiper-bundle.min.js")
+        //- script(src="assets/scripts/medium-zoom.min.js")
+        //- script(src="assets/scripts/lightgallery.min.js")
+
+        script(src="assets/scripts/imask.min.js")
+        script(src="assets/scripts/focus-visible.js")
+
+        script(src="assets/scripts/main.js")
