@@ -1,3 +1,38 @@
+const options = {
+	category: {
+		productType: {
+			heading: "Выберите подходящую категорию",
+			required: true,
+			inputs: [
+				{
+					appearance: "input-body",
+					radioBot: true,
+					type: "radio",
+					value: "table",
+					text: "Столешница",
+					img: "category-table.svg",
+				},
+				{
+					appearance: "input-body",
+					radioBot: true,
+					type: "radio",
+					value: "windowsill",
+					text: "Подоконник",
+					img: "category-windowsill.svg",
+				},
+				{
+					appearance: "input-body",
+					radioBot: true,
+					type: "radio",
+					value: "stage",
+					text: "Ступени",
+					img: "category-stage.svg",
+				},
+			],
+		},
+	},
+};
+
 Vue.use(Vuex);
 const store = new Vuex.Store({
 	state: {
@@ -45,6 +80,7 @@ const store = new Vuex.Store({
 				disabled: true,
 			},
 		],
+		selectOptions: {},
 	},
 	mutations: {
 		// Переключения вкладок с опциями
@@ -56,9 +92,23 @@ const store = new Vuex.Store({
 				state.roadMap[index].visible = true;
 			}
 		},
-		// Убирает disabled у следующей вкладки
-		roadMapNext(state, index) {
-			state.roadMap[index + 1].disabled = false;
+		// Убирает disabled у следующей вкладки eсли заполнены обязательные поля
+		roadMapNext(state, payload) {
+			if (state.selectOptions[payload.key] != "") {
+				state.roadMap[payload.index + 1].disabled = false;
+			}
+		},
+		chooseOption(state, payload) {
+			// Добавляет выбранную опцию в state.selectOptions
+			state.selectOptions[payload.key] = payload.value;
+		},
+		// Формирует selectOptions из всех имеющихся опций в options
+		createSelectOptions(state) {
+			for (const screenKey in options) {
+				for (const optionsKey in options[screenKey]) {
+					Vue.set(state.selectOptions, optionsKey, "");
+				}
+			}
 		},
 	},
 });

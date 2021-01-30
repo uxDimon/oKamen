@@ -29,8 +29,18 @@ html
                                 button(@click='roadMapTo(index)', :disabled="item.disabled").calc__road-map-linc {{item.text}}
 
                     .calc__body-wrap
-                        .calc__body(v-for="(item, index) in roadMap", :id="item.id", v-if="item.visible") {{item.text}} {{item.disabled && index > 0}}
-                            button(@click="roadMapNext(index)") roadMapNext                            
+                        .calc__body(v-for="(item, index) in roadMap", :id="item.id", v-if="item.visible")
+                            //- button(@click="roadMapNext(index)") roadMapNext
+                            .calc__options(v-for="(option, optionKey) in options[item.id]")
+                                h2.options__heading {{option.heading}}
+                                .options-input__wrap
+                                    .options-input(v-for="input in option.inputs")
+                                        input(@change="chooseOption(optionKey, input.value), roadMapNext(optionKey, index)", :id="optionKey + '-' + input.value", :type="input.type", :name="optionKey", :value="input.value")
+                                        label(:for="optionKey + '-' + input.value", tabindex="1")
+                                            .options-input__body
+                                                .options-input__radio-chec(:class="input.radioBot ? 'options-input__radio_bot' : ''")
+                                                img(:src="'./assets/images/calc-svg/' + input.img", :alt="input.text").options-input__img
+                                            span.options-input__name {{input.text}}
 
                             .calc__button-wrap
                                 button(@click='roadMapTo(index - 1)', :disabled="index == 0").button.button_gray.calc__button Назад
