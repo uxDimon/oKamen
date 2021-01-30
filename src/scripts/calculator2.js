@@ -3,7 +3,6 @@ var calcApp = new Vue({
 	store,
 	data: {
 		roadMap: store.state.roadMap,
-		selectOptions: store.state.selectOptions,
 		options,
 	},
 	methods: {
@@ -18,9 +17,6 @@ var calcApp = new Vue({
 				key,
 				index,
 			});
-		},
-		buttonNext: function (index) {
-			return store.state.roadMap[index + 1].disabled;
 		},
 		chooseOption: function (key, value) {
 			// Добавляет выбранную опцию в state.selectOptions

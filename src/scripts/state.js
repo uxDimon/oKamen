@@ -31,6 +31,38 @@ const options = {
 			],
 		},
 	},
+	form: {
+		testttt: {
+			heading: "Выберите подходящую категорию2",
+			required: true,
+			inputs: [
+				{
+					appearance: "input-body",
+					radioBot: true,
+					type: "radio",
+					value: "ttt",
+					text: "Столешница",
+					img: "category-table.svg",
+				},
+				{
+					appearance: "input-body",
+					radioBot: true,
+					type: "radio",
+					value: "rrrr",
+					text: "Подоконник",
+					img: "category-windowsill.svg",
+				},
+				{
+					appearance: "input-body",
+					radioBot: true,
+					type: "radio",
+					value: "qqq",
+					text: "Ступени",
+					img: "category-stage.svg",
+				},
+			],
+		},
+	},
 };
 
 Vue.use(Vuex);
