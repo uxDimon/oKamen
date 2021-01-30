@@ -3,6 +3,7 @@ var calcApp = new Vue({
 	store,
 	data: {
 		roadMap: store.state.roadMap,
+		selectOptions: store.state.selectOptions,
 		options,
 	},
 	methods: {

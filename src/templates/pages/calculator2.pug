@@ -35,7 +35,7 @@ html
                                 h2.options__heading {{option.heading}}
                                 .options-input__wrap
                                     .options-input(v-for="input in option.inputs")
-                                        input(@change="chooseOption(optionKey, input.value), roadMapNext(optionKey, index)", :id="optionKey + '-' + input.value", :type="input.type", :name="optionKey", :value="input.value")
+                                        input(@change="chooseOption(optionKey, input.value), roadMapNext(optionKey, index)", :id="optionKey + '-' + input.value", :type="input.type", :name="optionKey", :value="input.value", :checked="selectOptions[optionKey] == input.value")
                                         label(:for="optionKey + '-' + input.value", tabindex="1")
                                             .options-input__body
                                                 .options-input__radio-chec(:class="input.radioBot ? 'options-input__radio_bot' : ''")
