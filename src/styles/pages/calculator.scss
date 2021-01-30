@@ -5,14 +5,14 @@
 }
 
 // #category,
-#form,
-#materials,
-#parameters,
-#notch,
-#services,
-#total {
-	display: none;
-}
+// #form,
+// #materials,
+// #parameters,
+// #notch,
+// #services,
+// #total {
+// 	display: none;
+// }
 
 .calc {
 	width: 100%;
@@ -21,6 +21,7 @@
 	padding-left: var(--content-p-l);
 	margin-bottom: var(--block-m-b);
 	margin-top: var(--block-m-t);
+	visibility: visible;
 }
 
 .calc__body {
