@@ -3,6 +3,9 @@ var calcApp = new Vue({
 	store,
 	data: {
 		roadMap: store.state.roadMap,
+		selectOptions: store.state.selectOptions,
+		categoryOptions,
+		urlImg: "./assets/images/calc-svg/",
 		options,
 	},
 	methods: {
@@ -26,8 +29,9 @@ var calcApp = new Vue({
 				value,
 			});
 		},
+		createSelectOptions: function () {
+			store.commit("createSelectOptions");
+		},
 	},
-	created: function () {
-		store.commit("createSelectOptions");
-	},
+	created: function () {},
 });

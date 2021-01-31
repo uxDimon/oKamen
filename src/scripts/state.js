@@ -1,66 +1,67 @@
-const options = {
-	category: {
-		productType: {
-			heading: "Выберите подходящую категорию",
-			required: true,
-			inputs: [
-				{
-					appearance: "input-body",
-					radioBot: true,
-					type: "radio",
-					value: "table",
-					text: "Столешница",
-					img: "category-table.svg",
-				},
-				{
-					appearance: "input-body",
-					radioBot: true,
-					type: "radio",
-					value: "windowsill",
-					text: "Подоконник",
-					img: "category-windowsill.svg",
-				},
-				{
-					appearance: "input-body",
-					radioBot: true,
-					type: "radio",
-					value: "stage",
-					text: "Ступени",
-					img: "category-stage.svg",
-				},
-			],
+const categoryOptions = {
+	heading: "Выберите подходящую категорию",
+	required: true,
+	inputs: [
+		{
+			appearance: "input-body",
+			radioBot: true,
+			type: "radio",
+			value: "table",
+			text: "Столешница",
+			img: "category-table.svg",
 		},
-	},
+		{
+			appearance: "input-body",
+			radioBot: true,
+			type: "radio",
+			value: "windowsill",
+			text: "Подоконник",
+			img: "category-windowsill.svg",
+		},
+		{
+			appearance: "input-body",
+			radioBot: true,
+			type: "radio",
+			value: "stage",
+			text: "Ступени",
+			img: "category-stage.svg",
+		},
+	],
+};
+
+const options = {
 	form: {
-		testttt: {
-			heading: "Выберите подходящую категорию2",
-			required: true,
-			inputs: [
-				{
-					appearance: "input-body",
-					radioBot: true,
-					type: "radio",
-					value: "ttt",
-					text: "Столешница",
-					img: "category-table.svg",
-				},
-				{
-					appearance: "input-body",
-					radioBot: true,
-					type: "radio",
-					value: "rrrr",
-					text: "Подоконник",
-					img: "category-windowsill.svg",
-				},
-				{
-					appearance: "input-body",
-					radioBot: true,
-					type: "radio",
-					value: "qqq",
-					text: "Ступени",
-					img: "category-stage.svg",
-				},
-			],
+		table: {
+			testttt: {
+				heading: "Выберите подходящую категорию2",
+				required: true,
+				inputs: [
+					{
+						appearance: "input-body",
+						radioBot: true,
+						type: "radio",
+						value: "ttt",
+						text: "Столешница",
+						img: "category-table.svg",
+					},
+					{
+						appearance: "input-body",
+						radioBot: true,
+						type: "radio",
+						value: "rrrr",
+						text: "Подоконник",
+						img: "category-windowsill.svg",
+					},
+					{
+						appearance: "input-body",
+						radioBot: true,
+						type: "radio",
+						value: "qqq",
+						text: "Ступени",
+						img: "category-stage.svg",
+					},
+				],
+			},
 		},
 	},
 };
@@ -72,13 +73,13 @@ const store = new Vuex.Store({
 			{
 				id: "category",
 				text: "Категория",
-				visible: true,
+				visible: false,
 				disabled: false,
 			},
 			{
 				id: "form",
 				text: "Форма",
-				visible: false,
+				visible: true,
 				disabled: true,
 			},
 			{
@@ -112,7 +113,9 @@ const store = new Vuex.Store({
 				disabled: true,
 			},
 		],
-		selectOptions: {},
+		selectOptions: {
+			category: false,
+		},
 	},
 	mutations: {
 		// Переключения вкладок с опциями

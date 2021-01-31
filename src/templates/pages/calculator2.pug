@@ -30,17 +30,29 @@ html
 
                     .calc__body-wrap
                         .calc__body(v-for="(item, index) in roadMap", v-show="item.visible")
-                            //- button(@click="roadMapNext(index)") roadMapNext
-                            .calc__options(v-for="(option, optionKey) in options[item.id]")
-                                h2.options__heading {{option.heading}}
+                            //- p {{selectOptions.category}}
+                            .calc__options(v-if="item.id == 'category'")
+                                h2.options__heading {{categoryOptions.heading}}
                                 .options-input__wrap
-                                    .options-input(v-for="input in option.inputs")
-                                        input(@change="chooseOption(optionKey, input.value), roadMapNext(optionKey, index)", :id="optionKey + '-' + input.value", :type="input.type", :name="optionKey", :value="input.value")
-                                        label(:for="optionKey + '-' + input.value", tabindex="1")
+                                    .options-input(v-for="input in categoryOptions.inputs")
+                                        input(@change="createSelectOptions(), chooseOption('category', input.value), roadMapNext('productType', index)", :id="'productType' + '-' + input.value", :type="input.type", :name="'productType'", :value="input.value")
+                                        label(:for="'productType' + '-' + input.value", tabindex="1")
                                             .options-input__body
                                                 .options-input__radio-chec(:class="input.radioBot ? 'options-input__radio_bot' : ''")
-                                                img(:src="'./assets/images/calc-svg/' + input.img", :alt="input.text").options-input__img
+                                                img(:src="urlImg + input.img", :alt="input.text").options-input__img
                                             span.options-input__name {{input.text}}
+                            div(v-if="item.id != 'category' && selectOptions.category")
+                                p {{options[item.id][category]}}
+                                .calc__options(v-for="(option, optionKey) in options[item.id][category]")
+                                    h2.options__heading {{option.heading}}
+                                    .options-input__wrap
+                                        .options-input(v-for="input in option.inputs")
+                                            input(@change="chooseOption(optionKey, input.value), roadMapNext(optionKey, index)", :id="optionKey + '-' + input.value", :type="input.type", :name="optionKey", :value="input.value")
+                                            label(:for="optionKey + '-' + input.value", tabindex="1")
+                                                .options-input__body
+                                                    .options-input__radio-chec(:class="input.radioBot ? 'options-input__radio_bot' : ''")
+                                                    img(:src="'./assets/images/calc-svg/' + input.img", :alt="input.text").options-input__img
+                                                span.options-input__name {{input.text}}
 
                             .calc__button-wrap(v-if="index + 1 < roadMap.length")
                                 button(@click='roadMapTo(index - 1)', :disabled="index == 0").button.button_gray.calc__button Назад
