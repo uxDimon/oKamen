@@ -9,20 +9,20 @@ const categoryOptions = {
 			text: "Столешница",
 			img: "category-table.svg",
 		},
-		{
-			radioBot: true,
-			type: "radio",
-			value: "windowsill",
-			text: "Подоконник",
-			img: "category-windowsill.svg",
-		},
-		{
-			radioBot: true,
-			type: "radio",
-			value: "stage",
-			text: "Ступени",
-			img: "category-stage.svg",
-		},
+		// {
+		// 	radioBot: true,
+		// 	type: "radio",
+		// 	value: "windowsill",
+		// 	text: "Подоконник",
+		// 	img: "category-windowsill.svg",
+		// },
+		// {
+		// 	radioBot: true,
+		// 	type: "radio",
+		// 	value: "stage",
+		// 	text: "Ступени",
+		// 	img: "category-stage.svg",
+		// },
 	],
 };
 
@@ -56,11 +56,9 @@ const options = {
 					},
 				],
 			},
-		},
-		materials: {
-			form: {
-				heading: "Выберите подходящую форму столешницы",
-				required: true,
+			form2: {
+				heading: "Выберите подходящую форму столешницы2",
+				required: false,
 				inputs: [
 					{
 						radioBot: true,
@@ -86,6 +84,39 @@ const options = {
 				],
 			},
 		},
+		materials: {
+			form3: {
+				heading: "Выберите подходящую форму столешницы3",
+				required: false,
+				inputs: [
+					{
+						radioBot: true,
+						type: "radio",
+						value: "form-norm",
+						text: "Прямая",
+						img: "form-norm.svg",
+					},
+					{
+						radioBot: true,
+						type: "radio",
+						value: "form-g",
+						text: "Г-образна",
+						img: "form-g.svg",
+					},
+					{
+						radioBot: true,
+						type: "radio",
+						value: "form-p",
+						text: "П-образна",
+						img: "form-p.svg",
+					},
+				],
+			},
+			// materials: {
+			// 	heading: "Выберите разновидность и цвет камня",
+			// 	required: true,
+			// },
+		},
 	},
 	windowsill: {},
 	stage: {},
@@ -99,36 +130,43 @@ const store = new Vuex.Store({
 				text: "Категория",
 				visible: true,
 				disabled: false,
+				disabledButton: true,
 			},
 			form: {
 				text: "Форма",
 				visible: false,
-				disabled: false,
+				disabled: true,
+				disabledButton: true,
 			},
 			materials: {
 				text: "Материалы",
 				visible: false,
-				disabled: false,
+				disabled: true,
+				disabledButton: true,
 			},
 			parameters: {
 				text: "Параметры",
 				visible: false,
 				disabled: true,
+				disabledButton: true,
 			},
 			notch: {
 				text: "Вырезы",
 				visible: false,
 				disabled: true,
+				disabledButton: true,
 			},
 			services: {
 				text: "Доп. услуги",
 				visible: false,
 				disabled: true,
+				disabledButton: true,
 			},
 			total: {
 				text: "Итог",
 				visible: false,
 				disabled: true,
+				disabledButton: true,
 			},
 		},
 		selectOptions: {
@@ -147,10 +185,8 @@ const store = new Vuex.Store({
 			}
 		},
 		// Убирает disabled у следующей вкладки eсли заполнены обязательные поля
-		roadMapNext(state, payload) {
-			if (state.selectOptions[payload.key] != "") {
-				state.roadMap[payload.index + 1].disabled = false;
-			}
+		roadMapNext(state, key) {
+			state.roadMap[key].disabled = false;
 		},
 		chooseOption(state, payload) {
 			// Добавляет выбранную опцию в state.selectOptions
@@ -158,9 +194,14 @@ const store = new Vuex.Store({
 		},
 		// Формирует selectOptions из всех имеющихся опций в options
 		createSelectOptions(state) {
-			for (const screenKey in options) {
-				for (const optionsKey in options[screenKey]) {
+			for (const screenKey in options[state.selectOptions.category]) {
+				const categoryOptions = options[state.selectOptions.category][screenKey];
+				for (const optionsKey in categoryOptions) {
 					Vue.set(state.selectOptions, optionsKey, "");
+					// Убирает disabled на страницах без обязательных полей
+					if (!categoryOptions[optionsKey].required) {
+						state.roadMap[screenKey].disabled = false;
+					}
 				}
 			}
 		},

@@ -13,13 +13,10 @@ var calcApp = new Vue({
 			// Переключения вкладок с опциями
 			store.commit("roadMapTo", index);
 		},
-		roadMapNext: function (key, index) {
+		roadMapNext: function (index) {
 			// Убирает disabled у следующей вкладки
-			store.commit({
-				type: "roadMapNext",
-				key,
-				index,
-			});
+			const key = Object.keys(this.roadMap)[index];
+			store.commit("roadMapNext", key);
 		},
 		chooseOption: function (key, value) {
 			// Добавляет выбранную опцию в state.selectOptions
@@ -29,10 +26,16 @@ var calcApp = new Vue({
 				value,
 			});
 		},
-		disabledNextWindow: function (index) {
-			return this.roadMap[Object.keys(this.roadMap)[index]].disabled;
+		nextButtonDisabled: function (itemList) {
+			for (const item in itemList) {
+				console.log(itemList[item].required);
+				// if (itemList[item].required) {
+				// 	console.log(1);
+				// }
+			}
 		},
 		createSelectOptions: function () {
+			// Формирует selectOptions из всех имеющихся опций в options
 			store.commit("createSelectOptions");
 		},
 	},
