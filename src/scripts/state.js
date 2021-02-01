@@ -3,7 +3,6 @@ const categoryOptions = {
 	required: true,
 	inputs: [
 		{
-			appearance: "input-body",
 			radioBot: true,
 			type: "radio",
 			value: "table",
@@ -11,7 +10,6 @@ const categoryOptions = {
 			img: "category-table.svg",
 		},
 		{
-			appearance: "input-body",
 			radioBot: true,
 			type: "radio",
 			value: "windowsill",
@@ -19,7 +17,6 @@ const categoryOptions = {
 			img: "category-windowsill.svg",
 		},
 		{
-			appearance: "input-body",
 			radioBot: true,
 			type: "radio",
 			value: "stage",
@@ -30,101 +27,123 @@ const categoryOptions = {
 };
 
 const options = {
-	form: {
-		table: {
-			testttt: {
-				heading: "Выберите подходящую категорию2",
+	table: {
+		form: {
+			form: {
+				heading: "Выберите подходящую форму столешницы",
 				required: true,
 				inputs: [
 					{
-						appearance: "input-body",
 						radioBot: true,
 						type: "radio",
-						value: "ttt",
-						text: "Столешница",
-						img: "category-table.svg",
+						value: "form-norm",
+						text: "Прямая",
+						img: "form-norm.svg",
 					},
 					{
-						appearance: "input-body",
 						radioBot: true,
 						type: "radio",
-						value: "rrrr",
-						text: "Подоконник",
-						img: "category-windowsill.svg",
+						value: "form-g",
+						text: "Г-образна",
+						img: "form-g.svg",
 					},
 					{
-						appearance: "input-body",
 						radioBot: true,
 						type: "radio",
-						value: "qqq",
-						text: "Ступени",
-						img: "category-stage.svg",
+						value: "form-p",
+						text: "П-образна",
+						img: "form-p.svg",
+					},
+				],
+			},
+		},
+		materials: {
+			form: {
+				heading: "Выберите подходящую форму столешницы",
+				required: true,
+				inputs: [
+					{
+						radioBot: true,
+						type: "radio",
+						value: "form-norm",
+						text: "Прямая",
+						img: "form-norm.svg",
+					},
+					{
+						radioBot: true,
+						type: "radio",
+						value: "form-g",
+						text: "Г-образна",
+						img: "form-g.svg",
+					},
+					{
+						radioBot: true,
+						type: "radio",
+						value: "form-p",
+						text: "П-образна",
+						img: "form-p.svg",
 					},
 				],
 			},
 		},
 	},
+	windowsill: {},
+	stage: {},
 };
 
 Vue.use(Vuex);
 const store = new Vuex.Store({
 	state: {
-		roadMap: [
-			{
-				id: "category",
+		roadMap: {
+			category: {
 				text: "Категория",
+				visible: true,
+				disabled: false,
+			},
+			form: {
+				text: "Форма",
 				visible: false,
 				disabled: false,
 			},
-			{
-				id: "form",
-				text: "Форма",
-				visible: true,
-				disabled: true,
-			},
-			{
-				id: "materials",
+			materials: {
 				text: "Материалы",
 				visible: false,
-				disabled: true,
+				disabled: false,
 			},
-			{
-				id: "parameters",
+			parameters: {
 				text: "Параметры",
 				visible: false,
 				disabled: true,
 			},
-			{
-				id: "notch",
+			notch: {
 				text: "Вырезы",
 				visible: false,
 				disabled: true,
 			},
-			{
-				id: "services",
+			services: {
 				text: "Доп. услуги",
 				visible: false,
 				disabled: true,
 			},
-			{
-				id: "total",
+			total: {
 				text: "Итог",
 				visible: false,
 				disabled: true,
 			},
-		],
+		},
 		selectOptions: {
-			category: false,
+			category: "table",
 		},
 	},
 	mutations: {
 		// Переключения вкладок с опциями
 		roadMapTo(state, index) {
-			if (index >= 0 && index <= state.roadMap.length - 1) {
+			const roadMapArrae = Object.keys(state.roadMap);
+			if (index >= 0 && index <= roadMapArrae.length - 1) {
 				for (const key in state.roadMap) {
 					state.roadMap[key].visible = false;
 				}
-				state.roadMap[index].visible = true;
+				state.roadMap[roadMapArrae[index]].visible = true;
 			}
 		},
 		// Убирает disabled у следующей вкладки eсли заполнены обязательные поля

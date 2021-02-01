@@ -29,6 +29,9 @@ var calcApp = new Vue({
 				value,
 			});
 		},
+		disabledNextWindow: function (index) {
+			return this.roadMap[Object.keys(this.roadMap)[index]].disabled;
+		},
 		createSelectOptions: function () {
 			store.commit("createSelectOptions");
 		},
