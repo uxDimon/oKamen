@@ -1,29 +1,31 @@
 const categoryOptions = {
-	heading: "Выберите подходящую категорию",
-	required: true,
-	inputs: [
-		{
-			radioBot: true,
-			type: "radio",
-			value: "table",
-			text: "Столешница",
-			img: "category-table.svg",
-		},
-		// {
-		// 	radioBot: true,
-		// 	type: "radio",
-		// 	value: "windowsill",
-		// 	text: "Подоконник",
-		// 	img: "category-windowsill.svg",
-		// },
-		// {
-		// 	radioBot: true,
-		// 	type: "radio",
-		// 	value: "stage",
-		// 	text: "Ступени",
-		// 	img: "category-stage.svg",
-		// },
-	],
+	category: {
+		heading: "Выберите подходящую категорию",
+		required: true,
+		inputs: [
+			{
+				radioBot: true,
+				type: "radio",
+				value: "table",
+				text: "Столешница",
+				img: "category-table.svg",
+			},
+			// {
+			// 	radioBot: true,
+			// 	type: "radio",
+			// 	value: "windowsill",
+			// 	text: "Подоконник",
+			// 	img: "category-windowsill.svg",
+			// },
+			// {
+			// 	radioBot: true,
+			// 	type: "radio",
+			// 	value: "stage",
+			// 	text: "Ступени",
+			// 	img: "category-stage.svg",
+			// },
+		],
+	},
 };
 
 const options = {
@@ -58,6 +60,33 @@ const options = {
 			},
 			form2: {
 				heading: "Выберите подходящую форму столешницы2",
+				required: true,
+				inputs: [
+					{
+						radioBot: true,
+						type: "radio",
+						value: "form-norm",
+						text: "Прямая",
+						img: "form-norm.svg",
+					},
+					{
+						radioBot: true,
+						type: "radio",
+						value: "form-g",
+						text: "Г-образна",
+						img: "form-g.svg",
+					},
+					{
+						radioBot: true,
+						type: "radio",
+						value: "form-p",
+						text: "П-образна",
+						img: "form-p.svg",
+					},
+				],
+			},
+			form3: {
+				heading: "Выберите подходящую форму столешницы3",
 				required: false,
 				inputs: [
 					{
@@ -85,7 +114,7 @@ const options = {
 			},
 		},
 		materials: {
-			form3: {
+			form4: {
 				heading: "Выберите подходящую форму столешницы3",
 				required: false,
 				inputs: [
@@ -182,11 +211,12 @@ const store = new Vuex.Store({
 					state.roadMap[key].visible = false;
 				}
 				state.roadMap[roadMapArrae[index]].visible = true;
+				state.roadMap[roadMapArrae[index]].disabled = false;
 			}
 		},
 		// Убирает disabled у следующей вкладки eсли заполнены обязательные поля
-		roadMapNext(state, key) {
-			state.roadMap[key].disabled = false;
+		nextButtonDisabled(state, key) {
+			state.roadMap[key].disabledButton = false;
 		},
 		chooseOption(state, payload) {
 			// Добавляет выбранную опцию в state.selectOptions
@@ -198,10 +228,6 @@ const store = new Vuex.Store({
 				const categoryOptions = options[state.selectOptions.category][screenKey];
 				for (const optionsKey in categoryOptions) {
 					Vue.set(state.selectOptions, optionsKey, "");
-					// Убирает disabled на страницах без обязательных полей
-					if (!categoryOptions[optionsKey].required) {
-						state.roadMap[screenKey].disabled = false;
-					}
 				}
 			}
 		},

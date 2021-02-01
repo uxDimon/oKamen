@@ -26,15 +26,15 @@ html
                     nav.calc__road-map
                         ol.calc__road-map-list
                             li(v-for="(item, key, index) in roadMap").calc__road-map-item
-                                button(@click='roadMapTo(index)', :disabled="index != 0").calc__road-map-linc {{item.text}}
+                                button(@click='roadMapTo(index)', :disabled="item.disabled").calc__road-map-linc {{item.text}}
 
                     .calc__body-wrap
                         .calc__body(v-show="roadMap.category.visible")
                             .calc__options
-                                h2.options__heading {{categoryOptions.heading}}
+                                h2.options__heading {{categoryOptions.category.heading}}
                                 .options-input__wrap
-                                    .options-input(v-for="input in categoryOptions.inputs")
-                                        input(@change="createSelectOptions(), chooseOption('category', input.value)", :id="'productType' + '-' + input.value", :type="input.type", :name="'productType'", :value="input.value")
+                                    .options-input(v-for="input in categoryOptions.category.inputs")
+                                        input(@change="createSelectOptions(), chooseOption('category', input.value), nextButtonDisabled(categoryOptions, 'category')", :id="'productType' + '-' + input.value", :type="input.type", :name="'productType'", :value="input.value")
                                         label(:for="'productType' + '-' + input.value", tabindex="1")
                                             .options-input__body
                                                 .options-input__radio-chec.options-input__radio_bot
@@ -42,14 +42,14 @@ html
                                             span.options-input__name {{input.text}}
 
                             .calc__button-wrap
-                                button(@click="roadMapTo(1)").button.calc__button Далее
+                                button(@click="roadMapTo(1)", :disabled="roadMap.category.disabledButton").button.calc__button Далее
 
                         .calc__body(v-for="(item, key, index) in options[selectOptions.category]", v-show="roadMap[key].visible")
                             .calc__options(v-for="(optionItem, optionKey) in item")
                                 h2.options__heading {{optionItem.heading}}
                                 .options-input__wrap
                                     .options-input(v-for="input in optionItem.inputs")
-                                        input(@change="chooseOption(optionKey, input.value), nextButtonDisabled(item)", :id="optionKey + '-' + input.value", :type="input.type", :name="optionKey", :value="input.value")
+                                        input(@change="chooseOption(optionKey, input.value), nextButtonDisabled(item, key)", :id="optionKey + '-' + input.value", :type="input.type", :name="optionKey", :value="input.value")
                                         label(:for="optionKey + '-' + input.value", tabindex="1")
                                             .options-input__body
                                                 .options-input__radio-chec

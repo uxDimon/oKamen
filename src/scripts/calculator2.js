@@ -13,11 +13,6 @@ var calcApp = new Vue({
 			// Переключения вкладок с опциями
 			store.commit("roadMapTo", index);
 		},
-		roadMapNext: function (index) {
-			// Убирает disabled у следующей вкладки
-			const key = Object.keys(this.roadMap)[index];
-			store.commit("roadMapNext", key);
-		},
 		chooseOption: function (key, value) {
 			// Добавляет выбранную опцию в state.selectOptions
 			store.commit({
@@ -26,17 +21,30 @@ var calcApp = new Vue({
 				value,
 			});
 		},
-		nextButtonDisabled: function (itemList) {
-			for (const item in itemList) {
-				console.log(itemList[item].required);
-				// if (itemList[item].required) {
-				// 	console.log(1);
-				// }
+		nextButtonDisabled: function (obItem, key) {
+			// Убирает disabled у следующей вкладки eсли заполнены обязательные поля
+			let requiredOk = [];
+			for (const item in obItem) {
+				const required = obItem[item].required;
+				if (required && this.selectOptions[item] != "") {
+					requiredOk.push(true);
+				} else if (!required) {
+					requiredOk.push(true);
+				} else {
+					requiredOk.push(false);
+				}
 			}
+			if (requiredOk.every((item) => item == true)) store.commit("nextButtonDisabled", key);
 		},
 		createSelectOptions: function () {
 			// Формирует selectOptions из всех имеющихся опций в options
 			store.commit("createSelectOptions");
+
+			// Убирает disabledButton на страницах без обязательных полей
+			const renderOptions = this.options[this.selectOptions.category];
+			for (const key in renderOptions) {
+				this.nextButtonDisabled(renderOptions[key], key);
+			}
 		},
 	},
 	created: function () {},
