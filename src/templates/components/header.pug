@@ -1,35 +1,49 @@
 header.header__wrap
     .header
-        a(href="#")
-            svg(width="142", height="70").header__logo.header__logo_ver
-                use(xlink:href="./assets/images/sprite.svg#logo_ver-g")
-            svg(width="142", height="70").header__logo.header__logo_norm
-                use(xlink:href="./assets/images/sprite.svg#logo")
+        .header__info
+            a(href="#")
+                svg(width="142", height="70").header__logo.header__logo_ver
+                    use(xlink:href="./assets/images/sprite.svg#logo_ver-g")
+                svg(width="142", height="70").header__logo.header__logo_norm
+                    use(xlink:href="./assets/images/sprite.svg#logo")
+            a.header__link-mail(href="mailto:5020502@stonehouse.top") 5020502@stonehouse.top
+            span.header__link-time Пн-Пт: 10:00 — 19:00
 
         button(data-drop-kontacts-button).header__kontacts-button Адреса
         
         .header__body
             .header__kontacts
-                .header__kontacts-item
-                    span.header__kontacts-city Кузьмолово
-                    span.header__kontacts-street Токсовское шоссе
-                    a(href="tel:+78123804144").header__kontacts-tel +7 (812) 380-41-44
-                .header__kontacts-item
-                    span.header__kontacts-city Велигонты
-                    span.header__kontacts-street Ропшинское шоссе
-                    a(href="tel:+78123804144").header__kontacts-tel +7 (812) 380-41-44
-                .header__kontacts-item
-                    span.header__kontacts-city Сертолово
-                    span.header__kontacts-street Выборгское шоссе
-                    a(href="tel:+78123804144").header__kontacts-tel +7 (812) 380-41-44
-                .header__kontacts-item
-                    span.header__kontacts-city Санкт-Петербург
-                    span.header__kontacts-street МЦ Аквилон
-                    a(href="tel:+78123804144").header__kontacts-tel +7 (812) 380-41-44
-                .header__kontacts-item
-                    span.header__kontacts-city Заневка
-                    span.header__kontacts-street Колтушское шоссе
-                    a(href="tel:+78123804144").header__kontacts-tel +7 (812) 380-41-44
+                a.header__link-tel(href="tel:+7(812)502-0-502") +7 (812) 502-0-502
+                ul.header__cont-list
+                        li.header__cont-item
+                            a.header__link-mail(href="mailto:5020502@stonehouse.top") 5020502@stonehouse.top
+                        li.header__cont-item
+                            span.header__link-time Пн-Пт: 10:00 — 19:00
+                .header__wrapper
+                    .header__add-wrap
+                        span.header__add-name МЦ Аквилон
+                        address.header__add-address Санкт-Петербург ул Новолитовская 15в, МЦ Аквилон, оф. 211/1
+                    
+                    .header__adds-wrap
+                        a.header__link-drop(href="#")
+                            span Пункты приема заказов
+                            <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1 1L5 5L9 1" stroke="#4F4F4F"/>
+                            </svg>
+                        ul.header__kontacts-list
+                            li.header__kontacts-item
+                                span.header__kontacts-city Кузьмолово
+                                span.header__kontacts-street Ленинградская область, пос. Кузьмоловский, 8-й км Токсовского шоссе.
+                            li.header__kontacts-item
+                                span.header__kontacts-city Заневка
+                                span.header__kontacts-street Ленинградская область, д. Заневка, станция Заневский пост, 1/2
+                            li.header__kontacts-item
+                                span.header__kontacts-city Сертолово
+                                span.header__kontacts-street Ленинградская область, г. Сертолово, ул. Песочная д.8
+                            li.header__kontacts-item
+                                span.header__kontacts-city Велигонты
+                                span.header__kontacts-street Ленинградская область д. Велигонты Ропшинское шоссе д. 20А
+                            
                 button(data-control-active="popup1").button.button__ghost.header__kontacts-button-feedback Обратная связь            
             
             .header__menu-second-wrap
