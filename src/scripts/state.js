@@ -2,7 +2,7 @@ const categoryOptions = {
 	category: {
 		heading: "Выберите подходящую категорию",
 		required: true,
-		inputs: [
+		inputsImg: [
 			{
 				radioBot: true,
 				type: "radio",
@@ -34,61 +34,7 @@ const options = {
 			form: {
 				heading: "Выберите подходящую форму столешницы",
 				required: true,
-				inputs: [
-					{
-						radioBot: true,
-						type: "radio",
-						value: "form-norm",
-						text: "Прямая",
-						img: "form-norm.svg",
-					},
-					{
-						radioBot: true,
-						type: "radio",
-						value: "form-g",
-						text: "Г-образна",
-						img: "form-g.svg",
-					},
-					{
-						radioBot: true,
-						type: "radio",
-						value: "form-p",
-						text: "П-образна",
-						img: "form-p.svg",
-					},
-				],
-			},
-			form2: {
-				heading: "Выберите подходящую форму столешницы2",
-				required: true,
-				inputs: [
-					{
-						radioBot: true,
-						type: "radio",
-						value: "form-norm",
-						text: "Прямая",
-						img: "form-norm.svg",
-					},
-					{
-						radioBot: true,
-						type: "radio",
-						value: "form-g",
-						text: "Г-образна",
-						img: "form-g.svg",
-					},
-					{
-						radioBot: true,
-						type: "radio",
-						value: "form-p",
-						text: "П-образна",
-						img: "form-p.svg",
-					},
-				],
-			},
-			form3: {
-				heading: "Выберите подходящую форму столешницы3",
-				required: false,
-				inputs: [
+				inputsImg: [
 					{
 						radioBot: true,
 						type: "radio",
@@ -114,37 +60,16 @@ const options = {
 			},
 		},
 		materials: {
-			form4: {
-				heading: "Выберите подходящую форму столешницы3",
-				required: false,
-				inputs: [
-					{
-						radioBot: true,
-						type: "radio",
-						value: "form-norm",
-						text: "Прямая",
-						img: "form-norm.svg",
-					},
-					{
-						radioBot: true,
-						type: "radio",
-						value: "form-g",
-						text: "Г-образна",
-						img: "form-g.svg",
-					},
-					{
-						radioBot: true,
-						type: "radio",
-						value: "form-p",
-						text: "П-образна",
-						img: "form-p.svg",
-					},
-				],
-			},
 			// materials: {
 			// 	heading: "Выберите разновидность и цвет камня",
 			// 	required: true,
 			// },
+		},
+		parameters: {
+			// thickness: {
+			// 	heading: "Выберите подходящую форму столешницы",
+			// 	required: true,
+			// }
 		},
 	},
 	windowsill: {},
@@ -220,14 +145,16 @@ const store = new Vuex.Store({
 		},
 		chooseOption(state, payload) {
 			// Добавляет выбранную опцию в state.selectOptions
-			state.selectOptions[payload.key] = payload.value;
+			state.selectOptions[payload.key].value = payload.value;
+			state.selectOptions[payload.key].prise = payload.prise;
 		},
 		// Формирует selectOptions из всех имеющихся опций в options
 		createSelectOptions(state) {
 			for (const screenKey in options[state.selectOptions.category]) {
 				const categoryOptions = options[state.selectOptions.category][screenKey];
 				for (const optionsKey in categoryOptions) {
-					Vue.set(state.selectOptions, optionsKey, "");
+					const underOptions = { value: "", prise: "" };
+					Vue.set(state.selectOptions, optionsKey, underOptions);
 				}
 			}
 		},

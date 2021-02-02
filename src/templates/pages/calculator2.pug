@@ -33,7 +33,7 @@ html
                             .calc__options
                                 h2.options__heading {{categoryOptions.category.heading}}
                                 .options-input__wrap
-                                    .options-input(v-for="input in categoryOptions.category.inputs")
+                                    .options-input(v-for="input in categoryOptions.category.inputsImg")
                                         input(@change="createSelectOptions(), chooseOption('category', input.value), nextButtonDisabled(categoryOptions, 'category')", :id="'productType' + '-' + input.value", :type="input.type", :name="'productType'", :value="input.value")
                                         label(:for="'productType' + '-' + input.value", tabindex="1")
                                             .options-input__body
@@ -48,12 +48,12 @@ html
                             .calc__options(v-for="(optionItem, optionKey) in item")
                                 h2.options__heading {{optionItem.heading}}
                                 .options-input__wrap
-                                    .options-input(v-for="input in optionItem.inputs")
+                                    .options-input(v-for="input in optionItem.inputsImg")
                                         input(@change="chooseOption(optionKey, input.value), nextButtonDisabled(item, key)", :id="optionKey + '-' + input.value", :type="input.type", :name="optionKey", :value="input.value")
                                         label(:for="optionKey + '-' + input.value", tabindex="1")
                                             .options-input__body
                                                 .options-input__radio-chec
-                                                img(:src="'./assets/images/calc-svg/' + input.img", :alt="input.text").options-input__img
+                                                img(:src="urlImg + input.img", :alt="input.text").options-input__img
                                             span.options-input__name {{input.text}}
                                     
 

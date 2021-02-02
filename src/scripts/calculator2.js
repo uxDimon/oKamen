@@ -13,12 +13,13 @@ var calcApp = new Vue({
 			// Переключения вкладок с опциями
 			store.commit("roadMapTo", index);
 		},
-		chooseOption: function (key, value) {
+		chooseOption: function (key, value, prise = "") {
 			// Добавляет выбранную опцию в state.selectOptions
 			store.commit({
 				type: "chooseOption",
 				key,
 				value,
+				prise,
 			});
 		},
 		nextButtonDisabled: function (obItem, key) {
@@ -26,13 +27,7 @@ var calcApp = new Vue({
 			let requiredOk = [];
 			for (const item in obItem) {
 				const required = obItem[item].required;
-				if (required && this.selectOptions[item] != "") {
-					requiredOk.push(true);
-				} else if (!required) {
-					requiredOk.push(true);
-				} else {
-					requiredOk.push(false);
-				}
+				(required && this.selectOptions[item] != "") || !required ? requiredOk.push(true) : requiredOk.push(false);
 			}
 			if (requiredOk.every((item) => item == true)) store.commit("nextButtonDisabled", key);
 		},
