@@ -592,6 +592,13 @@ input[type="radio"] {
   justify-content: space-between;
   align-items: center; }
 
+.header__info {
+  display: grid;
+  grid-template-columns: 1fr;
+  font-family: "Manrope", sans-serif;
+  margin-right: 40px;
+  padding-top: 20px; }
+
 .header__logo {
   display: block;
   margin-right: 16px;
@@ -600,15 +607,88 @@ input[type="radio"] {
 .header__logo_norm {
   display: none; }
 
+.header__link-mail {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  color: #161615;
+  margin: 20px 0 10px; }
+
+.header__link-time {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 125%;
+  color: #293f54; }
+
 .header__body {
   width: 100%;
   max-width: 1020px; }
 
 .header__kontacts {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding: 8px 0 16px 0;
-  border-bottom: 1px solid rgba(79, 79, 79, 0.15);
-  justify-content: space-between; }
+  border-bottom: 1px solid rgba(79, 79, 79, 0.15); }
+
+.header__link-tel {
+  font-family: "Manrope", sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 20px;
+  color: #161615; }
+
+.header__add-wrap {
+  display: flex;
+  align-items: center;
+  font-family: "Manrope", sans-serif;
+  font-size: 14px;
+  line-height: 16px;
+  color: #4f4f4f; }
+
+.header__add-name {
+  font-weight: 600; }
+
+.header__add-address {
+  font-style: normal;
+  margin-left: 10px; }
+
+.header__link-drop {
+  display: block;
+  font-family: "Manrope", sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 16px;
+  color: #4f4f4f;
+  padding-bottom: 3px; }
+  .header__link-drop:hover {
+    text-decoration: none; }
+  .header__link-drop span {
+    margin-right: 5px; }
+
+.header__kontacts-list {
+  position: absolute;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  list-style: none;
+  visibility: hidden;
+  transform: translateY(-20px);
+  z-index: 3;
+  opacity: 0;
+  background-color: #ECECEC;
+  margin: 0 0 0 -12px;
+  padding: 20px;
+  transition: 150ms ease-out 0ms;
+  transition-property: visibility, opacity, transform; }
+
+.header__adds-wrap {
+  position: relative;
+  margin-top: 20px; }
+  .header__adds-wrap:hover .header__kontacts-list {
+    visibility: visible;
+    transform: translateY(0);
+    opacity: 1; }
 
 .header__kontacts-button {
   display: none;
@@ -642,13 +722,17 @@ input[type="radio"] {
   flex-direction: column;
   color: #4f4f4f;
   font-family: "Manrope", sans-serif;
-  font-size: 14px; }
+  font-size: 14px;
+  margin-bottom: 10px; }
+  .header__kontacts-item:last-of-type {
+    margin-bottom: 0; }
 
 .header__kontacts-city {
   font-weight: 600; }
 
 .header__kontacts-street {
-  font-weight: 300; }
+  font-weight: 300;
+  margin-top: 5px; }
 
 .header__kontacts-tel {
   text-decoration: none;
@@ -671,6 +755,9 @@ input[type="radio"] {
 
 .main-menu {
   font-family: "Manrope", sans-serif; }
+
+.header__cont-list {
+  display: none; }
 
 .main-menu__list {
   display: grid;
@@ -883,18 +970,36 @@ input[type="radio"] {
     display: none; }
   .header-fixed .header__kontacts {
     display: none; }
+  .header-fixed .header__info {
+    padding-top: 0; }
+  .header-fixed .header__link-mail {
+    display: none; }
+  .header-fixed .header__link-time {
+    display: none; }
 
 @media screen and (max-width: 1200px) {
+  .header__info {
+    margin-right: 20px; }
+  .header__link-tel {
+    font-size: 16px; }
   .main-menu__list {
-    grid-column-gap: 30px; } }
+    grid-column-gap: 30px; }
+  .main-menu__linc {
+    font-size: 14px; }
+  .main-menu__list {
+    grid-column-gap: 20px; } }
 
 @media screen and (max-width: 1060px) {
+  .header__add-wrap {
+    flex-direction: column;
+    align-items: flex-start; }
+  .header__add-address {
+    margin-left: 0;
+    margin-top: 5px; }
   .main-menu__list {
-    grid-column-gap: 20px; }
-  .main-menu__linc {
-    font-size: 15px; } }
+    grid-column-gap: 15px; } }
 
-@media screen and (max-width: 960px) {
+@media screen and (max-width: 1023px) {
   .header__logo_ver {
     display: none; }
   .header__logo_norm {
@@ -923,17 +1028,44 @@ input[type="radio"] {
     border-bottom: none;
     background-color: #ffffff;
     grid-auto-flow: row;
-    grid-row-gap: 36px; }
+    grid-row-gap: 36px;
+    grid-template-columns: 100%; }
   .header__kontacts._active {
     visibility: visible;
     transform: translateX(0);
     opacity: 1; }
+  .header__adds-wrap {
+    margin-top: 10px; }
+  .header__kontacts-list {
+    max-width: 100%;
+    position: static;
+    opacity: 1;
+    transform: none;
+    background: none;
+    visibility: visible;
+    padding: 0;
+    margin: 0; }
+  .header__link-drop {
+    display: none; }
   .header__kontacts-tel {
     font-weight: 600; }
+  .header__cont-list {
+    display: grid;
+    grid-auto-flow: row;
+    row-gap: 10px;
+    list-style: none;
+    padding: 0;
+    margin: 0; }
   .header__menu-second-wrap {
     position: static;
     justify-content: flex-end;
     width: 150px; }
+  .header__info {
+    padding-top: 0; }
+    .header__info .header__link-mail {
+      display: none; }
+    .header__info .header__link-time {
+      display: none; }
   .main-menu {
     position: absolute;
     z-index: 99;
@@ -1315,21 +1447,14 @@ input[type="radio"] {
 #form_p {
   display: none; }
 
-#form,
-#materials,
-#parameters,
-#notch,
-#services,
-#total {
-  display: none; }
-
 .calc {
   width: 100%;
   max-width: 1240px;
   padding-right: var(--content-p-r);
   padding-left: var(--content-p-l);
   margin-bottom: var(--block-m-b);
-  margin-top: var(--block-m-t); }
+  margin-top: var(--block-m-t);
+  visibility: visible; }
 
 .calc__body {
   max-width: 610px;
@@ -1389,10 +1514,6 @@ input[type="radio"] {
   display: flex;
   justify-content: space-between; }
 
-.options {
-  display: flex;
-  flex-direction: column; }
-
 .options__heading {
   font-weight: 500;
   font-size: 18px;
@@ -1440,7 +1561,7 @@ input[type="radio"] {
 .options-input__radio_bot {
   align-self: flex-end; }
 
-.options-input > input[name="category"] + label .options-input__name {
+.options-input > input[name="productType"] + label .options-input__name {
   margin-top: 0;
   margin-bottom: 24px;
   order: 9; }
