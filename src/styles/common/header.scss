@@ -19,6 +19,14 @@
 	align-items: center;
 }
 
+.header__info {
+	display: grid;
+	grid-template-columns: 1fr;
+	font-family: $font-Manrope;
+	margin-right: 40px;
+	padding-top: 20px;
+}
+
 .header__logo {
 	display: block;
 	margin-right: 16px;
@@ -29,6 +37,21 @@
 	display: none;
 }
 
+.header__link-mail {
+	font-weight: 500;
+	font-size: 14px;
+	line-height: 16px;
+	color: $color-superblack;
+	margin: 20px 0 10px;
+}
+
+.header__link-time {
+	font-weight: 500;
+	font-size: 12px;
+	line-height: 125%;
+	color: $color-dark-blue;
+}
+
 .header__body {
 	width: 100%;
 	max-width: 1020px;
@@ -36,9 +59,83 @@
 
 .header__kontacts {
 	display: flex;
+	justify-content: space-between;
+	align-items: center;
 	padding: 8px 0 16px 0;
 	border-bottom: 1px solid transparentize($color-dark-gray, 0.85);
-	justify-content: space-between;
+}
+
+.header__link-tel {
+	font-family: $font-Manrope;
+	font-weight: 600;
+	font-size: 20px;
+	line-height: 20px;
+	color: $color-superblack;
+}
+
+.header__add-wrap {
+	display: flex;
+	align-items: center;
+	font-family: $font-Manrope;
+	font-size: 14px;
+	line-height: 16px;
+	color: $color-dark-gray;
+}
+
+.header__add-name {
+	font-weight: 600;
+}
+
+.header__add-address {
+	font-style: normal;
+	margin-left: 10px;
+}
+
+.header__link-drop {
+	display: block;
+	font-family: $font-Manrope;
+	font-weight: 600;
+	font-size: 12px;
+	line-height: 16px;
+	color: $color-dark-gray;
+	padding-bottom: 3px;
+
+	&:hover {
+		text-decoration: none;
+	}
+
+	span {
+		margin-right: 5px;
+	}
+}
+
+.header__kontacts-list {
+	position: absolute;
+    width: max-content;
+	list-style: none;
+    visibility: hidden;
+	transform: translateY(-20px);
+	z-index: 3;
+    opacity: 0;
+	background-color: $color-lightgrey;
+	margin: 0 0 0 -12px;
+	padding: 20px;
+	
+	transition: 150ms ease-out 0ms;
+    transition-property: visibility, opacity, transform;
+}
+
+.header__adds-wrap {
+	position: relative;
+	margin-top: 20px;
+
+	&:hover {
+		.header__kontacts-list {
+			visibility: visible;
+			transform: translateY(0);
+			opacity: 1;
+		}
+	}
 }
 
 .header__kontacts-button {
@@ -78,6 +175,11 @@
 	color: $color-dark-gray;
 	font-family: $font-Manrope;
 	font-size: 14px;
+	margin-bottom: 10px;
+
+	&:last-of-type {
+		margin-bottom: 0;
+	}
 }
 
 .header__kontacts-city {
@@ -86,6 +188,7 @@
 
 .header__kontacts-street {
 	font-weight: 300;
+	margin-top: 5px;
 }
 
 .header__kontacts-tel {
@@ -113,6 +216,10 @@
 
 .main-menu {
 	font-family: $font-Manrope;
+}
+
+.header__cont-list {
+	display: none;
 }
 
 .main-menu__list {
@@ -375,25 +482,59 @@
 	.header__kontacts {
 		display: none;
 	}
+
+	.header__info {
+		padding-top: 0;
+	}
+
+	.header__link-mail {
+		display: none;
+	}
+
+	.header__link-time {
+		display: none;
+	}
 }
 
 @media screen and (max-width: 1200px) {
+	.header__info {
+		margin-right: 20px;
+	}
+
+	.header__link-tel {
+		font-size: 16px;
+	}
+
 	.main-menu__list {
 		grid-column-gap: 30px;
+	}
+
+	.main-menu__linc {
+		font-size: 14px;
+	}
+
+	.main-menu__list {
+		grid-column-gap: 20px;
 	}
 }
 
 @media screen and (max-width: 1060px) {
-	.main-menu__list {
-		grid-column-gap: 20px;
+	.header__add-wrap {
+		flex-direction: column;
+		align-items: flex-start;
 	}
 
-	.main-menu__linc {
-		font-size: 15px;
+	.header__add-address {
+		margin-left: 0;
+		margin-top: 5px;
+	}
+
+	.main-menu__list {
+		grid-column-gap: 15px;
 	}
 }
 
-@media screen and (max-width: 960px) {
+@media screen and (max-width: 1023px) {
 	.header__logo_ver {
 		display: none;
 	}
@@ -435,6 +576,7 @@
 		background-color: $color-white;
 		grid-auto-flow: row;
 		grid-row-gap: 36px;
+		grid-template-columns: 100%;
 	}
 
 	.header__kontacts._active {
@@ -443,14 +585,54 @@
 		opacity: 1;
 	}
 
+	.header__adds-wrap {
+		margin-top: 10px;
+	}
+
+	.header__kontacts-list {
+		max-width: 100%;
+		position: static;
+		opacity: 1;
+		transform: none;
+		background: none;
+		visibility: visible;
+		padding: 0;
+		margin: 0;
+	}
+
+	.header__link-drop {
+		display: none;
+	}
+
 	.header__kontacts-tel {
 		font-weight: 600;
+	}
+
+	.header__cont-list {
+		display: grid;
+		grid-auto-flow: row;
+		row-gap: 10px;
+		list-style: none;
+		padding: 0;
+		margin: 0;
 	}
 
 	.header__menu-second-wrap {
 		position: static;
 		justify-content: flex-end;
 		width: 150px;
+	}
+
+	.header__info {
+		padding-top: 0;
+
+		.header__link-mail {
+			display: none;
+		}
+	
+		.header__link-time {
+			display: none;
+		}
 	}
 
 	.main-menu {
