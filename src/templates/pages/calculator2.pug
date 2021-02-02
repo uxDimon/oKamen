@@ -34,7 +34,7 @@ html
                                 h2.options__heading {{categoryOptions.category.heading}}
                                 .options-input__wrap
                                     .options-input(v-for="input in categoryOptions.category.inputsImg")
-                                        input(@change="createSelectOptions(), chooseOption('category', input.value), nextButtonDisabled(categoryOptions, 'category')", :id="'productType' + '-' + input.value", :type="input.type", :name="'productType'", :value="input.value")
+                                        input(@change="createSelectOptions(), chooseOption('category', input.value, $event), nextButtonDisabled(categoryOptions, 'category')", :id="'productType' + '-' + input.value", :type="categoryOptions.category.type", :name="'productType'", :value="input.value")
                                         label(:for="'productType' + '-' + input.value", tabindex="1")
                                             .options-input__body
                                                 .options-input__radio-chec.options-input__radio_bot
@@ -46,16 +46,38 @@ html
 
                         .calc__body(v-for="(item, key, index) in options[selectOptions.category]", v-show="roadMap[key].visible")
                             .calc__options(v-for="(optionItem, optionKey) in item")
-                                h2.options__heading {{optionItem.heading}}
+                                h2(v-if="optionItem.heading").options__heading {{optionItem.heading}}
                                 .options-input__wrap
                                     .options-input(v-for="input in optionItem.inputsImg")
-                                        input(@change="chooseOption(optionKey, input.value), nextButtonDisabled(item, key)", :id="optionKey + '-' + input.value", :type="input.type", :name="optionKey", :value="input.value")
+                                        input(@change="chooseOption(optionKey, input, $event), nextButtonDisabled(item, key)", :id="optionKey + '-' + input.value", :type="optionItem.type", :name="optionKey", :value="input.value")
                                         label(:for="optionKey + '-' + input.value", tabindex="1")
                                             .options-input__body
                                                 .options-input__radio-chec
                                                 img(:src="urlImg + input.img", :alt="input.text").options-input__img
                                             span.options-input__name {{input.text}}
+                                                span(v-if="input.detail").options__radio-text-gray {{input.detail}}
                                     
+                                    label.custom-input(v-for="input in optionItem.inputs")
+                                        input(@change="chooseOption(optionKey, input, $event), nextButtonDisabled(item, key)", :type="optionItem.type", :name="optionKey", :value="input.value")
+                                        .options-input__radio-chec
+                                        span {{input.text + checked}}
+                                            span(v-if="input.detail").options__radio-text-gray {{" " + input.detail}}
+                                    
+
+                                    .options-input__wrap-row(v-if="optionItem.subInputs")
+                                        label.custom-input
+                                            //- input(@change="subInputsDisabled(optionItem.subInputs.disabled)", type="checkbox", :name="optionItem.subInputs.value", :value="optionItem.subInputs.value")
+                                            input(type="checkbox", :name="optionItem.subInputs.value", :value="optionItem.subInputs.value")
+                                            .options-input__radio-chec
+                                            span {{optionItem.subInputs.text + optionItem.subInputs.disabled}}
+                                                span(v-if="optionItem.subInputs.detail").options__radio-text-gray {{" " + optionItem.subInputs.detail}}
+                                        .subcategories-input__wrap
+                                            label(v-for="subInputs in optionItem.subInputs.inputs").custom-input
+                                                input(@change="chooseOption(optionKey, subInputs, $event), nextButtonDisabled(item, key)", :id="optionKey + '-' + subInputs.value", :type="optionItem.type", :name="optionItem.subInputs.value", :value="subInputs.value")
+                                                .options-input__radio-chec
+                                                span {{subInputs.text}}
+                                                    span(v-if="subInputs.detail").options__radio-text-gray {{" " + subInputs.detail}}
+
 
                             .calc__button-wrap
                                 button(@click='roadMapTo(index)').button.button_gray.calc__button Назад

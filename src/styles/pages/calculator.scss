@@ -30,6 +30,26 @@
 	color: black;
 }
 
+.calc__options {
+	position: relative;
+	margin-bottom: 97px;
+
+	&::before {
+		content: "";
+		display: block;
+		position: absolute;
+		top: -46px;
+		left: 0;
+		right: 0;
+		height: 1px;
+		background-color: rgba(176, 137, 78, 0.3);
+	}
+
+	&:first-child::before {
+		content: none;
+	}
+}
+
 .calc__body_total {
 	max-width: 100%;
 }

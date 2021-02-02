@@ -7,19 +7,23 @@ var calcApp = new Vue({
 		categoryOptions,
 		urlImg: "./assets/images/calc-svg/",
 		options,
+		checked: [],
 	},
 	methods: {
 		roadMapTo: function (index) {
 			// Переключения вкладок с опциями
 			store.commit("roadMapTo", index);
 		},
-		chooseOption: function (key, value, prise = "") {
+		chooseOption: function (key, input, event) {
 			// Добавляет выбранную опцию в state.selectOptions
 			store.commit({
 				type: "chooseOption",
 				key,
-				value,
-				prise,
+				value: input.value,
+				prise: input.prise,
+				subInputs: input.subInputs,
+				checked: event.target.checked,
+				typeInput: event.target.type,
 			});
 		},
 		nextButtonDisabled: function (obItem, key) {
@@ -27,7 +31,7 @@ var calcApp = new Vue({
 			let requiredOk = [];
 			for (const item in obItem) {
 				const required = obItem[item].required;
-				(required && this.selectOptions[item] != "") || !required ? requiredOk.push(true) : requiredOk.push(false);
+				(required && this.selectOptions[item].value != "") || !required ? requiredOk.push(true) : requiredOk.push(false);
 			}
 			if (requiredOk.every((item) => item == true)) store.commit("nextButtonDisabled", key);
 		},
