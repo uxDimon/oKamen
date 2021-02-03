@@ -91,11 +91,12 @@ html
                         .options__size-wrap
                             .options__size.options__size_norm(v-if="optionsSize.visible.formNorm")
                                 .options__size-img-wrap
-                                    .options__size-img-body(style="border-top-left-radius: 2px; border-top-right-radius: 2px; border-bottom-left-radius: 2px; border-bottom-right-radius: 2px;")
-                                        input(type="checkbox", data-size-radius="border-top-left-radius").size-img-button
-                                        input(type="checkbox", data-size-radius="border-top-right-radius").size-img-button
-                                        input(type="checkbox", data-size-radius="border-bottom-left-radius").size-img-button
-                                        input(type="checkbox", data-size-radius="border-bottom-right-radius").size-img-button
+                                    //- .options__size-img-body(:style="border-top-left-radius: 2px; border-bottom-left-radius: 2px; border-bottom-right-radius: 2px;")
+                                    .options__size-img-body(:style="rounding")
+                                        input(type="checkbox", ).size-img-button.sib_top-left
+                                        input(type="checkbox", ).size-img-button.sib_top-right
+                                        input(type="checkbox", ).size-img-button.sib_bottom-right
+                                        input(type="checkbox", ).size-img-button.sib_bottom-left
 
                                 .options__size-arrow-horizon.size-arrow-horizon_bot
                                     .size-arrow

@@ -57,6 +57,15 @@ var calcApp = new Vue({
 			});
 		},
 	},
-	computed: {},
+	computed: {
+		rounding: function () {
+			let style = "";
+			if (!this.optionsSize.rounding.TopLeft) style += "border-top-left-radius: 2px;";
+			if (!this.optionsSize.rounding.TopRight) style += "border-top-right-radius: 2px;";
+			if (!this.optionsSize.rounding.BottomRight) style += "border-bottom-right-radius: 2px;";
+			if (!this.optionsSize.rounding.BottomLeft) style += "border-bottom-left-radius: 2px;";
+			return style;
+		},
+	},
 	created: function () {},
 });

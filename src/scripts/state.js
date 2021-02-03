@@ -416,12 +416,19 @@ const store = new Vuex.Store({
 		subInputsDisabledList: {},
 		optionsSize: {
 			visible: {
-				formNorm: false,
+				formNorm: true,
 				formG: false,
 				formP: false,
 			},
+			roundingNumber: 0,
 			rounding: {
-				roundingNumber: 0,
+				TopLeft: false,
+				TopRight: false,
+				BottomRight: false,
+				BottomLeft: false,
+				// rounding: false,
+				// rounding: false,
+				// rounding: false,
 			},
 		},
 	},
@@ -430,9 +437,7 @@ const store = new Vuex.Store({
 		roadMapTo(state, index) {
 			const roadMapArrae = Object.keys(state.roadMap);
 			if (index >= 0 && index <= roadMapArrae.length - 1) {
-				for (const key in state.roadMap) {
-					state.roadMap[key].visible = false;
-				}
+				for (const key in state.roadMap) state.roadMap[key].visible = false;
 				state.roadMap[roadMapArrae[index]].visible = true;
 				state.roadMap[roadMapArrae[index]].disabled = false;
 			}
@@ -468,13 +473,7 @@ const store = new Vuex.Store({
 		createSelectOptions(state) {
 			for (const screenKey in options[state.selectOptions.category]) {
 				const categoryOptions = options[state.selectOptions.category][screenKey];
-				for (const optionsKey in categoryOptions) {
-					this.commit({
-						type: "defaultOptions",
-						optionsKey,
-						categoryOptions,
-					});
-				}
+				for (const optionsKey in categoryOptions) this.commit({ type: "defaultOptions", optionsKey, categoryOptions });
 			}
 		},
 
@@ -495,15 +494,23 @@ const store = new Vuex.Store({
 	getters: {
 		sizeVisible: (state) => {
 			if (state.selectOptions.form.value !== "") {
-				for (const key in state.optionsSize.visible) {
-					state.optionsSize.visible[key] = false;
-				}
+				for (const key in state.optionsSize.visible) state.optionsSize.visible[key] = false;
 				state.optionsSize.visible[state.selectOptions.form.value] = true;
 			}
 		},
 		sizeRounding: (state) => {
 			if (state.selectOptions.rounding.value !== "") {
-				console.log(1);
+				let rounding = 2;
+				if (state.selectOptions.rounding.value === "a") {
+					state.optionsSize.roundingNumber = 0;
+					for (const key in state.optionsSize.rounding) state.optionsSize.rounding[key] = false;
+					rounding = 2;
+				} else if (state.selectOptions.rounding.value === "b") {
+					rounding = 20;
+				} else if (state.selectOptions.rounding.value === "c") {
+					rounding = 40;
+				}
+				document.querySelector(":root").style.setProperty("--form-rounding", rounding + "px");
 			}
 		},
 	},
