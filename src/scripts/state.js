@@ -213,6 +213,7 @@ const store = new Vuex.Store({
 		selectOptions: {
 			category: "table",
 		},
+		subInputsDisabledList: {},
 	},
 	mutations: {
 		// Переключения вкладок с опциями
@@ -244,15 +245,35 @@ const store = new Vuex.Store({
 				state.selectOptions[payload.key].prise = underOptions.prise;
 			}
 		},
+		defaultOptions(state, payload) {
+			let underOptions = { value: "", prise: "" };
+			if (payload.categoryOptions[payload.optionsKey].type === "checkbox") underOptions = {};
+			Vue.set(state.selectOptions, payload.optionsKey, underOptions);
+			if (payload.categoryOptions[payload.optionsKey].subInputs !== undefined) Vue.set(state.subInputsDisabledList, payload.optionsKey, true);
+		},
 		// Формирует selectOptions из всех имеющихся опций в options
 		createSelectOptions(state) {
 			for (const screenKey in options[state.selectOptions.category]) {
 				const categoryOptions = options[state.selectOptions.category][screenKey];
 				for (const optionsKey in categoryOptions) {
-					let underOptions = { value: "", prise: "" };
-					if (categoryOptions[optionsKey].type === "checkbox") underOptions = {};
-					Vue.set(state.selectOptions, optionsKey, underOptions);
+					this.commit({
+						type: "defaultOptions",
+						optionsKey,
+						categoryOptions,
+					});
 				}
+			}
+		},
+		subInputsDisabled(state, payload) {
+			if (payload.checked) {
+				state.subInputsDisabledList[payload.optionKey] = false;
+			} else {
+				state.subInputsDisabledList[payload.optionKey] = true;
+				this.commit({
+					type: "defaultOptions",
+					optionsKey: payload.optionKey,
+					categoryOptions: options[state.selectOptions.category][payload.windowKey],
+				});
 			}
 		},
 	},

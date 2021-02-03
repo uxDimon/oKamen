@@ -60,20 +60,19 @@ html
                                     label.custom-input(v-for="input in optionItem.inputs")
                                         input(@change="chooseOption(optionKey, input, $event), nextButtonDisabled(item, key)", :type="optionItem.type", :name="optionKey", :value="input.value")
                                         .options-input__radio-chec
-                                        span {{input.text + checked}}
+                                        span {{input.text}}
                                             span(v-if="input.detail").options__radio-text-gray {{" " + input.detail}}
                                     
 
                                     .options-input__wrap-row(v-if="optionItem.subInputs")
                                         label.custom-input
-                                            //- input(@change="subInputsDisabled(optionItem.subInputs.disabled)", type="checkbox", :name="optionItem.subInputs.value", :value="optionItem.subInputs.value")
-                                            input(type="checkbox", :name="optionItem.subInputs.value", :value="optionItem.subInputs.value")
+                                            input(@change="subInputsDisabled(optionKey, key, $event)", type="checkbox", :name="optionItem.subInputs.value", :value="optionItem.subInputs.value")
                                             .options-input__radio-chec
-                                            span {{optionItem.subInputs.text + optionItem.subInputs.disabled}}
+                                            span {{optionItem.subInputs.text}}
                                                 span(v-if="optionItem.subInputs.detail").options__radio-text-gray {{" " + optionItem.subInputs.detail}}
-                                        .subcategories-input__wrap
+                                        .subcategories-input__wrap(:class="subInputsDisabledList[optionKey] ? 'disabled' : ''")
                                             label(v-for="subInputs in optionItem.subInputs.inputs").custom-input
-                                                input(@change="chooseOption(optionKey, subInputs, $event), nextButtonDisabled(item, key)", :id="optionKey + '-' + subInputs.value", :type="optionItem.type", :name="optionItem.subInputs.value", :value="subInputs.value")
+                                                input(@change="chooseOption(optionKey, subInputs, $event), nextButtonDisabled(item, key)", :disabled="subInputsDisabledList[optionKey]", :checked="subInputsDisabledList[optionKey] ? false : ''", :type="optionItem.type", :name="optionItem.subInputs.value", :value="subInputs.value")
                                                 .options-input__radio-chec
                                                 span {{subInputs.text}}
                                                     span(v-if="subInputs.detail").options__radio-text-gray {{" " + subInputs.detail}}

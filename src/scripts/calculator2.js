@@ -4,10 +4,10 @@ var calcApp = new Vue({
 	data: {
 		roadMap: store.state.roadMap,
 		selectOptions: store.state.selectOptions,
+		subInputsDisabledList: store.state.subInputsDisabledList,
 		categoryOptions,
 		urlImg: "./assets/images/calc-svg/",
 		options,
-		checked: [],
 	},
 	methods: {
 		roadMapTo: function (index) {
@@ -44,6 +44,14 @@ var calcApp = new Vue({
 			for (const key in renderOptions) {
 				this.nextButtonDisabled(renderOptions[key], key);
 			}
+		},
+		subInputsDisabled: function (optionKey, windowKey, event) {
+			store.commit({
+				type: "subInputsDisabled",
+				optionKey,
+				windowKey,
+				checked: event.target.checked,
+			});
 		},
 	},
 	created: function () {},
