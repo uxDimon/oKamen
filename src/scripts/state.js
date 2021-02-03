@@ -32,17 +32,17 @@ const options = {
 				type: "radio",
 				inputsImg: [
 					{
-						value: "form-norm",
+						value: "formNorm",
 						text: "Прямая",
 						img: "form-norm.svg",
 					},
 					{
-						value: "form-g",
+						value: "formG",
 						text: "Г-образна",
 						img: "form-g.svg",
 					},
 					{
-						value: "form-p",
+						value: "formP",
 						text: "П-образна",
 						img: "form-p.svg",
 					},
@@ -369,7 +369,7 @@ const store = new Vuex.Store({
 		roadMap: {
 			category: {
 				text: "Категория",
-				visible: false,
+				visible: true,
 				disabled: false,
 				disabledButton: true,
 			},
@@ -399,7 +399,7 @@ const store = new Vuex.Store({
 			},
 			services: {
 				text: "Доп. услуги",
-				visible: true,
+				visible: false,
 				disabled: true,
 				disabledButton: true,
 			},
@@ -414,6 +414,16 @@ const store = new Vuex.Store({
 			category: "table",
 		},
 		subInputsDisabledList: {},
+		optionsSize: {
+			visible: {
+				formNorm: false,
+				formG: false,
+				formP: false,
+			},
+			rounding: {
+				roundingNumber: 0,
+			},
+		},
 	},
 	mutations: {
 		// Переключения вкладок с опциями
@@ -467,7 +477,9 @@ const store = new Vuex.Store({
 				}
 			}
 		},
+
 		subInputsDisabled(state, payload) {
+			// Убирает и добавляет disabled у subInputs
 			if (payload.checked) {
 				state.subInputsDisabledList[payload.optionKey] = false;
 			} else {
@@ -477,6 +489,21 @@ const store = new Vuex.Store({
 					optionsKey: payload.optionKey,
 					categoryOptions: options[state.selectOptions.category][payload.windowKey],
 				});
+			}
+		},
+	},
+	getters: {
+		sizeVisible: (state) => {
+			if (state.selectOptions.form.value !== "") {
+				for (const key in state.optionsSize.visible) {
+					state.optionsSize.visible[key] = false;
+				}
+				state.optionsSize.visible[state.selectOptions.form.value] = true;
+			}
+		},
+		sizeRounding: (state) => {
+			if (state.selectOptions.rounding.value !== "") {
+				console.log(1);
 			}
 		},
 	},

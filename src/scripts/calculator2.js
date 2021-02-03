@@ -5,6 +5,7 @@ var calcApp = new Vue({
 		roadMap: store.state.roadMap,
 		selectOptions: store.state.selectOptions,
 		subInputsDisabledList: store.state.subInputsDisabledList,
+		optionsSize: store.state.optionsSize,
 		categoryOptions,
 		urlImg: "./assets/images/calc-svg/",
 		options,
@@ -47,6 +48,7 @@ var calcApp = new Vue({
 			}
 		},
 		subInputsDisabled: function (optionKey, windowKey, event) {
+			// Убирает и добавляет disabled у subInputs
 			store.commit({
 				type: "subInputsDisabled",
 				optionKey,
@@ -55,5 +57,6 @@ var calcApp = new Vue({
 			});
 		},
 	},
+	computed: {},
 	created: function () {},
 });
