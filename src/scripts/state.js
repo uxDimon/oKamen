@@ -26,61 +26,47 @@ const categoryOptions = {
 const options = {
 	table: {
 		form: {
-			// form: {
-			// 	heading: "Выберите подходящую форму столешницы",
+			form: {
+				heading: "Выберите подходящую форму столешницы",
+				required: true,
+				type: "radio",
+				inputsImg: [
+					{
+						value: "form-norm",
+						text: "Прямая",
+						img: "form-norm.svg",
+					},
+					{
+						value: "form-g",
+						text: "Г-образна",
+						img: "form-g.svg",
+					},
+					{
+						value: "form-p",
+						text: "П-образна",
+						img: "form-p.svg",
+					},
+				],
+			},
+			// notchOther: {
+			// 	heading: "",
 			// 	required: true,
-			// 	type: "radio",
-			// 	inputsImg: [
+			// 	type: "checkbox",
+			// 	inputs: [
 			// 		{
-			// 			value: "form-norm",
-			// 			text: "Прямая",
-			// 			img: "form-norm.svg",
+			// 			value: "other",
+			// 			text: "Иные вырезы",
+			// 			detail: "(итоговая цена будет известна после фактических замеров)",
+			// 			prise: 0,
 			// 		},
 			// 		{
-			// 			value: "form-g",
-			// 			text: "Г-образна",
-			// 			img: "form-g.svg",
-			// 		},
-			// 		{
-			// 			value: "form-p",
-			// 			text: "П-образна",
-			// 			img: "form-p.svg",
+			// 			value: "other2",
+			// 			text: "Иные вырезы",
+			// 			detail: "(итоговая цена будет известна после фактических замеров)",
+			// 			prise: 0,
 			// 		},
 			// 	],
 			// },
-			notchMixer: {
-				heading: "",
-				required: false,
-				type: "checkbox",
-				subInputs: {
-					text: "Вырез под смеситель",
-					detail: "(от 1 000 ₽)",
-					value: "mixer",
-					inputNumber: [
-						{
-							value: "up",
-							text: "До 30 мм",
-							detail: "(1 000 ₽)",
-							textInput: "",
-							prise: 1000,
-						},
-						{
-							value: "flush",
-							text: "От 30 до 65 мм",
-							detail: "(1 300 ₽)",
-							textInput: "",
-							prise: 1300,
-						},
-						{
-							value: "down",
-							text: "Свыше 65 мм",
-							detail: "(1 500 ₽)",
-							textInput: "",
-							prise: 1500,
-						},
-					],
-				},
-			},
 		},
 		materials: {
 			// materials: {
@@ -171,6 +157,7 @@ const options = {
 				required: false,
 				type: "checkbox",
 				// type: "checkbox",
+				optionsClass: "subInputs",
 				subInputs: {
 					text: "Вырез под мойку",
 					detail: "(от 3 000 ₽)",
@@ -195,6 +182,7 @@ const options = {
 				heading: "",
 				required: false,
 				type: "radio",
+				optionsClass: "subInputs",
 				subInputs: {
 					text: "Вырез под варочную панель",
 					detail: "(от 3 000 ₽)",
@@ -215,39 +203,160 @@ const options = {
 					],
 				},
 			},
-			// notchMixer: {
-			// 	heading: "",
-			// 	required: false,
-			// 	type: "checkbox",
-			// 	subInputs: {
-			// 		text: "Вырез под смеситель",
-			// 		detail: "(от 1 000 ₽)",
-			// 		value: "mixer",
-			// 		inputNumber: [
-			// 			{
-			// 				value: "up",
-			// 				text: "До 30 мм",
-			// 				detail: "(1 000 ₽)",
-			// 				textInput: "",
-			// 				prise: 1000,
-			// 			},
-			// 			{
-			// 				value: "flush",
-			// 				text: "От 30 до 65 мм",
-			// 				detail: "(1 300 ₽)",
-			// 				textInput: "",
-			// 				prise: 1300,
-			// 			},
-			// 			{
-			// 				value: "down",
-			// 				text: "Свыше 65 мм",
-			// 				detail: "(1 500 ₽)",
-			// 				textInput: "",
-			// 				prise: 1500,
-			// 			},
-			// 		],
-			// 	},
-			// },
+			notchMixer: {
+				heading: "",
+				required: false,
+				type: "checkbox",
+				optionsClass: "subInputs",
+				subInputs: {
+					text: "Вырез под смеситель",
+					detail: "(от 1 000 ₽)",
+					value: "mixer",
+					inputNumber: [
+						{
+							value: "up",
+							text: "До 30 мм",
+							detail: "(1 000 ₽)",
+							textInput: "",
+							prise: 1000,
+						},
+						{
+							value: "flush",
+							text: "От 30 до 65 мм",
+							detail: "(1 300 ₽)",
+							textInput: "",
+							prise: 1300,
+						},
+						{
+							value: "down",
+							text: "Свыше 65 мм",
+							detail: "(1 500 ₽)",
+							textInput: "",
+							prise: 1500,
+						},
+					],
+				},
+			},
+			notchOther: {
+				heading: "",
+				required: true,
+				type: "checkbox",
+				optionsClass: "subInputs",
+				inputs: [
+					{
+						value: "other",
+						text: "Иные вырезы",
+						detail: "(итоговая цена будет известна после фактических замеров)",
+						prise: 0,
+					},
+				],
+			},
+		},
+		services: {
+			stand: {
+				heading: "Выберите нужные вам услуги",
+				required: true,
+				type: "checkbox",
+				optionsClass: "services",
+				inputs: [
+					{
+						value: "stand",
+						text: "Подставка под горячее",
+						detail: "(от 3 000 ₽)",
+						prise: 3000,
+					},
+				],
+			},
+			installHob: {
+				heading: "",
+				required: true,
+				type: "checkbox",
+				optionsClass: "services",
+				inputs: [
+					{
+						value: "installHob",
+						text: "Монтаж варочной панели",
+						detail: "(от 4 000 ₽)",
+						prise: 4000,
+					},
+				],
+			},
+			wallPanel: {
+				heading: "",
+				required: false,
+				type: "checkbox",
+				optionsClass: "subInputs",
+				subInputs: {
+					text: "Стеновые панели из камня",
+					detail: "(от 10 000 ₽)",
+					value: "wallPanel",
+					inputNumber: [
+						{
+							value: "weight",
+							text: "Общая длина",
+							detail: "",
+							textInput: "см",
+							prise: 1000,
+						},
+						{
+							value: "height",
+							text: "Средняя высота",
+							detail: "",
+							textInput: "см",
+							prise: 1300,
+						},
+						{
+							value: "number",
+							text: "Количество розеток",
+							detail: "",
+							textInput: "",
+							prise: 1500,
+						},
+					],
+				},
+			},
+			dimension: {
+				heading: "",
+				required: true,
+				type: "checkbox",
+				optionsClass: "services",
+				inputs: [
+					{
+						value: "dimension",
+						text: "Замер",
+						detail: "(бесплатно)",
+						prise: 0,
+					},
+				],
+			},
+			delivery: {
+				heading: "",
+				required: true,
+				type: "checkbox",
+				optionsClass: "services",
+				inputs: [
+					{
+						value: "delivery",
+						text: "Доставка",
+						detail: "(от 3 000 ₽)",
+						prise: 3000,
+					},
+				],
+			},
+			mounting: {
+				heading: "",
+				required: true,
+				type: "checkbox",
+				optionsClass: "subInputs",
+				inputs: [
+					{
+						value: "mounting",
+						text: "Установка",
+						detail: "(от 3 000 ₽)",
+						prise: 3000,
+					},
+				],
+			},
 		},
 	},
 	windowsill: {},
@@ -260,7 +369,7 @@ const store = new Vuex.Store({
 		roadMap: {
 			category: {
 				text: "Категория",
-				visible: true,
+				visible: false,
 				disabled: false,
 				disabledButton: true,
 			},
@@ -290,7 +399,7 @@ const store = new Vuex.Store({
 			},
 			services: {
 				text: "Доп. услуги",
-				visible: false,
+				visible: true,
 				disabled: true,
 				disabledButton: true,
 			},

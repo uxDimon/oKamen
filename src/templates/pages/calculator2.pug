@@ -45,7 +45,7 @@ html
                                 button(@click="roadMapTo(1)", :disabled="roadMap.category.disabledButton").button.calc__button Далее
 
                         .calc__body(v-for="(item, key, index) in options[selectOptions.category]", v-show="roadMap[key].visible")
-                            .calc__options(v-for="(optionItem, optionKey) in item", :class="optionItem.subInputs ? 'subInputs' : ''")
+                            .calc__options(v-for="(optionItem, optionKey) in item", :class="optionItem.optionsClass")
                                 h2(v-if="optionItem.heading").options__heading {{optionItem.heading}}
                                 .options-input__wrap
                                     .options-input(v-for="input in optionItem.inputsImg")
@@ -80,7 +80,7 @@ html
                                             label(v-for="subInputs in optionItem.subInputs.inputNumber").custom-input-number
                                                 span {{subInputs.text}}
                                                     span(v-if="subInputs.detail").options__radio-text-gray {{" " + subInputs.detail}}
-                                                input(@change="chooseOption(optionKey, subInputs, $event), nextButtonDisabled(item, key)", :disabled="subInputsDisabledList[optionKey]", :value="subInputsDisabledList[optionKey] ? '0' : ''", type="number", :name="optionItem.subInputs.value").options__size-input
+                                                input(@change="chooseOption(optionKey, subInputs, $event), nextButtonDisabled(item, key)", :disabled="subInputsDisabledList[optionKey]", :value="subInputsDisabledList[optionKey] ? '0' : '0'", type="number", :name="optionItem.subInputs.value", min="0", max="999").options__size-input
                                                 span {{subInputs.textInput}}
 
 

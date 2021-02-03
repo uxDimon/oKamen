@@ -50,6 +50,14 @@
 	}
 
 	&.subInputs {
+		margin-bottom: 30px;
+
+		&::before {
+			content: none;
+		}
+	}
+
+	&.services {
 		margin-bottom: 20px;
 
 		&::before {
@@ -1072,7 +1080,7 @@
 }
 
 .custom-input-number {
-	max-width: 350px;
+	min-width: 350px;
 	font-size: 16px;
 	line-height: 1.25;
 	display: grid;
