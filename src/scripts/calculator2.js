@@ -24,6 +24,7 @@ var calcApp = new Vue({
 				subInputs: input.subInputs,
 				checked: event.target.checked,
 				typeInput: event.target.type,
+				valueInput: event.target.value,
 			});
 		},
 		nextButtonDisabled: function (obItem, key) {

@@ -26,27 +26,60 @@ const categoryOptions = {
 const options = {
 	table: {
 		form: {
-			form: {
-				heading: "Выберите подходящую форму столешницы",
-				required: true,
-				type: "radio",
-				inputsImg: [
-					{
-						value: "form-norm",
-						text: "Прямая",
-						img: "form-norm.svg",
-					},
-					{
-						value: "form-g",
-						text: "Г-образна",
-						img: "form-g.svg",
-					},
-					{
-						value: "form-p",
-						text: "П-образна",
-						img: "form-p.svg",
-					},
-				],
+			// form: {
+			// 	heading: "Выберите подходящую форму столешницы",
+			// 	required: true,
+			// 	type: "radio",
+			// 	inputsImg: [
+			// 		{
+			// 			value: "form-norm",
+			// 			text: "Прямая",
+			// 			img: "form-norm.svg",
+			// 		},
+			// 		{
+			// 			value: "form-g",
+			// 			text: "Г-образна",
+			// 			img: "form-g.svg",
+			// 		},
+			// 		{
+			// 			value: "form-p",
+			// 			text: "П-образна",
+			// 			img: "form-p.svg",
+			// 		},
+			// 	],
+			// },
+			notchMixer: {
+				heading: "",
+				required: false,
+				type: "checkbox",
+				subInputs: {
+					text: "Вырез под смеситель",
+					detail: "(от 1 000 ₽)",
+					value: "mixer",
+					inputNumber: [
+						{
+							value: "up",
+							text: "До 30 мм",
+							detail: "(1 000 ₽)",
+							textInput: "",
+							prise: 1000,
+						},
+						{
+							value: "flush",
+							text: "От 30 до 65 мм",
+							detail: "(1 300 ₽)",
+							textInput: "",
+							prise: 1300,
+						},
+						{
+							value: "down",
+							text: "Свыше 65 мм",
+							detail: "(1 500 ₽)",
+							textInput: "",
+							prise: 1500,
+						},
+					],
+				},
 			},
 		},
 		materials: {
@@ -135,8 +168,9 @@ const options = {
 		notch: {
 			notchSink: {
 				heading: "Выберите нужные вам вырезы в столешницы",
-				required: true,
-				type: "radio",
+				required: false,
+				type: "checkbox",
+				// type: "checkbox",
 				subInputs: {
 					text: "Вырез под мойку",
 					detail: "(от 3 000 ₽)",
@@ -157,6 +191,63 @@ const options = {
 					],
 				},
 			},
+			notchHob: {
+				heading: "",
+				required: false,
+				type: "radio",
+				subInputs: {
+					text: "Вырез под варочную панель",
+					detail: "(от 3 000 ₽)",
+					value: "hob",
+					inputs: [
+						{
+							value: "up",
+							text: "Поверх столешницы",
+							detail: "(от 3 000 ₽)",
+							prise: 3000,
+						},
+						{
+							value: "flush",
+							text: "Вровень со столешницей",
+							detail: "(от 5 000 ₽)",
+							prise: 5000,
+						},
+					],
+				},
+			},
+			// notchMixer: {
+			// 	heading: "",
+			// 	required: false,
+			// 	type: "checkbox",
+			// 	subInputs: {
+			// 		text: "Вырез под смеситель",
+			// 		detail: "(от 1 000 ₽)",
+			// 		value: "mixer",
+			// 		inputNumber: [
+			// 			{
+			// 				value: "up",
+			// 				text: "До 30 мм",
+			// 				detail: "(1 000 ₽)",
+			// 				textInput: "",
+			// 				prise: 1000,
+			// 			},
+			// 			{
+			// 				value: "flush",
+			// 				text: "От 30 до 65 мм",
+			// 				detail: "(1 300 ₽)",
+			// 				textInput: "",
+			// 				prise: 1300,
+			// 			},
+			// 			{
+			// 				value: "down",
+			// 				text: "Свыше 65 мм",
+			// 				detail: "(1 500 ₽)",
+			// 				textInput: "",
+			// 				prise: 1500,
+			// 			},
+			// 		],
+			// 	},
+			// },
 		},
 	},
 	windowsill: {},
@@ -169,7 +260,7 @@ const store = new Vuex.Store({
 		roadMap: {
 			category: {
 				text: "Категория",
-				visible: false,
+				visible: true,
 				disabled: false,
 				disabledButton: true,
 			},
@@ -193,7 +284,7 @@ const store = new Vuex.Store({
 			},
 			notch: {
 				text: "Вырезы",
-				visible: true,
+				visible: false,
 				disabled: true,
 				disabledButton: true,
 			},
@@ -240,6 +331,9 @@ const store = new Vuex.Store({
 				} else {
 					Vue.delete(state.selectOptions[payload.key], payload.value);
 				}
+			} else if (payload.typeInput === "number") {
+				underOptions.value = payload.valueInput;
+				Vue.set(state.selectOptions[payload.key], payload.value, underOptions);
 			} else {
 				state.selectOptions[payload.key].value = underOptions.value;
 				state.selectOptions[payload.key].prise = underOptions.prise;
