@@ -98,6 +98,11 @@ const options = {
 				heading: "Выберите подходящее форму скругления края столешницы",
 				required: false,
 				type: "radio",
+				infoBlock: {
+					text: "Количество углов: ",
+					infoPaер1: "optionsSize",
+					infoPaер2: "roundingNumber",
+				},
 				inputsImg: [
 					{
 						value: "a",
@@ -369,7 +374,7 @@ const store = new Vuex.Store({
 		roadMap: {
 			category: {
 				text: "Категория",
-				visible: true,
+				visible: false,
 				disabled: false,
 				disabledButton: true,
 			},
@@ -387,7 +392,7 @@ const store = new Vuex.Store({
 			},
 			parameters: {
 				text: "Параметры",
-				visible: false,
+				visible: true,
 				disabled: true,
 				disabledButton: true,
 			},
@@ -421,6 +426,7 @@ const store = new Vuex.Store({
 				formP: false,
 			},
 			roundingNumber: 0,
+			roundingActive: false,
 			rounding: {
 				TopLeft: false,
 				TopRight: false,
@@ -476,7 +482,6 @@ const store = new Vuex.Store({
 				for (const optionsKey in categoryOptions) this.commit({ type: "defaultOptions", optionsKey, categoryOptions });
 			}
 		},
-
 		subInputsDisabled(state, payload) {
 			// Убирает и добавляет disabled у subInputs
 			if (payload.checked) {
@@ -490,26 +495,39 @@ const store = new Vuex.Store({
 				});
 			}
 		},
+		roundingAngle(state, payload) {
+			state.optionsSize.rounding[payload.angle] = !state.optionsSize.rounding[payload.angle];
+			state.optionsSize.roundingNumber = 0;
+			for (const key in state.optionsSize.rounding) {
+				if (state.optionsSize.rounding[key]) state.optionsSize.roundingNumber++;
+			}
+		},
 	},
 	getters: {
 		sizeVisible: (state) => {
+			// Скрывает / показывает выбранную форму
 			if (state.selectOptions.form.value !== "") {
 				for (const key in state.optionsSize.visible) state.optionsSize.visible[key] = false;
 				state.optionsSize.visible[state.selectOptions.form.value] = true;
 			}
 		},
 		sizeRounding: (state) => {
+			// Скругления края столешницы
 			if (state.selectOptions.rounding.value !== "") {
-				let rounding = 2;
+				let rounding = 2,
+					active = false;
 				if (state.selectOptions.rounding.value === "a") {
 					state.optionsSize.roundingNumber = 0;
 					for (const key in state.optionsSize.rounding) state.optionsSize.rounding[key] = false;
 					rounding = 2;
 				} else if (state.selectOptions.rounding.value === "b") {
 					rounding = 20;
+					active = true;
 				} else if (state.selectOptions.rounding.value === "c") {
 					rounding = 40;
+					active = true;
 				}
+				state.optionsSize.roundingActive = active;
 				document.querySelector(":root").style.setProperty("--form-rounding", rounding + "px");
 			}
 		},

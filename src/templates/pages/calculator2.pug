@@ -28,7 +28,7 @@ html
                             li(v-for="(item, key, index) in roadMap").calc__road-map-item
                                 button(@click='roadMapTo(index)', :disabled="item.disabled").calc__road-map-linc {{item.text}}
 
-                    .calc__body-wrap
+                    .calc__body-wrap(v-cloak)
                         .calc__body(v-show="roadMap.category.visible")
                             .calc__options
                                 h2.options__heading {{categoryOptions.category.heading}}
@@ -82,6 +82,10 @@ html
                                                     span(v-if="subInputs.detail").options__radio-text-gray {{" " + subInputs.detail}}
                                                 input(@change="chooseOption(optionKey, subInputs, $event), nextButtonDisabled(item, key)", :disabled="subInputsDisabledList[optionKey]", :value="subInputsDisabledList[optionKey] ? '0' : '0'", type="number", :name="optionItem.subInputs.value", min="0", max="999").options__size-input
                                                 span {{subInputs.textInput}}
+                                    
+                                .options__rounding-range-wrap(v-if="optionItem.infoBlock")
+                                    span {{optionItem.infoBlock.text}}
+                                        span {{$data._store[optionItem.infoBlock.infoPaер1][optionItem.infoBlock.infoPaер2]}}
 
 
                             .calc__button-wrap
@@ -91,12 +95,11 @@ html
                         .options__size-wrap
                             .options__size.options__size_norm(v-if="optionsSize.visible.formNorm")
                                 .options__size-img-wrap
-                                    //- .options__size-img-body(:style="border-top-left-radius: 2px; border-bottom-left-radius: 2px; border-bottom-right-radius: 2px;")
-                                    .options__size-img-body(:style="rounding")
-                                        input(type="checkbox", ).size-img-button.sib_top-left
-                                        input(type="checkbox", ).size-img-button.sib_top-right
-                                        input(type="checkbox", ).size-img-button.sib_bottom-right
-                                        input(type="checkbox", ).size-img-button.sib_bottom-left
+                                    .options__size-img-body(:style="rounding" :class="optionsSize.roundingActive ? 'rounding':''")
+                                        input(type="checkbox", @click="roundingAngle('TopLeft')").size-img-button.sib_top-left
+                                        input(type="checkbox", @click="roundingAngle('TopRight')").size-img-button.sib_top-right
+                                        input(type="checkbox", @click="roundingAngle('BottomRight')").size-img-button.sib_bottom-right
+                                        input(type="checkbox", @click="roundingAngle('BottomLeft')").size-img-button.sib_bottom-left
 
                                 .options__size-arrow-horizon.size-arrow-horizon_bot
                                     .size-arrow

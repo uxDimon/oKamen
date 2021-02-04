@@ -6,9 +6,10 @@ var calcApp = new Vue({
 		selectOptions: store.state.selectOptions,
 		subInputsDisabledList: store.state.subInputsDisabledList,
 		optionsSize: store.state.optionsSize,
+		_store: store.state,
 		categoryOptions,
-		urlImg: "./assets/images/calc-svg/",
 		options,
+		urlImg: "./assets/images/calc-svg/",
 	},
 	methods: {
 		roadMapTo: function (index) {
@@ -54,6 +55,12 @@ var calcApp = new Vue({
 				optionKey,
 				windowKey,
 				checked: event.target.checked,
+			});
+		},
+		roundingAngle: function (angle) {
+			store.commit({
+				type: "roundingAngle",
+				angle,
 			});
 		},
 	},

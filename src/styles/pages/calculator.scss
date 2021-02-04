@@ -553,6 +553,10 @@
 	background-color: #bba281;
 	transition: 300ms ease-in-out 0ms;
 	transition-property: left, right, background-position-x, border-radius;
+
+	&.rounding input {
+		display: block;
+	}
 }
 
 .options__size-img-bot_left {
