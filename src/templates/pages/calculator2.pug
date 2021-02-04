@@ -104,14 +104,14 @@ html
                                 .options__size-arrow-horizon.size-arrow-horizon_bot
                                     .size-arrow
                                     label.options__size-lable
-                                        input(type="number" step="1" min="30" max="900").options__size-input
+                                        input(@change="formSize('bottom', $event)", type="number", step="1", min="30", max="900").options__size-input
                                         span.options__size-text см
                                     .size-arrow.size-arrow_end
                                 
                                 .options__size-arrow-vertical.size-arrow-vertical_left
                                     .size-arrow
                                     label.options__size-lable
-                                        input(type="number" step="1" min="30" max="900").options__size-input
+                                        input(@change="formSize('left', $event)", type="number" step="1" min="30" max="900").options__size-input
                                         span.options__size-text см
                                     .size-arrow.size-arrow_end
 

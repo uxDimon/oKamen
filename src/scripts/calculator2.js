@@ -10,6 +10,10 @@ var calcApp = new Vue({
 		categoryOptions,
 		options,
 		urlImg: "./assets/images/calc-svg/",
+		formSizeError: {
+			bottom: false,
+			left: false,
+		},
 	},
 	methods: {
 		roadMapTo: function (index) {
@@ -58,10 +62,22 @@ var calcApp = new Vue({
 			});
 		},
 		roundingAngle: function (angle) {
+			// Выбор угла закругления
 			store.commit({
 				type: "roundingAngle",
 				angle,
 			});
+		},
+		formSize: function (position, event) {
+			store.commit({
+				type: "formSize",
+				position,
+				value: Number(event.target.value),
+			});
+
+			if (this.optionsSize.size[selectOptions.form.value] === "formNorm") {
+				this.sizeFormNorm();
+			}
 		},
 	},
 	computed: {
@@ -72,6 +88,9 @@ var calcApp = new Vue({
 			if (!this.optionsSize.rounding.BottomRight) style += "border-bottom-right-radius: 2px;";
 			if (!this.optionsSize.rounding.BottomLeft) style += "border-bottom-left-radius: 2px;";
 			return style;
+		},
+		sizeFormNorm: function () {
+			// this.optionsSize.size
 		},
 	},
 	created: function () {},

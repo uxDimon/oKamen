@@ -436,6 +436,13 @@ const store = new Vuex.Store({
 				// rounding: false,
 				// rounding: false,
 			},
+			size: {
+				formNorm: {
+					bottom: 0,
+					left: 0,
+					area: 0,
+				},
+			},
 		},
 	},
 	mutations: {
@@ -496,11 +503,16 @@ const store = new Vuex.Store({
 			}
 		},
 		roundingAngle(state, payload) {
+			// Выбор угла закругления
 			state.optionsSize.rounding[payload.angle] = !state.optionsSize.rounding[payload.angle];
 			state.optionsSize.roundingNumber = 0;
 			for (const key in state.optionsSize.rounding) {
 				if (state.optionsSize.rounding[key]) state.optionsSize.roundingNumber++;
 			}
+		},
+		formSize(state, payload) {
+			// Передает размер формы
+			state.optionsSize.size[state.selectOptions.form.value][payload.position] = payload.value;
 		},
 	},
 	getters: {
