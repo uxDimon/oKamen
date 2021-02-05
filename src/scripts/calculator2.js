@@ -11,8 +11,9 @@ var calcApp = new Vue({
 		options,
 		urlImg: "./assets/images/calc-svg/",
 		formSizeError: {
-			bottom: false,
+			top: false,
 			left: false,
+			right: false,
 		},
 	},
 	methods: {
@@ -74,23 +75,117 @@ var calcApp = new Vue({
 				position,
 				value: Number(event.target.value),
 			});
-
-			if (this.optionsSize.size[selectOptions.form.value] === "formNorm") {
-				this.sizeFormNorm();
+		},
+		formSizeErrorDefault: function () {
+			for (const key in this.formSizeError) {
+				this.formSizeError[key] = false;
 			}
 		},
 	},
 	computed: {
-		rounding: function () {
+		roundingNorm() {
+			// Генерирует класс для закругления формы
 			let style = "";
-			if (!this.optionsSize.rounding.TopLeft) style += "border-top-left-radius: 2px;";
-			if (!this.optionsSize.rounding.TopRight) style += "border-top-right-radius: 2px;";
-			if (!this.optionsSize.rounding.BottomRight) style += "border-bottom-right-radius: 2px;";
-			if (!this.optionsSize.rounding.BottomLeft) style += "border-bottom-left-radius: 2px;";
+			if (!this.optionsSize.rounding.topLeft) style += "border-top-left-radius: 2px;";
+			if (!this.optionsSize.rounding.topRight) style += "border-top-right-radius: 2px;";
+			if (!this.optionsSize.rounding.bottomRight) style += "border-bottom-right-radius: 2px;";
+			if (!this.optionsSize.rounding.bottomLeft) style += "border-bottom-left-radius: 2px;";
 			return style;
 		},
-		sizeFormNorm: function () {
-			// this.optionsSize.size
+		roundingGBody() {
+			// Генерирует класс для закругления формы
+			let style = "";
+			if (!this.optionsSize.rounding.topLeft) style += "border-top-left-radius: 2px;";
+			if (!this.optionsSize.rounding.topRight) style += "border-top-right-radius: 2px;";
+			if (!this.optionsSize.rounding.centerLeft) style += "border-bottom-left-radius: 2px;";
+			return style;
+		},
+		roundingPBody() {
+			// Генерирует класс для закругления формы
+			let style = "";
+			if (!this.optionsSize.rounding.topLeft) style += "border-top-left-radius: 2px;";
+			if (!this.optionsSize.rounding.topRight) style += "border-top-right-radius: 2px;";
+			return style;
+		},
+		roundingGRight() {
+			// Генерирует класс для закругления формы
+			let style = "";
+			if (!this.optionsSize.rounding.bottomRight) style += "border-bottom-right-radius: 2px;";
+			if (!this.optionsSize.rounding.bottomCenterLeft) style += "border-bottom-left-radius: 2px;";
+			return style;
+		},
+		roundingPLeft() {
+			// Генерирует класс для закругления формы
+			let style = "";
+			if (!this.optionsSize.rounding.bottomCenterRight) style += "border-bottom-right-radius: 2px;";
+			if (!this.optionsSize.rounding.bottomLeft) style += "border-bottom-left-radius: 2px;";
+			return style;
+		},
+	},
+	watch: {
+		"optionsSize.size.formNorm": {
+			// Рассчитывает площадь и предает ошибки
+			handler: function (val) {
+				let area = 0;
+				if (val.bottom > 0 && val.left > 0) {
+					area = (val.bottom * val.left) / 10000;
+					store.commit({
+						type: "formSize",
+						position: "area",
+						value: area,
+					});
+				}
+			},
+			deep: true,
+		},
+		"optionsSize.size.formG": {
+			// Рассчитывает площадь и предает ошибки
+			handler: function (val) {
+				let area = 0;
+				if (val.top > 0 && val.left > 0 && val.right > 0 && val.bottom > 0) {
+					this.formSizeErrorDefault();
+					if (val.left >= val.right) {
+						this.formSizeError.right = true;
+						return false;
+					} else if (val.bottom >= val.top) {
+						this.formSizeError.top = true;
+						return false;
+					}
+					area = (val.top * val.left + (val.right - val.left) * val.bottom) / 10000;
+					store.commit({
+						type: "formSize",
+						position: "area",
+						value: area,
+					});
+				}
+			},
+			deep: true,
+		},
+		"optionsSize.size.formP": {
+			// Рассчитывает площадь и предает ошибки
+			handler: function (val) {
+				let area = 0;
+				if (val.top > 0 && val.left > 0 && val.right > 0 && val.bottomRight > 0 && val.bottomLeft > 0 && val.center > 0) {
+					this.formSizeErrorDefault();
+					if (val.center >= val.left) {
+						this.formSizeError.left = true;
+						return false;
+					} else if (val.center >= val.right) {
+						this.formSizeError.right = true;
+						return false;
+					} else if (val.bottomRight + val.bottomLeft >= val.top) {
+						this.formSizeError.top = true;
+						return false;
+					}
+					area = val.left * val.bottomLeft + val.right * val.bottomRight + ((val.bottomLeft + val.bottomRight - val.top) * val.center) / 10000;
+					store.commit({
+						type: "formSize",
+						position: "area",
+						value: area,
+					});
+				}
+			},
+			deep: true,
 		},
 	},
 	created: function () {},

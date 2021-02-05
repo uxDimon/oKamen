@@ -374,7 +374,7 @@ const store = new Vuex.Store({
 		roadMap: {
 			category: {
 				text: "Категория",
-				visible: false,
+				visible: true,
 				disabled: false,
 				disabledButton: true,
 			},
@@ -392,7 +392,7 @@ const store = new Vuex.Store({
 			},
 			parameters: {
 				text: "Параметры",
-				visible: true,
+				visible: false,
 				disabled: true,
 				disabledButton: true,
 			},
@@ -421,25 +421,41 @@ const store = new Vuex.Store({
 		subInputsDisabledList: {},
 		optionsSize: {
 			visible: {
-				formNorm: true,
+				formNorm: false,
 				formG: false,
-				formP: false,
+				formP: true,
 			},
 			roundingNumber: 0,
 			roundingActive: false,
 			rounding: {
-				TopLeft: false,
-				TopRight: false,
-				BottomRight: false,
-				BottomLeft: false,
-				// rounding: false,
-				// rounding: false,
-				// rounding: false,
+				topLeft: false,
+				topRight: false,
+				bottomRight: false,
+				bottomLeft: false,
+				bottomCenterRight: false,
+				bottomCenterLeft: false,
+				centerLeft: false,
 			},
 			size: {
 				formNorm: {
 					bottom: 0,
 					left: 0,
+					area: 0,
+				},
+				formG: {
+					top: 0,
+					left: 0,
+					right: 0,
+					bottom: 0,
+					area: 0,
+				},
+				formP: {
+					top: 0,
+					right: 0,
+					left: 0,
+					bottomRight: 0,
+					bottomLeft: 0,
+					center: 0,
 					area: 0,
 				},
 			},

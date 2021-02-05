@@ -821,13 +821,13 @@
 	top: 25%;
 }
 
-.options__size-input[data-form-size="right"] ~ .options__size-error {
+.size-arrow-vertical_right .form-error {
 	top: 32px;
 	right: -25px;
 	transform: translateX(0);
 }
 
-.options__size-input[data-form-size="left"] ~ .options__size-error {
+.size-arrow-vertical_left .form-error {
 	top: 32px;
 	right: auto;
 	left: -25px;
