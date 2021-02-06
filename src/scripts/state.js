@@ -1,6 +1,6 @@
 const categoryOptions = {
 	category: {
-		heading: "Выберите подходящую категорию",
+		heading: "Выберите подходящую категорию *",
 		required: true,
 		type: "radio",
 		inputsImg: [
@@ -27,7 +27,7 @@ const options = {
 	table: {
 		form: {
 			form: {
-				heading: "Выберите подходящую форму столешницы",
+				heading: "Выберите подходящую форму столешницы *",
 				required: true,
 				type: "radio",
 				inputsImg: [
@@ -48,52 +48,31 @@ const options = {
 					},
 				],
 			},
-			// notchOther: {
-			// 	heading: "",
+		},
+		parameters: {
+			crutchDisabled: {
+				required: true,
+				optionsClass: "crutchDisabled",
+			},
+			// thickness: {
+			// 	heading: "Выберете подходящую толщину столешнице",
 			// 	required: true,
-			// 	type: "checkbox",
+			// 	type: "radio",
 			// 	inputs: [
 			// 		{
-			// 			value: "other",
-			// 			text: "Иные вырезы",
-			// 			detail: "(итоговая цена будет известна после фактических замеров)",
+			// 			value: "two",
+			// 			text: "2 см",
+			// 			detail: "",
 			// 			prise: 0,
 			// 		},
 			// 		{
-			// 			value: "other2",
-			// 			text: "Иные вырезы",
-			// 			detail: "(итоговая цена будет известна после фактических замеров)",
-			// 			prise: 0,
+			// 			value: "three",
+			// 			text: "3 см",
+			// 			detail: "(3 000 ₽ за 1 м2)",
+			// 			prise: 3000,
 			// 		},
 			// 	],
 			// },
-		},
-		materials: {
-			// materials: {
-			// 	heading: "Выберите разновидность и цвет камня",
-			// 	required: true,
-			// },
-		},
-		parameters: {
-			thickness: {
-				heading: "Выберете подходящую толщину столешнице",
-				required: true,
-				type: "radio",
-				inputs: [
-					{
-						value: "two",
-						text: "2 см",
-						detail: "",
-						prise: 0,
-					},
-					{
-						value: "three",
-						text: "3 см",
-						detail: "(3 000 ₽ за 1 м2)",
-						prise: 3000,
-					},
-				],
-			},
 			rounding: {
 				heading: "Выберите подходящее форму скругления края столешницы",
 				required: false,
@@ -417,6 +396,10 @@ const store = new Vuex.Store({
 		},
 		selectOptions: {
 			category: "table",
+			materials: {
+				id: "",
+				height: {},
+			},
 		},
 		subInputsDisabledList: {},
 		optionsSize: {
@@ -462,8 +445,8 @@ const store = new Vuex.Store({
 		},
 	},
 	mutations: {
-		// Переключения вкладок с опциями
 		roadMapTo(state, index) {
+			// Переключения вкладок с опциями
 			const roadMapArrae = Object.keys(state.roadMap);
 			if (index >= 0 && index <= roadMapArrae.length - 1) {
 				for (const key in state.roadMap) state.roadMap[key].visible = false;
@@ -471,9 +454,9 @@ const store = new Vuex.Store({
 				state.roadMap[roadMapArrae[index]].disabled = false;
 			}
 		},
-		// Убирает disabled у следующей вкладки eсли заполнены обязательные поля
 		nextButtonDisabled(state, key) {
-			state.roadMap[key].disabledButton = false;
+			// Убирает disabled у следующей вкладки eсли заполнены обязательные поля
+			if (state.roadMap[key].disabledButton) state.roadMap[key].disabledButton = false;
 		},
 		chooseOption(state, payload) {
 			// Добавляет/удаляет выбранную опцию в state.selectOptions
@@ -498,8 +481,8 @@ const store = new Vuex.Store({
 			Vue.set(state.selectOptions, payload.optionsKey, underOptions);
 			if (payload.categoryOptions[payload.optionsKey].subInputs !== undefined) Vue.set(state.subInputsDisabledList, payload.optionsKey, true);
 		},
-		// Формирует selectOptions из всех имеющихся опций в options
 		createSelectOptions(state) {
+			// Формирует selectOptions из всех имеющихся опций в options
 			for (const screenKey in options[state.selectOptions.category]) {
 				const categoryOptions = options[state.selectOptions.category][screenKey];
 				for (const optionsKey in categoryOptions) this.commit({ type: "defaultOptions", optionsKey, categoryOptions });
@@ -530,34 +513,15 @@ const store = new Vuex.Store({
 			// Передает размер формы
 			state.optionsSize.size[state.selectOptions.form.value][payload.position] = payload.value;
 		},
-	},
-	getters: {
 		sizeVisible: (state) => {
 			// Скрывает / показывает выбранную форму
-			if (state.selectOptions.form.value !== "") {
-				for (const key in state.optionsSize.visible) state.optionsSize.visible[key] = false;
-				state.optionsSize.visible[state.selectOptions.form.value] = true;
-			}
+			for (const key in state.optionsSize.visible) state.optionsSize.visible[key] = false;
+			state.optionsSize.visible[state.selectOptions.form.value] = true;
 		},
-		sizeRounding: (state) => {
-			// Скругления края столешницы
-			if (state.selectOptions.rounding.value !== "") {
-				let rounding = 2,
-					active = false;
-				if (state.selectOptions.rounding.value === "a") {
-					state.optionsSize.roundingNumber = 0;
-					for (const key in state.optionsSize.rounding) state.optionsSize.rounding[key] = false;
-					rounding = 2;
-				} else if (state.selectOptions.rounding.value === "b") {
-					rounding = 20;
-					active = true;
-				} else if (state.selectOptions.rounding.value === "c") {
-					rounding = 40;
-					active = true;
-				}
-				state.optionsSize.roundingActive = active;
-				document.querySelector(":root").style.setProperty("--form-rounding", rounding + "px");
-			}
+		chooseMaterial: (state, payload) => {
+			state.selectOptions.materials.id = payload.id;
+			state.selectOptions.materials.height = payload.height;
+			if (state.roadMap.materials.disabledButton) state.roadMap.materials.disabledButton = false;
 		},
 	},
 });

@@ -64,6 +64,10 @@
 			content: none;
 		}
 	}
+
+	&.crutchDisabled {
+		display: none;
+	}
 }
 
 .calc__body_total {
@@ -483,7 +487,7 @@
 }
 
 .options__size_p {
-	margin-top: 112px;
+	margin-top: 92px;
 
 	.size-arrow-horizon_bot_1 {
 		right: 245px;
@@ -755,12 +759,12 @@
 
 .size-arrow-horizon_top-floor-2 {
 	height: 48px;
-	top: -108px;
+	top: -88px;
 
 	&::before,
 	&::after {
-		height: 96px;
-		transform: translateY(24px);
+		height: 76px;
+		transform: translateY(14px);
 	}
 }
 
@@ -896,6 +900,9 @@
 	display: grid;
 	grid-template-columns: repeat(5, 1fr);
 	grid-gap: 12px;
+	margin: 0;
+	padding: 0;
+	list-style: none;
 }
 
 .options__materials {

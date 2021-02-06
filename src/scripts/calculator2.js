@@ -15,7 +15,24 @@ var calcApp = new Vue({
 			left: false,
 			right: false,
 		},
+		roundingActive: false,
+		materials: {
+			allList: null,
+			filterList: null,
+			filter: {
+				category: "Любой",
+				color: "Любой",
+			},
+			filterInput: {
+				category: ["Любой"],
+				color: ["Любой"],
+			},
+		},
 	},
+	// fix:
+	// скругления г низ лево
+	// скругления первая подсказка
+	// m2
 	methods: {
 		roadMapTo: function (index) {
 			// Переключения вкладок с опциями
@@ -52,6 +69,19 @@ var calcApp = new Vue({
 			for (const key in renderOptions) {
 				this.nextButtonDisabled(renderOptions[key], key);
 			}
+
+			// Генерирует option в фильтрах материала
+			for (const keyList in this.materials.allList) {
+				for (const keyFilter in this.materials.filterInput) {
+					const item = this.materials.allList[keyList][keyFilter],
+						filter = this.materials.filterInput[keyFilter];
+					// console.log(keyFilter);
+					if (!filter.includes(item)) {
+						this.materials.filterInput[keyFilter].push(item);
+					}
+				}
+			}
+			this.filterMaterialsList();
 		},
 		subInputsDisabled: function (optionKey, windowKey, event) {
 			// Убирает и добавляет disabled у subInputs
@@ -77,9 +107,39 @@ var calcApp = new Vue({
 			});
 		},
 		formSizeErrorDefault: function () {
+			// Сбрасывает ошибки формы
 			for (const key in this.formSizeError) {
 				this.formSizeError[key] = false;
 			}
+		},
+		selectFilter: function (filter, event) {
+			// Выбор фильтра в материалах
+			this.materials.filter[filter] = event.target.value;
+			this.filterMaterialsList();
+		},
+		filterMaterialsList: function () {
+			// Фильтрует список с учетом выбранных значений в materials.filter
+			let lest = {};
+			for (const listKey in this.materials.allList) {
+				let correct = [];
+				for (const filterKey in this.materials.filter) {
+					const list = this.materials.allList[listKey][filterKey],
+						filter = this.materials.filter[filterKey];
+					filter === list || filter === "Любой" ? correct.push(true) : correct.push(false);
+				}
+				if (correct.every((item) => item == true)) lest[listKey] = this.materials.allList[listKey];
+				// if (correct.every((item) => item == true)) lest.push(this.materials.allList[listKey]);
+			}
+			this.materials.filterList = lest;
+		},
+		chooseMaterial: function (height, id) {
+			store.commit({
+				type: "chooseMaterial",
+				height,
+				id,
+			});
+
+			// this.options.table.parameters.thickness.heading = "Ты хуй";
 		},
 	},
 	computed: {
@@ -192,6 +252,34 @@ var calcApp = new Vue({
 			},
 			deep: true,
 		},
+		"selectOptions.form.value": function () {
+			// Скрывает / показывает выбранную форму
+			store.commit("sizeVisible");
+		},
+		"selectOptions.rounding.value": function () {
+			// Скругления края столешницы
+			let rounding = 2,
+				active = false;
+			if (this.selectOptions.rounding.value === "a") {
+				this.optionsSize.roundingNumber = 0;
+				for (const key in this.optionsSize.rounding) this.optionsSize.rounding[key] = false;
+				rounding = 2;
+			} else if (this.selectOptions.rounding.value === "b") {
+				rounding = 20;
+				active = true;
+			} else if (this.selectOptions.rounding.value === "c") {
+				rounding = 40;
+				active = true;
+			}
+			this.roundingActive = active;
+			document.querySelector(":root").style.setProperty("--form-rounding", rounding + "px");
+		},
 	},
-	created: function () {},
+	created: function () {
+		fetch("./assets/scripts/materials.json")
+			.then((r) => r.json())
+			.then((json) => {
+				this.materials.allList = json;
+			});
+	},
 });
