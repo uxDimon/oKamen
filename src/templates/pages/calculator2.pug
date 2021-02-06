@@ -93,133 +93,137 @@ html
                                 button(@click='roadMapTo(index + 2)', :disabled="roadMap[key].disabledButton").button.calc__button Далее
 
                         .options__size-wrap
-                            .options__size.options__size_norm(v-if="optionsSize.visible.formNorm")
-                                .options__size-img-wrap
-                                    .options__size-img-body(:style="roundingNorm" :class="optionsSize.roundingActive ? 'rounding':''")
-                                        input(type="checkbox", @click="roundingAngle('topLeft')").size-img-button.sib_top-left
-                                        input(type="checkbox", @click="roundingAngle('topRight')").size-img-button.sib_top-right
-                                        input(type="checkbox", @click="roundingAngle('bottomRight')").size-img-button.sib_bottom-right
-                                        input(type="checkbox", @click="roundingAngle('bottomLeft')").size-img-button.sib_bottom-left
+                            .options__size-sticky(v-show="!roadMap.total.visible")
+                                .options__size.options__size_norm(v-if="optionsSize.visible.formNorm")
+                                    .options__size-img-wrap
+                                        .options__size-img-body(:style="roundingNorm" :class="optionsSize.roundingActive ? 'rounding':''")
+                                            input(type="checkbox", @click="roundingAngle('topLeft')").size-img-button.sib_top-left
+                                            input(type="checkbox", @click="roundingAngle('topRight')").size-img-button.sib_top-right
+                                            input(type="checkbox", @click="roundingAngle('bottomRight')").size-img-button.sib_bottom-right
+                                            input(type="checkbox", @click="roundingAngle('bottomLeft')").size-img-button.sib_bottom-left
 
-                                .options__size-arrow-horizon.size-arrow-horizon_bot
-                                    .size-arrow
-                                    label.options__size-lable
-                                        input(@change="formSize('bottom', $event)", type="number", step="1", min="30", max="900").options__size-input
-                                        span.options__size-text см
-                                    .size-arrow.size-arrow_end
+                                    .options__size-arrow-vertical.size-arrow-vertical_left
+                                        .size-arrow
+                                        label.options__size-lable
+                                            input(@change="formSize('left', $event)", type="number" step="1" min="30" max="900").options__size-input
+                                            span.options__size-text см
+                                        .size-arrow.size-arrow_end
+
+                                    .options__size-arrow-horizon.size-arrow-horizon_bot
+                                        .size-arrow
+                                        label.options__size-lable
+                                            input(@change="formSize('bottom', $event)", type="number", step="1", min="30", max="900").options__size-input
+                                            span.options__size-text см
+                                        .size-arrow.size-arrow_end
+
+                                .options__size.options__size_g(v-if="optionsSize.visible.formG")
+                                    .options__size-img-wrap
+                                        .options__size-img-body(:style="roundingGBody" :class="optionsSize.roundingActive ? 'rounding':''")
+                                            input(type="checkbox", @click="roundingAngle('topLeft')").size-img-button.sib_top-left
+                                            input(type="checkbox", @click="roundingAngle('topRight')").size-img-button.sib_top-right
+                                            input(type="checkbox", @click="roundingAngle('centerLeft')").size-img-button.sib_bottom-left
+
+                                        .options__size-img-bot-right(:style="roundingGRight" :class="optionsSize.roundingActive ? 'rounding':''")
+                                            input(type="checkbox", @click="roundingAngle('bottomRight')").size-img-button.sib_bottom-right
+                                            input(type="checkbox", @click="roundingAngle('bottomCenterRight')").size-img-button.sib_bottom-left
+
+                                    .options__size-arrow-vertical.size-arrow-vertical_left
+                                        .size-arrow
+                                        label.options__size-lable
+                                            input(@change="formSize('left', $event)", :class="formSizeError.right ? 'options__size-min-error' : ''", type="number" step="1" min="30" max="900").options__size-input
+                                            span.options__size-text см
+                                        .size-arrow.size-arrow_end
+
+                                    .options__size-arrow-horizon.size-arrow-horizon_top
+                                        .size-arrow
+                                        label.options__size-lable
+                                            input(@change="formSize('top', $event)", type="number" step="1" min="30" max="900").options__size-input
+                                            span.options__size-text см
+                                            span(v-if="formSizeError.top").form-error Не может быть меньше размера
+                                        .size-arrow.size-arrow_end
+
+                                    .options__size-arrow-vertical.size-arrow-vertical_right
+                                        .size-arrow
+                                        label.options__size-lable
+                                            input(@change="formSize('right', $event)", type="number" step="1" min="30" max="900").options__size-input
+                                            span.options__size-text см
+                                            span(v-if="formSizeError.right").form-error Не может быть меньше размера                                        
+                                        .size-arrow.size-arrow_end             
+                                    
+                                    .options__size-arrow-horizon.size-arrow-horizon_bot
+                                        .size-arrow
+                                        label.options__size-lable
+                                            input(@change="formSize('bottom', $event)", :class="formSizeError.top ? 'options__size-min-error' : ''", type="number" step="1" min="30" max="900").options__size-input
+                                            span.options__size-text см
+                                        .size-arrow.size-arrow_end
+                                    
+                                .options__size.options__size_p(v-if="optionsSize.visible.formP")
+                                    .options__size-img-wrap
+                                        .options__size-img-body(:style="roundingPBody" :class="optionsSize.roundingActive ? 'rounding':''")
+                                            input(type="checkbox", @click="roundingAngle('topLeft')").size-img-button.sib_top-left
+                                            input(type="checkbox", @click="roundingAngle('topRight')").size-img-button.sib_top-right
+
+                                        .options__size-img-bot-right(:style="roundingGRight" :class="optionsSize.roundingActive ? 'rounding':''")
+                                            input(type="checkbox", @click="roundingAngle('bottomRight')").size-img-button.sib_bottom-right
+                                            input(type="checkbox", @click="roundingAngle('bottomCenterLeft')").size-img-button.sib_bottom-left
+
+                                        .options__size-img-bot-left(:style="roundingPLeft" :class="optionsSize.roundingActive ? 'rounding':''")
+                                            input(type="checkbox", @click="roundingAngle('bottomLeft')").size-img-button.sib_bottom-left
+                                            input(type="checkbox", @click="roundingAngle('bottomCenterRight')").size-img-button.sib_bottom-right
+
+                                    .options__size-arrow-vertical.size-arrow-vertical_left
+                                        .size-arrow
+                                        label.options__size-lable
+                                            input(@change="formSize('left', $event)", type="number" step="1" min="30" max="900").options__size-input
+                                            span.options__size-text см
+                                            span(v-if="formSizeError.left").form-error Не может быть меньше размера
+                                        .size-arrow.size-arrow_end
+
+                                    .options__size-arrow-horizon.size-arrow-horizon_top-floor-2
+                                        .size-arrow
+                                        label.options__size-lable
+                                            input(@change="formSize('top', $event)", type="number" step="1" min="30" max="900").options__size-input
+                                            span.options__size-text см
+                                            span(v-if="formSizeError.top").form-error Не может быть меньше размера
+                                        .size-arrow.size-arrow_end
+                                    
+                                    .options__size-arrow-vertical.size-arrow-vertical_right
+                                        .size-arrow
+                                        label.options__size-lable
+                                            input(@change="formSize('right', $event)", type="number" step="1" min="30" max="900").options__size-input
+                                            span.options__size-text см
+                                            span(v-if="formSizeError.right").form-error Не может быть меньше размера
+                                        .size-arrow.size-arrow_end
+
+                                    .options__size-arrow-horizon.size-arrow-horizon_bot.size-arrow-horizon_bot_2
+                                        .size-arrow
+                                        label.options__size-lable
+                                            input(@change="formSize('bottomRight', $event)", :class="formSizeError.top ? 'options__size-min-error' : ''", type="number" step="1" min="30" max="900").options__size-input
+                                            span.options__size-text см
+                                        .size-arrow.size-arrow_end
+
+                                    .options__size-arrow-vertical.options__size-arrow-vertical_body
+                                        .size-arrow
+                                        .size-line
+                                        label.options__size-lable
+                                            input(@change="formSize('center', $event)", :class="formSizeError.left || formSizeError.right ? 'options__size-min-error' : ''", type="number" step="1" min="30" max="900").options__size-input
+                                            span.options__size-text см
+                                        .size-arrow.size-arrow_end
+
+                                    .options__size-arrow-horizon.size-arrow-horizon_bot.size-arrow-horizon_bot_1
+                                        .size-arrow
+                                        label.options__size-lable
+                                            input(@change="formSize('bottomLeft', $event)", :class="formSizeError.top ? 'options__size-min-error' : ''", type="number" step="1" min="30" max="900").options__size-input
+                                            span.options__size-text см
+                                        .size-arrow.size-arrow_end
                                 
-                                .options__size-arrow-vertical.size-arrow-vertical_left
-                                    .size-arrow
-                                    label.options__size-lable
-                                        input(@change="formSize('left', $event)", type="number" step="1" min="30" max="900").options__size-input
-                                        span.options__size-text см
-                                    .size-arrow.size-arrow_end
-
-                            .options__size.options__size_g(v-if="optionsSize.visible.formG")
-                                .options__size-img-wrap
-                                    .options__size-img-body(:style="roundingGBody" :class="optionsSize.roundingActive ? 'rounding':''")
-                                        input(type="checkbox", @click="roundingAngle('topLeft')").size-img-button.sib_top-left
-                                        input(type="checkbox", @click="roundingAngle('topRight')").size-img-button.sib_top-right
-                                        input(type="checkbox", @click="roundingAngle('centerLeft')").size-img-button.sib_bottom-left
-
-                                    .options__size-img-bot-right(:style="roundingGRight" :class="optionsSize.roundingActive ? 'rounding':''")
-                                        input(type="checkbox", @click="roundingAngle('bottomRight')").size-img-button.sib_bottom-right
-                                        input(type="checkbox", @click="roundingAngle('bottomCenterRight')").size-img-button.sib_bottom-left
-
-                                .options__size-arrow-vertical.size-arrow-vertical_left
-                                    .size-arrow
-                                    label.options__size-lable
-                                        input(@change="formSize('left', $event)", :class="formSizeError.right ? 'options__size-min-error' : ''", type="number" step="1" min="30" max="900").options__size-input
-                                        span.options__size-text см
-                                    .size-arrow.size-arrow_end
-
-                                .options__size-arrow-horizon.size-arrow-horizon_top
-                                    .size-arrow
-                                    label.options__size-lable
-                                        input(@change="formSize('top', $event)", type="number" step="1" min="30" max="900").options__size-input
-                                        span.options__size-text см
-                                        span(v-if="formSizeError.top").form-error Не может быть меньше размера
-                                    .size-arrow.size-arrow_end
-
-                                .options__size-arrow-vertical.size-arrow-vertical_right
-                                    .size-arrow
-                                    label.options__size-lable
-                                        input(@change="formSize('right', $event)", type="number" step="1" min="30" max="900").options__size-input
-                                        span.options__size-text см
-                                        span(v-if="formSizeError.right").form-error Не может быть меньше размера                                        
-                                    .size-arrow.size-arrow_end             
-                                
-                                .options__size-arrow-horizon.size-arrow-horizon_bot
-                                    .size-arrow
-                                    label.options__size-lable
-                                        input(@change="formSize('bottom', $event)", :class="formSizeError.top ? 'options__size-min-error' : ''", type="number" step="1" min="30" max="900").options__size-input
-                                        span.options__size-text см
-                                    .size-arrow.size-arrow_end
-                                
-                            .options__size.options__size_p(v-if="optionsSize.visible.formP")
-                                .options__size-img-wrap
-                                    .options__size-img-body(:style="roundingPBody" :class="optionsSize.roundingActive ? 'rounding':''")
-                                        input(type="checkbox", @click="roundingAngle('topLeft')").size-img-button.sib_top-left
-                                        input(type="checkbox", @click="roundingAngle('topRight')").size-img-button.sib_top-right
-
-                                    .options__size-img-bot-right(:style="roundingGRight" :class="optionsSize.roundingActive ? 'rounding':''")
-                                        input(type="checkbox", @click="roundingAngle('bottomRight')").size-img-button.sib_bottom-right
-                                        input(type="checkbox", @click="roundingAngle('bottomCenterLeft')").size-img-button.sib_bottom-left
-
-                                    .options__size-img-bot-left(:style="roundingPLeft" :class="optionsSize.roundingActive ? 'rounding':''")
-                                        input(type="checkbox", @click="roundingAngle('bottomLeft')").size-img-button.sib_bottom-left
-                                        input(type="checkbox", @click="roundingAngle('bottomCenterRight')").size-img-button.sib_bottom-right
-
-                                .options__size-arrow-horizon.size-arrow-horizon_top-floor-2
-                                    .size-arrow
-                                    label.options__size-lable
-                                        input(type="number" step="1" min="30" max="900" data-form-size='top').options__size-input
-                                        span.options__size-text см
-                                    .size-arrow.size-arrow_end
-                                
-                                .options__size-arrow-vertical.size-arrow-vertical_right
-                                    .size-arrow
-                                    label.options__size-lable
-                                        input(type="number" step="1" min="30" max="900" data-form-size='right').options__size-input
-                                        span.options__size-text см
-                                    .size-arrow.size-arrow_end
-
-                                .options__size-arrow-horizon.size-arrow-horizon_bot.size-arrow-horizon_bot_2
-                                    .size-arrow
-                                    label.options__size-lable
-                                        input(type="number" step="1" min="30" max="900" data-form-size='bot-right').options__size-input
-                                        span.options__size-text см
-                                    .size-arrow.size-arrow_end
-
-                                .options__size-arrow-vertical.options__size-arrow-vertical_body
-                                    .size-arrow
-                                    .size-line
-                                    label.options__size-lable
-                                        input(type="number" step="1" min="30" max="900" data-form-size='body').options__size-input
-                                        span.options__size-text см
-                                    .size-arrow.size-arrow_end
-
-                                .options__size-arrow-horizon.size-arrow-horizon_bot.size-arrow-horizon_bot_1
-                                    .size-arrow
-                                    label.options__size-lable
-                                        input(type="number" step="1" min="30" max="900" data-form-size='bot-left').options__size-input
-                                        span.options__size-text см
-                                    .size-arrow.size-arrow_end
-
-                                .options__size-arrow-vertical.size-arrow-vertical_left
-                                    .size-arrow
-                                    label.options__size-lable
-                                        input(type="number" step="1" min="30" max="900" data-form-size='left').options__size-input
-                                        span.options__size-text см
-                                    .size-arrow.size-arrow_end
-                            
-                            //- .options__size-info
-                                span.options__size-info-item Площадь 
-                                    sapn(data-size-area) 0 
-                                    span.m2 м2
-                                span.options__size-info-prise Предварительная цена 
-                                    sapn(data-size-prise) 0 
-                                    sapn ₽
+                                .options__size-info(v-if="chooseForm")
+                                    span.options__size-info-item Площадь 
+                                        span(data-size-area) {{optionsSize.size[selectOptions.form.value].area.toFixed(2)}}
+                                        span.m2  м2
+                                    span.options__size-info-prise Предварительная цена 
+                                        span(data-size-prise) 0 
+                                        span  ₽
 
 
         include ../components/footer.pug

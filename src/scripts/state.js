@@ -423,7 +423,7 @@ const store = new Vuex.Store({
 			visible: {
 				formNorm: false,
 				formG: false,
-				formP: true,
+				formP: false,
 			},
 			roundingNumber: 0,
 			roundingActive: false,

@@ -121,6 +121,11 @@ var calcApp = new Vue({
 			if (!this.optionsSize.rounding.bottomLeft) style += "border-bottom-left-radius: 2px;";
 			return style;
 		},
+		chooseForm() {
+			for (const key in this.optionsSize.visible) {
+				if (this.optionsSize.visible[key]) return true;
+			}
+		},
 	},
 	watch: {
 		"optionsSize.size.formNorm": {
@@ -177,7 +182,7 @@ var calcApp = new Vue({
 						this.formSizeError.top = true;
 						return false;
 					}
-					area = val.left * val.bottomLeft + val.right * val.bottomRight + ((val.bottomLeft + val.bottomRight - val.top) * val.center) / 10000;
+					area = (val.left * val.bottomLeft + val.right * val.bottomRight + (val.top - (val.bottomLeft + val.bottomRight)) * val.center) / 10000;
 					store.commit({
 						type: "formSize",
 						position: "area",

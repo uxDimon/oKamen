@@ -442,12 +442,16 @@
 .options__size-wrap {
 }
 
-.options__size {
+.options__size-sticky {
 	position: sticky;
 	top: 150px;
+}
+
+.options__size {
+	position: relative;
 	width: 380px;
 	height: 230px;
-	margin: 60px 60px 120px 60px;
+	margin: 60px;
 }
 
 .options__size_norm {
@@ -479,7 +483,6 @@
 }
 
 .options__size_p {
-	top: 200px;
 	margin-top: 112px;
 
 	.size-arrow-horizon_bot_1 {
@@ -779,6 +782,7 @@
 	font-family: $font-Manrope;
 	font-weight: 500;
 	margin-top: 75px;
+	margin-right: 60px;
 	font-size: 16px;
 	color: $color-dark-gray;
 	text-align: right;
