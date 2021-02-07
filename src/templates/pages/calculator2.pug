@@ -26,7 +26,7 @@ html
                     nav.calc__road-map
                         ol.calc__road-map-list
                             li(v-for="(item, key, index) in roadMap").calc__road-map-item
-                                button(@click='roadMapTo(index)', :disabled="item.disabled").calc__road-map-linc {{item.text}}
+                                button(@click='roadMapTo(index)', :disabled="item.disabled", :class="roadMap[key].visible ? 'active' : ''").calc__road-map-linc {{item.text}}
 
                     .calc__body-wrap
                         .calc__body(v-show="roadMap.category.visible")
@@ -45,11 +45,11 @@ html
                                 button(@click="roadMapTo(1)", :disabled="roadMap.category.disabledButton").button.calc__button Далее
 
                         .calc__body(v-for="(item, key, index) in options[selectOptions.category]", :key="key", v-show="roadMap[key].visible")
-                            .calc__options(v-if="roadMap.parameters.visible")
-                                h2.options__heading Выберете подходящую толщину столешнице
+                            .calc__options(v-if="key === 'parameters'")
+                                h2.options__heading Выберете подходящую толщину столешнице*
                                 .options-input__wrap                                   
                                     label.custom-input(v-for="input in selectOptions.materials.height", :key="'thickness' + input.price")
-                                        input(@change="", type="radio", name="thickness", :value="input.value")
+                                        input(@change="chooseHeight(input)", type="radio", name="thickness", :value="input.value")
                                         .options-input__radio-chec
                                         span {{input.value}} мм 
                                             span.options__radio-text-gray ( {{input.price}} ₽ за 1 <span class="m2">м2</span>)
@@ -97,34 +97,28 @@ html
                                     span {{optionItem.infoBlock.text}}
                                         span {{$data._store[optionItem.infoBlock.infoPaер1][optionItem.infoBlock.infoPaер2]}}
 
-                                    
-                            .calc__button-wrap
-                                button(@click='roadMapTo(index)').button.button_gray.calc__button Назад
-                                button(@click='roadMapTo(index + 2)', :disabled="roadMap[key].disabledButton").button.calc__button Далее
-
-                        .calc__body(v-show="roadMap.materials.visible")
-                            .calc__options.options
-                                h2.options__heading Выберите разновидность и цвет камня
+                            .calc__options.no-border(v-if="key === 'materials'")
+                                h2.options__heading Выберите разновидность и цвет камня*
                                 select(@change="selectFilter('category', $event)").input.input_select.options__select
                                     option(v-for="optionItem in materials.filterInput.category" :value="optionItem") {{optionItem}}
                                 
                                 select(@change="selectFilter('color', $event)").input.input_select.options__select
                                     option(v-for="optionItem in materials.filterInput.color" :value="optionItem") {{optionItem}}
 
-
                                 h3.options__materials-heading Выберите ниже понравившийся вам вариант
                                 ul.options__materials-wrap
-                                    li(v-for="(item, key, index) in materials.filterList", :key="key").options__materials
-                                        input(@change="chooseMaterial(item.height, key)", :checked="selectOptions.materials.id === key", :id="key", type="radio", name="materials")
-                                        label(:for="key")
-                                            img(:src="item.imgUrl", :alt="item.name").options__materials-img
-                                            span.options__materials-name {{item.name}}
-                                            span.options__materials-price {{item.height[0].price + " ₽ за "}}
+                                    li(v-for="(mItem, mKey) in materials.filterList", :key="mKey").options__materials
+                                        input(@change="chooseMaterial(mItem.height, mKey)", :checked="selectOptions.materials.id === mKey", :id="mKey", type="radio", name="materials")
+                                        label(:for="mKey")
+                                            img(:src="mItem.imgUrl", :alt="mItem.name").options__materials-img
+                                            span.options__materials-name {{mItem.name}}
+                                            span.options__materials-price {{mItem.height[0].price + " ₽ за "}}
                                                 span.m2 м2
+                
 
                             .calc__button-wrap
-                                button(@click='roadMapTo(1)').button.button_gray.calc__button Назад
-                                button(@click='roadMapTo(3)', :disabled="roadMap.materials.disabledButton").button.calc__button Далее
+                                button(@click='roadMapTo(index)').button.button_gray.calc__button Назад
+                                button(@click='roadMapTo(index + 2)', :disabled="roadMap[key].disabledButton").button.calc__button Далее
 
                         .options__size-wrap
                             .options__size-sticky(v-show="!roadMap.total.visible")
@@ -159,7 +153,7 @@ html
 
                                         .options__size-img-bot-right(:style="roundingGRight" :class="roundingActive ? 'rounding':''")
                                             input(type="checkbox", @click="roundingAngle('bottomRight')").size-img-button.sib_bottom-right
-                                            input(type="checkbox", @click="roundingAngle('bottomCenterRight')").size-img-button.sib_bottom-left
+                                            input(type="checkbox", @click="roundingAngle('bottomCenterLeft')").size-img-button.sib_bottom-left
 
                                     .options__size-arrow-vertical.size-arrow-vertical_left
                                         .size-arrow

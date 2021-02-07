@@ -49,11 +49,13 @@ const options = {
 				],
 			},
 		},
-		parameters: {
+		materials: {
 			crutchDisabled: {
 				required: true,
 				optionsClass: "crutchDisabled",
 			},
+		},
+		parameters: {
 			// thickness: {
 			// 	heading: "Выберете подходящую толщину столешнице",
 			// 	required: true,
@@ -133,6 +135,10 @@ const options = {
 						prise: 2600,
 					},
 				],
+			},
+			crutchDisabled: {
+				required: true,
+				optionsClass: "crutchDisabled",
 			},
 		},
 		notch: {
@@ -398,7 +404,8 @@ const store = new Vuex.Store({
 			category: "table",
 			materials: {
 				id: "",
-				height: {},
+				height: [],
+				chooseHeight: {},
 			},
 		},
 		subInputsDisabledList: {},
@@ -519,9 +526,21 @@ const store = new Vuex.Store({
 			state.optionsSize.visible[state.selectOptions.form.value] = true;
 		},
 		chooseMaterial: (state, payload) => {
+			// Выбор материала
 			state.selectOptions.materials.id = payload.id;
 			state.selectOptions.materials.height = payload.height;
 			if (state.roadMap.materials.disabledButton) state.roadMap.materials.disabledButton = false;
+			if (!state.roadMap.parameters.disabledButton) state.roadMap.parameters.disabledButton = true;
+		},
+		chooseHeight: (state, input) => {
+			// Выбор толщину материала
+			state.selectOptions.materials.chooseHeight = input;
+			if (state.roadMap.parameters.disabledButton) state.roadMap.parameters.disabledButton = false;
+		},
+		roundingDefalt: (state) => {
+			// Сбрасывает закругления краев формы
+			for (const key in state.optionsSize.rounding) state.optionsSize.rounding[key] = false;
+			state.optionsSize.roundingNumber = 0;
 		},
 	},
 });

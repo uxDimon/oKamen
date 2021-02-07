@@ -1,66 +1,66 @@
 {
-    "mt0001":{   
-        "category": "Кварцевый агломерат",
-        "name": "Название (Кварц Серый)",
-        "article": "EQTM 018",
-        "color": "Серый",
-        "manufacturer": "EtnaQuartz",
-        "imgUrl": "./assets/images/material/cvarc/kv-03.png",
-        "height": [
-            {
-                "value": "20",
-                "price": "3500"
-            },
-            {
-                "value": "30",
-                "price": "4500"
-            }
-        ]
-    },
-    "mt0002":{
-        "category": "Кварцевый агломерат",
-        "name": "Название (Кварц Белый)",
-        "article": "EQTM 0182",
-        "color": "Белый",
-        "manufacturer": "EtnaQuartz2",
-        "imgUrl": "./assets/images/material/cvarc/kv-01.png",
-        "height": [
-            {
-                "value": "20",
-                "price": "4500"
-            },
-            {
-                "value": "30",
-                "price": "5500"
-            }
-        ]
-    },
-    "mt0003":{   
-        "category": "Гранит",
-        "name": "Название (Гранит Черный)",
-        "article": "EQTM 0183",
-        "color": "Черный",
-        "manufacturer": "EtnaQuartz3",
-        "imgUrl": "./assets/images/material/cvarc/kv-02.png",
-        "height": [
-            {
-                "value": "20",
-                "price": "3500"
-            }
-        ]
-    },
-    "mt0004":{   
-        "category": "Оникс",
-        "name": "Название (Оникс Красны)",
-        "article": "EQTM 0183",
-        "color": "Красны",
-        "manufacturer": "EtnaQuartz3",
-        "imgUrl": "./assets/images/material/cvarc/kv-02.png",
-        "height": [
-            {
-                "value": "15",
-                "price": "2000"
-            }
-        ]
-    }
+	"mt0001": {
+		"category": "Кварцевый агломерат",
+		"name": "Название (Кварц Серый)",
+		"article": "EQTM 018",
+		"color": "Серый",
+		"manufacturer": "EtnaQuartz",
+		"imgUrl": "./assets/images/material/cvarc/kv-03.png",
+		"height": [
+			{
+				"value": "20",
+				"price": "3500"
+			},
+			{
+				"value": "30",
+				"price": "4500"
+			}
+		]
+	},
+	"mt0002": {
+		"category": "Кварцевый агломерат",
+		"name": "Название (Кварц Белый)",
+		"article": "EQTM 0182",
+		"color": "Белый",
+		"manufacturer": "EtnaQuartz2",
+		"imgUrl": "./assets/images/material/cvarc/kv-01.png",
+		"height": [
+			{
+				"value": "20",
+				"price": "4500"
+			},
+			{
+				"value": "30",
+				"price": "5500"
+			}
+		]
+	},
+	"mt0003": {
+		"category": "Гранит",
+		"name": "Название (Гранит Черный)",
+		"article": "EQTM 0183",
+		"color": "Черный",
+		"manufacturer": "EtnaQuartz3",
+		"imgUrl": "./assets/images/material/cvarc/kv-02.png",
+		"height": [
+			{
+				"value": "20",
+				"price": "3500"
+			}
+		]
+	},
+	"mt0004": {
+		"category": "Оникс",
+		"name": "Название (Оникс Красны)",
+		"article": "EQTM 0183",
+		"color": "Красны",
+		"manufacturer": "EtnaQuartz3",
+		"imgUrl": "./assets/images/material/cvarc/kv-02.png",
+		"height": [
+			{
+				"value": "15",
+				"price": "2000"
+			}
+		]
+	}
 }

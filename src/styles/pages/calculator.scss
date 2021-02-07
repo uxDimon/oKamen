@@ -68,6 +68,10 @@
 	&.crutchDisabled {
 		display: none;
 	}
+
+	&.no-border::before {
+		content: none;
+	}
 }
 
 .calc__body_total {
@@ -116,6 +120,7 @@
 	padding: 0;
 	background-color: transparent;
 	cursor: pointer;
+	position: relative;
 
 	&:disabled {
 		opacity: 0.3;
@@ -125,6 +130,17 @@
 	&::before {
 		counter-increment: section;
 		content: counter(section) ". ";
+	}
+
+	&.active::after {
+		content: "";
+		display: block;
+		position: absolute;
+		bottom: -4px;
+		left: 0;
+		right: 0;
+		height: 2px;
+		background-color: $color-bronze;
 	}
 }
 
