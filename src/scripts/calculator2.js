@@ -30,7 +30,6 @@ var calcApp = new Vue({
 		},
 	},
 	// fix:
-	// скругления г низ лево
 	// скругления первая подсказка
 	// m2
 	methods: {
@@ -128,18 +127,20 @@ var calcApp = new Vue({
 					filter === list || filter === "Любой" ? correct.push(true) : correct.push(false);
 				}
 				if (correct.every((item) => item == true)) lest[listKey] = this.materials.allList[listKey];
-				// if (correct.every((item) => item == true)) lest.push(this.materials.allList[listKey]);
 			}
 			this.materials.filterList = lest;
 		},
 		chooseMaterial: function (height, id) {
+			// Выбор материала
 			store.commit({
 				type: "chooseMaterial",
 				height,
 				id,
 			});
-
-			// this.options.table.parameters.thickness.heading = "Ты хуй";
+		},
+		chooseHeight: function (input) {
+			// Выбор толщину материала
+			store.commit("chooseHeight", input);
 		},
 	},
 	computed: {
@@ -255,14 +256,14 @@ var calcApp = new Vue({
 		"selectOptions.form.value": function () {
 			// Скрывает / показывает выбранную форму
 			store.commit("sizeVisible");
+			store.commit("roundingDefalt");
 		},
 		"selectOptions.rounding.value": function () {
 			// Скругления края столешницы
 			let rounding = 2,
 				active = false;
 			if (this.selectOptions.rounding.value === "a") {
-				this.optionsSize.roundingNumber = 0;
-				for (const key in this.optionsSize.rounding) this.optionsSize.rounding[key] = false;
+				store.commit("roundingDefalt");
 				rounding = 2;
 			} else if (this.selectOptions.rounding.value === "b") {
 				rounding = 20;
