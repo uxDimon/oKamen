@@ -34,6 +34,7 @@ var calcApp = new Vue({
 	// fix:
 	// скругления первая подсказка
 	// m2
+	// subInputs бажет :value
 	methods: {
 		roadMapTo: function (index) {
 			// Переключения вкладок с опциями
@@ -92,6 +93,12 @@ var calcApp = new Vue({
 				windowKey,
 				checked: event.target.checked,
 			});
+			const list = event.target.parentElement.nextElementSibling.querySelectorAll('input[type="number"]');
+			if (event.target.checked === false) {
+				for (const item of list) {
+					item.value = 0;
+				}
+			}
 		},
 		roundingAngle: function (angle) {
 			// Выбор угла закругления
