@@ -7,6 +7,8 @@ var calcApp = new Vue({
 		subInputsDisabledList: store.state.subInputsDisabledList,
 		optionsSize: store.state.optionsSize,
 		_store: store.state,
+		plusTotalOptions: store.state.plusTotalOptions,
+		calc: store.state.calc,
 		categoryOptions,
 		options,
 		urlImg: "./assets/images/calc-svg/",
@@ -274,6 +276,37 @@ var calcApp = new Vue({
 			}
 			this.roundingActive = active;
 			document.querySelector(":root").style.setProperty("--form-rounding", rounding + "px");
+		},
+		selectOptions: {
+			// Подсчитывает общую стоимость всех выбранных опций с plusTotal
+			handler: function () {
+				let total = 0;
+				for (const index in this.plusTotalOptions) {
+					const key = this.plusTotalOptions[index];
+					let prose = 0;
+					if (this.selectOptions[key].prise === undefined) {
+						for (const subIndex in this.selectOptions[key]) {
+							prose += this.selectOptions[key][subIndex].prise;
+						}
+					} else {
+						prose = this.selectOptions[key].prise;
+					}
+					total += prose;
+				}
+				store.commit("calcPlusTotal", total);
+			},
+			deep: true,
+		},
+		"calc.plusTotal": {
+			// Подсчитывает предварительную стоимость
+			handler: function () {
+				let total = 0;
+				for (const key in this.calc.plusTotal) {
+					total += this.calc.plusTotal[key];
+				}
+				store.commit("calcTotal", total);
+			},
+			deep: true,
 		},
 	},
 	created: function () {

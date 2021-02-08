@@ -112,6 +112,7 @@ const options = {
 				heading: "Выберите подходящее форму скругления края столешницы",
 				required: false,
 				type: "radio",
+				plusTotal: true,
 				inputsImg: [
 					{
 						value: "a",
@@ -148,6 +149,7 @@ const options = {
 				type: "checkbox",
 				// type: "checkbox",
 				optionsClass: "subInputs",
+				plusTotal: true,
 				subInputs: {
 					text: "Вырез под мойку",
 					detail: "(от 3 000 ₽)",
@@ -173,6 +175,7 @@ const options = {
 				required: false,
 				type: "radio",
 				optionsClass: "subInputs",
+				plusTotal: true,
 				subInputs: {
 					text: "Вырез под варочную панель",
 					detail: "(от 3 000 ₽)",
@@ -248,6 +251,7 @@ const options = {
 				required: true,
 				type: "checkbox",
 				optionsClass: "services",
+				plusTotal: true,
 				inputs: [
 					{
 						value: "stand",
@@ -262,6 +266,7 @@ const options = {
 				required: true,
 				type: "checkbox",
 				optionsClass: "services",
+				plusTotal: true,
 				inputs: [
 					{
 						value: "installHob",
@@ -324,6 +329,7 @@ const options = {
 				required: true,
 				type: "checkbox",
 				optionsClass: "services",
+				plusTotal: true,
 				inputs: [
 					{
 						value: "delivery",
@@ -338,6 +344,7 @@ const options = {
 				required: true,
 				type: "checkbox",
 				optionsClass: "subInputs",
+				plusTotal: true,
 				inputs: [
 					{
 						value: "mounting",
@@ -407,6 +414,14 @@ const store = new Vuex.Store({
 				height: [],
 				chooseHeight: {},
 			},
+		},
+		plusTotalOptions: [],
+		calc: {
+			plusTotal: {
+				options: 0,
+				array: 0,
+			},
+			total: 0,
 		},
 		subInputsDisabledList: {},
 		optionsSize: {
@@ -483,7 +498,7 @@ const store = new Vuex.Store({
 			}
 		},
 		defaultOptions(state, payload) {
-			let underOptions = { value: "", prise: "" };
+			let underOptions = { value: "", prise: 0 };
 			if (payload.categoryOptions[payload.optionsKey].type === "checkbox") underOptions = {};
 			Vue.set(state.selectOptions, payload.optionsKey, underOptions);
 			if (payload.categoryOptions[payload.optionsKey].subInputs !== undefined) Vue.set(state.subInputsDisabledList, payload.optionsKey, true);
@@ -492,7 +507,10 @@ const store = new Vuex.Store({
 			// Формирует selectOptions из всех имеющихся опций в options
 			for (const screenKey in options[state.selectOptions.category]) {
 				const categoryOptions = options[state.selectOptions.category][screenKey];
-				for (const optionsKey in categoryOptions) this.commit({ type: "defaultOptions", optionsKey, categoryOptions });
+				for (const optionsKey in categoryOptions) {
+					this.commit({ type: "defaultOptions", optionsKey, categoryOptions });
+					if (categoryOptions[optionsKey].plusTotal) state.plusTotalOptions.push(optionsKey);
+				}
 			}
 		},
 		subInputsDisabled(state, payload) {
@@ -542,5 +560,13 @@ const store = new Vuex.Store({
 			for (const key in state.optionsSize.rounding) state.optionsSize.rounding[key] = false;
 			state.optionsSize.roundingNumber = 0;
 		},
+		calcPlusTotal: (state, total) => {
+			// Подсчитывает общую стоимость всех выбранных опций с plusTotal
+			state.calc.plusTotal.options = total
+		},
+		calcTotal: (state, total) => {
+			// Подсчитывает предварительную стоимость
+			state.calc.total = total
+		}
 	},
 });
