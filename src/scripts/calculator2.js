@@ -144,6 +144,28 @@ var calcApp = new Vue({
 			// Выбор толщину материала
 			store.commit("chooseHeight", input);
 		},
+		areaPrise: function () {
+			// Подсчитывает стоимость площади
+			if (this.selectOptions.form.value !== "") {
+				const prise = Number(this.selectOptions.materials.chooseHeight.price),
+					area = this.optionsSize.size[this.selectOptions.form.value].area;
+				store.commit({
+					type: "calcPlusTotal",
+					total: Math.round(prise * area),
+					key: "array",
+				});
+			}
+		},
+		roundingPrise: function () {
+			// Цена скругления края
+			const number = this.optionsSize.roundingNumber,
+				prise = Number(this.selectOptions.rounding.prise);
+			store.commit({
+				type: "calcPlusTotal",
+				total: number * prise,
+				key: "rounding",
+			});
+		},
 	},
 	computed: {
 		roundingNorm() {
@@ -276,6 +298,7 @@ var calcApp = new Vue({
 			}
 			this.roundingActive = active;
 			document.querySelector(":root").style.setProperty("--form-rounding", rounding + "px");
+			this.roundingPrise();
 		},
 		selectOptions: {
 			// Подсчитывает общую стоимость всех выбранных опций с plusTotal
@@ -293,7 +316,40 @@ var calcApp = new Vue({
 					}
 					total += prose;
 				}
-				store.commit("calcPlusTotal", total);
+				store.commit({
+					type: "calcPlusTotal",
+					total,
+					key: "options",
+				});
+				this.areaPrise();
+			},
+			deep: true,
+		},
+		"optionsSize.size": {
+			// Подсчитывает стоимость площади
+			handler: function () {
+				this.areaPrise();
+			},
+			deep: true,
+		},
+		"optionsSize.roundingNumber": function () {
+			// Цена скругления края
+			this.roundingPrise();
+		},
+		"selectOptions.notchMixer": {
+			// Цена вырез под смеситель
+			handler: function () {
+				let total = 0;
+				for (const key in this.selectOptions.notchMixer) {
+					const prise = this.selectOptions.notchMixer[key].prise,
+						value = Number(this.selectOptions.notchMixer[key].value);
+					total += prise * value;
+				}
+				store.commit({
+					type: "calcPlusTotal",
+					total,
+					key: "notchMixer",
+				});
 			},
 			deep: true,
 		},

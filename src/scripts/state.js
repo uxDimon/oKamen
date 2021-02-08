@@ -412,7 +412,9 @@ const store = new Vuex.Store({
 			materials: {
 				id: "",
 				height: [],
-				chooseHeight: {},
+				chooseHeight: {
+					price: 0,
+				},
 			},
 		},
 		plusTotalOptions: [],
@@ -420,6 +422,8 @@ const store = new Vuex.Store({
 			plusTotal: {
 				options: 0,
 				array: 0,
+				rounding: 0,
+				notchMixer: 0,
 			},
 			total: 0,
 		},
@@ -560,13 +564,13 @@ const store = new Vuex.Store({
 			for (const key in state.optionsSize.rounding) state.optionsSize.rounding[key] = false;
 			state.optionsSize.roundingNumber = 0;
 		},
-		calcPlusTotal: (state, total) => {
+		calcPlusTotal: (state, payload) => {
 			// Подсчитывает общую стоимость всех выбранных опций с plusTotal
-			state.calc.plusTotal.options = total
+			state.calc.plusTotal[payload.key] = payload.total;
 		},
 		calcTotal: (state, total) => {
 			// Подсчитывает предварительную стоимость
-			state.calc.total = total
-		}
+			state.calc.total = total;
+		},
 	},
 });
