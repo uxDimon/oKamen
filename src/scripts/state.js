@@ -373,7 +373,7 @@ const store = new Vuex.Store({
 		roadMap: {
 			category: {
 				text: "Категория",
-				visible: false,
+				visible: true,
 				disabled: false,
 				disabledButton: true,
 			},
@@ -409,7 +409,7 @@ const store = new Vuex.Store({
 			},
 			total: {
 				text: "Итог",
-				visible: true,
+				visible: false,
 				disabled: true,
 				disabledButton: true,
 			},

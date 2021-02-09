@@ -120,8 +120,7 @@ html
                                 button(@click='roadMapTo(index)').button.button_gray.calc__button Назад
                                 button(@click='roadMapTo(index + 2)', :disabled="roadMap[key].disabledButton").button.calc__button Далее
 
-                        //- .calc__body.calc__body_total(v-show="roadMap.total.visible")
-                        .calc__body.calc__body_total
+                        .calc__body.calc__body_total(v-show="roadMap.total.visible")
                             .options
                                 .options__total-head
                                     h3.options__heading Выбранные параметры
@@ -154,15 +153,20 @@ html
                                                     td Наименование
                                                     td Описание
                                                     td Стоимость
+                                                tr
+                                                    td Кол-во материала
+                                                    td {{optionsSize.size[selectOptions.form?.value]?.area}}
+                                                        span.m2  м2
+                                                    td {{calc.plusTotal.array}} ₽
                                                 tr(v-for="item in totalList" :key="item.id")
-                                                    td {{item.depiction}}
-                                                    td {{item.text}}
+                                                    td(v-if="item.depiction") {{item.depiction}}
+                                                    td(:colspan="!item.depiction ? '2' : '1'") {{item.text}}
                                                     td {{item.prise}} ₽
 
                                         .options__total-price-wrap
                                             .options__total-price
                                                 span.options__total-price-text Предварительная стоимость
-                                                span.options__total-price-number 94 360 ₽
+                                                span.options__total-price-number {{calc.total}} ₽
                                             .options__total-button
                                                 button.button.calc__button Заказать звонок
                                                 button.button.button_gray.calc__button Отправить по почте
@@ -176,7 +180,7 @@ html
 
                         .options__size-wrap
                             .options__size-sticky(v-show="!roadMap.total.visible")
-                                .options__size.options__size_norm(v-if="optionsSize.visible.formNorm")
+                                .options__size.options__size_norm(v-if="optionsSize.visible.formNorm", :key="'formNorm'")
                                     .options__size-img-wrap
                                         .options__size-img-body(:style="roundingNorm" :class="roundingActive ? 'rounding':''")
                                             input(type="checkbox", @click="roundingAngle('topLeft')").size-img-button.sib_top-left
@@ -198,7 +202,7 @@ html
                                             span.options__size-text см
                                         .size-arrow.size-arrow_end
 
-                                .options__size.options__size_g(v-if="optionsSize.visible.formG")
+                                .options__size.options__size_g(v-if="optionsSize.visible.formG", :key="'formG'")
                                     .options__size-img-wrap
                                         .options__size-img-body(:style="roundingGBody" :class="roundingActive ? 'rounding':''")
                                             input(type="checkbox", @click="roundingAngle('topLeft')").size-img-button.sib_top-left
@@ -239,7 +243,7 @@ html
                                             span.options__size-text см
                                         .size-arrow.size-arrow_end
                                     
-                                .options__size.options__size_p(v-if="optionsSize.visible.formP")
+                                .options__size.options__size_p(v-if="optionsSize.visible.formP", :key="'formP'")
                                     .options__size-img-wrap
                                         .options__size-img-body(:style="roundingPBody" :class="roundingActive ? 'rounding':''")
                                             input(type="checkbox", @click="roundingAngle('topLeft')").size-img-button.sib_top-left

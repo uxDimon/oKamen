@@ -30,6 +30,7 @@ var calcApp = new Vue({
 				color: ["Любой"],
 			},
 		},
+		totalList: [],
 	},
 	// fix:
 	// скругления первая подсказка
@@ -38,6 +39,9 @@ var calcApp = new Vue({
 		roadMapTo: function (index) {
 			// Переключения вкладок с опциями
 			store.commit("roadMapTo", index);
+			if (index === Object.keys(this.roadMap).length - 1) {
+				this.totalListCreate();
+			}
 		},
 		chooseOption: function (key, input, depiction, event) {
 			// Добавляет выбранную опцию в state.selectOptions
@@ -78,7 +82,6 @@ var calcApp = new Vue({
 				for (const keyFilter in this.materials.filterInput) {
 					const item = this.materials.allList[keyList][keyFilter],
 						filter = this.materials.filterInput[keyFilter];
-					// console.log(keyFilter);
 					if (!filter.includes(item)) {
 						this.materials.filterInput[keyFilter].push(item);
 					}
@@ -172,6 +175,65 @@ var calcApp = new Vue({
 				key: "rounding",
 			});
 		},
+		totalListCreate: function () {
+			let list = [];
+			for (const key in this.selectOptions) {
+				let date = { text: "", depiction: "", prise: "" };
+				const item = this.selectOptions[key];
+				if (!["category", "materials", "form", "rounding", "notchMixer", "wallPanel"].includes(key)) {
+					if (item.text === undefined) {
+						for (const key in item) {
+							date = { text: "", depiction: "", prise: "" };
+							date.text = item[key].text;
+							date.depiction = item[key].depiction;
+							date.prise = item[key].prise;
+							list.push(date);
+						}
+					} else if (item.text !== "") {
+						date.text = item.text;
+						date.depiction = item.depiction;
+						date.prise = item.prise;
+						list.push(date);
+					}
+				}
+				if (key === "rounding" && this.optionsSize.roundingNumber > 0) {
+					date.depiction = item.depiction;
+					date.text = `Тип: ${item.text} кол.во: ${this.optionsSize.roundingNumber}`;
+					date.prise = this.calc.plusTotal.rounding;
+					list.push(date);
+				}
+				if (key === "notchMixer") {
+					for (const key in item) {
+						const value = Number(item[key].value);
+						if (value > 0) {
+							date = { text: "", depiction: "", prise: "" };
+							date.text = `${item[key].text}. кол.во: ${item[key].value}`;
+							date.depiction = item[key].depiction;
+							date.prise = item[key].prise * value;
+							list.push(date);
+						}
+					}
+				}
+				if (key === "wallPanel") {
+					const options = this.selectOptions.wallPanel;
+					if (options.weight !== undefined && options.height !== undefined) {
+						const total = (options.weight.value * options.height.value) / 10000;
+						date.text = `Площадь: ${total} <span class="m2"> м2</span>`;
+						date.depiction = options.weight.depiction;
+						date.prise = Math.round(total * options.weight.prise);
+						list.push(date);
+					}
+					if (options.number !== undefined) {
+						date = { text: "", depiction: "", prise: "" };
+						date.text = options.number.text;
+						date.depiction = options.number.depiction;
+						date.prise = Math.round(Number(options.number.value) * options.number.prise);
+						list.push(date);
+					}
+				}
+			}
+			this.totalList = list;
+		},
 	},
 	computed: {
 		roundingNorm() {
@@ -217,48 +279,9 @@ var calcApp = new Vue({
 				if (this.optionsSize.visible[key]) return true;
 			}
 		},
-		totalList() {
-			let list = [];
-			for (const key in this.selectOptions) {
-				let date = { text: "", depiction: "", prise: "" };
-				const item = this.selectOptions[key];
-				if (!["category", "materials", "form", "rounding", "notchMixer", "wallPanel"].includes(key)) {
-					if (item.text === undefined) {
-						for (const key in item) {
-							date = { text: "", depiction: "", prise: "" };
-							date.text = item[key].text;
-							date.depiction = item[key].depiction;
-							date.prise = item[key].prise;
-							list.push(date);
-						}
-					} else if (item.text !== "") {
-						date.text = item.text;
-						date.depiction = item.depiction;
-						date.prise = item.prise;
-						list.push(date);
-					}
-				}
-				if (key === "rounding" && this.optionsSize.roundingNumber > 0) {
-					date.depiction = `${item.depiction} ${item.text}`;
-					date.text = `Количество ${this.optionsSize.roundingNumber}`;
-					date.prise = this.calc.plusTotal.rounding;
-					list.push(date);
-				}
-				if (key === "notchMixer") {
-					for (const key in item) {
-						const value = Number(item[key].value);
-						if (value > 0) {
-							date = { text: "", depiction: "", prise: "" };
-							date.text = `${item[key].text}. кол.во ${item[key].value}`;
-							date.depiction = item[key].depiction;
-							date.prise = item[key].prise * value;
-							list.push(date);
-						}
-					}
-				}
-			}
-			return list;
-		},
+		// totalList() {
+		// 	return list;
+		// },
 	},
 	watch: {
 		"optionsSize.size.formNorm": {
