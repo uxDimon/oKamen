@@ -90,7 +90,7 @@ html
                                             label(v-for="subInputs in optionItem.subInputs.inputNumber").custom-input-number
                                                 span {{subInputs.text}}
                                                     span(v-if="subInputs.detail").options__radio-text-gray {{" " + subInputs.detail}}
-                                                input(@change="chooseOption(optionKey, subInputs, $event), nextButtonDisabled(item, key)", :disabled="subInputsDisabledList[optionKey]", :value="subInputsDisabledList[optionKey] ? '0' : '0'", type="number", :name="optionItem.subInputs.value", min="0", max="999").options__size-input
+                                                input(@change="chooseOption(optionKey, subInputs, $event), nextButtonDisabled(item, key)", ref="input" :disabled="subInputsDisabledList[optionKey]", value="0", type="number", :name="optionItem.subInputs.value", min="0", max="999").options__size-input
                                                 span {{subInputs.textInput}}
                                     
                                 .options__rounding-range-wrap(v-if="optionItem.infoBlock")
@@ -250,7 +250,7 @@ html
                                         span(data-size-area) {{optionsSize.size[selectOptions.form.value].area.toFixed(2)}}
                                         span.m2  м2
                                     span.options__size-info-prise Предварительная цена 
-                                        span(data-size-prise) {{calc.total}} 
+                                        span(data-size-prise) {{Math.round(calc.total)}} 
                                         span  ₽
 
 

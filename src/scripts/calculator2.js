@@ -93,11 +93,9 @@ var calcApp = new Vue({
 				windowKey,
 				checked: event.target.checked,
 			});
-			const list = event.target.parentElement.nextElementSibling.querySelectorAll('input[type="number"]');
 			if (event.target.checked === false) {
-				for (const item of list) {
-					item.value = 0;
-				}
+				const list = event.target.parentElement.nextElementSibling.querySelectorAll('input[type="number"]');
+				for (const item of list) item.value = 0;
 			}
 		},
 		roundingAngle: function (angle) {
@@ -356,6 +354,23 @@ var calcApp = new Vue({
 					type: "calcPlusTotal",
 					total,
 					key: "notchMixer",
+				});
+			},
+			deep: true,
+		},
+		"selectOptions.wallPanel": {
+			// Цена cтеновые панели из камня
+			handler: function () {
+				const options = this.selectOptions.wallPanel;
+				let total = 0;
+				if (options.weight !== undefined && options.height !== undefined) {
+					total += ((Number(options.weight.value) * Number(options.height.value)) / 10000) * options.weight.prise;
+				}
+				if (options.number !== undefined) total += options.number.prise * Number(options.number.value);
+				store.commit({
+					type: "calcPlusTotal",
+					total,
+					key: "wallPanel",
 				});
 			},
 			deep: true,
