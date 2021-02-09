@@ -191,14 +191,14 @@ html
                                     .options__size-arrow-vertical.size-arrow-vertical_left
                                         .size-arrow
                                         label.options__size-lable
-                                            input(@change="formSize('left', $event)", name="formNorm", type="number" step="1" min="30" max="900").options__size-input
+                                            input(@change="formSize('left', $event)", :value="optionsSize.size.formNorm.left", name="formNorm", type="number" step="1" min="30" max="900").options__size-input
                                             span.options__size-text см
                                         .size-arrow.size-arrow_end
 
                                     .options__size-arrow-horizon.size-arrow-horizon_bot
                                         .size-arrow
                                         label.options__size-lable
-                                            input(@change="formSize('bottom', $event)", name="formNorm", type="number", step="1", min="30", max="900").options__size-input
+                                            input(@change="formSize('bottom', $event)", :value="optionsSize.size.formNorm.bottom", name="formNorm", type="number", step="1", min="30", max="900").options__size-input
                                             span.options__size-text см
                                         .size-arrow.size-arrow_end
 
@@ -216,14 +216,14 @@ html
                                     .options__size-arrow-vertical.size-arrow-vertical_left
                                         .size-arrow
                                         label.options__size-lable
-                                            input(@change="formSize('left', $event)", name="formG", :class="formSizeError.right ? 'options__size-min-error' : ''", type="number" step="1" min="30" max="900").options__size-input
+                                            input(@change="formSize('left', $event)", :value="optionsSize.size.formG.left", name="formG", :class="formSizeError.right ? 'options__size-min-error' : ''", type="number" step="1" min="30" max="900").options__size-input
                                             span.options__size-text см
                                         .size-arrow.size-arrow_end
 
                                     .options__size-arrow-horizon.size-arrow-horizon_top
                                         .size-arrow
                                         label.options__size-lable
-                                            input(@change="formSize('top', $event)", name="formG", type="number" step="1" min="30" max="900").options__size-input
+                                            input(@change="formSize('top', $event)", :value="optionsSize.size.formG.top", name="formG", type="number" step="1" min="30" max="900").options__size-input
                                             span.options__size-text см
                                             span(v-if="formSizeError.top").form-error Не может быть меньше размера
                                         .size-arrow.size-arrow_end
@@ -231,7 +231,7 @@ html
                                     .options__size-arrow-vertical.size-arrow-vertical_right
                                         .size-arrow
                                         label.options__size-lable
-                                            input(@change="formSize('right', $event)", name="formG", type="number" step="1" min="30" max="900").options__size-input
+                                            input(@change="formSize('right', $event)", :value="optionsSize.size.formG.right", name="formG", type="number" step="1" min="30" max="900").options__size-input
                                             span.options__size-text см
                                             span(v-if="formSizeError.right").form-error Не может быть меньше размера                                        
                                         .size-arrow.size-arrow_end             
@@ -239,7 +239,7 @@ html
                                     .options__size-arrow-horizon.size-arrow-horizon_bot
                                         .size-arrow
                                         label.options__size-lable
-                                            input(@change="formSize('bottom', $event)", name="formG", :class="formSizeError.top ? 'options__size-min-error' : ''", type="number" step="1" min="30" max="900").options__size-input
+                                            input(@change="formSize('bottom', $event)", :value="optionsSize.size.formG.bottom", name="formG", :class="formSizeError.top ? 'options__size-min-error' : ''", type="number" step="1" min="30" max="900").options__size-input
                                             span.options__size-text см
                                         .size-arrow.size-arrow_end
                                     
@@ -260,7 +260,7 @@ html
                                     .options__size-arrow-vertical.size-arrow-vertical_left
                                         .size-arrow
                                         label.options__size-lable
-                                            input(@change="formSize('left', $event)", name="formP", type="number" step="1" min="30" max="900").options__size-input
+                                            input(@change="formSize('left', $event)", :value="optionsSize.size.formP.left", name="formP", type="number" step="1" min="30" max="900").options__size-input
                                             span.options__size-text см
                                             span(v-if="formSizeError.left").form-error Не может быть меньше размера
                                         .size-arrow.size-arrow_end
@@ -268,7 +268,7 @@ html
                                     .options__size-arrow-horizon.size-arrow-horizon_top-floor-2
                                         .size-arrow
                                         label.options__size-lable
-                                            input(@change="formSize('top', $event)", name="formP", type="number" step="1" min="30" max="900").options__size-input
+                                            input(@change="formSize('top', $event)", :value="optionsSize.size.formP.top", name="formP", type="number" step="1" min="30" max="900").options__size-input
                                             span.options__size-text см
                                             span(v-if="formSizeError.top").form-error Не может быть меньше размера
                                         .size-arrow.size-arrow_end
@@ -276,7 +276,7 @@ html
                                     .options__size-arrow-vertical.size-arrow-vertical_right
                                         .size-arrow
                                         label.options__size-lable
-                                            input(@change="formSize('right', $event)", name="formP", type="number" step="1" min="30" max="900").options__size-input
+                                            input(@change="formSize('right', $event)", :value="optionsSize.size.formP.right", name="formP", type="number" step="1" min="30" max="900").options__size-input
                                             span.options__size-text см
                                             span(v-if="formSizeError.right").form-error Не может быть меньше размера
                                         .size-arrow.size-arrow_end
@@ -284,7 +284,7 @@ html
                                     .options__size-arrow-horizon.size-arrow-horizon_bot.size-arrow-horizon_bot_2
                                         .size-arrow
                                         label.options__size-lable
-                                            input(@change="formSize('bottomRight', $event)", name="formP", :class="formSizeError.top ? 'options__size-min-error' : ''", type="number" step="1" min="30" max="900").options__size-input
+                                            input(@change="formSize('bottomRight', $event)", :value="optionsSize.size.formP.bottomRight", name="formP", :class="formSizeError.top ? 'options__size-min-error' : ''", type="number" step="1" min="30" max="900").options__size-input
                                             span.options__size-text см
                                         .size-arrow.size-arrow_end
 
@@ -292,14 +292,14 @@ html
                                         .size-arrow
                                         .size-line
                                         label.options__size-lable
-                                            input(@change="formSize('center', $event)", name="formP", :class="formSizeError.left || formSizeError.right ? 'options__size-min-error' : ''", type="number" step="1" min="30" max="900").options__size-input
+                                            input(@change="formSize('center', $event)", :value="optionsSize.size.formP.center", name="formP", :class="formSizeError.left || formSizeError.right ? 'options__size-min-error' : ''", type="number" step="1" min="30" max="900").options__size-input
                                             span.options__size-text см
                                         .size-arrow.size-arrow_end
 
                                     .options__size-arrow-horizon.size-arrow-horizon_bot.size-arrow-horizon_bot_1
                                         .size-arrow
                                         label.options__size-lable
-                                            input(@change="formSize('bottomLeft', $event)", name="formP", :class="formSizeError.top ? 'options__size-min-error' : ''", type="number" step="1" min="30" max="900").options__size-input
+                                            input(@change="formSize('bottomLeft', $event)", :value="optionsSize.size.formP.bottomLeft", name="formP", :class="formSizeError.top ? 'options__size-min-error' : ''", type="number" step="1" min="30" max="900").options__size-input
                                             span.options__size-text см
                                         .size-arrow.size-arrow_end
                                 
