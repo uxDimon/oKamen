@@ -76,7 +76,7 @@ const options = {
 			// 	],
 			// },
 			rounding: {
-				heading: "Выберите подходящее форму скругления края столешницы",
+				heading: "Выберите скругления угла столешницы",
 				required: false,
 				type: "radio",
 				infoBlock: {
@@ -84,6 +84,7 @@ const options = {
 					infoPaер1: "optionsSize",
 					infoPaер2: "roundingNumber",
 				},
+				depiction: "Cкругления углов",
 				inputsImg: [
 					{
 						value: "a",
@@ -113,6 +114,7 @@ const options = {
 				required: false,
 				type: "radio",
 				plusTotal: true,
+				depiction: "Cкругления края столешницы",
 				inputsImg: [
 					{
 						value: "a",
@@ -154,6 +156,7 @@ const options = {
 					text: "Вырез под мойку",
 					detail: "(от 3 000 ₽)",
 					value: "sink",
+					depiction: "Вырез под мойку",
 					inputs: [
 						{
 							value: "up",
@@ -180,6 +183,7 @@ const options = {
 					text: "Вырез под варочную панель",
 					detail: "(от 3 000 ₽)",
 					value: "hob",
+					depiction: "Вырез под варочную панель",
 					inputs: [
 						{
 							value: "up",
@@ -205,6 +209,7 @@ const options = {
 					text: "Вырез под смеситель",
 					detail: "(от 1 000 ₽)",
 					value: "mixer",
+					depiction: "Вырез под смеситель",
 					inputNumber: [
 						{
 							value: "up",
@@ -235,6 +240,7 @@ const options = {
 				required: true,
 				type: "checkbox",
 				optionsClass: "subInputs",
+				depiction: "",
 				inputs: [
 					{
 						value: "other",
@@ -285,6 +291,7 @@ const options = {
 					text: "Стеновые панели из камня",
 					detail: "(от 5 000 ₽)",
 					value: "wallPanel",
+					depiction: "Стеновые панели из камня",
 					inputNumber: [
 						{
 							value: "weight",
@@ -366,7 +373,7 @@ const store = new Vuex.Store({
 		roadMap: {
 			category: {
 				text: "Категория",
-				visible: true,
+				visible: false,
 				disabled: false,
 				disabledButton: true,
 			},
@@ -402,7 +409,7 @@ const store = new Vuex.Store({
 			},
 			total: {
 				text: "Итог",
-				visible: false,
+				visible: true,
 				disabled: true,
 				disabledButton: true,
 			},
@@ -487,7 +494,7 @@ const store = new Vuex.Store({
 		},
 		chooseOption(state, payload) {
 			// Добавляет/удаляет выбранную опцию в state.selectOptions
-			let underOptions = { value: payload.value, prise: payload.prise === undefined ? false : payload.prise };
+			let underOptions = { value: payload.value, text: payload.text, depiction: payload.depiction, prise: payload.prise === undefined ? false : payload.prise };
 			if (payload.typeInput === "checkbox") {
 				if (payload.checked) {
 					Vue.set(state.selectOptions[payload.key], payload.value, underOptions);
@@ -500,10 +507,12 @@ const store = new Vuex.Store({
 			} else {
 				state.selectOptions[payload.key].value = underOptions.value;
 				state.selectOptions[payload.key].prise = underOptions.prise;
+				state.selectOptions[payload.key].text = underOptions.text;
+				state.selectOptions[payload.key].depiction = underOptions.depiction;
 			}
 		},
 		defaultOptions(state, payload) {
-			let underOptions = { value: "", prise: 0 };
+			let underOptions = { value: "", prise: 0, text: "", depiction: "" };
 			if (payload.categoryOptions[payload.optionsKey].type === "checkbox") underOptions = {};
 			Vue.set(state.selectOptions, payload.optionsKey, underOptions);
 			if (payload.categoryOptions[payload.optionsKey].subInputs !== undefined) Vue.set(state.subInputsDisabledList, payload.optionsKey, true);

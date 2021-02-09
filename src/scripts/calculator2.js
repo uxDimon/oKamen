@@ -34,19 +34,20 @@ var calcApp = new Vue({
 	// fix:
 	// скругления первая подсказка
 	// m2
-	// subInputs бажет :value
 	methods: {
 		roadMapTo: function (index) {
 			// Переключения вкладок с опциями
 			store.commit("roadMapTo", index);
 		},
-		chooseOption: function (key, input, event) {
+		chooseOption: function (key, input, depiction, event) {
 			// Добавляет выбранную опцию в state.selectOptions
 			store.commit({
 				type: "chooseOption",
 				key,
 				value: input.value,
 				prise: input.prise,
+				text: input.text,
+				depiction,
 				subInputs: input.subInputs,
 				checked: event.target.checked,
 				typeInput: event.target.type,
@@ -215,6 +216,48 @@ var calcApp = new Vue({
 			for (const key in this.optionsSize.visible) {
 				if (this.optionsSize.visible[key]) return true;
 			}
+		},
+		totalList() {
+			let list = [];
+			for (const key in this.selectOptions) {
+				let date = { text: "", depiction: "", prise: "" };
+				const item = this.selectOptions[key];
+				if (!["category", "materials", "form", "rounding", "notchMixer", "wallPanel"].includes(key)) {
+					if (item.text === undefined) {
+						for (const key in item) {
+							date = { text: "", depiction: "", prise: "" };
+							date.text = item[key].text;
+							date.depiction = item[key].depiction;
+							date.prise = item[key].prise;
+							list.push(date);
+						}
+					} else if (item.text !== "") {
+						date.text = item.text;
+						date.depiction = item.depiction;
+						date.prise = item.prise;
+						list.push(date);
+					}
+				}
+				if (key === "rounding" && this.optionsSize.roundingNumber > 0) {
+					date.depiction = `${item.depiction} ${item.text}`;
+					date.text = `Количество ${this.optionsSize.roundingNumber}`;
+					date.prise = this.calc.plusTotal.rounding;
+					list.push(date);
+				}
+				if (key === "notchMixer") {
+					for (const key in item) {
+						const value = Number(item[key].value);
+						if (value > 0) {
+							date = { text: "", depiction: "", prise: "" };
+							date.text = `${item[key].text}. кол.во ${item[key].value}`;
+							date.depiction = item[key].depiction;
+							date.prise = item[key].prise * value;
+							list.push(date);
+						}
+					}
+				}
+			}
+			return list;
 		},
 	},
 	watch: {

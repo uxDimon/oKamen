@@ -34,7 +34,7 @@ html
                                 h2.options__heading {{categoryOptions.category.heading}}
                                 .options-input__wrap
                                     .options-input(v-for="input in categoryOptions.category.inputsImg")
-                                        input(@change="createSelectOptions(), chooseOption('category', input.value, $event), nextButtonDisabled(categoryOptions, 'category')", :id="'productType' + '-' + input.value", :type="categoryOptions.category.type", :name="'productType'", :value="input.value")
+                                        input(@change="createSelectOptions(), chooseOption('category', input.value, '', $event), nextButtonDisabled(categoryOptions, 'category')", :id="'productType' + '-' + input.value", :type="categoryOptions.category.type", :name="'productType'", :value="input.value")
                                         label(:for="'productType' + '-' + input.value", tabindex="1")
                                             .options-input__body
                                                 .options-input__radio-chec.options-input__radio_bot
@@ -59,7 +59,7 @@ html
                                 h2(v-if="optionItem.heading").options__heading {{optionItem.heading}}
                                 .options-input__wrap
                                     .options-input(v-for="input in optionItem.inputsImg")
-                                        input(@change="chooseOption(optionKey, input, $event), nextButtonDisabled(item, key)", :id="optionKey + '-' + input.value", :type="optionItem.type", :name="optionKey", :value="input.value")
+                                        input(@change="chooseOption(optionKey, input, optionItem.depiction, $event), nextButtonDisabled(item, key)", :id="optionKey + '-' + input.value", :type="optionItem.type", :name="optionKey", :value="input.value")
                                         label(:for="optionKey + '-' + input.value", tabindex="1")
                                             .options-input__body
                                                 .options-input__radio-chec
@@ -68,7 +68,7 @@ html
                                                 span(v-if="input.detail").options__radio-text-gray {{input.detail}}
                                     
                                     label.custom-input(v-for="input in optionItem.inputs")
-                                        input(@change="chooseOption(optionKey, input, $event), nextButtonDisabled(item, key)", :type="optionItem.type", :name="optionKey", :value="input.value")
+                                        input(@change="chooseOption(optionKey, input, optionItem.depiction, $event), nextButtonDisabled(item, key)", :type="optionItem.type", :name="optionKey", :value="input.value")
                                         .options-input__radio-chec
                                         span {{input.text}}
                                             span(v-if="input.detail").options__radio-text-gray {{" " + input.detail}}
@@ -82,7 +82,7 @@ html
                                                 span(v-if="optionItem.subInputs.detail").options__radio-text-gray {{" " + optionItem.subInputs.detail}}
                                         .subcategories-input__wrap(:class="subInputsDisabledList[optionKey] ? 'disabled' : ''")
                                             label(v-for="subInputs in optionItem.subInputs.inputs").custom-input
-                                                input(@change="chooseOption(optionKey, subInputs, $event), nextButtonDisabled(item, key)", :disabled="subInputsDisabledList[optionKey]", :checked="subInputsDisabledList[optionKey] ? false : ''", :type="optionItem.type", :name="optionItem.subInputs.value", :value="subInputs.value")
+                                                input(@change="chooseOption(optionKey, subInputs, optionItem.subInputs.depiction, $event), nextButtonDisabled(item, key)", :disabled="subInputsDisabledList[optionKey]", :checked="subInputsDisabledList[optionKey] ? false : ''", :type="optionItem.type", :name="optionItem.subInputs.value", :value="subInputs.value")
                                                 .options-input__radio-chec
                                                 span {{subInputs.text}}
                                                     span(v-if="subInputs.detail").options__radio-text-gray {{" " + subInputs.detail}}
@@ -90,7 +90,7 @@ html
                                             label(v-for="subInputs in optionItem.subInputs.inputNumber").custom-input-number
                                                 span {{subInputs.text}}
                                                     span(v-if="subInputs.detail").options__radio-text-gray {{" " + subInputs.detail}}
-                                                input(@change="chooseOption(optionKey, subInputs, $event), nextButtonDisabled(item, key)", ref="input" :disabled="subInputsDisabledList[optionKey]", value="0", type="number", :name="optionItem.subInputs.value", min="0", max="999").options__size-input
+                                                input(@change="chooseOption(optionKey, subInputs, optionItem.subInputs.depiction, $event), nextButtonDisabled(item, key)", ref="input" :disabled="subInputsDisabledList[optionKey]", value="0", type="number", :name="optionItem.subInputs.value", min="0", max="999").options__size-input
                                                 span {{subInputs.textInput}}
                                     
                                 .options__rounding-range-wrap(v-if="optionItem.infoBlock")
@@ -119,6 +119,60 @@ html
                             .calc__button-wrap
                                 button(@click='roadMapTo(index)').button.button_gray.calc__button Назад
                                 button(@click='roadMapTo(index + 2)', :disabled="roadMap[key].disabledButton").button.calc__button Далее
+
+                        //- .calc__body.calc__body_total(v-show="roadMap.total.visible")
+                        .calc__body.calc__body_total
+                            .options
+                                .options__total-head
+                                    h3.options__heading Выбранные параметры
+                                    .options__total-main-options-wrap
+                                        .options__total-main-options
+                                            span.options__total-main-options-heading Тип столешницы
+                                            span.options__total-main-options-text {{selectOptions.form?.text}}
+                                        .options__total-main-options
+                                            span.options__total-main-options-heading Площадь столешницы
+                                            span.options__total-main-options-text {{optionsSize.size[selectOptions.form?.value]?.area}}
+                                                span.m2  м2
+                                        .options__total-main-options
+                                            span.options__total-main-options-heading Название камня
+                                            span.options__total-main-options-text {{materials.allList ? materials.allList[selectOptions.materials.id]?.name : ''}}
+                                        .options__total-main-options
+                                            span.options__total-main-options-heading Производитель
+                                            span.options__total-main-options-text {{materials.allList ? materials.allList[selectOptions.materials.id]?.manufacturer : ''}}
+                                        .options__total-main-options
+                                            span.options__total-main-options-heading Цвет
+                                            span.options__total-main-options-text {{materials.allList ? materials.allList[selectOptions.materials.id]?.color : ''}}
+                                
+                                .radio-wrap-border-s
+                                
+                                .options__total-body
+                                    h3.options__heading Выбранные параметры
+                                    .options__options-price-wrap
+                                        .options__total-options-table
+                                            table
+                                                tr.options__total-options-head
+                                                    td Наименование
+                                                    td Описание
+                                                    td Стоимость
+                                                tr(v-for="item in totalList" :key="item.id")
+                                                    td {{item.depiction}}
+                                                    td {{item.text}}
+                                                    td {{item.prise}} ₽
+
+                                        .options__total-price-wrap
+                                            .options__total-price
+                                                span.options__total-price-text Предварительная стоимость
+                                                span.options__total-price-number 94 360 ₽
+                                            .options__total-button
+                                                button.button.calc__button Заказать звонок
+                                                button.button.button_gray.calc__button Отправить по почте
+
+                            .calc__button-wrap
+                                button(@click="roadMapTo(Object.keys(roadMap).length - 2)").button.button_arrow-left.calc__button
+                                    svg
+                                        use(xlink:href="./assets/images/sprite.svg#button-arrow")
+                                    span Назад
+
 
                         .options__size-wrap
                             .options__size-sticky(v-show="!roadMap.total.visible")
