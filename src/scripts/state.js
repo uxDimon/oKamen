@@ -311,7 +311,7 @@ const options = {
 							value: "number",
 							text: "Количество розеток",
 							detail: "(от 1 500 ₽)",
-							textInput: "",
+							textInput: " ",
 							prise: 1500,
 						},
 					],

@@ -91,7 +91,7 @@ html
                                                 span {{subInputs.text}}
                                                     span(v-if="subInputs.detail").options__radio-text-gray {{" " + subInputs.detail}}
                                                 input(@change="chooseOption(optionKey, subInputs, optionItem.subInputs.depiction, $event), nextButtonDisabled(item, key)", ref="input" :disabled="subInputsDisabledList[optionKey]", value="0", type="number", :name="optionItem.subInputs.value", min="0", max="999").options__size-input
-                                                span {{subInputs.textInput}}
+                                                span.custom-input-number__units {{subInputs.textInput}}
                                     
                                 .options__rounding-range-wrap(v-if="optionItem.infoBlock")
                                     span {{optionItem.infoBlock.text}}
@@ -160,7 +160,7 @@ html
                                                     td {{calc.plusTotal.array}} ₽
                                                 tr(v-for="item in totalList" :key="item.id")
                                                     td(v-if="item.depiction") {{item.depiction}}
-                                                    td(:colspan="!item.depiction ? '2' : '1'") {{item.text}}
+                                                    td(:colspan="!item.depiction ? '2' : '1'", v-html="item.text")
                                                     td {{item.prise}} ₽
 
                                         .options__total-price-wrap
@@ -183,10 +183,10 @@ html
                                 .options__size.options__size_norm(v-if="optionsSize.visible.formNorm", :key="'formNorm'")
                                     .options__size-img-wrap
                                         .options__size-img-body(:style="roundingNorm" :class="roundingActive ? 'rounding':''")
-                                            input(type="checkbox", @click="roundingAngle('topLeft')").size-img-button.sib_top-left
-                                            input(type="checkbox", @click="roundingAngle('topRight')").size-img-button.sib_top-right
-                                            input(type="checkbox", @click="roundingAngle('bottomRight')").size-img-button.sib_bottom-right
-                                            input(type="checkbox", @click="roundingAngle('bottomLeft')").size-img-button.sib_bottom-left
+                                            input(type="checkbox", @click="roundingAngle('topLeft')", :class="roundingActiveF ? 'size-img-button_animat': ''").size-img-button.sib_top-left
+                                            input(type="checkbox", @click="roundingAngle('topRight')", :class="roundingActiveF ? 'size-img-button_animat': ''").size-img-button.sib_top-right
+                                            input(type="checkbox", @click="roundingAngle('bottomRight')", :class="roundingActiveF ? 'size-img-button_animat': ''").size-img-button.sib_bottom-right
+                                            input(type="checkbox", @click="roundingAngle('bottomLeft')", :class="roundingActiveF ? 'size-img-button_animat': ''").size-img-button.sib_bottom-left
 
                                     .options__size-arrow-vertical.size-arrow-vertical_left
                                         .size-arrow
@@ -201,17 +201,19 @@ html
                                             input(@change="formSize('bottom', $event)", :value="optionsSize.size.formNorm.bottom", name="formNorm", type="number", step="1", min="30", max="900").options__size-input
                                             span.options__size-text см
                                         .size-arrow.size-arrow_end
+                                    
+                                    span(v-if="roundingActiveF").form-error.warnings-fillets Выберите углы скругления
 
                                 .options__size.options__size_g(v-if="optionsSize.visible.formG", :key="'formG'")
                                     .options__size-img-wrap
                                         .options__size-img-body(:style="roundingGBody" :class="roundingActive ? 'rounding':''")
-                                            input(type="checkbox", @click="roundingAngle('topLeft')").size-img-button.sib_top-left
-                                            input(type="checkbox", @click="roundingAngle('topRight')").size-img-button.sib_top-right
-                                            input(type="checkbox", @click="roundingAngle('centerLeft')").size-img-button.sib_bottom-left
+                                            input(type="checkbox", @click="roundingAngle('topLeft')", :class="roundingActiveF ? 'size-img-button_animat': ''").size-img-button.sib_top-left
+                                            input(type="checkbox", @click="roundingAngle('topRight')", :class="roundingActiveF ? 'size-img-button_animat': ''").size-img-button.sib_top-right
+                                            input(type="checkbox", @click="roundingAngle('centerLeft')", :class="roundingActiveF ? 'size-img-button_animat': ''").size-img-button.sib_bottom-left
 
                                         .options__size-img-bot-right(:style="roundingGRight" :class="roundingActive ? 'rounding':''")
-                                            input(type="checkbox", @click="roundingAngle('bottomRight')").size-img-button.sib_bottom-right
-                                            input(type="checkbox", @click="roundingAngle('bottomCenterLeft')").size-img-button.sib_bottom-left
+                                            input(type="checkbox", @click="roundingAngle('bottomRight')", :class="roundingActiveF ? 'size-img-button_animat': ''").size-img-button.sib_bottom-right
+                                            input(type="checkbox", @click="roundingAngle('bottomCenterLeft')", :class="roundingActiveF ? 'size-img-button_animat': ''").size-img-button.sib_bottom-left
 
                                     .options__size-arrow-vertical.size-arrow-vertical_left
                                         .size-arrow
@@ -242,20 +244,23 @@ html
                                             input(@change="formSize('bottom', $event)", :value="optionsSize.size.formG.bottom", name="formG", :class="formSizeError.top ? 'options__size-min-error' : ''", type="number" step="1" min="30" max="900").options__size-input
                                             span.options__size-text см
                                         .size-arrow.size-arrow_end
+
+                                    span(v-if="roundingActiveF").form-error.warnings-fillets Выберите углы скругления
+
                                     
                                 .options__size.options__size_p(v-if="optionsSize.visible.formP", :key="'formP'")
                                     .options__size-img-wrap
                                         .options__size-img-body(:style="roundingPBody" :class="roundingActive ? 'rounding':''")
-                                            input(type="checkbox", @click="roundingAngle('topLeft')").size-img-button.sib_top-left
-                                            input(type="checkbox", @click="roundingAngle('topRight')").size-img-button.sib_top-right
+                                            input(type="checkbox", @click="roundingAngle('topLeft')", :class="roundingActiveF ? 'size-img-button_animat': ''").size-img-button.sib_top-left
+                                            input(type="checkbox", @click="roundingAngle('topRight')", :class="roundingActiveF ? 'size-img-button_animat': ''").size-img-button.sib_top-right
 
                                         .options__size-img-bot-right(:style="roundingGRight" :class="roundingActive ? 'rounding':''")
-                                            input(type="checkbox", @click="roundingAngle('bottomRight')").size-img-button.sib_bottom-right
-                                            input(type="checkbox", @click="roundingAngle('bottomCenterLeft')").size-img-button.sib_bottom-left
+                                            input(type="checkbox", @click="roundingAngle('bottomRight')", :class="roundingActiveF ? 'size-img-button_animat': ''").size-img-button.sib_bottom-right
+                                            input(type="checkbox", @click="roundingAngle('bottomCenterLeft')", :class="roundingActiveF ? 'size-img-button_animat': ''").size-img-button.sib_bottom-left
 
                                         .options__size-img-bot-left(:style="roundingPLeft" :class="roundingActive ? 'rounding':''")
-                                            input(type="checkbox", @click="roundingAngle('bottomLeft')").size-img-button.sib_bottom-left
-                                            input(type="checkbox", @click="roundingAngle('bottomCenterRight')").size-img-button.sib_bottom-right
+                                            input(type="checkbox", @click="roundingAngle('bottomLeft')", :class="roundingActiveF ? 'size-img-button_animat': ''").size-img-button.sib_bottom-left
+                                            input(type="checkbox", @click="roundingAngle('bottomCenterRight')", :class="roundingActiveF ? 'size-img-button_animat': ''").size-img-button.sib_bottom-right
 
                                     .options__size-arrow-vertical.size-arrow-vertical_left
                                         .size-arrow
@@ -302,6 +307,9 @@ html
                                             input(@change="formSize('bottomLeft', $event)", :value="optionsSize.size.formP.bottomLeft", name="formP", :class="formSizeError.top ? 'options__size-min-error' : ''", type="number" step="1" min="30" max="900").options__size-input
                                             span.options__size-text см
                                         .size-arrow.size-arrow_end
+                                    
+                                    span(v-if="roundingActiveF").form-error.warnings-fillets Выберите углы скругления
+
                                 
                                 .options__size-info(v-if="chooseForm")
                                     span.options__size-info-item Площадь 

@@ -18,6 +18,7 @@ var calcApp = new Vue({
 			right: false,
 		},
 		roundingActive: false,
+		roundingActiveError: true,
 		materials: {
 			allList: null,
 			filterList: null,
@@ -218,14 +219,14 @@ var calcApp = new Vue({
 					const options = this.selectOptions.wallPanel;
 					if (options.weight !== undefined && options.height !== undefined) {
 						const total = (options.weight.value * options.height.value) / 10000;
-						date.text = `Площадь: ${total} <span class="m2"> м2</span>`;
+						date.text = `Площадь: ${total.toFixed(2)} <span class="m2"> м2</span>`;
 						date.depiction = options.weight.depiction;
 						date.prise = Math.round(total * options.weight.prise);
 						list.push(date);
 					}
 					if (options.number !== undefined) {
 						date = { text: "", depiction: "", prise: "" };
-						date.text = options.number.text;
+						date.text = `${options.number.text}: ${options.number.value}`;
 						date.depiction = options.number.depiction;
 						date.prise = Math.round(Number(options.number.value) * options.number.prise);
 						list.push(date);
@@ -282,6 +283,14 @@ var calcApp = new Vue({
 		// totalList() {
 		// 	return list;
 		// },
+		roundingActiveF() {
+			if (this.roundingActiveError && this.roundingActive && this.optionsSize.roundingNumber === 0) {
+				this.roundingActiveError = false;
+				return true;
+			} else {
+				return false;
+			}
+		},
 	},
 	watch: {
 		"optionsSize.size.formNorm": {

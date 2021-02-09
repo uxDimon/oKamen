@@ -842,7 +842,14 @@
 }
 
 .warnings-fillets {
-	top: 25%;
+	top: 27%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	margin: 0;
+}
+
+.options__size_norm .warnings-fillets {
+	top: 50%;
 }
 
 .size-arrow-vertical_right .form-error {
@@ -1112,5 +1119,9 @@
 	font-size: 16px;
 	line-height: 1.25;
 	display: grid;
-	grid-template-columns: 1fr auto auto;
+	grid-template-columns: 1fr auto minmax(26px, auto);
+}
+
+.custom-input-number__units {
+	text-align: right;
 }
