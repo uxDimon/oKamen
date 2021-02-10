@@ -5,7 +5,7 @@
 		"article": "EQTM 018",
 		"color": "Серый",
 		"manufacturer": "EtnaQuartz",
-		"imgUrl": "./assets/images/material/cvarc/kv-03.png",
+		"imgUrl": "./assets/images/material/mt_04.jpg",
 		"height": [
 			{
 				"value": "20",
@@ -23,7 +23,7 @@
 		"article": "EQTM 0182",
 		"color": "Белый",
 		"manufacturer": "EtnaQuartz2",
-		"imgUrl": "./assets/images/material/cvarc/kv-01.png",
+		"imgUrl": "./assets/images/material/mt_01.jpg",
 		"height": [
 			{
 				"value": "20",
@@ -41,7 +41,7 @@
 		"article": "EQTM 0183",
 		"color": "Черный",
 		"manufacturer": "EtnaQuartz3",
-		"imgUrl": "./assets/images/material/cvarc/kv-02.png",
+		"imgUrl": "./assets/images/material/mt_02.jpg",
 		"height": [
 			{
 				"value": "20",
@@ -55,11 +55,25 @@
 		"article": "EQTM 0183",
 		"color": "Красны",
 		"manufacturer": "EtnaQuartz3",
-		"imgUrl": "./assets/images/material/cvarc/kv-02.png",
+		"imgUrl": "./assets/images/material/mt_03.jpg",
 		"height": [
 			{
 				"value": "15",
 				"price": "2000"
+			}
+		]
+	},
+	"mt0005": {
+		"category": "Оникс",
+		"name": "Название (Оникс Красны)",
+		"article": "EQTM 0183",
+		"color": "Красны",
+		"manufacturer": "EtnaQuartz3",
+		"imgUrl": "./assets/images/material/mt_05.png",
+		"height": [
+			{
+				"value": "15",
+				"price": "8000"
 			}
 		]
 	}

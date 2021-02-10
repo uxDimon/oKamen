@@ -191,7 +191,7 @@ html
                             .options__size-sticky(v-show="!roadMap.total.visible")
                                 .options__size.options__size_norm(v-if="optionsSize.visible.formNorm", :key="'formNorm'")
                                     .options__size-img-wrap
-                                        .options__size-img-body(:style="roundingNorm, optionSizeImg" :class="roundingActive ? 'rounding':''")
+                                        .options__size-img-body(:style="roundingNorm" :class="roundingActive ? 'rounding':''")
                                             input(type="checkbox", @click="roundingAngle('topLeft')", :class="roundingActiveF ? 'size-img-button_animat': ''").size-img-button.sib_top-left
                                             input(type="checkbox", @click="roundingAngle('topRight')", :class="roundingActiveF ? 'size-img-button_animat': ''").size-img-button.sib_top-right
                                             input(type="checkbox", @click="roundingAngle('bottomRight')", :class="roundingActiveF ? 'size-img-button_animat': ''").size-img-button.sib_bottom-right
@@ -215,12 +215,12 @@ html
 
                                 .options__size.options__size_g(v-if="optionsSize.visible.formG", :key="'formG'")
                                     .options__size-img-wrap
-                                        .options__size-img-body(:style="roundingGBody, optionSizeImg" :class="roundingActive ? 'rounding':''")
+                                        .options__size-img-body(:style="roundingGBody" :class="roundingActive ? 'rounding':''")
                                             input(type="checkbox", @click="roundingAngle('topLeft')", :class="roundingActiveF ? 'size-img-button_animat': ''").size-img-button.sib_top-left
                                             input(type="checkbox", @click="roundingAngle('topRight')", :class="roundingActiveF ? 'size-img-button_animat': ''").size-img-button.sib_top-right
                                             input(type="checkbox", @click="roundingAngle('centerLeft')", :class="roundingActiveF ? 'size-img-button_animat': ''").size-img-button.sib_bottom-left
 
-                                        .options__size-img-bot-right(:style="roundingGRight, optionSizeImg" :class="roundingActive ? 'rounding':''")
+                                        .options__size-img-bot-right(:style="roundingGRight" :class="roundingActive ? 'rounding':''")
                                             input(type="checkbox", @click="roundingAngle('bottomRight')", :class="roundingActiveF ? 'size-img-button_animat': ''").size-img-button.sib_bottom-right
                                             input(type="checkbox", @click="roundingAngle('bottomCenterLeft')", :class="roundingActiveF ? 'size-img-button_animat': ''").size-img-button.sib_bottom-left
 
@@ -259,15 +259,15 @@ html
                                     
                                 .options__size.options__size_p(v-if="optionsSize.visible.formP", :key="'formP'")
                                     .options__size-img-wrap
-                                        .options__size-img-body(:style="roundingPBody, optionSizeImg" :class="roundingActive ? 'rounding':''")
+                                        .options__size-img-body(:style="roundingPBody" :class="roundingActive ? 'rounding':''")
                                             input(type="checkbox", @click="roundingAngle('topLeft')", :class="roundingActiveF ? 'size-img-button_animat': ''").size-img-button.sib_top-left
                                             input(type="checkbox", @click="roundingAngle('topRight')", :class="roundingActiveF ? 'size-img-button_animat': ''").size-img-button.sib_top-right
 
-                                        .options__size-img-bot-right(:style="roundingGRight, optionSizeImg" :class="roundingActive ? 'rounding':''")
+                                        .options__size-img-bot-right(:style="roundingGRight" :class="roundingActive ? 'rounding':''")
                                             input(type="checkbox", @click="roundingAngle('bottomRight')", :class="roundingActiveF ? 'size-img-button_animat': ''").size-img-button.sib_bottom-right
                                             input(type="checkbox", @click="roundingAngle('bottomCenterLeft')", :class="roundingActiveF ? 'size-img-button_animat': ''").size-img-button.sib_bottom-left
 
-                                        .options__size-img-bot-left(:style="roundingPLeft, optionSizeImg" :class="roundingActive ? 'rounding':''")
+                                        .options__size-img-bot-left(:style="roundingPLeft" :class="roundingActive ? 'rounding':''")
                                             input(type="checkbox", @click="roundingAngle('bottomLeft')", :class="roundingActiveF ? 'size-img-button_animat': ''").size-img-button.sib_bottom-left
                                             input(type="checkbox", @click="roundingAngle('bottomCenterRight')", :class="roundingActiveF ? 'size-img-button_animat': ''").size-img-button.sib_bottom-right
 

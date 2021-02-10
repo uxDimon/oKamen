@@ -3284,6 +3284,9 @@ input[type="radio"] {
     .arrow-linc::after {
       margin-top: 2px; } }
 
+:root {
+  --form-rounding: 2px; }
+
 .calc {
   width: 100%;
   max-width: 1240px;
@@ -3577,9 +3580,6 @@ input[type="radio"] {
     border-bottom-right-radius: var(--form-rounding);
     border-bottom-left-radius: var(--form-rounding); }
 
-:root {
-  --form-rounding: 2px; }
-
 .options__size-img-wrap {
   width: 100%;
   height: 100%;
@@ -3616,6 +3616,7 @@ input[type="radio"] {
 .options__size-img-bot-right,
 .options__size-img-bot-left,
 .options__size-img-body {
+  background-size: 380px;
   background-color: #bba281;
   transition: 300ms ease-in-out 0ms;
   transition-property: left, right, background-position-x, border-radius; }
@@ -3941,7 +3942,7 @@ input[type="radio"] {
 
 .options__materials-img {
   width: 100%;
-  height: auto;
+  height: 100px;
   -o-object-fit: cover;
      object-fit: cover;
   margin-bottom: 4px; }

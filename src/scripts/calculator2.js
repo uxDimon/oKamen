@@ -292,11 +292,11 @@ var calcApp = new Vue({
 			}
 		},
 		optionSizeImg() {
-			const materialsId = this.selectOptions.materials.id
-			if (materialsId !== '') {
-				return `background-image: url(${this.materials.allList[materialsId].imgUrl});` 
+			const materialsId = this.selectOptions.materials.id;
+			if (materialsId !== "") {
+				return `background-image: url(${this.materials.allList[materialsId].imgUrl});`;
 			}
-		}
+		},
 	},
 	watch: {
 		"optionsSize.size.formNorm": {
