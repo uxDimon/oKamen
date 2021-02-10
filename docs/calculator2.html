@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="ie=edge" http-equiv="x-ua-compatible">
+    <link rel="shortcut icon" href="assets/images/fav.png" type="image/x-icon">
+    <link rel="apple-touch-icon" href="assets/images/fav.png">
+    <link rel="stylesheet" type="text/css" href="assets/styles/app.css">
+  </head>
+  <body>
+    <header class="header__wrap">
+      <div class="header"><a href="#">
+          <svg class="header__logo header__logo_ver" width="142" height="70">
+            <use xlink:href="./assets/images/sprite.svg#logo_ver-g"></use>
+          </svg>
+          <svg class="header__logo header__logo_norm" width="142" height="70">
+            <use xlink:href="./assets/images/sprite.svg#logo"></use>
+          </svg></a>
+        <button class="header__kontacts-button" data-drop-kontacts-button>Адреса</button>
+        <div class="header__body">
+          <div class="header__kontacts">
+            <div class="header__kontacts-item"><span class="header__kontacts-city">Кузьмолово</span><span class="header__kontacts-street">Токсовское шоссе</span><a class="header__kontacts-tel" href="tel:+78123804144">+7 (812) 380-41-44</a></div>
+            <div class="header__kontacts-item"><span class="header__kontacts-city">Велигонты</span><span class="header__kontacts-street">Ропшинское шоссе</span><a class="header__kontacts-tel" href="tel:+78123804144">+7 (812) 380-41-44</a></div>
+            <div class="header__kontacts-item"><span class="header__kontacts-city">Сертолово</span><span class="header__kontacts-street">Выборгское шоссе</span><a class="header__kontacts-tel" href="tel:+78123804144">+7 (812) 380-41-44</a></div>
+            <div class="header__kontacts-item"><span class="header__kontacts-city">Санкт-Петербург</span><span class="header__kontacts-street">МЦ Аквилон</span><a class="header__kontacts-tel" href="tel:+78123804144">+7 (812) 380-41-44</a></div>
+            <div class="header__kontacts-item"><span class="header__kontacts-city">Заневка</span><span class="header__kontacts-street">Колтушское шоссе</span><a class="header__kontacts-tel" href="tel:+78123804144">+7 (812) 380-41-44</a></div>
+            <button class="button button__ghost header__kontacts-button-feedback" data-control-active="popup1">Обратная связь            </button>
+          </div>
+          <div class="header__menu-second-wrap">
+            <nav class="header__main-menu main-menu">
+              <ul class="main-menu__list">
+                <li class="main-menu__item"><a class="main-menu__linc" href="#" data-drop-linc>Продукция</a>
+                  <ul class="main-menu__drop-list" data-drop-menu>
+                    <li class="main-menu__drop-item"><a class="main-menu__drop-linc" href="#">Столешницы</a></li>
+                    <li class="main-menu__drop-item"><a class="main-menu__drop-linc" href="#">Ступени</a></li>
+                    <li class="main-menu__drop-item"><a class="main-menu__drop-linc" href="#">Подоконники</a></li>
+                    <li class="main-menu__drop-item"><a class="main-menu__drop-linc" href="#">Рецепшен(барные стойки)</a></li>
+                    <li class="main-menu__drop-item"><a class="main-menu__drop-linc" href="#">Камины (биокамины)</a></li>
+                    <li class="main-menu__drop-item"><a class="main-menu__drop-linc" href="#">Облицовочная плитка</a></li>
+                    <li class="main-menu__drop-item"><a class="main-menu__drop-linc" href="#">Эксклюзивные изделия</a></li>
+                  </ul>
+                </li>
+                <li class="main-menu__item"><a class="main-menu__linc" href="#" data-drop-linc>Материалы</a>
+                  <ul class="main-menu__drop-list" data-drop-menu>
+                    <li class="main-menu__drop-item"><a class="main-menu__drop-linc" href="#">Кварцевый агломерат</a></li>
+                    <li class="main-menu__drop-item"><a class="main-menu__drop-linc" href="#">Гранит</a></li>
+                    <li class="main-menu__drop-item"><a class="main-menu__drop-linc" href="#">Мрамор</a></li>
+                    <li class="main-menu__drop-item"><a class="main-menu__drop-linc" href="#">Оникс</a></li>
+                  </ul>
+                </li>
+                <li class="main-menu__item"><a class="main-menu__linc" href="#">Калькулятор стоимости</a></li>
+                <li class="main-menu__item"><a class="main-menu__linc" href="#">Акции</a></li>
+                <li class="main-menu__item"><a class="main-menu__linc" href="#" data-drop-linc>Сотрудничество</a>
+                  <ul class="main-menu__drop-list" data-drop-menu>
+                    <li class="main-menu__drop-item"><a class="main-menu__drop-linc" href="#">Прайс-лист</a></li>
+                  </ul>
+                </li>
+                <li class="main-menu__item"><a class="main-menu__linc" href="#" data-drop-linc>О нас</a>
+                  <ul class="main-menu__drop-list" data-drop-menu>
+                    <li class="main-menu__drop-item"><a class="main-menu__drop-linc" href="#">Статьи</a></li>
+                  </ul>
+                </li>
+                <li class="main-menu__item"><a class="main-menu__linc" href="#" data-drop-linc>Контакты</a>
+                  <ul class="main-menu__drop-list" data-drop-menu>
+                    <li class="main-menu__drop-item"><a class="main-menu__drop-linc" href="#">Доставка и оплата</a></li>
+                  </ul>
+                </li>
+              </ul>
+              <ul class="main-menu__list main-menu__list_second">
+                <li class="main-menu__item"><a class="main-menu__linc" href="#">Статьи</a></li>
+                <li class="main-menu__item"><a class="main-menu__linc" href="#">Прайс-лист</a></li>
+                <li class="main-menu__item"><a class="main-menu__linc" href="#">Доставка и оплата</a></li>
+              </ul>
+            </nav>
+            <label class="header__second">
+              <svg class="header__second-icon">
+                <use xlink:href="./assets/images/sprite.svg#icon-search"></use>
+              </svg>
+              <input class="input input_contact header__second-input" type="search" name="search" placeholder="Найти">
+            </label>
+            <button class="header__burger-button" data-burger-button><span></span></button>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main class="background-wrap_calc">
+      <div class="calc">
+        <h1 class="calc__heading">Расчёт стоимости изделия</h1>
+        <div id="calc-app">
+          <nav class="calc__road-map">
+            <ol class="calc__road-map-list">
+              <li class="calc__road-map-item" v-for="(item, key, index) in roadMap">
+                <button class="calc__road-map-linc" @click="roadMapTo(index)" :disabled="item.disabled" :class="roadMap[key].visible ? 'active' : ''">{{item.text}}</button>
+              </li>
+            </ol>
+          </nav>
+          <div class="calc__body-wrap">
+            <div class="calc__body" v-show="roadMap.category.visible">
+              <div class="calc__options">
+                <h2 class="options__heading">{{categoryOptions.category.heading}}</h2>
+                <div class="options-input__wrap">
+                  <div class="options-input" v-for="input in categoryOptions.category.inputsImg">
+                    <input @change="createSelectOptions(), chooseOption('category', input.value, '', $event), nextButtonDisabled(categoryOptions, 'category')" :id="'productType' + '-' + input.value" :type="categoryOptions.category.type" :name="'productType'" :value="input.value">
+                    <label :for="'productType' + '-' + input.value" tabindex="1">
+                      <div class="options-input__body">
+                        <div class="options-input__radio-chec options-input__radio_bot"></div><img class="options-input__img" :src="urlImg + input.img" :alt="input.text">
+                      </div><span class="options-input__name">{{input.text}}</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="calc__button-wrap">
+                <button class="button calc__button" @click="roadMapTo(1)" :disabled="roadMap.category.disabledButton">Далее</button>
+              </div>
+            </div>
+            <div class="calc__body" v-for="(item, key, index) in options[selectOptions.category]" :key="key" v-show="roadMap[key].visible">
+              <div class="calc__options" v-if="key === 'parameters'">
+                <h2 class="options__heading">Выберете подходящую толщину столешнице*</h2>
+                <div class="options-input__wrap">                                  
+                  <label class="custom-input" v-for="input in selectOptions.materials.height" :key="'thickness' + input.price">
+                    <input @change="chooseHeight(input)" type="radio" name="thickness" :value="input.value">
+                    <div class="options-input__radio-chec"></div><span>{{input.value}} мм <span class="options__radio-text-gray">( {{input.price}} ₽ за 1 <span class="m2">м2</span>)</span></span>
+                  </label>
+                </div>
+              </div>
+              <div class="calc__options" v-for="(optionItem, optionKey) in item" :class="optionItem.optionsClass">
+                <h2 class="options__heading" v-if="optionItem.heading">{{optionItem.heading}}</h2>
+                <div class="options-input__wrap">
+                  <div class="options-input" v-for="input in optionItem.inputsImg">
+                    <input @change="chooseOption(optionKey, input, optionItem.depiction, $event), nextButtonDisabled(item, key)" :id="optionKey + '-' + input.value" :type="optionItem.type" :name="optionKey" :value="input.value">
+                    <label :for="optionKey + '-' + input.value" tabindex="1">
+                      <div class="options-input__body">
+                        <div class="options-input__radio-chec"></div><img class="options-input__img" :src="urlImg + input.img" :alt="input.text">
+                      </div><span class="options-input__name">{{input.text}}<span class="options__radio-text-gray" v-if="input.detail">{{input.detail}}</span></span>
+                    </label>
+                  </div>
+                  <label class="custom-input" v-for="input in optionItem.inputs">
+                    <input @change="chooseOption(optionKey, input, optionItem.depiction, $event), nextButtonDisabled(item, key)" :type="optionItem.type" :name="optionKey" :value="input.value">
+                    <div class="options-input__radio-chec"></div><span>{{input.text}}<span class="options__radio-text-gray" v-if="input.detail">{{" " + input.detail}}</span></span>
+                  </label>
+                  <div class="options-input__wrap-row" v-if="optionItem.subInputs">
+                    <label class="custom-input">
+                      <input @change="subInputsDisabled(optionKey, key, $event)" type="checkbox" :name="optionItem.subInputs.value" :value="optionItem.subInputs.value">
+                      <div class="options-input__radio-chec"></div><span>{{optionItem.subInputs.text}}<span class="options__radio-text-gray" v-if="optionItem.subInputs.detail">{{" " + optionItem.subInputs.detail}}</span></span>
+                    </label>
+                    <div class="subcategories-input__wrap" :class="subInputsDisabledList[optionKey] ? 'disabled' : ''">
+                      <label class="custom-input" v-for="subInputs in optionItem.subInputs.inputs">
+                        <input @change="chooseOption(optionKey, subInputs, optionItem.subInputs.depiction, $event), nextButtonDisabled(item, key)" :disabled="subInputsDisabledList[optionKey]" :checked="subInputsDisabledList[optionKey] ? false : ''" :type="optionItem.type" :name="optionItem.subInputs.value" :value="subInputs.value">
+                        <div class="options-input__radio-chec"></div><span>{{subInputs.text}}<span class="options__radio-text-gray" v-if="subInputs.detail">{{" " + subInputs.detail}}</span></span>
+                      </label>
+                      <label class="custom-input-number" v-for="subInputs in optionItem.subInputs.inputNumber"><span>{{subInputs.text}}<span class="options__radio-text-gray" v-if="subInputs.detail">{{" " + subInputs.detail}}</span></span>
+                        <input class="options__size-input" @change="chooseOption(optionKey, subInputs, optionItem.subInputs.depiction, $event), nextButtonDisabled(item, key)" ref="input" :disabled="subInputsDisabledList[optionKey]" value="0" type="number" :name="optionItem.subInputs.value" min="0" max="999"><span class="custom-input-number__units">{{subInputs.textInput}}</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="options__rounding-range-wrap" v-if="optionItem.infoBlock"><span>{{optionItem.infoBlock.text}}<span>{{$data._store[optionItem.infoBlock.infoPaер1][optionItem.infoBlock.infoPaер2]}}</span></span></div>
+              </div>
+              <div class="calc__options no-border" v-if="key === 'materials'">
+                <h2 class="options__heading">Выберите разновидность и цвет камня*</h2>
+                <div class="options__select-wrap">
+                  <select class="input input_select options__select" @change="selectFilter('category', $event)">
+                    <option v-for="optionItem in materials.filterInput.category" :value="optionItem">{{optionItem}}</option>
+                  </select>
+                  <select class="input input_select options__select" @change="selectFilter('color', $event)">
+                    <option v-for="optionItem in materials.filterInput.color" :value="optionItem">{{optionItem}}</option>
+                  </select>
+                </div>
+                <h3 class="options__materials-heading">Выберите ниже понравившийся вам вариант</h3>
+                <ul class="options__materials-wrap">
+                  <li class="options__materials" v-for="(mItem, mKey) in materials.filterList" :key="mKey">
+                    <input @change="chooseMaterial(mItem.height, mKey)" :checked="selectOptions.materials.id === mKey" :id="mKey" type="radio" name="materials">
+                    <label :for="mKey"><img class="options__materials-img" :src="mItem.imgUrl" :alt="mItem.name"><span class="options__materials-name">{{mItem.name}}</span><span class="options__materials-price">{{mItem.height[0].price + " ₽ за "}}<span class="m2">м2</span></span></label>
+                  </li>
+                </ul>
+              </div>
+              <div class="calc__button-wrap">
+                <button class="button button_gray calc__button" @click="roadMapTo(index)">Назад</button>
+                <button class="button calc__button" @click="roadMapTo(index + 2)" :disabled="roadMap[key].disabledButton">Далее</button>
+              </div>
+            </div>
+            <div class="calc__body calc__body_total" v-show="roadMap.total.visible">
+              <div class="options">
+                <div class="options__total-head">
+                  <h3 class="options__heading">Выбранные параметры</h3>
+                  <div class="options__total-main-options-wrap">
+                    <div class="options__total-main-options"><span class="options__total-main-options-heading">Тип столешницы</span><span class="options__total-main-options-text">{{selectOptions.form?.text}}</span></div>
+                    <div class="options__total-main-options"><span class="options__total-main-options-heading">Площадь столешницы</span><span class="options__total-main-options-text">{{optionsSize.size[selectOptions.form?.value]?.area}}<span class="m2"> м2</span></span></div>
+                    <div class="options__total-main-options"><span class="options__total-main-options-heading">Название камня</span><span class="options__total-main-options-text">{{materials.allList ? materials.allList[selectOptions.materials.id]?.name : ''}}</span></div>
+                    <div class="options__total-main-options"><span class="options__total-main-options-heading">Производитель</span><span class="options__total-main-options-text">{{materials.allList ? materials.allList[selectOptions.materials.id]?.manufacturer : ''}}</span></div>
+                    <div class="options__total-main-options"><span class="options__total-main-options-heading">Цвет</span><span class="options__total-main-options-text">{{materials.allList ? materials.allList[selectOptions.materials.id]?.color : ''}}</span></div>
+                  </div>
+                </div>
+                <div class="radio-wrap-border-s"></div>
+                <div class="options__total-body">
+                  <h3 class="options__heading">Выбранные параметры</h3>
+                  <div class="options__options-price-wrap">
+                    <div class="options__total-options-table">
+                      <table>
+                        <tr class="options__total-options-head">
+                          <td>Наименование</td>
+                          <td>Описание</td>
+                          <td>Стоимость</td>
+                        </tr>
+                        <tr>
+                          <td>Кол-во материала</td>
+                          <td>{{optionsSize.size[selectOptions.form?.value]?.area}}<span class="m2"> м2</span></td>
+                          <td>{{calc.plusTotal.array}} ₽</td>
+                        </tr>
+                        <tr v-for="item in totalList" :key="item.id">
+                          <td v-if="item.depiction">{{item.depiction}}</td>
+                          <td :colspan="!item.depiction ? '2' : '1'" v-html="item.text"></td>
+                          <td>{{item.prise}} ₽</td>
+                        </tr>
+                      </table>
+                    </div>
+                    <div class="options__total-price-wrap">
+                      <div class="options__total-price"><span class="options__total-price-text">Предварительная стоимость</span><span class="options__total-price-number">{{calc.total}} ₽</span></div>
+                      <div class="options__total-button">
+                        <button class="button calc__button">Заказать звонок</button>
+                        <button class="button button_gray calc__button">Отправить по почте</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="calc__button-wrap">
+                <button class="button button_arrow-left calc__button" @click="roadMapTo(Object.keys(roadMap).length - 2)">
+                  <svg>
+                    <use xlink:href="./assets/images/sprite.svg#button-arrow"></use>
+                  </svg><span>Назад</span>
+                </button>
+              </div>
+            </div>
+            <div class="options__size-wrap">
+              <div class="options__size-sticky" v-show="!roadMap.total.visible">
+                <div class="options__size options__size_norm" v-if="optionsSize.visible.formNorm" :key="'formNorm'">
+                  <div class="options__size-img-wrap">
+                    <div class="options__size-img-body" :style="roundingNorm" :class="roundingActive ? 'rounding':''">
+                      <input class="size-img-button sib_top-left" type="checkbox" @click="roundingAngle('topLeft')" :class="roundingActiveF ? 'size-img-button_animat': ''">
+                      <input class="size-img-button sib_top-right" type="checkbox" @click="roundingAngle('topRight')" :class="roundingActiveF ? 'size-img-button_animat': ''">
+                      <input class="size-img-button sib_bottom-right" type="checkbox" @click="roundingAngle('bottomRight')" :class="roundingActiveF ? 'size-img-button_animat': ''">
+                      <input class="size-img-button sib_bottom-left" type="checkbox" @click="roundingAngle('bottomLeft')" :class="roundingActiveF ? 'size-img-button_animat': ''">
+                    </div>
+                  </div>
+                  <div class="options__size-arrow-vertical size-arrow-vertical_left">
+                    <div class="size-arrow"></div>
+                    <label class="options__size-lable">
+                      <input class="options__size-input" @change="formSize('left', $event)" :value="optionsSize.size.formNorm.left" name="formNorm" type="number" step="1" min="30" max="900"><span class="options__size-text">см</span>
+                    </label>
+                    <div class="size-arrow size-arrow_end"></div>
+                  </div>
+                  <div class="options__size-arrow-horizon size-arrow-horizon_bot">
+                    <div class="size-arrow"></div>
+                    <label class="options__size-lable">
+                      <input class="options__size-input" @change="formSize('bottom', $event)" :value="optionsSize.size.formNorm.bottom" name="formNorm" type="number" step="1" min="30" max="900"><span class="options__size-text">см</span>
+                    </label>
+                    <div class="size-arrow size-arrow_end"></div>
+                  </div><span class="form-error warnings-fillets" v-if="roundingActiveF">Выберите углы скругления</span>
+                </div>
+                <div class="options__size options__size_g" v-if="optionsSize.visible.formG" :key="'formG'">
+                  <div class="options__size-img-wrap">
+                    <div class="options__size-img-body" :style="roundingGBody" :class="roundingActive ? 'rounding':''">
+                      <input class="size-img-button sib_top-left" type="checkbox" @click="roundingAngle('topLeft')" :class="roundingActiveF ? 'size-img-button_animat': ''">
+                      <input class="size-img-button sib_top-right" type="checkbox" @click="roundingAngle('topRight')" :class="roundingActiveF ? 'size-img-button_animat': ''">
+                      <input class="size-img-button sib_bottom-left" type="checkbox" @click="roundingAngle('centerLeft')" :class="roundingActiveF ? 'size-img-button_animat': ''">
+                    </div>
+                    <div class="options__size-img-bot-right" :style="roundingGRight" :class="roundingActive ? 'rounding':''">
+                      <input class="size-img-button sib_bottom-right" type="checkbox" @click="roundingAngle('bottomRight')" :class="roundingActiveF ? 'size-img-button_animat': ''">
+                      <input class="size-img-button sib_bottom-left" type="checkbox" @click="roundingAngle('bottomCenterLeft')" :class="roundingActiveF ? 'size-img-button_animat': ''">
+                    </div>
+                  </div>
+                  <div class="options__size-arrow-vertical size-arrow-vertical_left">
+                    <div class="size-arrow"></div>
+                    <label class="options__size-lable">
+                      <input class="options__size-input" @change="formSize('left', $event)" :value="optionsSize.size.formG.left" name="formG" :class="formSizeError.right ? 'options__size-min-error' : ''" type="number" step="1" min="30" max="900"><span class="options__size-text">см</span>
+                    </label>
+                    <div class="size-arrow size-arrow_end"></div>
+                  </div>
+                  <div class="options__size-arrow-horizon size-arrow-horizon_top">
+                    <div class="size-arrow"></div>
+                    <label class="options__size-lable">
+                      <input class="options__size-input" @change="formSize('top', $event)" :value="optionsSize.size.formG.top" name="formG" type="number" step="1" min="30" max="900"><span class="options__size-text">см</span><span class="form-error" v-if="formSizeError.top">Не может быть меньше размера</span>
+                    </label>
+                    <div class="size-arrow size-arrow_end"></div>
+                  </div>
+                  <div class="options__size-arrow-vertical size-arrow-vertical_right">
+                    <div class="size-arrow"></div>
+                    <label class="options__size-lable">
+                      <input class="options__size-input" @change="formSize('right', $event)" :value="optionsSize.size.formG.right" name="formG" type="number" step="1" min="30" max="900"><span class="options__size-text">см</span><span class="form-error" v-if="formSizeError.right">Не может быть меньше размера                                        </span>
+                    </label>
+                    <div class="size-arrow size-arrow_end">            </div>
+                  </div>
+                  <div class="options__size-arrow-horizon size-arrow-horizon_bot">
+                    <div class="size-arrow"></div>
+                    <label class="options__size-lable">
+                      <input class="options__size-input" @change="formSize('bottom', $event)" :value="optionsSize.size.formG.bottom" name="formG" :class="formSizeError.top ? 'options__size-min-error' : ''" type="number" step="1" min="30" max="900"><span class="options__size-text">см</span>
+                    </label>
+                    <div class="size-arrow size-arrow_end"></div>
+                  </div><span class="form-error warnings-fillets" v-if="roundingActiveF">Выберите углы скругления</span>
+                </div>
+                <div class="options__size options__size_p" v-if="optionsSize.visible.formP" :key="'formP'">
+                  <div class="options__size-img-wrap">
+                    <div class="options__size-img-body" :style="roundingPBody" :class="roundingActive ? 'rounding':''">
+                      <input class="size-img-button sib_top-left" type="checkbox" @click="roundingAngle('topLeft')" :class="roundingActiveF ? 'size-img-button_animat': ''">
+                      <input class="size-img-button sib_top-right" type="checkbox" @click="roundingAngle('topRight')" :class="roundingActiveF ? 'size-img-button_animat': ''">
+                    </div>
+                    <div class="options__size-img-bot-right" :style="roundingGRight" :class="roundingActive ? 'rounding':''">
+                      <input class="size-img-button sib_bottom-right" type="checkbox" @click="roundingAngle('bottomRight')" :class="roundingActiveF ? 'size-img-button_animat': ''">
+                      <input class="size-img-button sib_bottom-left" type="checkbox" @click="roundingAngle('bottomCenterLeft')" :class="roundingActiveF ? 'size-img-button_animat': ''">
+                    </div>
+                    <div class="options__size-img-bot-left" :style="roundingPLeft" :class="roundingActive ? 'rounding':''">
+                      <input class="size-img-button sib_bottom-left" type="checkbox" @click="roundingAngle('bottomLeft')" :class="roundingActiveF ? 'size-img-button_animat': ''">
+                      <input class="size-img-button sib_bottom-right" type="checkbox" @click="roundingAngle('bottomCenterRight')" :class="roundingActiveF ? 'size-img-button_animat': ''">
+                    </div>
+                  </div>
+                  <div class="options__size-arrow-vertical size-arrow-vertical_left">
+                    <div class="size-arrow"></div>
+                    <label class="options__size-lable">
+                      <input class="options__size-input" @change="formSize('left', $event)" :value="optionsSize.size.formP.left" name="formP" type="number" step="1" min="30" max="900"><span class="options__size-text">см</span><span class="form-error" v-if="formSizeError.left">Не может быть меньше размера</span>
+                    </label>
+                    <div class="size-arrow size-arrow_end"></div>
+                  </div>
+                  <div class="options__size-arrow-horizon size-arrow-horizon_top-floor-2">
+                    <div class="size-arrow"></div>
+                    <label class="options__size-lable">
+                      <input class="options__size-input" @change="formSize('top', $event)" :value="optionsSize.size.formP.top" name="formP" type="number" step="1" min="30" max="900"><span class="options__size-text">см</span><span class="form-error" v-if="formSizeError.top">Не может быть меньше размера</span>
+                    </label>
+                    <div class="size-arrow size-arrow_end"></div>
+                  </div>
+                  <div class="options__size-arrow-vertical size-arrow-vertical_right">
+                    <div class="size-arrow"></div>
+                    <label class="options__size-lable">
+                      <input class="options__size-input" @change="formSize('right', $event)" :value="optionsSize.size.formP.right" name="formP" type="number" step="1" min="30" max="900"><span class="options__size-text">см</span><span class="form-error" v-if="formSizeError.right">Не может быть меньше размера</span>
+                    </label>
+                    <div class="size-arrow size-arrow_end"></div>
+                  </div>
+                  <div class="options__size-arrow-horizon size-arrow-horizon_bot size-arrow-horizon_bot_2">
+                    <div class="size-arrow"></div>
+                    <label class="options__size-lable">
+                      <input class="options__size-input" @change="formSize('bottomRight', $event)" :value="optionsSize.size.formP.bottomRight" name="formP" :class="formSizeError.top ? 'options__size-min-error' : ''" type="number" step="1" min="30" max="900"><span class="options__size-text">см</span>
+                    </label>
+                    <div class="size-arrow size-arrow_end"></div>
+                  </div>
+                  <div class="options__size-arrow-vertical options__size-arrow-vertical_body">
+                    <div class="size-arrow"></div>
+                    <div class="size-line"></div>
+                    <label class="options__size-lable">
+                      <input class="options__size-input" @change="formSize('center', $event)" :value="optionsSize.size.formP.center" name="formP" :class="formSizeError.left || formSizeError.right ? 'options__size-min-error' : ''" type="number" step="1" min="30" max="900"><span class="options__size-text">см</span>
+                    </label>
+                    <div class="size-arrow size-arrow_end"></div>
+                  </div>
+                  <div class="options__size-arrow-horizon size-arrow-horizon_bot size-arrow-horizon_bot_1">
+                    <div class="size-arrow"></div>
+                    <label class="options__size-lable">
+                      <input class="options__size-input" @change="formSize('bottomLeft', $event)" :value="optionsSize.size.formP.bottomLeft" name="formP" :class="formSizeError.top ? 'options__size-min-error' : ''" type="number" step="1" min="30" max="900"><span class="options__size-text">см</span>
+                    </label>
+                    <div class="size-arrow size-arrow_end"></div>
+                  </div><span class="form-error warnings-fillets" v-if="roundingActiveF">Выберите углы скругления</span>
+                </div>
+                <div class="options__size-info" v-if="chooseForm"><span class="options__size-info-item">Площадь <span data-size-area>{{optionsSize.size[selectOptions.form.value].area.toFixed(2)}}</span><span class="m2"> м2</span></span><span class="options__size-info-prise">Предварительная цена <span data-size-prise>{{Math.round(calc.total)}} </span><span> ₽</span></span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer class="footer__wrap">
+      <div class="footer">
+        <div class="footer__body">
+          <div class="footer__body-infa"><a class="footer__body-infa-logo" href="#">
+              <svg width="223" height="50">
+                <use xlink:href="./assets/images/sprite.svg#logo"></use>
+              </svg></a><span class="footer__body-infa-text text_bold">ООО "О.КАМЕНЬ"</span><span class="footer__body-infa-text">ИНН 7841073240 </span><span class="footer__body-infa-text">КПП 784101001</span><span class="footer__body-infa-text">ОГРН 1187847108350</span><span class="footer__body-infa-text text_bold">Цены и услуги представленные на сайте не являются публичной офертой.</span></div>
+          <nav class="footer__body-meny">
+            <ul class="footer__body-meny-list">
+              <li class="footer__body-meny-item"><a class="footer__body-meny-linc" href="#">О нас</a>
+                <ul>
+                  <li><a href="#">Выполненные проекты</a></li>
+                </ul>
+              </li>
+              <li class="footer__body-meny-item"><a class="footer__body-meny-linc" href="#">Продукция</a>
+                <ul>
+                  <li><a href="#">Столешницы</a></li>
+                  <li><a href="#">Ступени</a></li>
+                  <li><a href="#">Подоконники</a></li>
+                  <li><a href="#">Ресепшн (барные стойки)</a></li>
+                  <li><a href="#">Камины (биокамины)</a></li>
+                  <li><a href="#">Облицовочная плитка</a></li>
+                  <li><a href="#">Эксклюзивные изделия</a></li>
+                </ul>
+              </li>
+              <li class="footer__body-meny-item"><a class="footer__body-meny-linc" href="#">Материалы</a>
+                <ul>
+                  <li><a href="#">Кварцевый агломерат</a></li>
+                  <li><a href="#">Гранит</a></li>
+                  <li><a href="#">Мрамор</a></li>
+                  <li><a href="#">Оникс</a></li>
+                </ul>
+              </li>
+              <li class="footer__body-meny-item"><a class="footer__body-meny-linc" href="#">Акции</a></li>
+              <li class="footer__body-meny-item"><a class="footer__body-meny-linc" href="#">Сотрудничество </a></li>
+              <li class="footer__body-meny-item"><a class="footer__body-meny-linc" href="#">Калькулятор стоимости</a></li>
+              <li class="footer__body-meny-item"><a class="footer__body-meny-linc" href="#">Контакты </a></li>
+            </ul>
+          </nav>
+          <div class="footer__body-text-social"><a class="footer__body-tel" href="tel:+78123452312">+7 812 345 23 12</a><a class="footer__body-mail" href="mailto:okamen@info.ru">okamen@info.ru</a>
+            <div class="footer__body-social-wrap"><span class="footer__body-social-text">Мы в соцсетях:</span>
+              <div class="footer__body-social"><a class="footer__body-social-linc" href="#">
+                  <svg class="icon-insta">
+                    <use xlink:href="./assets/images/sprite.svg#icon-insta"></use>
+                  </svg></a><a class="footer__body-social-linc" href="#">   
+                  <svg class="icon-vk">
+                    <use xlink:href="./assets/images/sprite.svg#icon-vk"></use>
+                  </svg></a><a class="footer__body-social-linc" href="#">
+                  <svg class="icon-yuotube">
+                    <use xlink:href="./assets/images/sprite.svg#icon-yuotube"></use>
+                  </svg></a><a class="footer__body-social-linc" href="#">
+                  <svg class="icon-facebook">
+                    <use xlink:href="./assets/images/sprite.svg#icon-facebook"></use>
+                  </svg></a></div>
+            </div>
+            <div class="footer__body-social-wrap footer__pay"><span class="footer__body-social-text">Принимаем к оплате:</span>
+              <div class="footer__body-social">
+                <svg width="50" height="32">
+                  <use xlink:href="./assets/images/sprite.svg#visa-logo"></use>
+                </svg>
+                <svg width="52" height="32">
+                  <use xlink:href="./assets/images/sprite.svg#mc-logo"></use>
+                </svg>
+                <svg width="57" height="32">
+                  <use xlink:href="./assets/images/sprite.svg#mir-logo"></use>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="footer__bot"><span class="footer__bot-item"><a href="#">Правовая информация</a></span><span class="footer__bot-item footer__bot-item_ra">Сделано в <a href="#">RA-Studio</a></span></div>
+      </div>
+    </footer>
+    <div class="popup__wrap" data-block-active="popup1">
+      <div class="popup__clouse-area" data-control-active="popup1"></div>
+      <div class="popup">
+        <button class="popup__clouse" data-control-active="popup1"></button>
+        <div class="popup__h">Запишитесь на бесплатную консультацию</div>
+        <form class="popup__form">
+          <input class="input input_contact" type="text" name="name" placeholder="Имя">
+          <input class="input input_contact" type="tel" name="tel" placeholder="Телефон" required>
+          <textarea class="input input_contact contact__input-textarea" name="message" placeholder="Сообщение"></textarea>
+          <select class="input input_contact input_select" name="contact-product">
+            <option value="stol">Столешница</option>
+            <option value="podocnom">Подоконник</option>
+            <option value="lesnica">Лестница </option>
+          </select>
+          <button class="button popup__button" type="submit" data-control-active="popup2" data-control-clouse="popup1">Отправить</button>
+          <div class="contact__conf">Отправляя личные данные, Вы соглашаетесь с политикой конфиденциальности</div>
+        </form>
+      </div>
+    </div>
+    <div class="popup__wrap" data-block-active="popups3">
+      <div class="popup__clouse-area" data-control-active="popups3"></div>
+      <div class="popup">
+        <button class="popup__clouse" data-control-active="popups3"></button>
+        <div class="popup__h">Оставить заявку на сотрудничество</div>
+        <p class="popup__text">Мы воплотим в реальность даже самые смелые Ваши проекты</p>
+        <form class="popup__form">
+          <input class="input input_contact" type="text" name="name" placeholder="Имя">
+          <input class="input input_contact" type="tel" name="tel" placeholder="Телефон" required>
+          <textarea class="input input_contact contact__input-textarea" name="message" placeholder="Сообщение"></textarea>
+          <label class="input-file"><span>Загрузите файл (.jpg .png .pdf .xls .csd)</span>
+            <input type="file" name="file" onchange="uploadFile(this)" accept=".jpg, .jpeg, .png, .pdf, .xls, .csd">
+          </label>
+          <button class="button popup__button" type="submit" data-control-active="popups3" data-control-clouse="popup1">Отправить</button>
+          <div class="contact__conf">Отправляя личные данные, Вы соглашаетесь с политикой конфиденциальности</div>
+        </form>
+      </div>
+    </div>
+    <div class="popup__wrap" data-block-active="popup2">
+      <div class="popup__clouse-area" data-control-active="popup2"></div>
+      <div class="popup">
+        <button class="popup__clouse" data-control-active="popup2"></button>
+        <div class="popup__ok-h">Ваша заявка успешно оформлена</div>
+        <div class="popup__ok">Мы свяжемся с Вами в ближайшее время</div>
+      </div>
+    </div>
+    <div class="close-area" data-close-area="burger"></div>
+    <div class="close-area" data-close-area="kontacts"></div>
+    <script src="assets/scripts/vue.js"></script>
+    <script src="assets/scripts/vuex.js"></script>
+    <script src="assets/scripts/state.js"></script>
+    <script src="assets/scripts/calculator2.js"></script>
+    <script src="assets/scripts/imask.min.js"></script>
+    <script src="assets/scripts/focus-visible.js"></script>
+  </body>
+</html>

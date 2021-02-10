@@ -99,11 +99,12 @@ html
 
                             .calc__options.no-border(v-if="key === 'materials'")
                                 h2.options__heading Выберите разновидность и цвет камня*
-                                select(@change="selectFilter('category', $event)").input.input_select.options__select
-                                    option(v-for="optionItem in materials.filterInput.category" :value="optionItem") {{optionItem}}
-                                
-                                select(@change="selectFilter('color', $event)").input.input_select.options__select
-                                    option(v-for="optionItem in materials.filterInput.color" :value="optionItem") {{optionItem}}
+                                .options__select-wrap
+                                    select(@change="selectFilter('category', $event)").input.input_select.options__select
+                                        option(v-for="optionItem in materials.filterInput.category" :value="optionItem") {{optionItem}}
+                                    
+                                    select(@change="selectFilter('color', $event)").input.input_select.options__select
+                                        option(v-for="optionItem in materials.filterInput.color" :value="optionItem") {{optionItem}}
 
                                 h3.options__materials-heading Выберите ниже понравившийся вам вариант
                                 ul.options__materials-wrap
