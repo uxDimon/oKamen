@@ -1,18 +1,6 @@
-// #form_norm,
-// #form_g,
-// #form_p {
-// 	display: none;
-// }
-
-// #category,
-// #form,
-// #materials,
-// #parameters,
-// #notch,
-// #services,
-// #total {
-// 	display: none;
-// }
+:root {
+	--form-rounding: 2px;
+}
 
 .calc {
 	width: 100%;
@@ -149,10 +137,6 @@
 	justify-content: space-between;
 }
 
-// .options {
-// 	display: flex;
-// 	flex-direction: column;
-// }
 .options__heading {
 	font-weight: 500;
 	font-size: 18px;
@@ -207,10 +191,6 @@
 	display: block;
 }
 
-// .options-input__radio_top {
-// 	align-self: flex-start;
-// }
-
 .options-input__radio_bot {
 	align-self: flex-end;
 }
@@ -225,11 +205,6 @@
 	margin-bottom: 16px;
 	order: 9;
 }
-
-// .options__radio-wrap {
-// 	display: flex;
-// 	flex-wrap: wrap;
-// }
 
 .radio-wrap-border {
 	width: 100%;
@@ -307,129 +282,6 @@
 	}
 }
 
-// .options__radio-img-l-wrap {
-// 	margin-right: -45px;
-// }
-
-// .options__radio-img-l {
-// 	margin-right: 45px;
-
-// 	&:last-child {
-// 		margin-right: 0;
-// 	}
-
-// 	label::before,
-// 	label::after {
-// 		left: 0;
-// 		bottom: 50%;
-// 	}
-
-// 	input[name="category"] + label::before,
-// 	input[name="category"] + label::after {
-// 		bottom: 10%;
-// 	}
-
-// 	.options__radio-img {
-// 		width: 146px;
-// 		height: 100px;
-// 		margin-left: 34px;
-
-// 		img {
-// 			width: 100%;
-// 			height: auto;
-// 		}
-// 	}
-
-// 	.options__radio-text {
-// 		margin-bottom: 24px;
-// 	}
-
-// 	.options__radio-text-bot {
-// 		margin-top: 28px;
-// 		text-transform: uppercase;
-// 	}
-
-// 	.img-rounding {
-// 		width: 127px;
-// 		height: 56px;
-// 	}
-// }
-
-// .options__radio-img-m {
-// 	margin-right: 100px;
-
-// 	&:last-child {
-// 		margin-right: 0;
-// 	}
-
-// 	.options__radio-text {
-// 		margin-bottom: 12px;
-// 	}
-
-// 	.options__radio-img-wrap {
-// 		margin-left: 32px;
-// 	}
-
-// 	.options__radio-img {
-// 		height: 72px;
-// 		background-image: url("../images/form.png");
-// 		background-position: 0 0;
-// 		background-repeat: repeat;
-// 		background-color: #b6a691;
-// 		border: 1px solid $color-dark-gray;
-// 		width: 24px;
-// 		position: relative;
-
-// 		&::after,
-// 		&::before {
-// 			position: absolute;
-// 			background-image: url("../images/form.png");
-// 			background-repeat: repeat;
-// 			background-color: #b6a691;
-// 			border: 1px solid $color-dark-gray;
-// 			border-left: 0;
-// 			left: 22px;
-// 			width: 21px;
-// 			height: 20px;
-// 		}
-// 	}
-
-// 	label::before,
-// 	label::after {
-// 		bottom: 33%;
-// 	}
-// }
-
-// .options__radio-wrap-s {
-// 	margin-right: -40px;
-// 	margin-bottom: -32px;
-// }
-
-// .options__radio-img-s {
-// 	margin-right: 40px;
-// 	margin-bottom: 32px;
-
-// 	.options__radio-img {
-// 		width: 74px;
-// 		height: 42px;
-// 		margin-left: 36px;
-// 	}
-
-// 	label::before,
-// 	label::after {
-// 		bottom: 70%;
-// 		left: 0;
-// 	}
-
-// 	.options__radio-text {
-// 		font-weight: 500;
-// 		font-size: 18px;
-// 		line-height: 125%;
-// 		text-transform: uppercase;
-// 		margin-top: 12px;
-// 	}
-// }
-
 .calc__button-wrap {
 	margin-top: 100px;
 	display: grid;
@@ -459,9 +311,6 @@
 }
 
 // Столешница
-.options__size-wrap {
-}
-
 .options__size-sticky {
 	position: sticky;
 	top: 150px;
@@ -529,10 +378,6 @@
 	}
 }
 
-:root {
-	--form-rounding: 2px;
-}
-
 .options__size-img-wrap {
 	width: 100%;
 	height: 100%;
@@ -573,6 +418,7 @@
 .options__size-img-bot-right,
 .options__size-img-bot-left,
 .options__size-img-body {
+	background-size: 380px;
 	background-color: #bba281;
 	transition: 300ms ease-in-out 0ms;
 	transition-property: left, right, background-position-x, border-radius;
@@ -966,7 +812,7 @@
 
 .options__materials-img {
 	width: 100%;
-	height: auto;
+	height: 100px;
 	object-fit: cover;
 	margin-bottom: 4px;
 }
@@ -995,16 +841,6 @@
 	#rounding-number-text {
 		color: $color-black;
 	}
-	// opacity: 0.3;
-
-	// .options__heading {
-	// 	margin-bottom: 8px;
-	// }
-
-	// .options__rounding-range {
-	// 	width: 100%;
-	// 	max-width: 420px;
-	// }
 }
 
 .options__checkbox-button,
@@ -1065,10 +901,6 @@
 	.options__total-options-head {
 		font-family: $font-Manrope;
 		font-weight: 600;
-
-		// td {
-		// 	padding: 0 0 8px 0;
-		// }
 	}
 }
 
@@ -1101,7 +933,6 @@
 	font-weight: 600;
 	font-size: 24px;
 	line-height: 133%;
-	// text-align: center;
 	margin-bottom: 26px;
 }
 
@@ -1109,11 +940,8 @@
 	font-family: $font-Manrope;
 	font-size: 28px;
 	line-height: 114%;
-	// text-align: center;
 	padding-bottom: 12px;
 	border-bottom: 1px solid $color-gold;
-	// width: 100%;
-	// max-width: 290px;
 }
 
 .subcategories-input__wrap.disabled {

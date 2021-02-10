@@ -661,7 +661,6 @@ input[type="radio"] {
 
 @import "./common/slider.scss";
 
-@import "./pages/calculator.scss";
 @import "./pages/index.scss";
 @import "./pages/page.scss";
 @import "./common/our-projects.scss";
@@ -727,3 +726,5 @@ input[type="radio"] {
 
 // padding-top: var(--block-m-t);
 // padding-bottom: var(--block-m-b);
+
+@import "./pages/calculator.scss";
