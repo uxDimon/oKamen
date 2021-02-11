@@ -1,5 +1,5 @@
 {
-	"mt0001": {
+	"mt0000": {
 		"category": "Кварцевый агломерат",
 		"name": "Название (Кварц Серый)",
 		"article": "EQTM 018",
@@ -17,7 +17,7 @@
 			}
 		]
 	},
-	"mt0002": {
+	"mt0001": {
 		"category": "Кварцевый агломерат",
 		"name": "Название (Кварц Белый)",
 		"article": "EQTM 0182",
@@ -35,7 +35,7 @@
 			}
 		]
 	},
-	"mt0003": {
+	"mt0002": {
 		"category": "Гранит",
 		"name": "Название (Гранит Черный)",
 		"article": "EQTM 0183",
@@ -49,7 +49,7 @@
 			}
 		]
 	},
-	"mt0004": {
+	"mt0003": {
 		"category": "Оникс",
 		"name": "Название (Оникс Красны)",
 		"article": "EQTM 0183",
@@ -63,7 +63,357 @@
 			}
 		]
 	},
+	"mt0004": {
+		"category": "Оникс",
+		"name": "Название (Оникс Красны)",
+		"article": "EQTM 0183",
+		"color": "Красны",
+		"manufacturer": "EtnaQuartz3",
+		"imgUrl": "./assets/images/material/mt_05.png",
+		"height": [
+			{
+				"value": "15",
+				"price": "8000"
+			}
+		]
+	},
 	"mt0005": {
+		"category": "Оникс",
+		"name": "Название (Оникс Красны)",
+		"article": "EQTM 0183",
+		"color": "Красны",
+		"manufacturer": "EtnaQuartz3",
+		"imgUrl": "./assets/images/material/mt_05.png",
+		"height": [
+			{
+				"value": "15",
+				"price": "8000"
+			}
+		]
+	},
+	"mt0006": {
+		"category": "Оникс",
+		"name": "Название (Оникс Красны)",
+		"article": "EQTM 0183",
+		"color": "Красны",
+		"manufacturer": "EtnaQuartz3",
+		"imgUrl": "./assets/images/material/mt_05.png",
+		"height": [
+			{
+				"value": "15",
+				"price": "8000"
+			}
+		]
+	},
+	"mt0007": {
+		"category": "Оникс",
+		"name": "Название (Оникс Красны)",
+		"article": "EQTM 0183",
+		"color": "Красны",
+		"manufacturer": "EtnaQuartz3",
+		"imgUrl": "./assets/images/material/mt_05.png",
+		"height": [
+			{
+				"value": "15",
+				"price": "8000"
+			}
+		]
+	},
+	"mt0008": {
+		"category": "Оникс",
+		"name": "Название (Оникс Красны)",
+		"article": "EQTM 0183",
+		"color": "Красны",
+		"manufacturer": "EtnaQuartz3",
+		"imgUrl": "./assets/images/material/mt_05.png",
+		"height": [
+			{
+				"value": "15",
+				"price": "8000"
+			}
+		]
+	},
+	"mt0009": {
+		"category": "Оникс",
+		"name": "Название (Оникс Красны)",
+		"article": "EQTM 0183",
+		"color": "Красны",
+		"manufacturer": "EtnaQuartz3",
+		"imgUrl": "./assets/images/material/mt_05.png",
+		"height": [
+			{
+				"value": "15",
+				"price": "8000"
+			}
+		]
+	},
+	"mt0010": {
+		"category": "Оникс",
+		"name": "Название (Оникс Красны)",
+		"article": "EQTM 0183",
+		"color": "Красны",
+		"manufacturer": "EtnaQuartz3",
+		"imgUrl": "./assets/images/material/mt_05.png",
+		"height": [
+			{
+				"value": "15",
+				"price": "8000"
+			}
+		]
+	},
+	"mt0011": {
+		"category": "Оникс",
+		"name": "Название (Оникс Красны)",
+		"article": "EQTM 0183",
+		"color": "Красны",
+		"manufacturer": "EtnaQuartz3",
+		"imgUrl": "./assets/images/material/mt_05.png",
+		"height": [
+			{
+				"value": "15",
+				"price": "8000"
+			}
+		]
+	},
+	"mt0012": {
+		"category": "Оникс",
+		"name": "Название (Оникс Красны)",
+		"article": "EQTM 0183",
+		"color": "Красны",
+		"manufacturer": "EtnaQuartz3",
+		"imgUrl": "./assets/images/material/mt_05.png",
+		"height": [
+			{
+				"value": "15",
+				"price": "8000"
+			}
+		]
+	},
+	"mt0013": {
+		"category": "Оникс",
+		"name": "Название (Оникс Красны)",
+		"article": "EQTM 0183",
+		"color": "Красны",
+		"manufacturer": "EtnaQuartz3",
+		"imgUrl": "./assets/images/material/mt_05.png",
+		"height": [
+			{
+				"value": "15",
+				"price": "8000"
+			}
+		]
+	},
+	"mt0014": {
+		"category": "Оникс",
+		"name": "Название (Оникс Красны)",
+		"article": "EQTM 0183",
+		"color": "Красны",
+		"manufacturer": "EtnaQuartz3",
+		"imgUrl": "./assets/images/material/mt_05.png",
+		"height": [
+			{
+				"value": "15",
+				"price": "8000"
+			}
+		]
+	},
+	"mt0015": {
+		"category": "Оникс",
+		"name": "Название (Оникс Красны)",
+		"article": "EQTM 0183",
+		"color": "Красны",
+		"manufacturer": "EtnaQuartz3",
+		"imgUrl": "./assets/images/material/mt_05.png",
+		"height": [
+			{
+				"value": "15",
+				"price": "8000"
+			}
+		]
+	},
+	"mt0016": {
+		"category": "Оникс",
+		"name": "Название (Оникс Красны)",
+		"article": "EQTM 0183",
+		"color": "Красны",
+		"manufacturer": "EtnaQuartz3",
+		"imgUrl": "./assets/images/material/mt_05.png",
+		"height": [
+			{
+				"value": "15",
+				"price": "8000"
+			}
+		]
+	},
+	"mt0017": {
+		"category": "Оникс",
+		"name": "Название (Оникс Красны)",
+		"article": "EQTM 0183",
+		"color": "Красны",
+		"manufacturer": "EtnaQuartz3",
+		"imgUrl": "./assets/images/material/mt_05.png",
+		"height": [
+			{
+				"value": "15",
+				"price": "8000"
+			}
+		]
+	},
+	"mt0018": {
+		"category": "Оникс",
+		"name": "Название (Оникс Красны)",
+		"article": "EQTM 0183",
+		"color": "Красны",
+		"manufacturer": "EtnaQuartz3",
+		"imgUrl": "./assets/images/material/mt_05.png",
+		"height": [
+			{
+				"value": "15",
+				"price": "8000"
+			}
+		]
+	},
+	"mt0019": {
+		"category": "Оникс",
+		"name": "Название (Оникс Красны)",
+		"article": "EQTM 0183",
+		"color": "Красны",
+		"manufacturer": "EtnaQuartz3",
+		"imgUrl": "./assets/images/material/mt_05.png",
+		"height": [
+			{
+				"value": "15",
+				"price": "8000"
+			}
+		]
+	},
+	"mt0020": {
+		"category": "Оникс",
+		"name": "Название (Оникс Красны)",
+		"article": "EQTM 0183",
+		"color": "Красны",
+		"manufacturer": "EtnaQuartz3",
+		"imgUrl": "./assets/images/material/mt_05.png",
+		"height": [
+			{
+				"value": "15",
+				"price": "8000"
+			}
+		]
+	},
+	"mt0021": {
+		"category": "Оникс",
+		"name": "Название (Оникс Красны)",
+		"article": "EQTM 0183",
+		"color": "Красны",
+		"manufacturer": "EtnaQuartz3",
+		"imgUrl": "./assets/images/material/mt_05.png",
+		"height": [
+			{
+				"value": "15",
+				"price": "8000"
+			}
+		]
+	},
+	"mt0022": {
+		"category": "Оникс",
+		"name": "Название (Оникс Красны)",
+		"article": "EQTM 0183",
+		"color": "Красны",
+		"manufacturer": "EtnaQuartz3",
+		"imgUrl": "./assets/images/material/mt_05.png",
+		"height": [
+			{
+				"value": "15",
+				"price": "8000"
+			}
+		]
+	},
+	"mt0023": {
+		"category": "Оникс",
+		"name": "Название (Оникс Красны)",
+		"article": "EQTM 0183",
+		"color": "Красны",
+		"manufacturer": "EtnaQuartz3",
+		"imgUrl": "./assets/images/material/mt_05.png",
+		"height": [
+			{
+				"value": "15",
+				"price": "8000"
+			}
+		]
+	},
+	"mt0024": {
+		"category": "Оникс",
+		"name": "Название (Оникс Красны)",
+		"article": "EQTM 0183",
+		"color": "Красны",
+		"manufacturer": "EtnaQuartz3",
+		"imgUrl": "./assets/images/material/mt_05.png",
+		"height": [
+			{
+				"value": "15",
+				"price": "8000"
+			}
+		]
+	},
+	"mt0025": {
+		"category": "Оникс",
+		"name": "Название (Оникс Красны)",
+		"article": "EQTM 0183",
+		"color": "Красны",
+		"manufacturer": "EtnaQuartz3",
+		"imgUrl": "./assets/images/material/mt_05.png",
+		"height": [
+			{
+				"value": "15",
+				"price": "8000"
+			}
+		]
+	},
+	"mt0026": {
+		"category": "Оникс",
+		"name": "Название (Оникс Красны)",
+		"article": "EQTM 0183",
+		"color": "Красны",
+		"manufacturer": "EtnaQuartz3",
+		"imgUrl": "./assets/images/material/mt_05.png",
+		"height": [
+			{
+				"value": "15",
+				"price": "8000"
+			}
+		]
+	},
+	"mt0027": {
+		"category": "Оникс",
+		"name": "Название (Оникс Красны)",
+		"article": "EQTM 0183",
+		"color": "Красны",
+		"manufacturer": "EtnaQuartz3",
+		"imgUrl": "./assets/images/material/mt_05.png",
+		"height": [
+			{
+				"value": "15",
+				"price": "8000"
+			}
+		]
+	},
+	"mt0028": {
+		"category": "Оникс",
+		"name": "Название (Оникс Красны)",
+		"article": "EQTM 0183",
+		"color": "Красны",
+		"manufacturer": "EtnaQuartz3",
+		"imgUrl": "./assets/images/material/mt_05.png",
+		"height": [
+			{
+				"value": "15",
+				"price": "8000"
+			}
+		]
+	},
+	"mt0029": {
 		"category": "Оникс",
 		"name": "Название (Оникс Красны)",
 		"article": "EQTM 0183",

@@ -776,8 +776,21 @@
 	grid-template-columns: repeat(5, 1fr);
 	grid-gap: 12px;
 	margin: 0;
-	padding: 0;
+	padding: 0 4px 0 0;
 	list-style: none;
+	max-height: 490px;
+	overflow-y: auto;
+
+	&::-webkit-scrollbar {
+		width: 8px;
+		height: 8px;
+	}
+	&::-webkit-scrollbar-thumb {
+		background-color: #dcdfe1;
+	}
+	&::-webkit-scrollbar-thumb:hover {
+		background-color: #c2c6c9;
+	}
 }
 
 .options__materials {
