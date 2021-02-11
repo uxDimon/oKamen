@@ -2,6 +2,7 @@ var calcApp = new Vue({
 	el: "#calc-app",
 	store,
 	data: {
+		appCreated: true,
 		roadMap: store.state.roadMap,
 		selectOptions: store.state.selectOptions,
 		subInputsDisabledList: store.state.subInputsDisabledList,
