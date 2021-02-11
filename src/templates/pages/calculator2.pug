@@ -46,7 +46,7 @@ html
                                         label(:for="'productType' + '-' + input.value", tabindex="1")
                                             .options-input__body
                                                 .options-input__radio-chec.options-input__radio_bot
-                                                img(:src="urlImg + input.img", :alt="input.text").options-input__img
+                                                img(:src="urlOnServer + urlImg + input.img", :alt="input.text").options-input__img
                                             span.options-input__name {{input.text}}
 
                             .calc__button-wrap
@@ -71,7 +71,7 @@ html
                                         label(:for="optionKey + '-' + input.value", tabindex="1")
                                             .options-input__body
                                                 .options-input__radio-chec
-                                                img(:src="urlImg + input.img", :alt="input.text").options-input__img
+                                                img(:src="urlOnServer + urlImg + input.img", :alt="input.text").options-input__img
                                             span.options-input__name {{input.text}}
                                                 span(v-if="input.detail").options__radio-text-gray {{input.detail}}
                                     

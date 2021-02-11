@@ -11,7 +11,9 @@ var calcApp = new Vue({
 		calc: store.state.calc,
 		categoryOptions,
 		options,
-		urlImg: "./assets/images/calc-svg/",
+		urlOnServer: "",
+		// urlOnServer: "/local/templates/okamen",
+		urlImg: "/assets/images/calc-svg/",
 		formSizeError: {
 			top: false,
 			left: false,
@@ -469,7 +471,7 @@ var calcApp = new Vue({
 		},
 	},
 	created: function () {
-		fetch("./assets/scripts/materials.json")
+		fetch(this.urlOnServer + "/assets/scripts/materials.json")
 			.then((r) => r.json())
 			.then((json) => {
 				this.materials.allList = json;
