@@ -97,7 +97,7 @@
       </nav>
       <div class="calc">
         <h1 class="calc__heading">Расчёт стоимости изделия</h1>
-        <div id="calc-app">
+        <div id="calc-app" style="display: none;" :style="appCreated ? 'display: block;' : ''">
           <nav class="calc__road-map">
             <ol class="calc__road-map-list">
               <li class="calc__road-map-item" v-for="(item, key, index) in roadMap">
@@ -114,7 +114,7 @@
                     <input @change="createSelectOptions(), chooseOption('category', input.value, '', $event), nextButtonDisabled(categoryOptions, 'category')" :id="'productType' + '-' + input.value" :type="categoryOptions.category.type" :name="'productType'" :value="input.value">
                     <label :for="'productType' + '-' + input.value" tabindex="1">
                       <div class="options-input__body">
-                        <div class="options-input__radio-chec options-input__radio_bot"></div><img class="options-input__img" :src="urlImg + input.img" :alt="input.text">
+                        <div class="options-input__radio-chec options-input__radio_bot"></div><img class="options-input__img" :src="urlOnServer + urlImg + input.img" :alt="input.text">
                       </div><span class="options-input__name">{{input.text}}</span>
                     </label>
                   </div>
@@ -141,7 +141,7 @@
                     <input @change="chooseOption(optionKey, input, optionItem.depiction, $event), nextButtonDisabled(item, key)" :id="optionKey + '-' + input.value" :type="optionItem.type" :name="optionKey" :value="input.value">
                     <label :for="optionKey + '-' + input.value" tabindex="1">
                       <div class="options-input__body">
-                        <div class="options-input__radio-chec"></div><img class="options-input__img" :src="urlImg + input.img" :alt="input.text">
+                        <div class="options-input__radio-chec"></div><img class="options-input__img" :src="urlOnServer + urlImg + input.img" :alt="input.text">
                       </div><span class="options-input__name">{{input.text}}<span class="options__radio-text-gray" v-if="input.detail">{{input.detail}}</span></span>
                     </label>
                   </div>
@@ -247,7 +247,7 @@
               <div class="options__size-sticky" v-show="!roadMap.total.visible">
                 <div class="options__size options__size_norm" v-if="optionsSize.visible.formNorm" :key="'formNorm'">
                   <div class="options__size-img-wrap">
-                    <div class="options__size-img-body" :style="roundingNorm" :class="roundingActive ? 'rounding':''">
+                    <div class="options__size-img-body" :style="optionSizeImg + roundingNorm" :class="{'rounding':roundingActive}">
                       <input class="size-img-button sib_top-left" type="checkbox" @click="roundingAngle('topLeft')" :class="roundingActiveF ? 'size-img-button_animat': ''">
                       <input class="size-img-button sib_top-right" type="checkbox" @click="roundingAngle('topRight')" :class="roundingActiveF ? 'size-img-button_animat': ''">
                       <input class="size-img-button sib_bottom-right" type="checkbox" @click="roundingAngle('bottomRight')" :class="roundingActiveF ? 'size-img-button_animat': ''">
@@ -271,12 +271,12 @@
                 </div>
                 <div class="options__size options__size_g" v-if="optionsSize.visible.formG" :key="'formG'">
                   <div class="options__size-img-wrap">
-                    <div class="options__size-img-body" :style="roundingGBody" :class="roundingActive ? 'rounding':''">
+                    <div class="options__size-img-body" :style="optionSizeImg + roundingGBody" :class="{'rounding':roundingActive}">
                       <input class="size-img-button sib_top-left" type="checkbox" @click="roundingAngle('topLeft')" :class="roundingActiveF ? 'size-img-button_animat': ''">
                       <input class="size-img-button sib_top-right" type="checkbox" @click="roundingAngle('topRight')" :class="roundingActiveF ? 'size-img-button_animat': ''">
                       <input class="size-img-button sib_bottom-left" type="checkbox" @click="roundingAngle('centerLeft')" :class="roundingActiveF ? 'size-img-button_animat': ''">
                     </div>
-                    <div class="options__size-img-bot-right" :style="roundingGRight" :class="roundingActive ? 'rounding':''">
+                    <div class="options__size-img-bot-right" :style="optionSizeImg + roundingGRight" :class="{'rounding':roundingActive}">
                       <input class="size-img-button sib_bottom-right" type="checkbox" @click="roundingAngle('bottomRight')" :class="roundingActiveF ? 'size-img-button_animat': ''">
                       <input class="size-img-button sib_bottom-left" type="checkbox" @click="roundingAngle('bottomCenterLeft')" :class="roundingActiveF ? 'size-img-button_animat': ''">
                     </div>
@@ -312,15 +312,15 @@
                 </div>
                 <div class="options__size options__size_p" v-if="optionsSize.visible.formP" :key="'formP'">
                   <div class="options__size-img-wrap">
-                    <div class="options__size-img-body" :style="roundingPBody" :class="roundingActive ? 'rounding':''">
+                    <div class="options__size-img-body" :style="optionSizeImg + roundingPBody" :class="{'rounding':roundingActive}">
                       <input class="size-img-button sib_top-left" type="checkbox" @click="roundingAngle('topLeft')" :class="roundingActiveF ? 'size-img-button_animat': ''">
                       <input class="size-img-button sib_top-right" type="checkbox" @click="roundingAngle('topRight')" :class="roundingActiveF ? 'size-img-button_animat': ''">
                     </div>
-                    <div class="options__size-img-bot-right" :style="roundingGRight" :class="roundingActive ? 'rounding':''">
+                    <div class="options__size-img-bot-right" :style="optionSizeImg + roundingGRight" :class="{'rounding':roundingActive}">
                       <input class="size-img-button sib_bottom-right" type="checkbox" @click="roundingAngle('bottomRight')" :class="roundingActiveF ? 'size-img-button_animat': ''">
                       <input class="size-img-button sib_bottom-left" type="checkbox" @click="roundingAngle('bottomCenterLeft')" :class="roundingActiveF ? 'size-img-button_animat': ''">
                     </div>
-                    <div class="options__size-img-bot-left" :style="roundingPLeft" :class="roundingActive ? 'rounding':''">
+                    <div class="options__size-img-bot-left" :style="optionSizeImg + roundingPLeft" :class="{'rounding':roundingActive}">
                       <input class="size-img-button sib_bottom-left" type="checkbox" @click="roundingAngle('bottomLeft')" :class="roundingActiveF ? 'size-img-button_animat': ''">
                       <input class="size-img-button sib_bottom-right" type="checkbox" @click="roundingAngle('bottomCenterRight')" :class="roundingActiveF ? 'size-img-button_animat': ''">
                     </div>
