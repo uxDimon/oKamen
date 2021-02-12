@@ -9,11 +9,11 @@ const categoryOptions = {
 				text: "Столешница",
 				img: "category-table.svg",
 			},
-			// {
-			// 	value: "windowsill",
-			// 	text: "Подоконник",
-			// 	img: "category-windowsill.svg",
-			// },
+			{
+				value: "windowsill",
+				text: "Подоконник",
+				img: "category-windowsill.svg",
+			},
 			// {
 			// 	value: "stage",
 			// 	text: "Ступени",
@@ -148,7 +148,7 @@ const options = {
 			notchSink: {
 				heading: "Выберите нужные вам вырезы в столешницы",
 				required: false,
-				type: "checkbox",
+				type: "radio",
 				// type: "checkbox",
 				optionsClass: "subInputs",
 				plusTotal: true,
@@ -363,7 +363,127 @@ const options = {
 			},
 		},
 	},
-	windowsill: {},
+	windowsill: {
+		form: {
+			form: {
+				heading: "Выберите подходящую форму подоконника *",
+				required: true,
+				type: "radio",
+				inputsImg: [
+					{
+						value: "formNorm",
+						text: "Прямая",
+						img: "form-norm.svg",
+					},
+				],
+			},
+		},
+		materials: {
+			crutchDisabled: {
+				required: true,
+				optionsClass: "crutchDisabled",
+			},
+		},
+		parameters: {
+			chamferFront: {
+				heading: "Выберите подходящее форму скругления края подоконника",
+				required: false,
+				type: "radio",
+				plusTotal: true,
+				depiction: "Cкругления края подоконника",
+				inputsImg: [
+					{
+						value: "a",
+						text: "Простой",
+						img: "chamfer-01.svg",
+						detail: "(2 000 ₽ за 1м)",
+						prise: 2000,
+					},
+					{
+						value: "b",
+						text: "Сложный",
+						img: "chamfer-03.svg",
+						detail: "(2 300 ₽ за 1м)",
+						prise: 2300,
+					},
+					{
+						value: "c",
+						text: "Сборный",
+						img: "chamfer-08.svg",
+						detail: "(2 600 ₽ за 1м)",
+						prise: 2600,
+					},
+				],
+			},
+			crutchDisabled: {
+				required: true,
+				optionsClass: "crutchDisabled",
+			},
+		},
+		notch: {
+			notchOther: {
+				heading: "",
+				required: true,
+				type: "checkbox",
+				optionsClass: "subInputs",
+				depiction: "",
+				inputs: [
+					{
+						value: "other",
+						text: "Иные вырезы",
+						detail: "(итоговая цена будет известна после фактических замеров)",
+						prise: 0,
+					},
+				],
+			},
+		},
+		services: {
+			mounting: {
+				heading: "",
+				required: true,
+				type: "checkbox",
+				optionsClass: "services",
+				plusTotal: true,
+				inputs: [
+					{
+						value: "mounting",
+						text: "Установка",
+						detail: "(от 3 000 ₽)",
+						prise: 3000,
+					},
+				],
+			},
+			dimension: {
+				heading: "",
+				required: true,
+				type: "checkbox",
+				optionsClass: "services",
+				inputs: [
+					{
+						value: "dimension",
+						text: "Замер",
+						detail: "(бесплатно)",
+						prise: 0,
+					},
+				],
+			},
+			delivery: {
+				heading: "",
+				required: true,
+				type: "checkbox",
+				optionsClass: "services",
+				plusTotal: true,
+				inputs: [
+					{
+						value: "delivery",
+						text: "Доставка",
+						detail: "(от 3 000 ₽)",
+						prise: 3000,
+					},
+				],
+			},
+		},
+	},
 	stage: {},
 };
 
@@ -526,6 +646,10 @@ const store = new Vuex.Store({
 					if (categoryOptions[optionsKey].plusTotal) state.plusTotalOptions.push(optionsKey);
 				}
 			}
+		},
+		chooseСategory(state, value) {
+			//
+			state.selectOptions.category = value;
 		},
 		subInputsDisabled(state, payload) {
 			// Убирает и добавляет disabled у subInputs

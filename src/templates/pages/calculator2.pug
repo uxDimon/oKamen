@@ -42,7 +42,7 @@ html
                                 h2.options__heading {{categoryOptions.category.heading}}
                                 .options-input__wrap
                                     .options-input(v-for="input in categoryOptions.category.inputsImg")
-                                        input(@change="createSelectOptions(), chooseOption('category', input.value, '', $event), nextButtonDisabled(categoryOptions, 'category')", :id="'productType' + '-' + input.value", :type="categoryOptions.category.type", :name="'productType'", :value="input.value")
+                                        input(@change="createSelectOptions(input.value), nextButtonDisabled(categoryOptions, 'category')", :id="'productType' + '-' + input.value", :type="categoryOptions.category.type", :name="'productType'", :value="input.value")
                                         label(:for="'productType' + '-' + input.value", tabindex="1")
                                             .options-input__body
                                                 .options-input__radio-chec.options-input__radio_bot
@@ -135,10 +135,14 @@ html
                                     h3.options__heading Выбранные параметры
                                     .options__total-main-options-wrap
                                         .options__total-main-options
-                                            span.options__total-main-options-heading Тип столешницы
+                                            span.options__total-main-options-heading(v-if="selectOptions.category === 'table'") Форма столешницы
+                                            span.options__total-main-options-heading(v-if="selectOptions.category === 'windowsill'") Форма подоконника
+                                            span.options__total-main-options-heading(v-else) Форма
                                             span.options__total-main-options-text {{selectOptions.form?.text}}
                                         .options__total-main-options
-                                            span.options__total-main-options-heading Площадь столешницы
+                                            span.options__total-main-options-heading(v-if="selectOptions.category === 'table'") Площадь столешницы
+                                            span.options__total-main-options-heading(v-if="selectOptions.category === 'windowsill'") Площадь подоконника
+                                            span.options__total-main-options-heading(v-else) Площадь
                                             span.options__total-main-options-text {{optionsSize.size[selectOptions.form?.value]?.area}}
                                                 span.m2  м2
                                         .options__total-main-options

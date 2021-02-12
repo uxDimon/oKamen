@@ -72,7 +72,9 @@ var calcApp = new Vue({
 			}
 			if (requiredOk.every((item) => item == true)) store.commit("nextButtonDisabled", key);
 		},
-		createSelectOptions: function () {
+		createSelectOptions: function (value) {
+			store.commit("chooseСategory", value);
+
 			// Формирует selectOptions из всех имеющихся опций в options
 			store.commit("createSelectOptions");
 
