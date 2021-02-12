@@ -25,6 +25,8 @@ var calcApp = new Vue({
 		materials: {
 			allList: null,
 			filterList: null,
+			scrollLoadingStep: 20,
+			filterScrolLoading: 20,
 			filter: {
 				category: "Любой",
 				color: "Любой",
@@ -37,7 +39,6 @@ var calcApp = new Vue({
 		totalList: [],
 	},
 	// fix:
-	// скругления первая подсказка
 	// m2
 	methods: {
 		roadMapTo: function (index) {
@@ -71,7 +72,9 @@ var calcApp = new Vue({
 			}
 			if (requiredOk.every((item) => item == true)) store.commit("nextButtonDisabled", key);
 		},
-		createSelectOptions: function () {
+		createSelectOptions: function (value) {
+			store.commit("chooseСategory", value);
+
 			// Формирует selectOptions из всех имеющихся опций в options
 			store.commit("createSelectOptions");
 
@@ -92,6 +95,8 @@ var calcApp = new Vue({
 				}
 			}
 			this.filterMaterialsList();
+
+			this.scrollLoading(this.materials.scrollLoadingStep);
 		},
 		subInputsDisabled: function (optionKey, windowKey, event) {
 			// Убирает и добавляет disabled у subInputs
@@ -144,6 +149,7 @@ var calcApp = new Vue({
 				if (correct.every((item) => item == true)) lest[listKey] = this.materials.allList[listKey];
 			}
 			this.materials.filterList = lest;
+			this.materials.filterScrolLoading = this.materials.scrollLoadingStep;
 		},
 		chooseMaterial: function (height, id) {
 			// Выбор материала
@@ -180,6 +186,7 @@ var calcApp = new Vue({
 			});
 		},
 		totalListCreate: function () {
+			// Формирует список выборных опций на страницы Итог
 			let list = [];
 			for (const key in this.selectOptions) {
 				let date = { text: "", depiction: "", prise: "" };
@@ -238,6 +245,17 @@ var calcApp = new Vue({
 			}
 			this.totalList = list;
 		},
+		scrollLoading: function (showNumber = 20) {
+			const number = showNumber;
+			for (const key in this.$refs.materialList) {
+				const elemtnt = this.$refs.materialList[key];
+				elemtnt.addEventListener("scroll", () => {
+					if (elemtnt.scrollHeight - 20 <= elemtnt.offsetHeight + elemtnt.scrollTop) {
+						this.materials.filterScrolLoading += number;
+					}
+				});
+			}
+		},
 	},
 	computed: {
 		roundingNorm() {
@@ -283,9 +301,6 @@ var calcApp = new Vue({
 				if (this.optionsSize.visible[key]) return true;
 			}
 		},
-		// totalList() {
-		// 	return list;
-		// },
 		roundingActiveF() {
 			if (this.roundingActiveError && this.roundingActive && this.optionsSize.roundingNumber === 0) {
 				this.roundingActiveError = false;
