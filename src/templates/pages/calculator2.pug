@@ -115,12 +115,12 @@ html
                                         option(v-for="optionItem in materials.filterInput.color" :value="optionItem") {{optionItem}}
 
                                 h3.options__materials-heading Выберите ниже понравившийся вам вариант
-                                ul.options__materials-wrap
-                                    li(v-for="(mItem, mKey) in materials.filterList", :key="mKey").options__materials
+                                ul(ref="materialList").options__materials-wrap
+                                    li(v-for="(mItem, mKey, mIndex) in materials.filterList", :key="mKey", v-if="mIndex <= materials.filterScrolLoading - 1").options__materials
                                         input(@change="chooseMaterial(mItem.height, mKey)", :checked="selectOptions.materials.id === mKey", :id="mKey", type="radio", name="materials")
                                         label(:for="mKey")
                                             img(:src="mItem.imgUrl", :alt="mItem.name").options__materials-img
-                                            span.options__materials-name {{mItem.name}}
+                                            span.options__materials-name {{mItem.name + mIndex}}
                                             span.options__materials-price {{mItem.height[0].price + " ₽ за "}}
                                                 span.m2 м2
                 
