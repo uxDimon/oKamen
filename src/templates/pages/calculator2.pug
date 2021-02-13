@@ -48,7 +48,7 @@ html
                                                 .options-input__radio-chec.options-input__radio_bot
                                                 img(:src="urlOnServer + urlImg + input.img", :alt="input.text").options-input__img
                                             span.options-input__name {{input.text}}
-
+                            
                             .calc__button-wrap
                                 button(@click="roadMapTo(1)", :disabled="roadMap.category.disabledButton").button.calc__button Далее
 
@@ -67,7 +67,7 @@ html
                                 h2(v-if="optionItem.heading").options__heading {{optionItem.heading}}
                                 .options-input__wrap
                                     .options-input(v-for="input in optionItem.inputsImg")
-                                        input(@change="chooseOption(optionKey, input, optionItem.depiction, $event), nextButtonDisabled(item, key)", :id="optionKey + '-' + input.value", :type="optionItem.type", :name="optionKey", :value="input.value")
+                                        input(ref="inputOption", @change="chooseOption(optionKey, input, optionItem.depiction, $event), nextButtonDisabled(item, key)", :id="optionKey + '-' + input.value", :type="optionItem.type", :name="optionKey", :value="input.value")
                                         label(:for="optionKey + '-' + input.value", tabindex="1")
                                             .options-input__body
                                                 .options-input__radio-chec
@@ -76,7 +76,7 @@ html
                                                 span(v-if="input.detail").options__radio-text-gray {{input.detail}}
                                     
                                     label.custom-input(v-for="input in optionItem.inputs")
-                                        input(@change="chooseOption(optionKey, input, optionItem.depiction, $event), nextButtonDisabled(item, key)", :type="optionItem.type", :name="optionKey", :value="input.value")
+                                        input(ref="inputOption", @change="chooseOption(optionKey, input, optionItem.depiction, $event), nextButtonDisabled(item, key)", :type="optionItem.type", :name="optionKey", :value="input.value")
                                         .options-input__radio-chec
                                         span {{input.text}}
                                             span(v-if="input.detail").options__radio-text-gray {{" " + input.detail}}
@@ -84,13 +84,13 @@ html
 
                                     .options-input__wrap-row(v-if="optionItem.subInputs")
                                         label.custom-input
-                                            input(@change="subInputsDisabled(optionKey, key, $event)", type="checkbox", :name="optionItem.subInputs.value", :value="optionItem.subInputs.value")
+                                            input(ref="inputOption", @change="subInputsDisabled(optionKey, key, $event)", type="checkbox", :name="optionItem.subInputs.value", :value="optionItem.subInputs.value")
                                             .options-input__radio-chec
                                             span {{optionItem.subInputs.text}}
                                                 span(v-if="optionItem.subInputs.detail").options__radio-text-gray {{" " + optionItem.subInputs.detail}}
                                         .subcategories-input__wrap(:class="subInputsDisabledList[optionKey] ? 'disabled' : ''")
                                             label(v-for="subInputs in optionItem.subInputs.inputs").custom-input
-                                                input(@change="chooseOption(optionKey, subInputs, optionItem.subInputs.depiction, $event), nextButtonDisabled(item, key)", :disabled="subInputsDisabledList[optionKey]", :checked="subInputsDisabledList[optionKey] ? false : ''", :type="optionItem.type", :name="optionItem.subInputs.value", :value="subInputs.value")
+                                                input(ref="inputOption", @change="chooseOption(optionKey, subInputs, optionItem.subInputs.depiction, $event), nextButtonDisabled(item, key)", :disabled="subInputsDisabledList[optionKey]", :checked="subInputsDisabledList[optionKey] ? false : ''", :type="optionItem.type", :name="optionItem.subInputs.value", :value="subInputs.value")
                                                 .options-input__radio-chec
                                                 span {{subInputs.text}}
                                                     span(v-if="subInputs.detail").options__radio-text-gray {{" " + subInputs.detail}}

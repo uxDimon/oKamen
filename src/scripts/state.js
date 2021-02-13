@@ -372,8 +372,13 @@ const options = {
 				inputsImg: [
 					{
 						value: "formNorm",
-						text: "Прямая",
+						text: "Прямой",
 						img: "form-norm.svg",
+					},
+					{
+						value: "formG",
+						text: "Г-образный",
+						img: "form-g.svg",
 					},
 				],
 			},
@@ -485,6 +490,19 @@ const options = {
 		},
 	},
 	stage: {},
+};
+
+const defaultState = {
+	selectOptions: {
+		category: "table",
+		materials: {
+			id: "",
+			height: [],
+			chooseHeight: {
+				price: 0,
+			},
+		},
+	},
 };
 
 Vue.use(Vuex);
@@ -636,6 +654,37 @@ const store = new Vuex.Store({
 			if (payload.categoryOptions[payload.optionsKey].type === "checkbox") underOptions = {};
 			Vue.set(state.selectOptions, payload.optionsKey, underOptions);
 			if (payload.categoryOptions[payload.optionsKey].subInputs !== undefined) Vue.set(state.subInputsDisabledList, payload.optionsKey, true);
+		},
+		createSelectOptionsDefault(state) {
+			// Сбрасывает все настойки
+			for (const key in state.selectOptions) {
+				if (!["category", "materials"].includes(key)) Vue.delete(state.selectOptions, key);
+			}
+			// state.selectOptions.materials
+			state.selectOptions.materials.id = "";
+			// state.roadMap
+			for (const key in state.roadMap) {
+				let visible = false;
+				if (key === "category") visible = true;
+				state.roadMap[key].visible = visible;
+				state.roadMap[key].disabled = !visible;
+				state.roadMap[key].disabledButton = true;
+			}
+			// state.plusTotalOptions
+			state.plusTotalOptions = [];
+			// state.calc
+			for (const key in state.calc.plusTotal) state.calc.plusTotal[key] = 0;
+			state.calc.plusTotal.total = 0;
+			// state.subInputsDisabledList
+			for (const key in state.subInputsDisabledList) Vue.delete(state.subInputsDisabledList, key);
+			// state.optionsSize
+			for (const key in state.optionsSize.visible) state.optionsSize.visible[key] = false;
+			state.optionsSize.roundingNumber = 0;
+			state.optionsSize.roundingActive = false;
+			for (const key in state.optionsSize.rounding) state.optionsSize.rounding[key] = false;
+			for (const sizeKey in state.optionsSize.size) {
+				for (const key in state.optionsSize.size[sizeKey]) state.optionsSize.size[sizeKey][key] = 0;
+			}
 		},
 		createSelectOptions(state) {
 			// Формирует selectOptions из всех имеющихся опций в options
