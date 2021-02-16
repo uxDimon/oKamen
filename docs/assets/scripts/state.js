@@ -14,11 +14,11 @@ const categoryOptions = {
 				text: "Подоконник",
 				img: "category-windowsill.svg",
 			},
-			// {
-			// 	value: "stage",
-			// 	text: "Ступени",
-			// 	img: "category-stage.svg",
-			// },
+			{
+				value: "stage",
+				text: "Ступени",
+				img: "category-stage.svg",
+			},
 		],
 	},
 };
@@ -372,8 +372,13 @@ const options = {
 				inputsImg: [
 					{
 						value: "formNorm",
-						text: "Прямая",
+						text: "Прямой",
 						img: "form-norm.svg",
+					},
+					{
+						value: "formG",
+						text: "Г-образный",
+						img: "form-g.svg",
 					},
 				],
 			},
@@ -422,7 +427,7 @@ const options = {
 		},
 		notch: {
 			notchOther: {
-				heading: "",
+				heading: "Выберите нужные вам вырезы",
 				required: true,
 				type: "checkbox",
 				optionsClass: "subInputs",
@@ -484,7 +489,140 @@ const options = {
 			},
 		},
 	},
-	stage: {},
+	stage: {
+		form: {
+			form: {
+				heading: "Выберите подходящую форму ступеней *",
+				required: true,
+				type: "radio",
+				inputsImg: [
+					{
+						value: "formNorm",
+						text: "Прямой",
+						img: "form-norm.svg",
+					},
+				],
+			},
+		},
+		materials: {
+			crutchDisabled: {
+				required: true,
+				optionsClass: "crutchDisabled",
+			},
+		},
+		parameters: {
+			chamferFront: {
+				heading: "Выберите подходящее форму скругления края ступеней",
+				required: false,
+				type: "radio",
+				plusTotal: true,
+				depiction: "Cкругления края ступеней",
+				inputsImg: [
+					{
+						value: "a",
+						text: "Простой",
+						img: "chamfer-01.svg",
+						detail: "(2 000 ₽ за 1м)",
+						prise: 2000,
+					},
+					{
+						value: "b",
+						text: "Сложный",
+						img: "chamfer-03.svg",
+						detail: "(2 300 ₽ за 1м)",
+						prise: 2300,
+					},
+					{
+						value: "c",
+						text: "Сборный",
+						img: "chamfer-08.svg",
+						detail: "(2 600 ₽ за 1м)",
+						prise: 2600,
+					},
+				],
+			},
+			crutchDisabled: {
+				required: true,
+				optionsClass: "crutchDisabled",
+			},
+		},
+		notch: {
+			notchOther: {
+				heading: "Выберите нужные вам вырезы",
+				required: true,
+				type: "checkbox",
+				optionsClass: "subInputs",
+				depiction: "",
+				inputs: [
+					{
+						value: "other",
+						text: "Иные вырезы",
+						detail: "(итоговая цена будет известна после фактических замеров)",
+						prise: 0,
+					},
+				],
+			},
+		},
+		services: {
+			mounting: {
+				heading: "Выберите нужные вам услуги",
+				required: true,
+				type: "checkbox",
+				optionsClass: "services",
+				plusTotal: true,
+				inputs: [
+					{
+						value: "mounting",
+						text: "Установка",
+						detail: "(от 3 000 ₽)",
+						prise: 3000,
+					},
+				],
+			},
+			dimension: {
+				heading: "",
+				required: true,
+				type: "checkbox",
+				optionsClass: "services",
+				inputs: [
+					{
+						value: "dimension",
+						text: "Замер",
+						detail: "(бесплатно)",
+						prise: 0,
+					},
+				],
+			},
+			delivery: {
+				heading: "",
+				required: true,
+				type: "checkbox",
+				optionsClass: "services",
+				plusTotal: true,
+				inputs: [
+					{
+						value: "delivery",
+						text: "Доставка",
+						detail: "(от 3 000 ₽)",
+						prise: 3000,
+					},
+				],
+			},
+		},
+	},
+};
+
+const defaultState = {
+	selectOptions: {
+		category: "table",
+		materials: {
+			id: "",
+			height: [],
+			chooseHeight: {
+				price: 0,
+			},
+		},
+	},
 };
 
 Vue.use(Vuex);
@@ -636,6 +774,37 @@ const store = new Vuex.Store({
 			if (payload.categoryOptions[payload.optionsKey].type === "checkbox") underOptions = {};
 			Vue.set(state.selectOptions, payload.optionsKey, underOptions);
 			if (payload.categoryOptions[payload.optionsKey].subInputs !== undefined) Vue.set(state.subInputsDisabledList, payload.optionsKey, true);
+		},
+		createSelectOptionsDefault(state) {
+			// Сбрасывает все настойки
+			for (const key in state.selectOptions) {
+				if (!["category", "materials"].includes(key)) Vue.delete(state.selectOptions, key);
+			}
+			// state.selectOptions.materials
+			state.selectOptions.materials.id = "";
+			// state.roadMap
+			for (const key in state.roadMap) {
+				let visible = false;
+				if (key === "category") visible = true;
+				state.roadMap[key].visible = visible;
+				state.roadMap[key].disabled = !visible;
+				state.roadMap[key].disabledButton = true;
+			}
+			// state.plusTotalOptions
+			state.plusTotalOptions = [];
+			// state.calc
+			for (const key in state.calc.plusTotal) state.calc.plusTotal[key] = 0;
+			state.calc.plusTotal.total = 0;
+			// state.subInputsDisabledList
+			for (const key in state.subInputsDisabledList) Vue.delete(state.subInputsDisabledList, key);
+			// state.optionsSize
+			for (const key in state.optionsSize.visible) state.optionsSize.visible[key] = false;
+			state.optionsSize.roundingNumber = 0;
+			state.optionsSize.roundingActive = false;
+			for (const key in state.optionsSize.rounding) state.optionsSize.rounding[key] = false;
+			for (const sizeKey in state.optionsSize.size) {
+				for (const key in state.optionsSize.size[sizeKey]) state.optionsSize.size[sizeKey][key] = 0;
+			}
 		},
 		createSelectOptions(state) {
 			// Формирует selectOptions из всех имеющихся опций в options

@@ -10,8 +10,8 @@ var calcApp = new Vue({
 		_store: store.state,
 		plusTotalOptions: store.state.plusTotalOptions,
 		calc: store.state.calc,
-		categoryOptions,
-		options,
+		categoryOptions: Object.freeze(categoryOptions),
+		options: Object.freeze(options),
 		urlOnServer: "",
 		// urlOnServer: "/local/templates/okamen",
 		urlImg: "/assets/images/calc-svg/",
@@ -37,6 +37,7 @@ var calcApp = new Vue({
 			},
 		},
 		totalList: [],
+		firstСhooseСategory: false,
 	},
 	// fix:
 	// m2
@@ -74,6 +75,19 @@ var calcApp = new Vue({
 		},
 		createSelectOptions: function (value) {
 			store.commit("chooseСategory", value);
+
+			if (this.firstСhooseСategory) {
+				// Сбрасывает все настойки
+				store.commit("createSelectOptionsDefault");
+				for (const key in this.formSizeError) this.formSizeError[key] = false;
+				this.roundingActive = false;
+				this.roundingActiveError = true;
+				for (const input of this.$refs.inputOption) {
+					input.checked = false;
+				}
+				document.querySelector(":root").style.setProperty("--form-rounding", "2px");
+			}
+			this.firstСhooseСategory = true;
 
 			// Формирует selectOptions из всех имеющихся опций в options
 			store.commit("createSelectOptions");
@@ -383,26 +397,31 @@ var calcApp = new Vue({
 		},
 		"selectOptions.form.value": function () {
 			// Скрывает / показывает выбранную форму
-			store.commit("sizeVisible");
-			store.commit("roundingDefalt");
+			if (this.selectOptions.form.value !== "") {
+				store.commit("sizeVisible");
+				store.commit("roundingDefalt");
+			}
 		},
 		"selectOptions.rounding.value": function () {
 			// Скругления края столешницы
-			let rounding = 2,
-				active = false;
-			if (this.selectOptions.rounding.value === "a") {
-				store.commit("roundingDefalt");
-				rounding = 2;
-			} else if (this.selectOptions.rounding.value === "b") {
-				rounding = 20;
-				active = true;
-			} else if (this.selectOptions.rounding.value === "c") {
-				rounding = 40;
-				active = true;
+			const option = this.selectOptions?.rounding?.value;
+			if (option !== undefined) {
+				let rounding = 2,
+					active = false;
+				if (option === "a") {
+					store.commit("roundingDefalt");
+					rounding = 2;
+				} else if (option === "b") {
+					rounding = 20;
+					active = true;
+				} else if (option === "c") {
+					rounding = 40;
+					active = true;
+				}
+				this.roundingActive = active;
+				document.querySelector(":root").style.setProperty("--form-rounding", rounding + "px");
+				this.roundingPrise();
 			}
-			this.roundingActive = active;
-			document.querySelector(":root").style.setProperty("--form-rounding", rounding + "px");
-			this.roundingPrise();
 		},
 		selectOptions: {
 			// Подсчитывает общую стоимость всех выбранных опций с plusTotal
@@ -438,7 +457,7 @@ var calcApp = new Vue({
 		},
 		"optionsSize.roundingNumber": function () {
 			// Цена скругления края
-			this.roundingPrise();
+			if (this.selectOptions?.rounding?.value !== undefined) this.roundingPrise();
 		},
 		"selectOptions.notchMixer": {
 			// Цена вырез под смеситель
@@ -460,7 +479,7 @@ var calcApp = new Vue({
 		"selectOptions.wallPanel": {
 			// Цена cтеновые панели из камня
 			handler: function () {
-				const options = this.selectOptions.wallPanel;
+				const options = this.selectOptions.wallPanel ? this.selectOptions.wallPanel : false;
 				let total = 0;
 				if (options.weight !== undefined && options.height !== undefined) {
 					total += ((Number(options.weight.value) * Number(options.height.value)) / 10000) * options.weight.prise;

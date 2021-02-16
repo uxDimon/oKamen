@@ -138,7 +138,7 @@
                 <h2 class="options__heading" v-if="optionItem.heading">{{optionItem.heading}}</h2>
                 <div class="options-input__wrap">
                   <div class="options-input" v-for="input in optionItem.inputsImg">
-                    <input @change="chooseOption(optionKey, input, optionItem.depiction, $event), nextButtonDisabled(item, key)" :id="optionKey + '-' + input.value" :type="optionItem.type" :name="optionKey" :value="input.value">
+                    <input ref="inputOption" @change="chooseOption(optionKey, input, optionItem.depiction, $event), nextButtonDisabled(item, key)" :id="optionKey + '-' + input.value" :type="optionItem.type" :name="optionKey" :value="input.value">
                     <label :for="optionKey + '-' + input.value" tabindex="1">
                       <div class="options-input__body">
                         <div class="options-input__radio-chec"></div><img class="options-input__img" :src="urlOnServer + urlImg + input.img" :alt="input.text">
@@ -146,17 +146,17 @@
                     </label>
                   </div>
                   <label class="custom-input" v-for="input in optionItem.inputs">
-                    <input @change="chooseOption(optionKey, input, optionItem.depiction, $event), nextButtonDisabled(item, key)" :type="optionItem.type" :name="optionKey" :value="input.value">
+                    <input ref="inputOption" @change="chooseOption(optionKey, input, optionItem.depiction, $event), nextButtonDisabled(item, key)" :type="optionItem.type" :name="optionKey" :value="input.value">
                     <div class="options-input__radio-chec"></div><span>{{input.text}}<span class="options__radio-text-gray" v-if="input.detail">{{" " + input.detail}}</span></span>
                   </label>
                   <div class="options-input__wrap-row" v-if="optionItem.subInputs">
                     <label class="custom-input">
-                      <input @change="subInputsDisabled(optionKey, key, $event)" type="checkbox" :name="optionItem.subInputs.value" :value="optionItem.subInputs.value">
+                      <input ref="inputOption" @change="subInputsDisabled(optionKey, key, $event)" type="checkbox" :name="optionItem.subInputs.value" :value="optionItem.subInputs.value">
                       <div class="options-input__radio-chec"></div><span>{{optionItem.subInputs.text}}<span class="options__radio-text-gray" v-if="optionItem.subInputs.detail">{{" " + optionItem.subInputs.detail}}</span></span>
                     </label>
                     <div class="subcategories-input__wrap" :class="subInputsDisabledList[optionKey] ? 'disabled' : ''">
                       <label class="custom-input" v-for="subInputs in optionItem.subInputs.inputs">
-                        <input @change="chooseOption(optionKey, subInputs, optionItem.subInputs.depiction, $event), nextButtonDisabled(item, key)" :disabled="subInputsDisabledList[optionKey]" :checked="subInputsDisabledList[optionKey] ? false : ''" :type="optionItem.type" :name="optionItem.subInputs.value" :value="subInputs.value">
+                        <input ref="inputOption" @change="chooseOption(optionKey, subInputs, optionItem.subInputs.depiction, $event), nextButtonDisabled(item, key)" :disabled="subInputsDisabledList[optionKey]" :checked="subInputsDisabledList[optionKey] ? false : ''" :type="optionItem.type" :name="optionItem.subInputs.value" :value="subInputs.value">
                         <div class="options-input__radio-chec"></div><span>{{subInputs.text}}<span class="options__radio-text-gray" v-if="subInputs.detail">{{" " + subInputs.detail}}</span></span>
                       </label>
                       <label class="custom-input-number" v-for="subInputs in optionItem.subInputs.inputNumber"><span>{{subInputs.text}}<span class="options__radio-text-gray" v-if="subInputs.detail">{{" " + subInputs.detail}}</span></span>
