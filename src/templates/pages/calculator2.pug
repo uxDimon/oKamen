@@ -136,12 +136,12 @@ html
                                     .options__total-main-options-wrap
                                         .options__total-main-options
                                             span.options__total-main-options-heading(v-if="selectOptions.category === 'table'") Форма столешницы
-                                            span.options__total-main-options-heading(v-if="selectOptions.category === 'windowsill'") Форма подоконника
+                                            span.options__total-main-options-heading(v-else-if="selectOptions.category === 'windowsill'") Форма подоконника
                                             span.options__total-main-options-heading(v-else) Форма
                                             span.options__total-main-options-text {{selectOptions.form?.text}}
                                         .options__total-main-options
                                             span.options__total-main-options-heading(v-if="selectOptions.category === 'table'") Площадь столешницы
-                                            span.options__total-main-options-heading(v-if="selectOptions.category === 'windowsill'") Площадь подоконника
+                                            span.options__total-main-options-heading(v-else-if="selectOptions.category === 'windowsill'") Площадь подоконника
                                             span.options__total-main-options-heading(v-else) Площадь
                                             span.options__total-main-options-text {{optionsSize.size[selectOptions.form?.value]?.area}}
                                                 span.m2  м2

@@ -9,16 +9,16 @@ const categoryOptions = {
 				text: "Столешница",
 				img: "category-table.svg",
 			},
-			{
-				value: "windowsill",
-				text: "Подоконник",
-				img: "category-windowsill.svg",
-			},
-			{
-				value: "stage",
-				text: "Ступени",
-				img: "category-stage.svg",
-			},
+			// {
+			// 	value: "windowsill",
+			// 	text: "Подоконник",
+			// 	img: "category-windowsill.svg",
+			// },
+			// {
+			// 	value: "stage",
+			// 	text: "Ступени",
+			// 	img: "category-stage.svg",
+			// },
 		],
 	},
 };
