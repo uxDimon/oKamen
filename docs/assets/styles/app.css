@@ -2628,7 +2628,6 @@ input[type="radio"] {
   height: 100%; }
 
 .sotr-application {
-  position: -webkit-sticky;
   position: sticky;
   top: 40px;
   width: 420px;
@@ -3534,7 +3533,6 @@ input[type="radio"] {
     margin-right: 48px; }
 
 .options__size-sticky {
-  position: -webkit-sticky;
   position: sticky;
   top: 150px; }
 

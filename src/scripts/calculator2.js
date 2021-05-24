@@ -14,7 +14,7 @@ var calcApp = new Vue({
 		options: Object.freeze(options),
 		urlOnServer: "",
 		// urlOnServer: "/local/templates/okamen",
-		urlImg: "/assets/images/calc-svg/",
+		urlImg: "./assets/images/calc-svg/",
 		formSizeError: {
 			top: false,
 			left: false,
